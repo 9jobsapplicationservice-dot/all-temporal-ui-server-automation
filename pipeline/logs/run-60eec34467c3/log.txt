@@ -1,0 +1,471 @@
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:61486
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x5fcdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x5fcf24+10c34]
+	undetected_chromedriver!(No symbol) [0x3e1f5e]
+	undetected_chromedriver!(No symbol) [0x3d5758]
+	undetected_chromedriver!(No symbol) [0x41c472]
+	undetected_chromedriver!(No symbol) [0x412785]
+	undetected_chromedriver!(No symbol) [0x4125a6]
+	undetected_chromedriver!(No symbol) [0x459cbf]
+	undetected_chromedriver!(No symbol) [0x4594d7]
+	undetected_chromedriver!(No symbol) [0x44d8a6]
+	undetected_chromedriver!(No symbol) [0x420229]
+	undetected_chromedriver!(No symbol) [0x420fe4]
+	undetected_chromedriver!GetHandleVerifier [0x8648b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x85feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x87e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x615cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x61d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x6058c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x605a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x5eee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+2026-04-03 08:55:27.458337
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Seems like login attempt failed! Possibly due to wrong credentials or already logged in! Try logging in manually!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-03 08:55:38.444324
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-03 08:55:38.488513
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Engineer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Trying to Apply to "Junior Test Develope | HAI HA MARINE AND SHIP REPAIR SERVICE" job. Job ID: 4397510427
+
+About the job
+🗂 We’re Hiring: Junior Test Developer
+ 🕒 Employment Type: Full-Time
+ 💼 Level: Entry-Level / Junior
+We are looking for a motivated Junior Test Developer to join our QA and development team. In this role, you will help design, develop, and maintain automated and manual tests to ensure the quality and reliability of our software applications. This is an excellent opportunity to start your career in software testing and development.
+🎯 Key Responsibilities
+Develop and maintain automated test scripts for web, mobile, or software applications
+Execute manual and automated test cases
+Identify, report, and track bugs and issues
+Collaborate with developers and QA engineers to understand requirements and features
+Validate software functionality against specifications
+Participate in test planning and review sessions
+Document test procedures, results, and issues
+Assist in improving testing processes and automation coverage
+✅ Requirements
+Diploma or degree in Computer Science, Software Engineering, IT, or related field
+Basic knowledge of programming languages (e.g., Java, Python, JavaScript)
+Familiarity with software testing concepts, QA methodologies, and test tools
+Understanding of databases and SQL is a plus
+Strong analytical and problem-solving skills
+Attention to detail and accuracy
+Good communication and teamwork skills
+Internship or project experience in software testing or development is an advantage
+🌟 What We Offer
+Hands-on experience in QA and software testing
+Mentorship from experienced developers and QA engineers
+Opportunities for career growth in software testing and development
+Exposure to real-world projects and automation tools
+Supportive and collaborative team environment
+Competitive salary and benefits 
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:55:58.627325
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Test Develope | HAI HA MARINE AND SHIP REPAIR SERVICE" job. Job ID: 4397510427 info
+
+-@-
+
+Trying to Apply to "Cloud Enginer | Al Mujtama Pharmacy" job. Job ID: 4397198281
+
+About the job
+💼 Cloud Engineer
+Location: Australia 🇦🇺
+ Employment Type: Full-time / Part-time
+🌟 About the Role
+We’re looking for a skilled and motivated Cloud Engineer to join our team 😊
+In this role, you’ll design, deploy, and maintain cloud-based infrastructure and services. You’ll work closely with development and IT teams to ensure scalable, secure, and high-performing cloud environments 🚀
+🛠️ Key Responsibilities
+Design, implement, and manage cloud infrastructure ☁️
+Deploy and maintain applications in cloud environments
+Monitor system performance, availability, and security 🔍
+Automate processes using scripting and infrastructure-as-code tools
+Collaborate with development teams for CI/CD pipelines 🤝
+Troubleshoot and resolve cloud-related issues
+Ensure best practices for cloud security, cost optimisation, and scalability
+✅ What We’re Looking For
+Experience with cloud platforms (e.g., AWS, Azure, Google Cloud)
+Strong knowledge of networking, servers, and system architecture
+Proficiency in scripting or programming (e.g., Python, Bash)
+Familiarity with containerisation (Docker, Kubernetes)
+Understanding of CI/CD tools and DevOps practices
+Strong problem-solving and analytical skills
+Ability to work independently and in a team
+🎓 Qualifications
+Bachelor’s degree in Computer Science, IT, or related field (preferred)
+Proven experience in cloud engineering, DevOps, or system administration
+Cloud certifications (e.g., AWS Certified Solutions Architect, Azure Administrator) are advantageous
+💡 Why Join Us?
+Flexible working arrangements: full-time or part-time 🏡
+Work with modern cloud technologies and infrastructure
+Supportive and collaborative team environment 😊
+Opportunities for certification, learning, and career growth
+Exposure to scalable and high-impact systems
+📩 How to Apply
+Ready to build and manage cutting-edge cloud solutions? 🚀
+Send your resume and include details of your cloud experience, certifications, or relevant projects.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:56:45.998668
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Have you completed the following level of education: Doctor of Medicine? [  "Yes"<Yes>, "No"<No>, ]', 'Yes', 'radio', None), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Cloud Enginer | Al Mujtama Pharmacy" job. Job ID: 4397198281 info
+
+-@-
+
+Trying to Apply to "Junior Mobile App Developer (Entry-Level / Associate) | PFOnApp - UAN, PF Balance" job. Job ID: 4396011847
+HR info was not given for "Junior Mobile App Developer (Entry-Level / Associate)" with Job ID: 4396011847!
+
+About the job
+
+Role Description
+This is a part-time, remote position for the Reti role at PFOnApp - UAN, PF Balance. The Reti will be responsible for assisting customers with their provident fund-related needs, providing accurate information about features such as PF balance checks, claim tracking, and financial calculations. Regular tasks include troubleshooting app features, answering user queries, and ensuring customer satisfaction. The position also includes collaborating with the team to address user feedback and enhance app functionality.
+
+Qualifications
+Strong customer service skills, including effective
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:57:32.286747
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('phone', '9971108779', 'text', '9971108779'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Mobile App Developer (Entry-Level / Associate) | PFOnApp - UAN, PF Balance" job. Job ID: 4396011847 info
+
+-@-
+
+Trying to Apply to "Full Stack Engineer | Quantum Australia" job. Job ID: 4397195339
+
+About the job
+🌐 Full Stack Developer (Part-Time)
+
+From idea → interface → infrastructure. You build it all.
+
+Location: [Remote / Hybrid / Australia]
+Hours: Flexible Part-Time
+
+🌌 The Story
+Most people see an app.
+You see the entire system behind it.
+
+Frontend, backend, APIs, databases —
+where others see complexity, you see connections.
+
+We’re building products that don’t just look good — they work beautifully.
+And we need someone who can think across the stack, not just inside it.
+
+🚀 Your Mission
+Own features end-to-end — from concept to deployment.
+
+Build seamless user experiences on the frontend
+Design and develop scalable backend services
+Connect systems through clean, reliable APIs
+Work across the stack to deliver fast, stable products
+Turn ideas into real features users actually use
+
+🧠 You Might Be a Fit If You…
+
+Enjoy switching between frontend and backend without missing a beat
+Have experience with modern frameworks (React, Vue, Node.js, etc.)
+Understand databases, APIs, and system design basics
+Care about performance, scalability, and clean code
+Like building things end-to-end — not just one piece of the puzzle
+
+⚙️ Tech You Might Work With
+React / Node.js / Python / APIs / SQL / Cloud (AWS / Azure / GCP)
+
+⚡️ Why This Role Hits Different
+
+End-to-end ownership — no silos, no handoffs
+Flexible part-time hours — perfect for balance or side projects
+Real product impact — what you build goes live
+Fast-moving team — less process, more progress
+Grow fast — expand across the entire stack
+
+🔥 Bonus Points
+
+Experience deploying applications to cloud platforms
+Familiarity with DevOps, CI/CD pipelines
+Personal projects, startup experience, or GitHub portfolio
+
+💡 Ready to Build Beyond Boundaries?
+Send us your resume + something you’ve built (GitHub, portfolio, live project).
+
+👉 Because the best developers don’t just write code — they connect everything.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:57:57.613847
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('phone', '9971108779', 'text', '9971108779'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Full Stack Engineer | Quantum Australia" job. Job ID: 4397195339 info
+
+-@-
+
+Trying to Apply to "Junior Data Enginee | The Arbitration Pitch" job. Job ID: 4396033222
+HR info was not given for "Junior Data Enginee" with Job ID: 4396033222!
+
+About the job
+Junior Data Engineer – Role Description & Qualifications
+A Junior Data Engineer is responsible for supporting the design, development, and maintenance of data systems and pipelines to ensure accurate, reliable, and accessible data for business and analytical use. This role focuses on assisting with data collection, transformation, and integration from multiple sources, enabling teams to analyze information and generate actionable insights.
+Key responsibilities include building and maintaining data pipelines, performing data cleaning and validation, and assisting in the integration of new data sources. The role involves collaborating with data analysts, engineers, and other stakeholders to understand requirements, implement solutions, and support ongoing data operations. The Junior Data Engineer also helps document processes, monitor performance, and maintain data quality standards.
+Strong analytical and problem-solving skills, attention to detail, and technical curiosity are essential for managing data effectively. Familiarity with programming languages such as Python, SQL, or similar, as well as basic knowledge of database systems and data modeling, enhances performance. Understanding ETL processes, workflow automation, and data storage concepts supports effective contribution to data infrastructure projects.
+Effective communication skills are important for documenting workflows, collaborating with team members, and explaining technical concepts clearly. A proactive mindset, eagerness to learn, and adaptability are key attributes for success in this role.
+An academic background in computer science, data analytics, information systems, or a related field is typically preferred. Knowledge of cloud platforms, big data technologies, or data warehousing concepts adds value.
+This role is ideal for individuals who are detail-oriented, technically curious, and motivated to develop foundational skills in data engineering while supporting reliable and actionable data solutions.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:58:21.281664
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('Are you willing to take a drug test, in accordance with local law/regulations? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('mobile phone number', '9971108779', 'text', '9971108779'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Data Enginee | The Arbitration Pitch" job. Job ID: 4396033222 info
+
+-@-
+
+Trying to Apply to "Junior Software Developer | Generazione Stem (Gen_S)" job. Job ID: 4396058547
+
+About the job
+💼 Junior Software Developer
+Location: Australia 🇦🇺
+ Employment Type: Full-time / Part-time
+🌟 About the Role
+We’re looking for a passionate and motivated Junior Software Developer to join our team 😊
+In this role, you’ll work alongside experienced developers to build, test, and maintain software applications. This is a great opportunity to gain hands-on experience, improve your coding skills, and grow your career in software development 🚀
+🛠️ Key Responsibilities
+Assist in designing, developing, and maintaining software applications 💻
+Write clean, efficient, and well-documented code
+Participate in code reviews and debugging processes
+Test and troubleshoot applications to ensure optimal performance
+Collaborate with cross-functional teams including designers and product managers 🤝
+Learn and apply best practices in software development
+Support deployment and maintenance of applications
+✅ What We’re Looking For
+Basic knowledge of programming languages (e.g., Java, Python, JavaScript, C#)
+Understanding of software development principles and lifecycle
+Problem-solving mindset and attention to detail 🔍
+Willingness to learn new technologies and frameworks
+Ability to work independently and in a team environment
+Good communication skills
+🎓 Qualifications
+Bachelor’s degree in Computer Science, Software Engineering, or related field (preferred)
+Internship, academic projects, or personal coding projects are a plus 🌟
+Familiarity with version control systems (e.g., Git) is advantageous
+💡 Why Join Us?
+Flexible working arrangements: full-time or part-time 🏡
+Hands-on experience with real-world development projects
+Supportive and collaborative team environment 😊
+Opportunities for mentorship, learning, and career growth
+Exposure to modern technologies and development practices
+📩 How to Apply
+Ready to kickstart your software development career? 🚀
+Send your resume along with links to your GitHub, portfolio, or any projects you’ve worked on.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-03 08:59:08.019388
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Software Developer | Generazione Stem (Gen_S)" job. Job ID: 4396058547 info
+
+-@-
+
+Trying to Apply to "Junior Full-Stack Developer (Entry-Level / Associate) | GESM - FGV Direito SP" job. Job ID: 4397521025
+Failed to find an element with given classes
+Skipping this job!
+
+
+-@-
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: no such element: Unable to locate element: {"method":"xpath","selector":"//li[@data-occludable-job-id='4393035642']"}
+  (Session info: chrome=146.0.7680.178); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x124cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x124cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x1032120]
+	undetected_chromedriver!(No symbol) [0x107abca]
+	undetected_chromedriver!(No symbol) [0x107ae6b]
+	undetected_chromedriver!(No symbol) [0x10bd0b2]
+	undetected_chromedriver!(No symbol) [0x109db54]
+	undetected_chromedriver!(No symbol) [0x10ba9a5]
+	undetected_chromedriver!(No symbol) [0x109d8a6]
+	undetected_chromedriver!(No symbol) [0x1070229]
+	undetected_chromedriver!(No symbol) [0x1070fe4]
+	undetected_chromedriver!GetHandleVerifier [0x14b48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x14afeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x14ce06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x1265cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x126d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x12558c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x1255a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x123ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Developer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x124cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x124cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x1032120]
+	undetected_chromedriver!(No symbol) [0x107abca]
+	undetected_chromedriver!(No symbol) [0x107ae6b]
+	undetected_chromedriver!(No symbol) [0x10bd0b2]
+	undetected_chromedriver!(No symbol) [0x109db54]
+	undetected_chromedriver!(No symbol) [0x10ba9a5]
+	undetected_chromedriver!(No symbol) [0x109d8a6]
+	undetected_chromedriver!(No symbol) [0x1070229]
+	undetected_chromedriver!(No symbol) [0x1070fe4]
+	undetected_chromedriver!GetHandleVerifier [0x14b48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x14afeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x14ce06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x1265cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x126d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x12558c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x1255a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x123ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: 
+
+########################################################################################################################
+
+Sleeping for 10 min...
+Few more min... Gonna start with in next 5 min...
+Total runs: 2
+Jobs Applied: 6
+External job links collected: 0
+Total processed outcomes: 6
+Failed jobs: 0
+Irrelevant jobs skipped: 1
+
+
+
+Total runs:                     2
+Jobs Applied:                   6
+External job links collected:   0
+                              ----------
+Total processed outcomes:       6
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        1
+
+Completed pipeline search/apply pass.
+
+The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt (Not a sponsor)
+
+
+In this run, you saved approx 9 mins (550 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 6
+External job links collected: 0
+Total processed outcomes: 6
+Failed jobs: 0
+Irrelevant jobs skipped: 1
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 6, 'external_links_logged': 0, 'rows_written_to_applied_csv': 6, 'rows_missing_hr_profile': 2, 'failed_jobs': 0, 'skipped_jobs': 1, 'total_runs': 2, 'pipeline_mode': True}

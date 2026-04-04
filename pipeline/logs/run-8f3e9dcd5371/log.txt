@@ -1,0 +1,1274 @@
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:53198
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xfdcdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0xfdcf24+10c34]
+	undetected_chromedriver!(No symbol) [0xdc1f5e]
+	undetected_chromedriver!(No symbol) [0xdb5758]
+	undetected_chromedriver!(No symbol) [0xdfc472]
+	undetected_chromedriver!(No symbol) [0xdf2785]
+	undetected_chromedriver!(No symbol) [0xdf25a6]
+	undetected_chromedriver!(No symbol) [0xe39cbf]
+	undetected_chromedriver!(No symbol) [0xe394d7]
+	undetected_chromedriver!(No symbol) [0xe2d8a6]
+	undetected_chromedriver!(No symbol) [0xe00229]
+	undetected_chromedriver!(No symbol) [0xe00fe4]
+	undetected_chromedriver!GetHandleVerifier [0x12448b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x123feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x125e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0xff5cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0xffd9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0xfe58c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0xfe5a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0xfcee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+2026-04-02 11:26:35.526041
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-02 11:26:43.239069
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-02 11:26:43.285913
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Engineer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Click Failed! Didn't find 'Past week'
+Click Failed! Didn't find 'Entry level'
+
+-@-
+
+Already applied to "Cloud Enginer | Africa Energy Insights" job. Job ID: 4395242320!
+
+-@-
+
+Trying to Apply to "Backend Software Engineer | SCG Midlands" job. Job ID: 4393035642
+HR info was not given for "Backend Software Engineer" with Job ID: 4393035642!
+
+About the job
+Location: Melton (Hybrid)
+
+Salary: Up to £50,000
+
+Working hours:09:00 – 17:30
+
+The purpose of this role is to solve complex business problems and technical challenges through the design and development of software applications and services. This role will contribute directly towards exciting technology opportunities in the public health sector; specifically in general practice.
+
+You will be responsible for building and maintaining critical components of our software infrastructure, ensuring high performance, reliability, and security. This role sits within the platform team.
+
+Responsibilities
+
+Design and Development
+
+Contribute towards the design, develop, and implement high-performance, scalable, and maintainable applications and services
+Develop APIs and other web services
+Work with databases (relational and NoSQL) to implement data models
+Contribute towards all phases of the software development lifecycle, from design and development through to testing, deployment and monitoring & alerting
+
+Technical Leadership
+
+Assist and unblock other members of the team where appropriate
+Conduct code reviews and provide constructive feedback
+Contribute towards the development of software engineering best practices and principles
+Participate in architectural and design discussions
+Stay abreast of the latest technologies and industry trends
+
+Problem-Solving
+
+Assist with the diagnosis and assessment of complex technical issues
+Identify and contribute towards solutions designed to improve service or component security, performance, scalability, and reliability
+
+Collaboration
+
+Work closely with frontend engineers, product managers, and other stakeholders
+Share ideas and prompt continuous improvement across the team
+
+Quality Assurance & Compliance
+
+Write unit tests and integration tests to ensure code quality
+Participate in code reviews and ensure adherence to coding standards
+Comply with the company's Health & Safety, Data Protection, Information Security, PCI & DSP policies and procedures.
+
+Essential
+
+Skills Required
+
+Knowledge of the product development lifecycle
+Considerable working experience with modern PHP including frameworks (e.g. Laravel)
+Source control (e.g. GitLab)
+Working experience with structured and unstructured databases (e.g. MySQL)
+Knowledge of or working experience with Message Queues (RabbitMQ) & event driven architecture
+Strong knowledge of software design patterns and object-oriented design principles
+Working experience of unit test frameworks and test automation
+
+Desired
+
+Strong expertise in Agile methodologies (e.g. Scrum / Kanban)
+DevOps tooling
+Node.js
+Healthcare industry experience (NHS)
+VOIP call handling
+
+Benefits
+
+25 Days Holiday plus an additional day for your birthday/equivalent
+Cycle to Work Scheme
+Winter Flu Jabs
+Free On-Site Parking
+Learning and development budget with Professional Qualification Support
+£1,000 employee referral bonus
+Social benefits (paid social events)
+Buy Holiday Scheme
+Employee Assistance Program
+Discount on Health Insurance
+Annual Salary Review
+Enhanced Company Sick Pay
+Monthly pizza in the office (Hybrid employees) / coffee voucher (Remote employees)
+SCG mobile benefit
+
+SCG is proud to be an equal opportunities employer.
+
+ We welcome applications from all parts of the community and are committed to upholding the principles of the Equality Act 2010.
+
+We are committed to supporting applicants with disabilities. We will endeavour to make necessary adjustments to ensure a fair and accessible recruitment process
+
+Contains bad word "PHP". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Full Stack Engineer | Remote People" job. Job ID: 4394349108
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:27:02.635413
+Extracted skills using gemini AI
+Click Failed! Didn't find 'Continue'
+Got the external application link "https://job-boards.eu.greenhouse.io/remotepeople/jobs/4665017101"
+Collected external application link for "Full Stack Engineer | Remote People" job. Not saving to applied history.
+
+-@-
+
+Already applied to "Platform Engineer | Jobgether" job. Job ID: 4392189495!
+
+-@-
+
+Trying to Apply to "Software developer/ Developer programmer | Quantaco" job. Job ID: 4394393533
+HR info was not given for "Software developer/ Developer programmer" with Job ID: 4394393533!
+
+About the job
+Salary $77,000 - $90,000 plus Super 
+Full Time Employment
+
+About Quantaco
+
+Hospitality moves fast the tools should keep up too. At Quantaco, we’re building technology that empowers hospitality businesses to work smarter, not harder. No more disconnected systems that slow you down and create extra work.
+
+Australia’s only locally owned and operated Hospitality Management System, designed to simplify processes, save time, and deliver actionable insights for venues of any size.
+
+Our suite of software and service solutions is optimised to work best together but designed to function independently, delivering the actionable insights and financial reporting pubs, clubs, and restaurants need to thrive.
+
+We empower businesses through expert accounting services, real-time reporting, and connected hospitality operations tools. These tools simplify work, save time, and help venues make decisions that drive growth whether it’s one venue or one hundred.
+
+About The Role
+
+The primary purpose of the Software Developer is to manage the design, installation, testing and maintenance of software systems for our Cooking the Books (CTB) design suite.
+
+This role will be responsible for excellent technical support and the development of software improvements for existing CTB programs or providing entirely new programs for release to the market.
+
+What You’ll Do
+
+Maintain and improve the performance of CTB’s existing software and maintain its’ websites, in-house hardware and network systems
+
+Test, maintain and recommend software improvements to ensure strong functionality and optimisation
+
+Review current systems and identify ideas to improve system performance and impact availability, including cost proposals
+
+Facilitate root cause analysis of system issues and faults;
+
+Resolve complex technical design issues;
+
+Test new products or software improvement releases in a controlled environment before going live;
+
+Proactively seek to continuously understand the design characteristics offered by key competitors; developing design concepts that surpass competitors;
+
+Work closely with analysts, designers and staff to ensure programs operate effectively;
+
+Assist with the preparation of training manuals for users;
+
+Analyse user requirements and convert requirements to design documents;
+
+Provide comprehensive support to internal customers, including achieving resolution to outstanding problems or issues;
+
+Develop and implement new software;
+
+Assist the Marketing department with preparation of digital design collateral in line with CTB’s brand guidelines;
+
+Automate repetitive technical tasks
+
+About You
+
+You are organised and a fast learner
+
+You have a mature, design-led approach to software development
+
+Integrity, honesty, trust, and respect
+
+Self-motivated, but you love working in a team
+
+Innovative and always looking for ways to improve
+
+You’re an effective communicator, patient, and able to explain your point of view
+
+Have a degree in Computer Science or equivalent
+
+Have 2+ years’ experience in C# and.Net Framework;
+
+Possess strong technical knowledge of web technologies (Javascript, CSS, HTML, etc.);
+
+Are proficient in C#, ASP.NET MVC and Web API
+
+Have knowledge of ASP.NET Core, ADO.net and ORMs (EntityFramework, Dapper.net, NHibernate)
+
+Have knowledge of Databases: SQL Server, PostgreSQL (Store Procedures, and NoSql: Redis and MongoGB)
+
+Are proficient in JavaScript frameworks: AngularJs, VueJs, and ExtJs
+
+Possess knowledge of Microsoft Azure cloud platform (App Service, Service Bus, Service Fabric)
+
+Have experience with Source Code Control: SVN and GIT
+
+Have a demonstrated understanding of projects from the perspective of both client and busines
+
+Possess proficient verbal and written communication skills;
+
+Have effective time management skills and the ability to meet deadlines
+
+Have the ability to solve problems by being collaborative, creative and analytical
+
+Why Join Us?
+
+At Quantaco, we’re passionate about building technology that solves real-world problems in hospitality. Our team is collaborative, curious, and committed to making an impact and we want you to grow with us.
+
+Reward: Competitive salary + up to 20% discretionary performance bonus
+Wellbeing: Hybrid working, birthday leave, and wellness discounts through our benefits portal
+Culture: Fortnightly collaboration days, social calendar, team events, peer recognition, and a strong commitment to inclusion
+Growth: Study assistance, a structured development framework, and our Women at Quantaco initiative to support diverse career progression
+
+Ready to build the future of hospitality tech?
+
+Apply now or reach out for a confidential chat. We’d love to meet you.
+
+Quantaco Pty Ltd, Level 4 / 6 O'Connell Street Sydney NSW 2000
+
+Contains bad word ".NET". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Senior Frontend Developer | Notify" job. Job ID: 4393400176
+HR info was not given for "Senior Frontend Developer" with Job ID: 4393400176!
+
+About the job
+Company Description
+
+Notify is a production and delivery management platform built for real world operations.
+We help construction and manufacturing businesses plan, track, and deliver their work more efficiently without relying on fragmented tools or manual processes. Notify brings scheduling, production workflows, and delivery tracking into a single system, giving teams full visibility and control over their operations.
+Unlike generic software, Notify is designed around how each business actually operates. Our goal is to reduce delays, eliminate miscommunication, and help companies run smoother and more predictable operations.
+
+Role Description
+
+This is a full time, fully remote role open to candidates based anywhere in the world.
+As a Senior Frontend Developer at Notify, you will be responsible for building and maintaining high performance and scalable web interfaces used in real operational environments. You will translate UI and UX designs into clean and efficient code and work closely with backend services to ensure seamless data flow across the platform.
+The role involves optimizing performance, handling complex state management, and ensuring reliability in a system that directly impacts daily business operations. As a senior team member, you will collaborate with cross functional teams and contribute to technical decisions, architecture, and frontend standards.
+
+Qualifications
+
+Strong expertise in frontend development and responsive web design
+ Experience with backend integration and APIs
+ Proficiency in modern web development and software development practices
+ Strong problem solving skills and ability to work in a team environment
+ Experience with modern frontend frameworks such as React, Vue, or Angular
+ Deep understanding of browser behavior, performance optimization, and scalability
+ Experience working on production level applications used by real customers
+ Ability to write clean, maintainable, and well structured code
+Bachelor's degree in Computer Science, Software Engineering, or a related field is preferred but not required
+ Experience leading projects or mentoring developers is a plus
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:27:14.053311
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('Do you have at least "2" years of professional experience working with React? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('mobile phone number', '9971108779', 'text', '9971108779'), ('Are you comfortable working in a remote setting? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Have you been responsible for debugging or fixing performance issues in a live production environment? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Have you worked on a product that is actively used by real customers (not personal or demo projects)? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Skipping applied-history save for "Senior Frontend Developer | Notify" because the application was not confirmed submitted.
+
+-@-
+
+Already applied to "Unix Engineer | Insighture" job. Job ID: 4390749220!
+
+-@-
+
+Job details click intercepted for "iOS Software Engineer | InForm". Retry 1/3
+Message: element click intercepted: Element <a data-control-id="tCao+8yySuz86ZXTWTharw==" tabindex="0" href="/jobs/view/4393076182/?eBP=NOT_ELIGIBLE_FOR_CHARGING&amp;refId=4GbHrI2zUo%2Bjycu4rS4%2FMQ%3D%3D&amp;trackingId=tCao%2B8yySuz86ZXTWTharw%3D%3D&amp;trk=flagship3_search_srp_jobs" id="ember781" class="disabled ember-view job-card-container__link
+                      QKdhjJvqJcMIynllJjTiYrgcjHWkybDywc
+                      job-card-list__title--link" aria-label="iOS Software Engineer" dir="ltr">...</a> is not clickable at point (552, 185). Other element would receive the click: <div data-test-modal-container="" aria-hidden="false" id="ember1091" class="artdeco-modal-overlay artdeco-modal-overlay--layer-default artdeco-modal-overlay--is-top-layer  ember-view">...</div>
+  (Session info: chrome=146.0.7680.165); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xfdcdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0xfdcf24+10c34]
+	undetected_chromedriver!(No symbol) [0xdc2120]
+	undetected_chromedriver!(No symbol) [0xe112b8]
+	undetected_chromedriver!(No symbol) [0xe0f4c9]
+	undetected_chromedriver!(No symbol) [0xe0ce82]
+	undetected_chromedriver!(No symbol) [0xe0c094]
+	undetected_chromedriver!(No symbol) [0xe01ca8]
+	undetected_chromedriver!(No symbol) [0xe2db0c]
+	undetected_chromedriver!(No symbol) [0xe016e4]
+	undetected_chromedriver!(No symbol) [0xe2dcd4]
+	undetected_chromedriver!(No symbol) [0xe4a9a5]
+	undetected_chromedriver!(No symbol) [0xe2d8a6]
+	undetected_chromedriver!(No symbol) [0xe00229]
+	undetected_chromedriver!(No symbol) [0xe00fe4]
+	undetected_chromedriver!GetHandleVerifier [0x12448b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x123feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x125e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0xff5cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0xffd9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0xfe58c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0xfe5a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0xfcee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+Click Failed! Didn't find Easy Apply button ['Discard']
+Click Failed! Didn't find 'Discard'
+Trying to Apply to "iOS Software Engineer | InForm" job. Job ID: 4393076182
+HR info was not given for "iOS Software Engineer" with Job ID: 4393076182!
+
+About the job
+Inform is looking for an experienced iOS Developer to help shape and scale the Racenet app and Punters app — two leading apps in the horse racing and sports space.
+
+As an iOS Developer at Inform, you’ll join a small team of highly skilled, driven and passionate app developers. You will develop new app features, contribute to user experience discussions and help drive the direction of our app platform.
+
+Click below to find out more about the role and join the amazing team at News Corp.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:28:14.878696
+Extracted skills using gemini AI
+Click Failed! Didn't find 'Continue'
+Got the external application link "https://dowjones.wd1.myworkdayjobs.com/News_Corp_Australia_Careers/job/VIC---SBK-HWT-Tower-40-City-Road-Southbank/iOS-Software-Engineer_Job_Req_52335"
+Collected external application link for "iOS Software Engineer | InForm" job. Not saving to applied history.
+
+-@-
+
+Trying to Apply to "Solutions Engineer - US | Heidi" job. Job ID: 4393295791
+HR info was not given for "Solutions Engineer - US" with Job ID: 4393295791!
+
+About the job
+Who We Are
+
+Healthcare needs a better rhythm: one that keeps care continuous and deeply human. Heidi is building an AI Care Partner that works alongside clinicians to make that possible.
+
+We’re a team of doctors, engineers, designers, researchers, and creatives building tools that help clinicians stay focused on what matters most: their patients.
+
+In just 18 months, Heidi has given back more than 18 million hours to healthcare professionals — supporting 73 million patient visits in 116 countries. Today, more than two million patient visits each week are powered by Heidi worldwide.
+
+Backed by nearly $100 million in funding, we’re growing in the US, UK, Canada, and Europe, partnering with leading health systems including the NHS, Beth Israel Lahey Health, and Monash Health.
+
+The Role
+
+At Heidi, the Solutions Engineer plays a critical role in unlocking and accelerating new deals and expanding Heidi's footprint with existing customers by serving as the primary technical point of contact throughout the sales cycle and expansion opportunities.
+
+You’ll work closely with Account Executives, Product, and Engineering to navigate high-stakes enterprise requirements, including EMR integrations, custom clinical and data workflows, call system integrations, and security architecture. You’ll bring technical credibility, customer empathy, and a strong sense of ownership to every opportunity.
+
+What You’ll Do
+
+Technical Discovery & Qualification: Lead deep technical and clinical workflow discovery with prospects across Enterprise and Mid-Market segments to uncover integration requirements, EHR dependencies, security needs, and compliance considerations. 
+Solution Design: Collaborate with Product and Engineering to design tailored solutions that align Heidi's AI platform capabilities to real-world healthcare workflows and customer requirements, while staying grounded in roadmap feasibility. 
+Product Demos & Technical Presentations: Deliver compelling demos and architecture walkthroughs to technical stakeholders including IT, InfoSec, and engineering teams. 
+RFP & Security Review Support: Own technical responses for RFPs, security assessments, and due diligence requests with precision and attention to detail. 
+Deal Acceleration & Objection Handling: Proactively surface and resolve technical concerns that slow down the sales process — acting as a trusted technical advisor to the customer on security, compliance, AI governance, and EHR integration questions. 
+Post-Sales Handoff & Feedback Loop: Partner with implementation teams to ensure a smooth transition post-signature by developing structured PRDs and handoff documents and provide feedback to product and engineering from the field. 
+
+What We’re Looking For
+
+3–6 years of experience in customer facing technical role: Solutions Engineering, Sales Engineering, Consulting preferably in SaaS, healthcare, or enterprise software
+Experience leading and owning technical and workflow discovery sessions
+Comfortable with ~ 25 - 50% travel for onsite customer engagements
+Working knowledge of EHR/EMR systems and healthcare integration standards: HL7, FHIR, REST APIs
+Ability to synthesize complexity and communicate clearly to both technical and non-technical audiences. 
+Experience supporting sales cycles with healthcare providers, health systems, or EMR vendors
+Comfortable operating autonomously in a fast-paced, early-stage environment where process is still being built
+A trusted partner to Sales and a credible voice in the room with technical leaders on the customer side
+Bonus: Background in healthtech, startups, or regulated environments; hands-on familiarity with clinical workflow design or field deployment in healthcare settings
+
+The way we work
+
+ Build to Last
+
+We design for safety and reliability so clinicians, patients, and our teams can trust what we build every day.
+
+ Own Your Practice
+
+Ideas rise on merit, not title, and everyone shares responsibility for the standards we set together.
+
+ Move Fast, Stay Steady
+
+We move quickly but never at the cost of trust. Progress only matters if people can depend on what we make.
+
+ Make Others Better
+
+Honest feedback, steady support, and shared growth keep our teams improving together.
+
+Why you will flourish with us 🚀?
+
+In office to collaborate with like-minded professionals
+Healthcare, Dental, Vision benefit options
+401k with 3% match
+Personal development budget of $500 per annum
+Become an owner, with shares (equity) in the company, if Heidi wins, we all win
+The rare chance to create a global impact as you immerse yourself in one of the leading healthtech startups
+The opportunity to fast track your startup career!
+
+Heidi is dedicated to creating an equitable, inclusive, and supportive work environment that brings people together from diverse backgrounds, experiences, and perspectives. Our strength is in our differences. We're proud to be an equal opportunity employer and welcome all applicants as we're committed to promoting a culture of opportunity for all.
+
+Compensation Range: $145K - $165K
+
+Experience required 6 > Current Experience 5. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Staff Software Engineer | SEEK" job. Job ID: 4393074150
+
+About the job
+About SEEK
+SEEK’s portfolio of diverse businesses make a positive impact on a truly global scale. Our purpose is to help people live more fulfilling and productive working lives and help organisations succeed. We create world-class technology solutions to connect more people to relevant employment, education, small business and volunteer opportunities. We have a culture of high-performance in our workplaces and celebrate the diversity of our employees who contribute to the success of our organisation.
+
+Life at SEEK
+SEEK’s purpose is at the centre of everything we do. Our SEEK, which defines the way we work, is all about what makes us unique and a little bit different. Passion, Team, Delivery and Future are our principles that drive innovation and creativity. SEEK strives to support employee wellbeing by providing an amazing experience at work which led us to being named AFR BOSS Top 10 Best Places to Work in Technology (2021-2024). We are proud to work in an environment that's inclusive where everyone's unique ideas, experiences and perspectives are valued.
+Our award-winning head office in Cremorne (just a 4 min walk from Richmond station) provides an exceptional space to collaborate with colleagues. The building provides sweeping views of the city, a games area, sit and stand desks at every workstation, modern end-of-trip facilities and Thursday night drinks which gives our people an opportunity to connect in a social setting.
+The team
+At SEEK, our AI Platform Services (AIPS) teams build platforms and solutions that solve complex information problems and enable AI innovation across the SEEK Group. Teams are cross-functional, multi-disciplinary squads that work within an APAC matrix organisational structure. The AI Platform Engineering teams have a specific mission to provide shared infrastructure, governance, and reusable assets that empower AI and product teams to experiment safely, ship faster, and continuously deliver intelligent, differentiated experiences at scale.
+You will work with roles across the engineering spectrum from graduate to lead level, including Software Engineers, Engineering Managers, Heads of Engineering, Software Architects, Data Scientists, ML Engineers, Platform Engineers, Product Managers, Business Analysts, and Iteration Managers.
+
+About the role 
+A Staff Platform Engineer is a technical lead and senior member within our AI Platform Services (AIPS) Engineering teams. You'll be responsible for the technical strategy and direction of SEEK's GenAI and ML Platforms, ensuring these systems are highly available, resilient, and enable AI innovation at scale. Embedded within a team, you'll lead cross-team technical initiatives that influence AI platform strategy across AIPS and SEEK more broadly. Your primary focus is designing and building AI platform solutions that enable Data Scientists, Engineers, and product teams to deliver AI-powered experiences rapidly and safely. You bring in-depth technical understanding of AI platform infrastructure, multi-cloud architectures (AWS, GCP), and the operational requirements of GenAI and ML systems, while driving alignment of your team's technical roadmap to SEEK's overall AI strategy.
+ Responsibilities 
+Design and evolve technical architecture for GenAI and ML platform systems, ensuring they are well-architected, highly available, and aligned with SEEK's development practices and technical metrics
+Drive technical strategy that enables SEEK's AI innovation at scale, leading architecture decisions for multi-cloud AI infrastructure (AWS, GCP) and aligning platform capabilities with business objectives
+Build and operate highly scalable, performant AI infrastructure using AWS and Python for platform automation, tooling, and integrations while exemplifying clean, well-tested, secure code
+Lead cross-team technical initiatives that influence AI platform strategy across AIPS, serving as the key point of contact for technical solutions and system interfaces
+Partner with Data Scientists and ML Engineers to enable self-service model development, deployment, and operation while strengthening engineering discipline through understanding of AI/ML operational requirements
+Support the Engineering Manager in capacity planning, risk management, and scoping of technical work while building strong relationships with Architecture, Security, and other AI platform teams
+Grow team member technical capabilities through coaching on AI/ML platform patterns and practices while fostering a culture of safety, inclusivity, and diversity
+Qualifications
+Skills and experience 
+Proven experience as a Staff Engineer, Principal Engineer, or similar technical leadership role building and operating production platform systems at scale
+Strong expertise in cloud infrastructure and platform engineering, with deep hands-on experience in AWS services and multi-cloud architectures
+Advanced Python programming skills with demonstrated experience building platform automation, tooling, and integrations for highly scalable systems
+Experience with infrastructure-as-code (Terraform), container orchestration (Kubernetes), and observability tools for platform operations
+Track record of leading technical roadmaps and driving platform health initiatives aligned with key technical metrics and SRE principles
+Experience building platforms that enable self-service capabilities for engineering and data teams, with understanding of developer experience and platform adoption
+Hands-on MLOps or ML Engineering experience, GenAI/LLM platform knowledge (model inference, vector databases, RAG patterns), GCP/Vertex AI experience, or ML lifecycle tooling expertise are good to have, but not a must.
+
+Additional Information
+Permanent Perks
+At SEEK we offer:
+Annual Performance Bonus Plan
+Support of flexible working, including a mix of office and work from home days depending on your role.
+Paid and unpaid leave benefits including Personal Flexi Days and Volunteer Days, as well as the opportunity to purchase additional leave
+Support for parents with 14 weeks paid primary carers leave and 2 weeks paid leave for partners
+The opportunity to work from anywhere for up to 4 weeks per financial year
+At SEEK, we are passionate about fostering a culture of inclusion and wellbeing that embraces and values the diversity of our people. We are a purpose driven business that works with heart.
+We know teams with diverse ideas, experiences and perspectives are more creative and are critical to ensuring effective delivery and innovating to enable our future success. As such, we welcome applications from people with diverse backgrounds and life experiences, especially as they relate to gender, sexual identity, culture, faith, disability and life stages. If you have the skills, curiosity and an adaptable mindset but don't meet every responsibility or qualification listed in this advertisement, please still get in touch with us.
+Should you require any specific support or adjustments throughout the recruitment process and beyond, please advise us and we will be happy to assist.
+For this role, only those candidates with the eligible right to work will be considered.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:28:27.025739
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('Email [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('phone', '9971108779', 'text', '9971108779'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Staff Software Engineer | SEEK" job. Job ID: 4393074150 info
+
+-@-
+
+Trying to Apply to "Infrastructure Engineer | Talent" job. Job ID: 4396835904
+HR info was not given for "Infrastructure Engineer" with Job ID: 4396835904!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:28:50.927335
+Extracted skills using gemini AI
+Click Failed! Didn't find 'Continue'
+Got the external application link "https://www.talentinternational.com/job/infrastructure-engineer-bbbh140727_1775089911/"
+Collected external application link for "Infrastructure Engineer | Talent" job. Not saving to applied history.
+
+-@-
+
+Trying to Apply to "Software Engineer - Agentforce Platform | Salesforce" job. Job ID: 4395253044
+HR info was not given for "Software Engineer - Agentforce Platform" with Job ID: 4395253044!
+Found the word "master" in 
+About the job
+To get the best candidate experience, please consider applying for a maximum of 3 roles within 12 months to ensure you are not duplicating efforts.
+
+Job Category
+
+Software Engineering
+
+Job Details
+
+About Salesforce
+
+Salesforce is the #1 AI CRM, where humans with agents drive customer success together. Here, ambition meets action. Tech meets trust. And innovation isn’t a buzzword — it’s a way of life. The world of work as we know it is changing and we're looking for Trailblazers who are passionate about bettering business and the world through AI, driving innovation, and keeping Salesforce's core values at the heart of it all.
+
+Ready to level-up your career at the company leading workforce transformation in the agentic era? You’re in the right place! Agentforce is the future of AI, and you are the future of Salesforce.
+
+Role Overview
+
+Salesforce is seeking a Senior Software Engineer (SMTS) to join the Agentforce Process Intelligence team, building process mining and optimization capabilities within the Agentforce platform. This product enables enterprise customers to discover, simulate, monitor, and optimize business processes using data from CRM/ERP systems and other enterprise data sources.
+
+You will work across the full stack, from predominantly Java (and some python) backend services running on Kubernetes to data pipelines and analytical services, delivering features that transform raw event logs into actionable process intelligence for thousands of enterprise users.
+
+Your Impact
+
+Design, implement, test, and deliver secure, highly scalable backend services and full-stack applications within a cellular, multi-tenant cloud architecture.
+Develop and maintain Java-based application services (Spring Boot, Hibernate, JPA) and companion microservices for process simulation, compliance checking, and AI-powered analytics.
+Build and evolve data processing services and ETL/ELT pipelines for data ingestion, transformation, and querying.
+Integrate with the big data query and processing layers using distributed query engines and columnar storage formats to support analytics at scale.
+Implement multi-tenant data isolation patterns across database, cache, and storage layers.
+Contribute to database consolidation and migration efforts using PostgreSQL, Liquibase, and connection pooling strategies.
+Develop and maintain authentication and authorization integrations with identity providers, including session-based auth and mTLS for service-to-service communication.
+Design and implement test strategies, automation frameworks, and unit/integration/functional/regression tests to drive up code coverage and system reliability.
+Master the team's development processes, culture, and codebase, and continuously identify opportunities to improve them.
+Participate in the team's on-call rotation to address complex problems in real-time and keep services operational and highly available.
+Present technical designs to internal and external groups and participate in design reviews.
+
+Required Qualifications
+
+5+ years of professional software development experience.
+Strong proficiency in Java. You will work with Java on production systems daily.
+Experience with Java backend frameworks: Spring Boot, Hibernate/JPA, and servlet containers (Tomcat).
+Solid understanding of relational databases (PostgreSQL, MySQL), data modeling, and schema migration tools (Liquibase, Alembic).
+Experience with REST API design, integrations, and service-oriented architectures.
+Solid understanding of modern web technologies including JavaScript, HTML5, CSS, XML, and JSON.
+Experience with containerization (Docker) and orchestration (Kubernetes) in cloud environments (AWS preferred).
+Hands-on experience with automated testing including unit and functional testing (JUnit, pytest, Selenium, Playwright).
+A related technical degree required.
+
+Preferred Qualifications
+
+Experience with Python backend/data frameworks: SQLAlchemy or equivalent ORM, and at least one of PySpark, Airflow, FastAPI, or Flask.
+Experience with frontend technologies or frameworks such as ReactJS and an understanding of building web applications
+Experience with big data technologies: Apache Spark, Trino/Presto, Parquet, Iceberg, or similar.
+Experience with caching systems (Redis) and object storage (S3).
+Familiarity with multi-tenant SaaS architectures, tenant isolation patterns, and zero-trust security models.
+Experience with process mining, business process management, or workflow automation domains.
+Experience working with AI and Large Language Models (LLMs).
+Experience building highly scalable, distributed web applications.
+Familiarity with Agile development methodologies and test-driven development (TDD).
+Experience with monitoring, alerting, logging, and reporting applications for production systems.
+
+Unleash Your Potential
+
+When you join Salesforce, you’ll be limitless in all areas of your life. Our benefits and resources support you to find balance and be your best, and our AI agents accelerate your impact so you can do your best. Together, we’ll bring the power of Agentforce to organizations of all sizes and deliver amazing experiences that customers love. Apply today to not only shape the future — but to redefine what’s possible — for yourself, for AI, and the world.
+
+Accommodations
+
+If you need a reasonable accommodation during the application or the recruiting process, please submit a request via this Accommodations Request Form.
+
+Please note that Salesforce uses artificial intelligence (AI) tools to help our recruiters assess and evaluate candidates’ resumes and qualifications throughout the recruiting process. Humans will always make any candidate selection and hiring decisions. Please see our Candidate Privacy Statement for more information about how we use your personal data and your rights, including with regard to use of AI tools and opt out options.
+
+Posting Statement
+
+Salesforce is an equal opportunity employer and maintains a policy of non-discrimination with all employees and applicants for employment. What does that mean exactly? It means that at Salesforce, we believe in equality for all. And we believe we can lead the path to equality in part by creating a workplace that’s inclusive, and free from discrimination. Know your rights: workplace discrimination is illegal. Any employee or potential employee will be assessed on the basis of merit, competence and qualifications – without regard to race, religion, color, national origin, sex, sexual orientation, gender expression or identity, transgender status, age, disability, veteran or marital status, political viewpoint, or other classifications protected by law. This policy applies to current and prospective employees, no matter where they are in their Salesforce employment journey. It also applies to recruiting, hiring, job assignment, compensation, promotion, benefits, training, assessment of job performance, discipline, termination, and everything in between. Recruiting, hiring, and promotion decisions at Salesforce are fair and based on merit. The same goes for compensation, benefits, promotions, transfers, reduction in workforce, recall, training, and education.
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:28:59.411227
+Extracted skills using gemini AI
+Click Failed! Didn't find 'Continue'
+Got the external application link "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Australia---Melbourne/Software-Engineer---Agentforce-Platform_JR336188?source=LinkedIn_Jobs"
+Collected external application link for "Software Engineer - Agentforce Platform | Salesforce" job. Not saving to applied history.
+
+-@-
+
+Trying to Apply to "Junior AI Agent Engineer (OpenClaw) | Zero To Claw" job. Job ID: 4392472448
+
+About the job
+About Zero to Claw
+Zero to Claw is a white-glove OpenClaw setup and automation service. We deploy security-hardened, production-ready OpenClaw AI agents for businesses. Our clients range from solo operators who want a tireless digital assistant to small teams who need agents handling email triage, meeting prep, CRM workflows, and cross-app automation.
+Our founders bring deep experience: Jake has led $100M+ in business transformation, and Daniel is a former Atlassian Engineer with 6+ years shipping Jira, Bitbucket, and Confluence to millions of users.
+
+The Role
+We need someone to help us deliver custom OpenClaw workflows for our clients and maintain their running instances. You'll be the person who takes a client's messy "I want my AI to do X when Y happens" request, figures out how to wire it up in OpenClaw, builds it, tests it, and makes sure it keeps running. You'll also handle troubleshooting when things break — a misconfigured MCP server, a flaky WhatsApp integration, a gateway auth issue, an agent that's burning through API credits. You'll be deploying, configuring, integrating, and debugging real systems for real clients on real deadlines.
+
+What you'll do
+Connect OpenClaw to client tools — Gmail, Notion, Slack, Jira, Salesforce, databases, and hundreds more
+Build custom workflows and skills when off-the-shelf integrations don't cut it
+Troubleshoot live client instances — broken integrations, runaway API costs, flaky messaging channels, agent misbehaviour
+Talk to clients, understand what they need, and translate that into working automation
+
+What will help you succeed
+Comfort in a terminal — SSH, config files, logs, basic server admin
+Some experience with any programming language — enough to read code, write scripts, and hit APIs
+Basic understanding of networking — ports, firewalls, DNS
+Familiarity with Docker
+Clear communication — you'll explain technical things to non-technical people regularly
+A bias toward figuring things out over waiting to be taught
+
+Bonus points
+You've played with OpenClaw, MCP, or any AI agent framework
+You've deployed something to a VPS or cloud instance before
+You know your way around monitoring tools (Langfuse, Grafana, etc.)
+You have opinions about LLMs, tokens, and model routing
+You've built a bot, a home server, a Raspberry Pi project, or anything that proves you like tinkering
+
+You don't need to tick every box. If you're curious, resourceful, and excited about AI agents — we'd rather hear from you than not.
+
+Why join us
+You'll get production experience with AI agents that most people only read about. You'll work directly with two founders — one from Atlassian engineering, one from enterprise strategy — who'll give you real responsibility from day one, not busywork. And you'll be joining at the ground floor of a company in one of the fastest-moving spaces in tech.
+
+To apply
+Send an email to join@zerotoclaw.ai with a short note about why this interests you, your resume/LinkedIn, and ideally one example of something technical you've built or deployed (a side project, a home server, a bot, anything that shows you can ship).
+
+Experience required 6 > Current Experience 5. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Lead Software Engineer | Aeva AI Receptionist" job. Job ID: 4392490897
+HR info was not given for "Lead Software Engineer" with Job ID: 4392490897!
+
+About the job
+Lead Software Engineer
+Location: Remote
+
+About Aeva
+Aeva AI is the standard for AI phone answering in allied health. We answer every patient call with the most lifelike voice on the market — booking appointments, handling reschedules, and managing inquiries 24/7.
+$0 to $1M+ ARR in under 14 months. 350+ practices across Australia, UK, and New Zealand. Bootstrapped, profitable, scaling fast.
+Stack: Node.js, Express, TypeScript, React, PostgreSQL, with integrations into Cliniko, Stripe, Twilio, and VAPI for voice AI.
+
+The Role
+This is a full-time remote role for a Lead Software Engineer. You'll own the technical direction of our platform — setting up robust engineering processes, improving code quality, and accelerating our integration roadmap. You'll work above our existing developers, establishing the systems and standards that let the team ship faster with fewer bugs.
+Our immediate priority is expanding our practice management system integrations. The foundations are in place; you'll refine the architecture, establish the patterns, and make future integrations faster to roll out. Beyond integrations, you'll shape everything from infrastructure to product features.
+This is hands-on. You'll write code, not just manage.
+
+What You'll Do
+Own technical direction across the platform
+Accelerate our PMS integration roadmap — refining existing architecture and shipping new integrations
+Set up engineering processes and standards that make the team faster and more reliable
+Mentor, unblock, and level up the dev team through code review and collaboration
+Hands-on development — you'll still write and review code
+Drive technical decisions and own delivery quality
+
+Who Thrives Here
+Operated at multiple levels — you've seen how engineering works at scale, but you're not precious about process when speed matters
+Ship-first mentality — you know when good enough is good enough
+Take ownership — you fix problems, not assign blame
+Communicate clearly — you can explain technical decisions without overcomplicating things
+Use AI tools fluently — Claude, Cursor, Copilot are part of your daily workflow
+
+Requirements
+8+ years software development experience
+Strong backend: Node.js, TypeScript, PostgreSQL
+Experience setting up engineering processes at growing companies
+Worked at both startups and larger/enterprise companies
+Can architect systems AND implement them
+Comfortable with ambiguity and moving fast
+
+Nice to Have
+Healthcare software or SaaS experience
+Voice AI integration experience
+Experience with Make.com, Zapier, or n8n
+
+Why Aeva
+Real impact — your work ships to production and affects real clinics within days, not quarters
+Growth trajectory — clear path to CTO as we scale the team
+Profitable — bootstrapped, not burning runway
+Hard problems — multi-system integration, voice AI, healthcare data. Not CRUD apps.
+Small team, high trust — no bureaucracy, direct access to founders, autonomy to do your best work
+
+Compensation
+Discussions from $120,000 AUD, with room to grow based on impact.
+
+Experience required 8 > Current Experience 5. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Solutions Engineer | Searchability®" job. Job ID: 4393996484
+
+About the job
+Solution Engineer – AWS / Contact Centre (CCaaS)
+
+AWS · Amazon Connect · Serverless · API Development · Cloud CX
+
+A leading technology consultancy is seeking a highly skilled Solution Engineer to design and deliver cloud-native customer experience (CX) platforms using modern AWS technologies.
+This is a hands-on engineering role suited to someone who thrives in solution design, development, and delivery, with a strong focus on scalable serverless architectures and customer-engagement platforms.
+
+Opportunity to work on cutting-edge cloud CX solutions in a high-performing technical team.
+$100-140K salary + superannuation
+Remote/Hybrid Flexibility
+Full-time permanent opportunity
+Work across complex, enterprise-grade cloud solutions
+Exposure to modern AWS serverless architecture
+Collaborative, high-performing engineering environment
+Must be an Australian OR NZ Citizen
+
+WHO ARE WE?
+We are a technology-driven consultancy focused on delivering modern cloud, connectivity, and customer experience solutions. Our approach combines deep technical capability with strong customer outcomes, enabling organisations to transform how they engage with their customers.
+Working in a collaborative and agile environment, our teams design and deliver scalable, secure, and future-ready solutions across complex enterprise environments.
+
+WHAT WILL YOU BE DOING?
+As a Solution Engineer, you will be responsible for designing, developing, and supporting cloud-based customer experience platforms, primarily within AWS environments.
+You will:
+Design and build Amazon Connect-based contact centre solutions using serverless architecture
+Develop backend services, APIs, and integrations across cloud platforms
+Build and support frontend components for agent and customer experiences
+Integrate cloud platforms with enterprise systems (e.g. CRM and business applications)
+Implement infrastructure-as-code and CI/CD pipelines
+Contribute to solution design documentation, testing strategies, and deployment standards
+Provide Level 2 support for production environments, including troubleshooting and root cause analysis
+Collaborate with cross-functional teams to ensure scalability, performance, and security best practices
+Support project delivery, including scoping, timelines, and technical execution
+Contribute to continuous improvement of delivery practices and solution quality
+
+WE NEED YOU TO HAVE…..
+Strong experience in AWS cloud environments, particularly serverless architecture
+Hands-on experience with Amazon Connect and cloud-based contact centre solutions (CCaaS)
+Experience developing backend services using Node.js, Python, or Java
+Strong understanding of API design and integration (REST APIs)
+Experience working with databases (SQL/NoSQL)
+Exposure to frontend technologies and integrations
+Experience with CI/CD pipelines, DevOps practices, and infrastructure-as-code
+Strong troubleshooting capability across production environments
+Experience working within structured service environments (ITIL or similar)
+Strong communication skills and ability to work with technical and non-technical stakeholders
+
+IT’S NICE TO HAVE….
+Experience with React or modern frontend frameworks
+Exposure to Terraform or serverless deployment frameworks
+Experience integrating with CRM platforms such as Salesforce or Dynamics
+Knowledge of authentication protocols (OAuth, SAML, Cognito)
+Experience working within consulting or client-facing environments
+
+TO BE CONSIDERED….
+Please apply online or email your CV directly to adriana.ortado@searchability.com.au. For further information, call +61 485 860 659. Calls are welcome between 7 am and 10 pm. If unavailable, please leave a message and you will receive a response. By applying, you consent to your application being submitted to our client in relation to this vacancy only. You may also connect with me on LinkedIn: www.linkedin.com/in/adrianaortado.
+
+KEY SKILLS:
+AWS · Amazon Connect · Serverless · APIs · Node.js · Python · Cloud Architecture · CCaaS · DevOps
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:29:15.868244
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Are you an Australian, NZ Citizen OR PR Holder? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have experience with CCaaS?  [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('how many years of experience do you have with the design/implementation of amazon connect?', '5', 'text', ''), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Solutions Engineer | Searchability®" job. Job ID: 4393996484 info
+
+-@-
+
+Already applied to "Cloud Support Engineer | nimbus" job. Job ID: 4392154461!
+
+-@-
+
+Trying to Apply to "Artificial Intelligence Engineer | Nuage Technology Group" job. Job ID: 4394340637
+
+About the job
+Nuage has partnered with an enterprise environment, investing heavily in AI capability across internal platforms, and we’re looking for hands-on engineers to join a specialist team delivering and improving production-grade Copilot solutions.
+
+This is a remote role open across Australia’s east coast, sitting within a small team of technical SMEs focused on building, troubleshooting, and improving AI-driven workflows running on top of Microsoft’s modern AI stack. The work is practical and delivery-focused. You’ll be implementing new functionality, improving agent behaviour, debugging issues in production, and helping ensure released solutions perform reliably in live enterprise environments.
+
+Experience Required
+Strong hands-on experience working with Microsoft Copilot / Copilot Studio or adjacent Power Platform AI solutions
+Strong capability using Azure Application Insights for monitoring and troubleshooting
+Practical experience writing and analysing KQL queries
+Experience working with GitHub Copilot or similar AI-assisted development tools
+Exposure to Microsoft Power Automate / Power Platform environments
+
+This role will suit someone who enjoys practical engineering, likes understanding why systems fail, and wants to work on modern enterprise AI delivery without heavy stakeholder ownership.
+
+If you enjoy building, fixing, and improving real AI systems in production, this is a strong opportunity to work inside a growing enterprise AI environment. We have multiple roles on offer for strong engineers based across the east coast of Australia.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:30:04.015903
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Will you now or in the future require sponsorship for employment visa status? [  "Yes"<Yes>, "No"<No>, ]', 'No', 'radio', None), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Artificial Intelligence Engineer | Nuage Technology Group" job. Job ID: 4394340637 info
+
+-@-
+
+Trying to Apply to "Junior Remediation Systems Engineer | e2e Project Excellence" job. Job ID: 4393065532
+
+About the job
+Junior Linux Systems Engineer - Scientific & Controls Infrastructure
+Our client is seeking a Junior Remediation Engineer to support Asset Management Cyber Remediation activities. This is an excellent opportunity for an IT student or early-career professional—particularly those based near Monash University—looking to gain hands-on experience in a highly specialised technical environment.
+
+About the Role
+You will work closely with a Senior Linux/OT Remediation Engineer and assist in delivering remediation activities across a diverse range of IT and operational technology environments.
+
+Key Responsibilities
+Assist the Senior Linux/OT Remediation Engineer in daily remediation activities
+Audit and catalogue physical IT assets on-site
+Assess build requirements for Windows and Linux endpoints
+Perform remediation of Windows and Linux systems
+Support remote remediation activities alongside engineers based remotely
+Liaise with staff and scientists to understand requirements and coordinate deployments
+
+About You
+This role would suit an IT student or junior professional who is eager to build practical experience in cyber remediation and endpoint management.
+You will bring:
+Strong interpersonal and communication skills (both in-person and remote)
+Good time management and ability to work independently
+Solid understanding of Windows operating systems (IT support experience highly regarded)
+Fundamental Linux knowledge (or better)
+Strong troubleshooting skills, particularly with legacy systems and compatibility issues
+A proactive mindset with the ability to self-learn and adapt quickly
+
+Why Apply?
+Gain hands-on experience in a unique, high-tech scientific environment
+Flexible working arrangements to support study commitments
+Opportunity to work alongside experienced engineers and develop valuable cyber remediation skills
+
+If you’re looking to kick-start your IT career in a practical, fast-paced environment, we’d love to hear from you.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:30:51.133211
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('how many years of work experience do you have with windows?', '5', 'text', ''), ('how many years of work experience do you have with linux?', '5', 'text', '5'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Remediation Systems Engineer | e2e Project Excellence" job. Job ID: 4393065532 info
+
+-@-
+
+Trying to Apply to "ServiceNow API Developer (Infoblox) | Paxus" job. Job ID: 4396192558
+
+About the job
+ServiceNow API Developer (Infoblox Integration)
+We are looking for an experienced ServiceNow API Developer to support integration delivery across enterprise platforms. This is a contract role with strong extension potential.
+Must be an Australian Citizen eligible for clearance
+📍 Brisbane, Canberra, Melbourne (Hybrid)
+ 📅 Contract until 30 June - likely to extend
+Key Responsibilities:
+Design and develop ServiceNow integrations using Integration Hub
+Build and manage REST API integrations
+Develop solutions using JavaScript within ServiceNow
+Configure and implement Flow Designer workflows
+Work across Service Catalog and automation capabilities
+Requirements:
+Strong hands-on ServiceNow development experience
+Proven experience with Integration Hub and REST APIs
+Solid JavaScript capability within ServiceNow
+Experience with Flow Designer and Service Catalog
+Relevant certifications (ITIL, ServiceNow CSA, CIS preferred)
+Must be an Australian Citizen eligible to obtain security clearance
+Desired Skills and Experience
+
+ServiceNow API Developer (Infoblox Integration)
+
+We are looking for an experienced ServiceNow API Developer to support integration delivery across enterprise platforms. This is a contract role with strong extension potential.
+
+Must be an Australian Citizen eligible for clearance
+
+📍 Brisbane, Canberra, Melbourne (Hybrid)
+📅 Contract until 30 June - likely to extend
+
+Key Responsibilities:
+
+Design and develop ServiceNow integrations using Integration Hub
+Build and manage REST API integrations
+Develop solutions using JavaScript within ServiceNow
+Configure and implement Flow Designer workflows
+Work across Service Catalog and automation capabilities
+Requirements:
+
+Strong hands-on ServiceNow development experience
+Proven experience with Integration Hub and REST APIs
+Solid JavaScript capability within ServiceNow
+Experience with Flow Designer and Service Catalog
+Relevant certifications (ITIL, ServiceNow CSA, CIS preferred)
+Must be an Australian Citizen eligible to obtain security clearance
+
+To be considered for the role click the 'apply' button or for more information about this and other opportunities please contact Ian Cardinal on +617 3472 6580 or email icardinal@paxus.com.au and quote the above job reference number. 
+
+Paxus values diversity and welcomes applications from Indigenous Australians, people from diverse cultural and linguistic backgrounds and people living with a disability. If you require an adjustment to the recruitment process, including the application form in an alternate format, please contact me on the above contact details.
+
+Found "Clearance" or "Polygraph". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Systems Engineer | Providence Consulting" job. Job ID: 4391692816
+
+About the job
+EOI- Systems Engineers – Melbourne and Canberra
+
+Providence is about People — In a world of contractor churn, Providence takes a different approach. Investing in people not contracts. We are committed to fostering our people, investing in their development and through them delivering for our clients. Providence prides itself on bringing together strong teams of specialists that deliver client success.
+
+Providence is currently seeking expressions of interest from experienced Systems Engineering Consultants to work across several work packages in a fast paced and highly complex environment. These work packages lie across the LAND, SEA, JOINT and SPACE domains.
+
+Due to the nature of the work we are seeking people based in Melbourne and Canberra. These roles are full time and people seeking both permanent and contract work are encouraged to apply.
+
+About you:
+
+A minimum of a Bachelor of Engineering
+An existing or reinstatable Australian Defence security clearance (NV1 or higher).
+Demonstrated relevant experience in the Systems Engineering Lifecycle, particularly in the C4i domain.
+Engineering experience working above the line within CASG would be highly regarded
+Highly developed stakeholder engagement and stakeholder management skills
+High levels of EQ ( you should hopefully know what this is )
+Consulting experience (desirable). If not we can teach you.
+
+
+About Providence
+
+The Providence Promise is our pledge to our clients and our people, to work in true partnership to achieved shared success. With our Head office in Barton, ACT, Providence Consulting Group (Providence), is a wholly owned, sovereign Australian professional services provider with 135+ staff, delivering national capability.
+
+Providence aims to foster long-term relationships to provide authentic, ethical, and outcomes-focused services. Backed by an ISO9001:2015 accreditation governing the quality of our services, we collaboratively work with our clients to build their capabilities, performance, and reputation. We are a member of the Defence Security Industry Program (DISP). Since 2005, as genuine partners with a customer-centre approach, across our service pillars of strategy, transformation, delivery, and enterprise protective security, we have used deep industry expertise and rigorous analysis to help our clients achieved practical results with real impacts.
+
+We always look at promoting from within and are serious when it comes to developing a flexible workforce model that allows for each individual employee’s needs. We always welcome diversity of thought, skills and experiences and are looking for good humans who share the same values as us
+
+Found "Clearance" or "Polygraph". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Developer | Strategic Partners Australia" job. Job ID: 4393263324
+
+About the job
+Exciting opportunity for Azure VLM Developer
+
+Greeting from Strategic Partners Australia
+
+We are hiring "Azure VLM Developer" for one of our leading private clients.
+
+Duration: 06 to 12 months initial Contract + No Extension
+Location: Remote
+Visa Status: Full work rights/ Citizen/ PR
+
+Required Skills and Experience:
+Experience with Azure OpenAI and vision enabled models.
+Strong experience with document processing, OCR, and data extraction.
+Experience handling large scale data ingestion and processing pipelines.
+Programming skills in Python, C#, or JavaScript.
+Experience integrating with enterprise systems such as HR or finance platforms.
+Understanding of data quality, validation, and audit requirements.
+Communication skills with the ability to explain complex system behaviour in simple terms.
+
+I would be happy to discuss and share more details about the role if you are interested, kindly share your resume to Nargis.s@strategicpartners.net.au
+
+Contains bad word ".NET". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Python Developer | Certus Recruitment Group" job. Job ID: 4392841325
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-02 11:31:50.363224
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('how many years of work experience do you have with python (programming language)?', '5', 'text', '5'), ('Will you now or in the future require sponsorship for employment visa status? [  "Yes"<Yes>, "No"<No>, ]', 'No', 'radio', None), ('mobile phone number', '9971108779', 'text', '9971108779'), ('Are you comfortable commuting to this job\'s location? [  "Yes"<Yes>, "No"<No>, ]', 'Yes', 'radio', None), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Are you legally authorized to work in Australia? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Are you comfortable working in a hybrid setting? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('how many years of work experience do you have with amazon web services (aws)?', '5', 'text', '5'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Python Developer | Certus Recruitment Group" job. Job ID: 4392841325 info
+
+-@-
+
+Stopped manually by user.
+Total runs: 1
+Jobs Applied: 5
+External job links collected: 4
+Total processed outcomes: 9
+Failed jobs: 0
+Irrelevant jobs skipped: 8
+
+
+
+Total runs:                     1
+Jobs Applied:                   5
+External job links collected:   4
+                              ----------
+Total processed outcomes:       9
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        8
+
+Stopped manually by user.
+
+Keep up with the progress. You got this. - Sai Vignesh Golla
+
+
+In this run, you saved approx 10 mins (620 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 5
+External job links collected: 4
+Total processed outcomes: 9
+Failed jobs: 0
+Irrelevant jobs skipped: 8
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 5, 'external_links_logged': 4, 'rows_written_to_applied_csv': 5, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 8, 'total_runs': 1, 'pipeline_mode': True}
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:53500
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x87cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x87cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x661f5e]
+	undetected_chromedriver!(No symbol) [0x655758]
+	undetected_chromedriver!(No symbol) [0x69c472]
+	undetected_chromedriver!(No symbol) [0x692785]
+	undetected_chromedriver!(No symbol) [0x6925a6]
+	undetected_chromedriver!(No symbol) [0x6d9cbf]
+	undetected_chromedriver!(No symbol) [0x6d94d7]
+	undetected_chromedriver!(No symbol) [0x6cd8a6]
+	undetected_chromedriver!(No symbol) [0x6a0229]
+	undetected_chromedriver!(No symbol) [0x6a0fe4]
+	undetected_chromedriver!GetHandleVerifier [0xae48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0xadfeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0xafe06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x895cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x89d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x8858c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x885a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x86ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+2026-04-02 11:40:34.112655
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Couldn't find username field.
+Couldn't find password field.
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials or already logged in! Try logging in manually!
+Seems like you're not logged in!
+Seems like you're not logged in!
+Seems like you're not logged in!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-02 11:40:51.498067
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-02 11:40:51.537933
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Engineer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Search Location input was not given!
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x52cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x52cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x312120]
+	undetected_chromedriver!(No symbol) [0x35abca]
+	undetected_chromedriver!(No symbol) [0x35ae6b]
+	undetected_chromedriver!(No symbol) [0x39d0b2]
+	undetected_chromedriver!(No symbol) [0x37db54]
+	undetected_chromedriver!(No symbol) [0x39a9a5]
+	undetected_chromedriver!(No symbol) [0x37d8a6]
+	undetected_chromedriver!(No symbol) [0x350229]
+	undetected_chromedriver!(No symbol) [0x350fe4]
+	undetected_chromedriver!GetHandleVerifier [0x7948b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x78feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x7ae06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x545cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x54d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5358c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x535a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x51ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: 
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Developer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Search Location input was not given!
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x52cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x52cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x312120]
+	undetected_chromedriver!(No symbol) [0x35abca]
+	undetected_chromedriver!(No symbol) [0x35ae6b]
+	undetected_chromedriver!(No symbol) [0x39d0b2]
+	undetected_chromedriver!(No symbol) [0x37db54]
+	undetected_chromedriver!(No symbol) [0x39a9a5]
+	undetected_chromedriver!(No symbol) [0x37d8a6]
+	undetected_chromedriver!(No symbol) [0x350229]
+	undetected_chromedriver!(No symbol) [0x350fe4]
+	undetected_chromedriver!GetHandleVerifier [0x7948b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x78feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x7ae06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x545cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x54d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5358c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x535a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x51ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x778afcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c6e+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77bf7c3e+ee]
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: 
+
+########################################################################################################################
+
+Sleeping for 10 min...
+Stopped manually by user.
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Stopped manually by user.
+
+Every job is a self-portrait of the person who does it. Autograph your work with excellence. - Jessica Guidobono (Not a sponsor)
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}

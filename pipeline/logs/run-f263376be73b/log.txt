@@ -1,0 +1,517 @@
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:52795
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x116cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x116cf24+10c34]
+	undetected_chromedriver!(No symbol) [0xf51f5e]
+	undetected_chromedriver!(No symbol) [0xf45758]
+	undetected_chromedriver!(No symbol) [0xf8c472]
+	undetected_chromedriver!(No symbol) [0xf82785]
+	undetected_chromedriver!(No symbol) [0xf825a6]
+	undetected_chromedriver!(No symbol) [0xfc9cbf]
+	undetected_chromedriver!(No symbol) [0xfc94d7]
+	undetected_chromedriver!(No symbol) [0xfbd8a6]
+	undetected_chromedriver!(No symbol) [0xf90229]
+	undetected_chromedriver!(No symbol) [0xf90fe4]
+	undetected_chromedriver!GetHandleVerifier [0x13d48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x13cfeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x13ee06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x1185cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x118d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x11758c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x1175a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x115ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+
+2026-04-04 09:49:59.784001
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-04 09:50:15.504512
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-04 09:50:15.561510
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Engineer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Trying to Apply to "Junior Cloud Enginer (Entry-Level / Associate) | Florida Semiconductor Engine" job. Job ID: 4397812378
+
+About the job
+
+
+Role Description
+This is a part-time remote role for a TGV (Technology and Growth Venture) professional. The TGV role involves engaging in cutting-edge semiconductor industry research, fostering partnerships with stakeholders, identifying innovation opportunities, and contributing to workforce development strategies. The individual in this position will assist in aligning collaborative efforts across academic institutions, industries, and entrepreneurial ventures to drive the success of semiconductor projects and initiatives.
+
+Qualifications
+Experience in conducting industry research and developing technology-focused business strategies
+Proficiency in building and managing partnerships with academic, industrial, and entrepreneurial stakeholders
+Knowledge of semiconductor industry trends, advanced packaging technologies, or related areas
+Strong communication and project management skills
+Ability to work effectively in a remote and collaborative environment
+Problem-solving skills and a proactive approach to innovation
+Bachelor's or advanced degree in a relevant field, such as engineering, business, or technology
+Experience in workforce development initiatives or economic development is a plus
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:50:33.815732
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Have you completed the following level of education: Master\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', 'Yes', 'radio', None), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Cloud Enginer (Entry-Level / Associate) | Florida Semiconductor Engine" job. Job ID: 4397812378 info
+
+-@-
+
+Trying to Apply to "Entry-Level Quality Assurance Engineer | Interior Ideas" job. Job ID: 4397809442
+
+About the job
+Entry-Level Quality Assurance Engineer
+We are seeking a detail-oriented and motivated Entry-Level Quality Assurance Engineer to support the delivery of high-quality software products. This role involves designing and executing test cases, identifying defects, and ensuring that applications meet functional and performance requirements. The engineer will collaborate with development and product teams to understand specifications, validate features, and contribute to continuous improvement of testing processes. A key responsibility is to maintain accuracy in testing, document findings clearly, and help ensure a seamless and reliable user experience.
+Qualifications
+Basic understanding of software testing principles, including manual and automated testing approaches.
+Familiarity with test case design, defect tracking, and quality assurance methodologies.
+Strong analytical and problem-solving skills with attention to detail.
+Basic knowledge of programming or scripting languages and testing tools.
+Good communication skills to report issues clearly and collaborate effectively with team members.
+Ability to learn quickly, adapt to new technologies, and follow structured processes.
+Commitment to quality, continuous improvement, and delivering reliable software solutions. 
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:51:24.582387
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Entry-Level Quality Assurance Engineer | Interior Ideas" job. Job ID: 4397809442 info
+
+-@-
+
+Trying to Apply to "ENTRY LEVEL SOFTWARE DEVELOPE | gen.E" job. Job ID: 4394233336
+
+About the job
+
+🗂 We’re Hiring: Entry-Level Software Developer
+ 🕒 Employment Type: Full-Time
+ 💼 Level: Entry-Level
+We are looking for a motivated and detail-oriented Entry-Level Software Developer to join our growing tech team. In this role, you will contribute to designing, developing, and maintaining software applications while collaborating closely with cross-functional teams. This is an excellent opportunity for recent graduates or early-career developers to grow their skills in a supportive and innovative environment.
+🎯 Key Responsibilities
+Assist in the design, development, and maintenance of web or mobile applications.
+Write clean, efficient, and well-documented code.
+Collaborate with product managers, designers, and other developers to deliver high-quality software solutions.
+Participate in code reviews and team knowledge-sharing sessions.
+Troubleshoot, debug, and resolve software issues.
+Stay updated with programming best practices, frameworks, and emerging technologies.
+Contribute to testing and quality assurance processes.
+✅ Requirements
+Bachelor’s degree in Computer Science, Software Engineering, or a related field (or equivalent practical experience).
+Proficiency in at least one programming language (e.g., Python, Java, JavaScript, C#).
+Understanding of software development principles, data structures, and algorithms.
+Basic experience with version control systems (e.g., Git).
+Strong problem-solving skills and attention to detail.
+Eagerness to learn and collaborate in a team-oriented environment.
+Previous internships, projects, or personal coding experience is a plus.
+🌟 What We Offer
+A collaborative, learning-focused work environment.
+Opportunities to work on real-world projects and gain hands-on experience.
+Career growth and mentorship from experienced developers.
+Access to training and resources to expand technical skills.
+Competitive salary and benefits package.
+Supportive team culture with opportunities for innovation and creativity.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:52:10.210381
+Extracted skills using gemini AI
+Failed to Easy apply!
+Somewhere in Easy Apply process
+Easy Apply modal did not open
+2026-04-04 09:52:15.161373
+Click Failed! Didn't find Easy Apply button ['Discard']
+
+-@-
+
+Trying to Apply to "Software Enginer (Entry-Level / Associate) | GMD | Bâtir Ensemble !" job. Job ID: 4397596852
+HR info was not given for "Software Enginer (Entry-Level / Associate)" with Job ID: 4397596852!
+
+About the job
+Role Description
+ This is a part-time remote position for the role of rty at GMD | Bâtir Ensemble !. The role involves managing and executing key tasks assigned to drive organizational goals. The individual will be expected to perform responsibilities efficiently within provided timelines, collaborate with team members virtually, and contribute to project development and execution. Flexibility, attention to detail, and innovation are key to succeeding in this role.
+ Qualifications
+  Strong analytical and problem-solving skills to assess and resolve issues effectively
+Excellent organizational and multitasking abilities; able to manage priorities efficiently
+Great communication skills, both written and verbal, for seamless team collaboration
+Proficiency in digital tools and platforms required for remote work
+Ability to work independently and adapt to a rapidly-changing environment
+Experience in the industry or related fields is a plus
+Relevant educational background preferred but not mandatory
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:52:24.787949
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('phone', '9971108779', 'text', '9971108779'), ('Email [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Software Enginer (Entry-Level / Associate) | GMD | Bâtir Ensemble !" job. Job ID: 4397596852 info
+
+-@-
+
+Trying to Apply to "Junior Data Enginee | indiasstartup" job. Job ID: 4394250260
+HR info was not given for "Junior Data Enginee" with Job ID: 4394250260!
+
+About the job
+Junior Data Engineer
+We are seeking a motivated and detail-oriented Junior Data Engineer to support the development and maintenance of data pipelines and infrastructure. This role involves collecting, processing, and transforming large datasets to ensure data is accurate, accessible, and ready for analysis. The engineer will work closely with data analysts, data scientists, and cross-functional teams to understand data requirements and implement efficient data solutions. A key responsibility is to assist in building scalable data systems, maintaining data integrity, and improving data workflows to support business intelligence and analytics initiatives.
+Qualifications
+Basic understanding of data engineering concepts, including ETL processes, data pipelines, and data warehousing.
+Proficiency in programming languages such as Python or SQL for data processing and manipulation.
+Familiarity with databases, data modeling, and data storage solutions.
+Knowledge of cloud platforms and distributed data systems is a plus.
+Strong analytical and problem-solving skills with attention to detail.
+Good communication skills to collaborate with technical and non-technical stakeholders.
+Ability to learn quickly, adapt to new technologies, and contribute to continuous improvement in data systems. 
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:52:50.425851
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('phone', '9971108779', 'text', '9971108779'), ('Email [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Data Enginee | indiasstartup" job. Job ID: 4394250260 info
+
+-@-
+
+Trying to Apply to "Cloud Engineer | HCC_Awareness_Campaign" job. Job ID: 4397804151
+
+About the job
+🗂 We’re Hiring: Cloud Engineer (Entry-Level / Junior)
+ 🕒 Employment Type: Full-Time
+ 💼 Level: Entry-Level / Junior
+We’re looking for a proactive and technically driven Cloud Engineer to join our growing technology team. In this role, you will help design, deploy, and maintain cloud-based infrastructure and services. You’ll work closely with development, DevOps, and security teams to ensure scalable, reliable, and secure cloud environments. If you’re passionate about cloud technologies and eager to build hands-on experience, we’d love to hear from you!
+🎯 Key Responsibilities
+Assist in deploying and managing cloud infrastructure (e.g., AWS, Azure, or GCP).
+Monitor cloud systems to ensure performance, availability, and reliability.
+Support the implementation of CI/CD pipelines and automation workflows.
+Help manage cloud resources, including compute, storage, and networking.
+Troubleshoot infrastructure and deployment issues.
+Collaborate with development teams to support cloud-based applications.
+Implement basic security and compliance best practices.
+Document system configurations, processes, and procedures.
+✅ Requirements
+Basic understanding of cloud platforms (AWS, Azure, or Google Cloud).
+Knowledge of networking, operating systems (Linux/Windows), and virtualization.
+Familiarity with scripting or programming (e.g., Python, Bash) is a plus.
+Understanding of DevOps concepts and tools (e.g., Git, CI/CD) is advantageous.
+Strong problem-solving skills and willingness to learn.
+Good communication and teamwork abilities.
+Relevant coursework, certifications, or project experience is preferred.
+🌟 What We Offer
+A collaborative and innovative work environment.
+Hands-on experience with modern cloud technologies.
+Opportunities for career growth and certification support.
+Exposure to real-world infrastructure and scalable systems.
+Competitive salary and benefits package.
+Ongoing training and mentorship programs.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:53:16.314056
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Have you completed the following level of education: High School Diploma? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Cloud Engineer | HCC_Awareness_Campaign" job. Job ID: 4397804151 info
+
+-@-
+
+Trying to Apply to "Backend Software Engineer | SCG Midlands" job. Job ID: 4393035642
+HR info was not given for "Backend Software Engineer" with Job ID: 4393035642!
+
+About the job
+Location: Melton (Hybrid)
+
+Salary: Up to £50,000
+
+Working hours:09:00 – 17:30
+
+The purpose of this role is to solve complex business problems and technical challenges through the design and development of software applications and services. This role will contribute directly towards exciting technology opportunities in the public health sector; specifically in general practice.
+
+You will be responsible for building and maintaining critical components of our software infrastructure, ensuring high performance, reliability, and security. This role sits within the platform team.
+
+Responsibilities
+
+Design and Development
+
+Contribute towards the design, develop, and implement high-performance, scalable, and maintainable applications and services
+Develop APIs and other web services
+Work with databases (relational and NoSQL) to implement data models
+Contribute towards all phases of the software development lifecycle, from design and development through to testing, deployment and monitoring & alerting
+
+Technical Leadership
+
+Assist and unblock other members of the team where appropriate
+Conduct code reviews and provide constructive feedback
+Contribute towards the development of software engineering best practices and principles
+Participate in architectural and design discussions
+Stay abreast of the latest technologies and industry trends
+
+Problem-Solving
+
+Assist with the diagnosis and assessment of complex technical issues
+Identify and contribute towards solutions designed to improve service or component security, performance, scalability, and reliability
+
+Collaboration
+
+Work closely with frontend engineers, product managers, and other stakeholders
+Share ideas and prompt continuous improvement across the team
+
+Quality Assurance & Compliance
+
+Write unit tests and integration tests to ensure code quality
+Participate in code reviews and ensure adherence to coding standards
+Comply with the company's Health & Safety, Data Protection, Information Security, PCI & DSP policies and procedures.
+
+Essential
+
+Skills Required
+
+Knowledge of the product development lifecycle
+Considerable working experience with modern PHP including frameworks (e.g. Laravel)
+Source control (e.g. GitLab)
+Working experience with structured and unstructured databases (e.g. MySQL)
+Knowledge of or working experience with Message Queues (RabbitMQ) & event driven architecture
+Strong knowledge of software design patterns and object-oriented design principles
+Working experience of unit test frameworks and test automation
+
+Desired
+
+Strong expertise in Agile methodologies (e.g. Scrum / Kanban)
+DevOps tooling
+Node.js
+Healthcare industry experience (NHS)
+VOIP call handling
+
+Benefits
+
+25 Days Holiday plus an additional day for your birthday/equivalent
+Cycle to Work Scheme
+Winter Flu Jabs
+Free On-Site Parking
+Learning and development budget with Professional Qualification Support
+£1,000 employee referral bonus
+Social benefits (paid social events)
+Buy Holiday Scheme
+Employee Assistance Program
+Discount on Health Insurance
+Annual Salary Review
+Enhanced Company Sick Pay
+Monthly pizza in the office (Hybrid employees) / coffee voucher (Remote employees)
+SCG mobile benefit
+
+SCG is proud to be an equal opportunities employer.
+
+ We welcome applications from all parts of the community and are committed to upholding the principles of the Equality Act 2010.
+
+We are committed to supporting applicants with disabilities. We will endeavour to make necessary adjustments to ensure a fair and accessible recruitment process
+
+Contains bad word "PHP". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Junior Mobile App Developer (Entry-Level / Associate) | TEAM - Total Engine Asset Management" job. Job ID: 4397594422
+HR info was not given for "Junior Mobile App Developer (Entry-Level / Associate)" with Job ID: 4397594422!
+
+About the job
+📱 Junior Mobile App Developer (Entry-Level / Associate)
+📍 Location: Australia 🇦🇺
+ 🕒 Employment Type: Full-time / Part-time
+🌟 About the Role
+ We are seeking a passionate and motivated Junior Mobile App Developer to join our team 😊
+This role is ideal for recent graduates or early-career professionals looking to gain hands-on experience in mobile application development. You will work alongside experienced developers to build, test, and maintain mobile apps while learning modern tools and frameworks 🚀
+🛠️ Key Responsibilities
+Assist in developing and maintaining mobile applications (iOS and/or Android) 📱
+Write clean, efficient, and maintainable code
+Collaborate with designers, product managers, and developers 🤝
+Debug, test, and optimize application performance
+Participate in code reviews and team discussions
+Integrate APIs and third-party services
+Stay updated with mobile development trends and best practices
+✅ Requirements
+Basic knowledge of programming languages (e.g., Swift, Kotlin, Java, JavaScript)
+Understanding of mobile app development concepts and frameworks
+Familiarity with version control systems (e.g., Git)
+Strong problem-solving and analytical skills 🔍
+Ability to work independently and in a team environment
+Willingness to learn new technologies 🌱
+🎓 Qualifications
+Bachelor’s degree in Computer Science, Software Engineering, or related field (preferred)
+Internship, academic, or personal mobile app projects experience is a plus 🌟
+Familiarity with frameworks such as React Native or Flutter is advantageous
+💡 Why Join Us?
+Flexible work arrangements 🏡
+Supportive and collaborative team environment 😊
+Opportunities for mentorship and career growth
+Hands-on experience building real-world mobile applications
+Exposure to the full app development lifecycle
+📩 How to Apply
+ Submit your resume and include links to your GitHub, portfolio, or published apps (if any).
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-04 09:54:08.835737
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('mobile phone number', '9971108779', 'text', '9971108779'), ('Email address [  "Select an option", "simrankaur9jobs@gmail.com", ]', 'Yes', 'select', 'simrankaur9jobs@gmail.com'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'India (+91)')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Mobile App Developer (Entry-Level / Associate) | TEAM - Total Engine Asset Management" job. Job ID: 4397594422 info
+
+-@-
+
+Trying to Apply to "Manual QA Engineer - AI Trainer | DataAnnotation" job. Job ID: 4397385876
+HR info was not given for "Manual QA Engineer - AI Trainer" with Job ID: 4397385876!
+
+About the job
+Join the DataAnnotation team and contribute to developing cutting-edge AI systems, while enjoying the flexibility of remote work and setting your own schedule.
+
+We are looking for proficient programmers to help advance AI development. As a member of DataAnnotation’s coding team, you’ll be part of a growing community of over 100,000 professionals — including front-end, back-end, full-stack, machine learning, and other engineers — who are driving real-world impact in AI development.
+
+Our platform offers an engaging blend of flexibility and challenge: you’ll work closely with state-of the art AI models to take on programming tasks that include creating and solving challenging coding problems, building beautiful apps with rich functionality, and synthesizing insights through data analysis and visualization. Your work directly contributes to refining intelligent systems that learn, adapt, and evolve. Some team members fit this work alongside a full-time role, while others treat it as their primary focus, choosing projects and schedules that align with their availability and goals.
+
+To get started, once you sign up for an account, you'll take a short assessment (this serves as our version of an interview). If you pass that assessment, you’ll receive an email confirmation, and paid work will become available to you through our platform.
+
+Benefits
+
+Fully remote: work from anywhere in the US, Canada, UK, Ireland, Australia, and New Zealand.
+Flexible schedule: choose which projects you take on and when you work.
+Competitive pay: projects are paid hourly, up to $60 USD/hour. Opportunities for higher-paying projects are available with strong performance.
+Impact: help shape the future of AI technologies.
+
+Responsibilities
+
+Design and solve diverse coding problems used to train AI systems with an emphasis on Android development.
+Write clear, high-quality code snippets and detailed explanations.
+Evaluate AI-generated code for accuracy, performance, and clarity.
+Provide feedback that directly shapes the next generation of AI models.
+
+Qualifications
+
+Fluency in English (native or bilingual level).
+Preferred experience in Kotlin. Proficiency in at least one of other the following programming languages or frameworks: JavaScript, TypeScript, Python, C, C#, C++, React, Go, Java, or Swift.
+Excellent writing and grammar skills.
+A bachelor’s degree (completed or in progress).
+Previous experience as a Software Developer, Coder, Software Engineer, or Programmer is preferred.
+
+Note: Payment is made via PayPal. We will never ask for any money from you. PayPal will handle any currency conversions from USD. This job is only available to those in the US, Canada, UK, Ireland, Australia, and New Zealand. Those located outside of these countries will not see work or assessments available on our site at this time.
+
+#SWE
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Stopped manually by user.
+Total runs: 1
+Jobs Applied: 6
+External job links collected: 0
+Total processed outcomes: 6
+Failed jobs: 1
+Irrelevant jobs skipped: 1
+
+
+
+Total runs:                     1
+Jobs Applied:                   6
+External job links collected:   0
+                              ----------
+Total processed outcomes:       6
+
+Failed jobs:                    1
+Irrelevant jobs skipped:        1
+
+Stopped manually by user.
+
+All the best with your future interviews, you've got this. - Sai Vignesh Golla
+
+
+In this run, you saved approx 9 mins (550 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 6
+External job links collected: 0
+Total processed outcomes: 6
+Failed jobs: 1
+Irrelevant jobs skipped: 1
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 6, 'external_links_logged': 0, 'rows_written_to_applied_csv': 6, 'rows_missing_hr_profile': 3, 'failed_jobs': 1, 'skipped_jobs': 1, 'total_runs': 1, 'pipeline_mode': True}

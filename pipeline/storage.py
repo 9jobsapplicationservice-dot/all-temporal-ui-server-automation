@@ -1,0 +1,349 @@
+from __future__ import annotations
+
+import shutil
+import sqlite3
+import uuid
+from pathlib import Path
+
+from .manifest import write_manifest
+from .paths import PipelinePaths
+from .utils import recruiter_sendable_row_count, utc_now_iso
+
+
+CREATE_RUNS_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS runs (
+    id TEXT PRIMARY KEY,
+    status TEXT NOT NULL,
+    config_path TEXT,
+    run_dir TEXT NOT NULL,
+    applied_csv_path TEXT NOT NULL,
+    recruiters_csv_path TEXT NOT NULL,
+    send_report_path TEXT NOT NULL,
+    manifest_path TEXT NOT NULL,
+    log_dir TEXT NOT NULL,
+    linkedin_stdout_log TEXT NOT NULL,
+    linkedin_stderr_log TEXT NOT NULL,
+    rocketreach_stdout_log TEXT NOT NULL,
+    rocketreach_stderr_log TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    stage_started_at TEXT,
+    stage_finished_at TEXT,
+    retry_count INTEGER NOT NULL DEFAULT 0,
+    note TEXT,
+    last_error TEXT
+)
+"""
+
+
+class PipelineStore:
+    def __init__(self, root: str | Path | None = None) -> None:
+        self.paths = PipelinePaths.create(root)
+        self.paths.ensure_directories()
+        self._initialize()
+        self._migrate_existing_artifacts()
+
+    def _connect(self) -> sqlite3.Connection:
+        connection = sqlite3.connect(self.paths.database)
+        connection.row_factory = sqlite3.Row
+        return connection
+
+    def _initialize(self) -> None:
+        with self._connect() as connection:
+            connection.execute(CREATE_RUNS_TABLE_SQL)
+            connection.commit()
+
+    def _copy_config(self, run_paths, config_path: str | None) -> str:
+        if not config_path:
+            return ""
+
+        source_path = Path(config_path).expanduser().resolve()
+        if not source_path.exists():
+            raise FileNotFoundError(f"Config file not found: {source_path}")
+
+        target_path = self.paths.for_run(run_paths.run_id, source_path.name).config_copy_path
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_path, target_path)
+        return str(target_path)
+
+    def _reset_live_artifacts(self, run_paths) -> None:
+        for artifact_path in (
+            run_paths.applied_csv,
+            run_paths.recruiters_csv,
+            run_paths.failed_jobs_csv,
+        ):
+            artifact_path.parent.mkdir(parents=True, exist_ok=True)
+            artifact_path.unlink(missing_ok=True)
+
+    def _is_shared_live_record(self, record: dict) -> bool:
+        shared_paths = self.paths.for_run(record['id'])
+        return (
+            Path(record.get('run_dir') or '') == shared_paths.run_dir
+            and Path(record.get('applied_csv_path') or '') == shared_paths.applied_csv
+            and Path(record.get('recruiters_csv_path') or '') == shared_paths.recruiters_csv
+        )
+
+    def _holds_live_review_state(self, record: dict) -> bool:
+        status = record.get('status')
+        if status == 'waiting_review':
+            return recruiter_sendable_row_count(record.get('recruiters_csv_path') or '') > 0
+        return status in {'queued', 'linkedin_running', 'rocketreach_running', 'sending'}
+
+    def reset_live_artifacts_for_run(self, run_id: str) -> dict:
+        record = self.get_run(run_id)
+        config_name = Path(record['config_path']).name if record.get('config_path') else None
+        run_paths = self.paths.for_run(run_id, config_name)
+        run_paths.ensure_directories()
+        self._reset_live_artifacts(run_paths)
+        return self.get_run(run_id)
+
+    def get_active_live_run(self, exclude_run_id: str | None = None) -> dict | None:
+        active_statuses = ('queued', 'linkedin_running', 'rocketreach_running', 'waiting_review', 'sending')
+        placeholders = ', '.join('?' for _ in active_statuses)
+        params: list[object] = list(active_statuses)
+        query = f'SELECT * FROM runs WHERE status IN ({placeholders})'
+        if exclude_run_id:
+            query += ' AND id != ?'
+            params.append(exclude_run_id)
+        query += ' ORDER BY created_at ASC'
+
+        with self._connect() as connection:
+            rows = connection.execute(query, tuple(params)).fetchall()
+
+        for row in rows:
+            record = dict(row)
+            if self._is_shared_live_record(record) and self._holds_live_review_state(record):
+                return record
+        return None
+
+    def _move_path(self, source: Path, destination: Path) -> bool:
+        if not source.exists() or source.resolve() == destination.resolve():
+            return False
+
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if source.is_dir():
+            if destination.exists():
+                for child in source.iterdir():
+                    self._move_path(child, destination / child.name)
+                shutil.rmtree(source, ignore_errors=True)
+            else:
+                shutil.move(str(source), str(destination))
+            return True
+
+        if destination.exists():
+            source.unlink(missing_ok=True)
+            return True
+        shutil.move(str(source), str(destination))
+        return True
+
+    def _migrate_existing_artifacts(self) -> None:
+        records = self.list_runs()
+        if not records:
+            return
+
+        migrated_run_ids: list[str] = []
+        with self._connect() as connection:
+            try:
+                for record in records:
+                    config_name = Path(record['config_path']).name if record.get('config_path') else None
+                    run_paths = self.paths.for_run(record['id'], config_name)
+                    run_paths.ensure_directories()
+
+                    old_manifest = Path(record['manifest_path'])
+                    old_logs = Path(record['log_dir'])
+                    old_send_report = Path(record['send_report_path'])
+                    old_config = Path(record['config_path']) if record.get('config_path') else None
+                    old_failed_jobs = Path(record['run_dir']) / 'failed_jobs.csv'
+
+                    self._move_path(old_manifest, run_paths.manifest_json)
+                    self._move_path(old_logs, run_paths.logs_dir)
+                    self._move_path(old_send_report, run_paths.send_report_csv)
+                    self._move_path(old_failed_jobs, run_paths.failed_jobs_csv)
+                    if old_config is not None and old_config.exists():
+                        self._move_path(old_config, run_paths.config_copy_path)
+
+                    migrated_config_path = record.get('config_path') or ''
+                    if old_config is not None:
+                        if run_paths.config_copy_path.exists():
+                            migrated_config_path = str(run_paths.config_copy_path)
+                        elif old_config.exists():
+                            migrated_config_path = str(old_config)
+
+                    updates = {
+                        'config_path': migrated_config_path,
+                        'send_report_path': str(run_paths.send_report_csv),
+                        'manifest_path': str(run_paths.manifest_json),
+                        'log_dir': str(run_paths.logs_dir),
+                        'linkedin_stdout_log': str(run_paths.linkedin_stdout_log),
+                        'linkedin_stderr_log': str(run_paths.linkedin_stderr_log),
+                        'rocketreach_stdout_log': str(run_paths.rocketreach_stdout_log),
+                        'rocketreach_stderr_log': str(run_paths.rocketreach_stderr_log),
+                    }
+                    last_error = (record.get('last_error') or '').strip()
+                    if record.get('status') == 'failed' and (
+                        'PIPELINE_LINKEDIN_PYTHON' in last_error
+                        or 'LinkedIn runtime setup required.' in last_error
+                    ):
+                        updates['status'] = 'blocked_runtime'
+                        updates['note'] = 'LinkedIn runtime setup required.'
+                    if (
+                        record.get('status') == 'failed'
+                        and record.get('note') == 'LinkedIn stage completed with zero saved applied rows.'
+                        and record.get('last_error') == 'No confirmed Easy Apply submissions were written to applied_jobs.csv.'
+                    ):
+                        updates['status'] = 'completed'
+                        updates['note'] = 'LinkedIn stage completed with no confirmed Easy Apply submissions. Nothing was queued for enrichment.'
+                        updates['last_error'] = ''
+                    if (
+                        record.get('status') == 'waiting_review'
+                        and recruiter_sendable_row_count(record.get('recruiters_csv_path') or '') == 0
+                    ):
+                        updates['status'] = 'completed'
+                        updates['note'] = 'RocketReach enrichment completed with no sendable recruiter emails.'
+                    changed_updates = {
+                        column: value
+                        for column, value in updates.items()
+                        if record.get(column) != value
+                    }
+                    if not changed_updates:
+                        continue
+
+                    assignments = ', '.join(f"{column} = ?" for column in changed_updates)
+                    connection.execute(
+                        f"UPDATE runs SET {assignments} WHERE id = ?",
+                        tuple(changed_updates.values()) + (record['id'],),
+                    )
+                    migrated_run_ids.append(record['id'])
+
+                if migrated_run_ids:
+                    connection.commit()
+            except sqlite3.OperationalError as error:
+                if "readonly" in str(error).lower():
+                    return
+                raise
+
+        for run_id in migrated_run_ids:
+            write_manifest(self.get_run(run_id))
+
+    def create_run(self, run_id: str | None = None, config_path: str | None = None) -> dict:
+        created_run_id = run_id or f"run-{uuid.uuid4().hex[:12]}"
+        active_run = self.get_active_live_run()
+        if active_run is not None:
+            raise RuntimeError(
+                "A pipeline run is already active in the shared live folder. "
+                f"Finish or clear run {active_run['id']} before enqueueing another run."
+            )
+
+        config_name = Path(config_path).name if config_path else None
+        run_paths = self.paths.for_run(created_run_id, config_name)
+        run_paths.ensure_directories()
+        self._reset_live_artifacts(run_paths)
+
+        copied_config_path = self._copy_config(run_paths, config_path)
+
+        now = utc_now_iso()
+        payload = {
+            'id': created_run_id,
+            'status': 'queued',
+            'config_path': copied_config_path,
+            'run_dir': str(run_paths.run_dir),
+            'applied_csv_path': str(run_paths.applied_csv),
+            'recruiters_csv_path': str(run_paths.recruiters_csv),
+            'send_report_path': str(run_paths.send_report_csv),
+            'manifest_path': str(run_paths.manifest_json),
+            'log_dir': str(run_paths.logs_dir),
+            'linkedin_stdout_log': str(run_paths.linkedin_stdout_log),
+            'linkedin_stderr_log': str(run_paths.linkedin_stderr_log),
+            'rocketreach_stdout_log': str(run_paths.rocketreach_stdout_log),
+            'rocketreach_stderr_log': str(run_paths.rocketreach_stderr_log),
+            'created_at': now,
+            'updated_at': now,
+            'stage_started_at': '',
+            'stage_finished_at': '',
+            'retry_count': 0,
+            'note': 'Run enqueued.',
+            'last_error': '',
+        }
+
+        columns = ', '.join(payload.keys())
+        placeholders = ', '.join('?' for _ in payload)
+        with self._connect() as connection:
+            connection.execute(
+                f"INSERT INTO runs ({columns}) VALUES ({placeholders})",
+                tuple(payload.values()),
+            )
+            connection.commit()
+
+        record = self.get_run(created_run_id)
+        write_manifest(record)
+        return record
+
+    def get_run(self, run_id: str) -> dict:
+        with self._connect() as connection:
+            row = connection.execute(
+                'SELECT * FROM runs WHERE id = ?',
+                (run_id,),
+            ).fetchone()
+        if row is None:
+            raise KeyError(f"Run not found: {run_id}")
+        return dict(row)
+
+    def list_runs(self, limit: int | None = None) -> list[dict]:
+        query = 'SELECT * FROM runs ORDER BY created_at DESC'
+        params: tuple[object, ...] = ()
+        if limit is not None:
+            query += ' LIMIT ?'
+            params = (limit,)
+
+        with self._connect() as connection:
+            rows = connection.execute(query, params).fetchall()
+        return [dict(row) for row in rows]
+
+    def get_next_queued_run(self) -> dict | None:
+        with self._connect() as connection:
+            row = connection.execute(
+                "SELECT * FROM runs WHERE status = 'queued' ORDER BY created_at ASC LIMIT 1"
+            ).fetchone()
+        return dict(row) if row else None
+
+    def update_run(self, run_id: str, **changes) -> dict:
+        if not changes:
+            return self.get_run(run_id)
+
+        changes['updated_at'] = utc_now_iso()
+        assignments = ', '.join(f"{column} = ?" for column in changes)
+        values = list(changes.values())
+        values.append(run_id)
+
+        with self._connect() as connection:
+            connection.execute(
+                f"UPDATE runs SET {assignments} WHERE id = ?",
+                tuple(values),
+            )
+            connection.commit()
+
+        record = self.get_run(run_id)
+        write_manifest(record)
+        return record
+
+    def recover_interrupted_runs(self) -> list[dict]:
+        recovered: list[dict] = []
+        for record in self.list_runs():
+            status = record['status']
+            if status in {'linkedin_running', 'rocketreach_running'}:
+                recovered.append(
+                    self.update_run(
+                        record['id'],
+                        status='queued',
+                        note=f"Recovered interrupted {status} stage after restart.",
+                    )
+                )
+            elif status == 'sending':
+                recovered.append(
+                    self.update_run(
+                        record['id'],
+                        status='waiting_review',
+                        note='Recovered interrupted email send stage after restart.',
+                    )
+                )
+        return recovered

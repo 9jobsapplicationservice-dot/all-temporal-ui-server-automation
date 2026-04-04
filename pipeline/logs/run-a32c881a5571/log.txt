@@ -1,0 +1,188 @@
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:56576
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xd0cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0xd0cf24+10c34]
+	undetected_chromedriver!(No symbol) [0xaf1f5e]
+	undetected_chromedriver!(No symbol) [0xae5758]
+	undetected_chromedriver!(No symbol) [0xb2c472]
+	undetected_chromedriver!(No symbol) [0xb22785]
+	undetected_chromedriver!(No symbol) [0xb225a6]
+	undetected_chromedriver!(No symbol) [0xb69cbf]
+	undetected_chromedriver!(No symbol) [0xb694d7]
+	undetected_chromedriver!(No symbol) [0xb5d8a6]
+	undetected_chromedriver!(No symbol) [0xb30229]
+	undetected_chromedriver!(No symbol) [0xb30fe4]
+	undetected_chromedriver!GetHandleVerifier [0xf748b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0xf6feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0xf8e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0xd25cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0xd2d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0xd158c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0xd15a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0xcfee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x75fb7ba9+19]
+	ntdll!RtlInitializeExceptionChain [0x7783c3ab+6b]
+	ntdll!RtlClearBits [0x7783c32f+bf]
+
+2026-04-01 13:45:24.825507
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-01 13:45:34.591677
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-01 13:45:34.640419
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Engineer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Search Location input was not given!
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=146.0.7680.165)
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x50cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x50cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x2f2120]
+	undetected_chromedriver!(No symbol) [0x2d0c53]
+	undetected_chromedriver!(No symbol) [0x36431b]
+	undetected_chromedriver!(No symbol) [0x37a309]
+	undetected_chromedriver!(No symbol) [0x35d8a6]
+	undetected_chromedriver!(No symbol) [0x330229]
+	undetected_chromedriver!(No symbol) [0x330fe4]
+	undetected_chromedriver!GetHandleVerifier [0x7748b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x76feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x78e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x525cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x52d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5158c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x515a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x4fee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x75fb7ba9+19]
+	ntdll!RtlInitializeExceptionChain [0x7783c3ab+6b]
+	ntdll!RtlClearBits [0x7783c32f+bf]
+
+Browser window closed or session is invalid. Ending application process.
+Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=146.0.7680.165)
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x50cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x50cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x2f2120]
+	undetected_chromedriver!(No symbol) [0x2d0c53]
+	undetected_chromedriver!(No symbol) [0x36431b]
+	undetected_chromedriver!(No symbol) [0x37a309]
+	undetected_chromedriver!(No symbol) [0x35d8a6]
+	undetected_chromedriver!(No symbol) [0x330229]
+	undetected_chromedriver!(No symbol) [0x330fe4]
+	undetected_chromedriver!GetHandleVerifier [0x7748b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x76feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x78e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x525cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x52d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5158c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x515a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x4fee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x75fb7ba9+19]
+	ntdll!RtlInitializeExceptionChain [0x7783c3ab+6b]
+	ntdll!RtlClearBits [0x7783c32f+bf]
+
+Browser window closed or session became invalid. Ending bot session.
+Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=146.0.7680.165)
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x50cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x50cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x2f2120]
+	undetected_chromedriver!(No symbol) [0x2d0c53]
+	undetected_chromedriver!(No symbol) [0x36431b]
+	undetected_chromedriver!(No symbol) [0x37a309]
+	undetected_chromedriver!(No symbol) [0x35d8a6]
+	undetected_chromedriver!(No symbol) [0x330229]
+	undetected_chromedriver!(No symbol) [0x330fe4]
+	undetected_chromedriver!GetHandleVerifier [0x7748b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x76feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x78e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x525cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x52d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5158c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x515a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x4fee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x75fb7ba9+19]
+	ntdll!RtlInitializeExceptionChain [0x7783c3ab+6b]
+	ntdll!RtlClearBits [0x7783c32f+bf]
+
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Browser window closed or session became invalid.
+
+Keep up with the progress. You got this. - Sai Vignesh Golla
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}

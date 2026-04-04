@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "D:\Automation- Project\rocket_reach - testing\bulk_enrich.py", line 15, in <module>
+    stats = bulk_enrich(args.input, args.output)
+  File "D:\Automation- Project\rocket_reach - testing\rocketreach_bulk.py", line 1133, in bulk_enrich
+    csv_text, stats = process_csv_bytes(file_bytes, headers)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Automation- Project\rocket_reach - testing\rocketreach_bulk.py", line 838, in process_csv_bytes
+    result = lookup_then_search(hr_link, headers, row=row)
+  File "D:\Automation- Project\rocket_reach - testing\rocketreach_bulk.py", line 964, in lookup_then_search
+    raise_for_authentication_failure(lookup_status, lookup_raw)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Automation- Project\rocket_reach - testing\rocketreach_bulk.py", line 330, in raise_for_authentication_failure
+    raise RuntimeError(f'RocketReach authentication failed: {message}')
+RuntimeError: RocketReach authentication failed: Verify your email in order to use the full API

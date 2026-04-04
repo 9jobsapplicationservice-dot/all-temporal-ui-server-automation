@@ -1,0 +1,29 @@
+{
+  "run_id": "run-95ccf2065300",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-01T05:27:00+00:00",
+  "updated_at": "2026-04-01T05:27:05+00:00",
+  "stage_started_at": "2026-04-01T05:27:03+00:00",
+  "stage_finished_at": "2026-04-01T05:27:05+00:00",
+  "retry_count": 0,
+  "note": "LinkedIn stage failed.",
+  "last_error": "Command failed with exit code 3221225794: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-95ccf2065300.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-95ccf2065300.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

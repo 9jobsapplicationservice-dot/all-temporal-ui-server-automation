@@ -1,0 +1,29 @@
+{
+  "run_id": "run-6cf250112847",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-01T07:07:02+00:00",
+  "updated_at": "2026-04-01T07:16:17+00:00",
+  "stage_started_at": "2026-04-01T07:07:04+00:00",
+  "stage_finished_at": "2026-04-01T07:16:17+00:00",
+  "retry_count": 0,
+  "note": "LinkedIn stage failed.",
+  "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py\n\tundetected_chromedriver!(No symbol) [0xe2c472]\n\tundetected_chromedriver!(No symbol) [0xe22785]\n\tundetected_chromedriver!(No symbol) [0xe225a6]\n\tundetected_chromedriver!(No symbol) [0xe69cbf]\n\tundetected_chromedriver!(No symbol) [0xe694d7]\n\tundetected_chromedriver!(No symbol) [0xe5d8a6]\n\tundetected_chromedriver!(No symbol) [0xe30229]\n\tundetected_chromedriver!(No symbol) [0xe30fe4]\n\tundetected_chromedriver!GetHandleVerifier [0x12748b9+2785c9]\n\tundetected_chromedriver!GetHandleVerifier [0x126feb5+273bc5]\n\tundetected_chromedriver!GetHandleVerifier [0x128e06b+291d7b]\n\tundetected_chromedriver!GetHandleVerifier [0x1025cc8+299d8]\n\tundetected_chromedriver!GetHandleVerifier [0x102d9fd+3170d]\n\tundetected_chromedriver!GetHandleVerifier [0x10158c8+195d8]\n\tundetected_chromedriver!GetHandleVerifier [0x1015a92+197a2]\n\tundetected_chromedriver!GetHandleVerifier [0xffee9a+2baa]\n\tKERNEL32!BaseThreadInitThunk [0x76337ba9+19]\n\tntdll!RtlInitializeExceptionChain [0x7716c3ab+6b]\n\tntdll!RtlClearBits [0x7716c32f+bf]",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-6cf250112847",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-6cf250112847\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-6cf250112847\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-6cf250112847.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-6cf250112847.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-6cf250112847",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-6cf250112847\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-6cf250112847\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-6cf250112847\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-6cf250112847\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

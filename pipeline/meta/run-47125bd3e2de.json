@@ -1,0 +1,29 @@
+{
+  "run_id": "run-47125bd3e2de",
+  "status": "completed",
+  "config_path": "",
+  "created_at": "2026-04-02T07:39:57+00:00",
+  "updated_at": "2026-04-02T07:58:55+00:00",
+  "stage_started_at": "2026-04-02T07:58:29+00:00",
+  "stage_finished_at": "2026-04-02T07:58:55+00:00",
+  "retry_count": 0,
+  "note": "Email sending completed. sent=2 failed=0 | sent=2 | failed=0",
+  "last_error": "",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-47125bd3e2de.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-47125bd3e2de.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-47125bd3e2de",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-47125bd3e2de\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-47125bd3e2de\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-47125bd3e2de\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-47125bd3e2de\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": true,
+    "recruiters_csv_exists": true,
+    "send_report_exists": true
+  }
+}

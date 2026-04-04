@@ -1,0 +1,15 @@
+D:\Automation- Project\linkdin_automation\runAiBot.py:635: SyntaxWarning: 'return' in a 'finally' block
+  return jobDescription, experience_required, skip, skipReason, skipMessage
+[pipeline_entry] startup failure: No module named 'distutils'
+Traceback (most recent call last):
+  File "D:\Automation- Project\linkdin_automation\pipeline_entry.py", line 14, in <module>
+    from runAiBot import main
+  File "D:\Automation- Project\linkdin_automation\runAiBot.py", line 44, in <module>
+    from modules.open_chrome import *
+  File "D:\Automation- Project\linkdin_automation\modules\open_chrome.py", line 25, in <module>
+    import undetected_chromedriver as uc
+  File "C:\Users\USER\AppData\Roaming\Python\Python314\site-packages\undetected_chromedriver\__init__.py", line 44, in <module>
+    from .patcher import IS_POSIX
+  File "C:\Users\USER\AppData\Roaming\Python\Python314\site-packages\undetected_chromedriver\patcher.py", line 4, in <module>
+    from distutils.version import LooseVersion
+ModuleNotFoundError: No module named 'distutils'

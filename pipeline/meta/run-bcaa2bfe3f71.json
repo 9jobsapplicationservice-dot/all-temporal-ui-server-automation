@@ -1,0 +1,29 @@
+{
+  "run_id": "run-bcaa2bfe3f71",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-01T04:29:46+00:00",
+  "updated_at": "2026-04-01T05:18:03+00:00",
+  "stage_started_at": "2026-04-01T05:11:41+00:00",
+  "stage_finished_at": "2026-04-01T05:18:03+00:00",
+  "retry_count": 0,
+  "note": "LinkedIn stage failed.",
+  "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py\n    options, driver, actions, wait = createChromeSession(True)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\linkdin_automation\\modules\\open_chrome.py\", line 139, in createChromeSession\n    driver = _create_undetected_chrome(options)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\linkdin_automation\\modules\\open_chrome.py\", line 115, in _create_undetected_chrome\n    return uc.Chrome(options=options, version_main=version_main)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 466, in __init__\n    super(Chrome, self).__init__(\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\chrome\\webdriver.py\", line 45, in __init__\n    super().__init__(\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\chromium\\webdriver.py\", line 55, in __init__\n    self.service.start()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 110, in start\n    self.assert_process_still_running()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 123, in assert_process_still_running\n    raise WebDriverException(f\"Service {self._path} unexpectedly exited. Status code was: {return_code}\")\nselenium.common.exceptions.WebDriverException: Message: Service C:\\Users\\USER\\appdata\\roaming\\undetected_chromedriver\\undetected_chromedriver.exe unexpectedly exited. Status code was: 3221225794",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-bcaa2bfe3f71.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-bcaa2bfe3f71.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

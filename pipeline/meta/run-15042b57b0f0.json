@@ -1,0 +1,29 @@
+{
+  "run_id": "run-15042b57b0f0",
+  "status": "completed",
+  "config_path": "",
+  "created_at": "2026-04-02T05:19:22+00:00",
+  "updated_at": "2026-04-02T05:59:48+00:00",
+  "stage_started_at": "2026-04-02T05:47:59+00:00",
+  "stage_finished_at": "2026-04-02T05:59:48+00:00",
+  "retry_count": 0,
+  "note": "LinkedIn stage completed with no confirmed Easy Apply submissions. Nothing was queued for enrichment.",
+  "last_error": "",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-15042b57b0f0",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-15042b57b0f0\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-15042b57b0f0\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-15042b57b0f0.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-15042b57b0f0.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-15042b57b0f0",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-15042b57b0f0\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-15042b57b0f0\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-15042b57b0f0\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-15042b57b0f0\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

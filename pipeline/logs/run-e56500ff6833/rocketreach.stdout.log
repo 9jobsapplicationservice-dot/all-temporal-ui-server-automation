@@ -1,0 +1,12 @@
+{
+  "total": 4,
+  "matched": 0,
+  "failed": 4,
+  "skipped": 0,
+  "no_match": 0,
+  "missing_hr_link": 0,
+  "invalid_hr_link": 0,
+  "profile_only": 0,
+  "lookup_quota_reached": 4,
+  "sendable_rows": 0
+}
