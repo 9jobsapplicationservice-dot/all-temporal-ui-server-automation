@@ -1,0 +1,29 @@
+{
+  "run_id": "run-68582ea336b1",
+  "status": "linkedin_running",
+  "config_path": "",
+  "created_at": "2026-04-06T03:41:40+00:00",
+  "updated_at": "2026-04-06T03:41:43+00:00",
+  "stage_started_at": "2026-04-06T03:41:43+00:00",
+  "stage_finished_at": "",
+  "retry_count": 0,
+  "note": "Running LinkedIn job application stage.",
+  "last_error": "",
+  "paths": {
+    "run_dir": "D:\\Automation- Project\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-68582ea336b1.csv",
+    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-68582ea336b1.json",
+    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-68582ea336b1",
+    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-68582ea336b1\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-68582ea336b1\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-68582ea336b1\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-68582ea336b1\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

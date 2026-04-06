@@ -1,0 +1,274 @@
+Job ID,Job Link,Resume Tried,Date listed,Date Tried,Assumed Reason,Stack Trace,External Job link,Screenshot Name
+4394443281,https://www.linkedin.com/jobs/view/4394443281,Previous resume,2026-04-06 08:14:08.781052,2026-04-06 09:14:21.486630,Problem in Easy Applying,"Could not find Next, Review, or Submit Application in Easy Apply modal",Easy Applied,4394443281 - Unable to advance Easy Apply - 2026-04-06 09:14:19.538944.png
+4395244937,https://www.linkedin.com/jobs/view/4395244937,Pending,2026-04-04 09:18:12.011685,2026-04-06 09:18:13.202419,Probably didn't find Apply button or unable to switch tabs.,"Message: element click intercepted: Element <button role=""link"" aria-label=""Apply to Software Engineer - YAML Experience on company website"" id=""jobs-apply-button-id"" class=""jobs-apply-button
+         artdeco-button artdeco-button--icon-right artdeco-button--3 artdeco-button--primary ember-view"" data-live-test-job-apply-button="""">...</button> is not clickable at point (966, 66). Other element would receive the click: <button class=""artdeco-pill artdeco-pill--slate artdeco-pill--choice artdeco-pill--2 search-reusables__filter-pill-button
+       reusable-search-filter-trigger-and-dropdown__trigger"" id=""searchFilter_salaryBucketV2"" aria-controls=""artdeco-hoverable-artdeco-gen-83"" aria-expanded=""false"" aria-label=""Salary filter. Clicking this button displays all Salary filter options."" type=""button"">...</button>
+  (Session info: chrome=146.0.7680.178); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x69cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x69cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x482120]
+	undetected_chromedriver!(No symbol) [0x4d12b8]
+	undetected_chromedriver!(No symbol) [0x4cf4c9]
+	undetected_chromedriver!(No symbol) [0x4cce82]
+	undetected_chromedriver!(No symbol) [0x4cc094]
+	undetected_chromedriver!(No symbol) [0x4c1ca8]
+	undetected_chromedriver!(No symbol) [0x4edb0c]
+	undetected_chromedriver!(No symbol) [0x4c16e4]
+	undetected_chromedriver!(No symbol) [0x4edcd4]
+	undetected_chromedriver!(No symbol) [0x50a9a5]
+	undetected_chromedriver!(No symbol) [0x4ed8a6]
+	undetected_chromedriver!(No symbol) [0x4c0229]
+	undetected_chromedriver!(No symbol) [0x4c0fe4]
+	undetected_chromedriver!GetHandleVerifier [0x9048b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x8ffeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x91e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x6b5cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x6bd9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x6a58c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x6a5a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x68ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+",Easy Applied,Not Available
+4392472448,https://www.linkedin.com/jobs/view/4392472448,Pending,2026-04-02 09:18:26.182171,2026-04-06 09:18:26.233171,Required experience is high,"
+About the job
+About Zero to Claw
+Zero to Claw is a white-glove OpenClaw setup and automation service. We deploy security-hardened, production-ready OpenClaw AI agents for businesses. Our clients range from solo operators who want a tireless digital assistant to small teams who need agents handling email triage, meeting prep, CRM workflows, and cross-app automation.
+Our founders bring deep experience: Jake has led $100M+ in business transformation, and Daniel is a former Atlassian Engineer with 6+ years shipping Jira, Bitbucket, and Confluence to millions of users.
+
+The Role
+We need someone to help us deliver custom OpenClaw workflows for our clients and maintain their running instances. You'll be the person who takes a client's messy ""I want my AI to do X when Y happens"" request, figures out how to wire it up in OpenClaw, builds it, tests it, and makes sure it keeps running. You'll also handle troubleshooting when things break — a misconfigured MCP server, a flaky WhatsApp integration, a gateway auth issue, an agent that's burning through API credits. You'll be deploying, configuring, integrating, and debugging real systems for real clients on real deadlines.
+
+What you'll do
+Connect OpenClaw to client tools — Gmail, Notion, Slack, Jira, Salesforce, databases, and hundreds more
+Build custom workflows and skills when off-the-shelf integrations don't cut it
+Troubleshoot live client instances — broken integrations, runaway API costs, flaky messaging channels, agent misbehaviour
+Talk to clients, understand what they need, and translate that into working automation
+
+What will help you succeed
+Comfort in a terminal — SSH, config files, logs, basic server admin
+Some experience with any programming language — enough to read code, write scripts, and hit APIs
+Basic understanding of networking — ports, firewalls, DNS
+Familiarity with Docker
+Clear communication — you'll explain technical things to non-technical people regularly
+A bias toward figuring things out over waiting to be taught
+
+Bonus points
+You've played with OpenClaw, MCP, or any AI agent framework
+You've deployed something to a VPS or cloud instance before
+You know your way around monitoring tools (Langfuse, Grafana, etc.)
+You have opinions about LLMs, tokens, and model routing
+You've built a bot, a home server, a Raspberry Pi project, or anything that proves you like tinkering
+
+You don't need to tick every box. If you're curious, resourceful, and excited about AI agents — we'd rather hear from you than not.
+
+Why join us
+You'll get production experience with AI agents that most people only read about. You'll work directly with two founders — one from Atlassian engineering, one from enterprise strategy — who'll give you real responsibility from day one, not busywork. And you'll be joining at the ground floor of a company in one of the fastest-moving spaces in tech.
+
+To apply
+Send an email to join@zerotoclaw.ai with a short note about why this interests you, your resume/LinkedIn, and ideally one example of something technical you've built or deployed (a side project, a home server, a bot, anything that shows you can ship).
+
+Experience required 6 > Current Experience 5. Skipping this job!
+",Skipped,Not Available
+4393094573,https://www.linkedin.com/jobs/view/4393094573,Pending,2026-04-03 09:18:44.504981,2026-04-06 09:18:44.552980,Found a Bad Word in About Job,"
+About the job
+Design, build and improve web applications that matter.
+
+Join ACER’s Software Development team as a Front‑End Developer on a 6‑month fixed‑term, full‑time contract, collaborating on digital solutions that support education and research on a global scale.
+
+This role is aligned to a time‑sensitive project for a prominent Australian client, offering an exciting opportunity to contribute to innovative, high‑impact interactive assessment solutions.
+
+ABOUT ACER
+The Australian Council for Educational Research (ACER) is an international, independent, not‑for‑profit organisation committed to improving learning through world‑class research, assessments and digital innovation. With around 400 staff across Australia, India, Malaysia, the UAE and the UK, ACER delivers impactful educational solutions worldwide.
+Our Software Development team, within the Information Technology Division, works collaboratively across ACER to design, build and maintain high‑quality digital products that enable meaningful research and assessment programs.
+
+ABOUT THE ROLE
+We are looking for a mid‑level Front‑End Developer with strong JavaScript skills to support a critical project delivering interactive assessments.
+
+In this role, you will:
+Build interactive assessment modules based on established designs
+Contribute to solution design, development and quality assurance
+Take ownership of code quality, accessibility, security and maintainability
+Troubleshoot and resolve issues as they arise
+
+You’ll work closely with the Lead Software Engineer, Assessment Developers, UX Designers and Software Testers as part of a supportive, collaborative team.
+
+WHAT YOU'LL BRING
+
+Essential experience and skills:
+3+ years’ commercial experience in JavaScript front‑end/web development
+Strong object‑oriented design and development skills
+Experience developing high‑quality, interactive web interfaces
+Experience with PHP and/or Java in a commercial environment
+Solid database design and SQL knowledge
+Understanding of modern software development lifecycles and practices
+Ability to deliver to project timelines in a self‑managed way
+Clear communication skills and strong attention to detail
+
+Qualifications:
+Bachelor’s degree in Computer Science (or equivalent experience)
+
+ABOUT YOU
+You’re a capable and adaptable developer who enjoys working in a fixed‑term, project‑based role. You take pride in quality work, communicate clearly, and value collaboration within a technical team.
+
+WHY JOIN ACER?
+Purpose‑driven organisation with global impact
+Inclusive, collaborative and values‑led culture
+Opportunity to contribute to meaningful digital initiatives over a defined period
+
+HOW TO APPLY
+Be part of software development that supports better learning outcomes worldwide.
+👉 Apply via LinkedIn or view the full position description at:
+https://www.acer.org/au/about-us/careers
+
+Applications close: Thursday, 16 April 2026 at midnight (AEST)
+
+ACER is an equal opportunity employer committed to diversity, inclusion and accessibility. Aboriginal and/or Torres Strait Islander people are encouraged to apply. Adjustments can be requested at any stage of the recruitment process by contacting p&c@acer.org.
+
+Contains bad word ""PHP"". Skipping this job!
+",Skipped,Not Available
+4393408184,https://www.linkedin.com/jobs/view/4393408184,Pending,2026-04-03 09:19:54.278268,2026-04-06 09:19:54.344969,Found a Bad Word in About Job,"
+About the job
+Watch this ⤵️! Our Head of Engineering explains why we’re hiring for this role:
+https://www.loom.com/share/a138d9daba1649b58b2cc343b485a4b1
+
+About ProcurePro
+Mission > To save 1 BILLION construction admin hours.
+What we do > Our market leading technology helps major builders contract with their supply chain by consolidating fragmented and manual procurement processes into a single platform (currently solved by Word, Excel & email).
+Recent News: Funding → by Australia’s premier venture capital fund Airtree, recently raised $6.15m in 2023: https://shorturl.at/vUpBX
+2024 & 2025 LinkedIn Top Startups, https://tinyurl.com/y5eeucww
+Put on Unicorn watch list of QLDs startups, https://shorturl.at/53yWH
+Deloitte’s Tech Fast 50 in 2025 - https://tinyurl.com/4p7t72bn
+
+Values we live by
+Better people build better companies
+Whole arse it, with ruthless pragmatism
+Help the customer win
+(We’ll tell you more about these as discussions progress)
+
+Our Product-Led strategy
+We’re Founded by Developers and Designers (as well as domain experts) - technical excellence is in our DNA. This means:
+We spend time up front properly designing new work, testing with customers etc, whilst solving fun technical problems.
+We continually invest in testing/quality - we’ve written 10,000+ automated tests in the last 2 years, we're huge advocates for static analysis & type safety, and our infrastructure is automated with Terraform.
+Our entire team (including our CEO) is bought into this mindset, as we're reaping the rewards of shipping quality code, avoiding re-work & moving fast as a team.
+We're actively rebuilding our processes to be AI-native, not just AI-assisted, and we want engineers who wants to help shape this transition
+
+Our Tech Stack
+Backend is Symfony 6 + PHP 8
+Frontend is 100% Typescript + Aurelia
+Some AWS Lambda functions written in Typescript
+Dozens of different testing, code quality and static analysis tools
+Infrastructure is managed with Terraform on top of AWS
+You don't need experience in all of these technologies to succeed - we look for curious folks with growth mindsets and an interest to work with this stack.
+
+Key aspects of this role
+Ship quality features end-to-end > own work from shaping through to deployment and beyond, with tests written as part of the process, not bolted on after
+Be an active voice in design phase > contribute during the upfront design phase alongside developers, designers, the product lead, and users; your technical perspective should influence what gets built and how
+Use AI as a force multiplier > leverage AI tooling throughout your entire workflow, from investigation to implementation to review; the expectation is fluency, not occasional use
+Maintain and raise the quality bar > contribute to our testing culture, engage with static analysis and type safety tooling, and help us keep the codebase in a state we're proud of
+Help grow the team around you > work closely with junior developers, share context generously, and contribute to a culture where the whole team gets better
+Think critically, not just technically > push back on unclear requirements, ask why before writing code, and bring your judgment to product and architectural decisions, not just implementation
+
+You’re ideal for the role if you have…
+2+ years as a software engineer > ideally in a SaaS product environment where you've owned features end-to-end
+AI Native Fluency > you use AI tools throughout your entire workflow, not just when you're stuck; you can talk concretely about how you use them & where you apply judgment
+Modern frameworks > Experience/familiarity with modern Javascript/TypeScript frameworks (Vue / React / Angular / Aurelia) and/or modern PHP (Symfony / Laravel / CodeIgniter) - we expect some up-skilling/cross-skilling
+Quality-obsession > you're excited by test-driven development, static analysis, and building things properly; quality isn't a chore to you, it's how you work
+Enthusiastic problem solver > excited by solving technical challenges and building a product with a heavy focus on quality (test-driven development, infrastructure as code etc)
+Critical thinking skills > you challenge vague specs, understand the problem before reaching for a solution, and bring genuine reasoning to decisions
+Growth-oriented and mission-driven > you're hungry to improve, open to feedback, and want to grow with a scaling business; you thrive in a fast paced, ambiguous environment
+
+Our culture
+Remote First - work from anywhere in Australia - we were remote-first before Covid, have established processes around collaboration/culture to ensure inclusiveness & engagement.
+Socials - We have regular online social events, quarterly in person socials & hold annual off-sites in person.
+Team First - we’re close knit, highly collaborative, actively help each other succeed (knowledge sharing, training) to develop our teams’ capabilities
+High Expectations - we’re self motivated, embrace velocity as our greatest advantage, take pride in what we do and push to reach our potential.
+Radical Transparency - we believe in flat structures & sharing knowledge, everyone is privy to what happens day-to-day and nothing is hidden (i.e. company strategy, finances & all).
+Extra Leave Days - A day off for your Birthday and an extra day off before Christmas
+
+Compensation
+$100k-120k + Super (salary based on experience)
+Computer equipment allowance to ensure you have everything you need to be successful working remotely
+
+How to apply
+Hit Apply and fill out the form with your information, CV and answer to the question ""Why do you want to work for ProcurePro?”
+
+What happens next
+Shortlisted applicants will have an introductory call [20 mins]
+You’ll receive a short assessment to complete [~ 2 hours]
+Assessment presentation and discussion call [~1.5 hour]
+If successful, we will check references & make you an offer!
+
+Extras:
+All our interviews are recorded and shared internally with the CEO and hiring manager. We do this so that our team can make better decisions.
+Applications are reviewed on a rolling basis, so speed is key. The sooner you apply, the better!
+If you love the sound of working for us and the role described but the title/salary doesn’t align to your experience, please don’t let that stop you applying. We celebrate diversity and we want people of all genders, races, ages, backgrounds, beliefs, and life experiences to join our team.
+We complete police checks or the equivalent once you join as part of our SOC2 compliance requirements.
+We cannot sponsor visas. You must be based in the country of the advertised role and have the right to work independently. Otherwise, we cannot proceed with your application. Yes, we are remote, but we can only employ in the country advertised.
+
+Contains bad word ""PHP"". Skipping this job!
+",Skipped,Not Available
+4394447151,https://www.linkedin.com/jobs/view/4394447151,Pending,2026-04-06 07:20:03.633543,2026-04-06 09:20:09.007535,Probably didn't find Apply button or unable to switch tabs.,"Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x69cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x69cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x482120]
+	undetected_chromedriver!(No symbol) [0x4cabca]
+	undetected_chromedriver!(No symbol) [0x4cae6b]
+	undetected_chromedriver!(No symbol) [0x50d0b2]
+	undetected_chromedriver!(No symbol) [0x4edb54]
+	undetected_chromedriver!(No symbol) [0x50a9a5]
+	undetected_chromedriver!(No symbol) [0x4ed8a6]
+	undetected_chromedriver!(No symbol) [0x4c0229]
+	undetected_chromedriver!(No symbol) [0x4c0fe4]
+	undetected_chromedriver!GetHandleVerifier [0x9048b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x8ffeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x91e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x6b5cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x6bd9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x6a58c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x6a5a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x68ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+",Easy Applied,Not Available
+4393079915,https://www.linkedin.com/jobs/view/4393079915,Pending,2026-04-03 09:21:03.634266,2026-04-06 09:21:03.666266,Found a Bad Word in About Job,"
+About the job
+Our client is currently seeking experienced Python Developer to support a federal government program delivering a complex data management system used across international partners. This role will focus on the ongoing development, enhancement, and support of a web-based platform managing meteorological and ocean data.
+
+You will work within a collaborative team environment, contributing to system development, cloud deployment, technical documentation, and stakeholder engagement across both local and international users.
+
+Accountabilities and Responsibilities:
+Design, develop, and maintain a web-based data management system across the full stack
+Manage the end-to-end software development lifecycle, including design, build, testing, deployment, and support
+Work with technologies including Python, PostgreSQL, JavaScript, and PHP
+Support deployment and maintenance across on-premise and AWS cloud environments
+Develop and maintain technical documentation and training materials
+Deliver training and provide support to technical and non-technical users
+Collaborate with internal teams and international stakeholders to enhance system capabilities
+Support data ingestion, validation, and quality assurance processes
+
+ Skills and experience we are looking for:
+Strong experience as a Full-Stack Developer within web-based application environments
+Proficiency in Linux (Ubuntu), PostgreSQL, Python, HTML/PHP, and JavaScript
+Experience working with cloud platforms, particularly AWS
+Experience across the full software development lifecycle in complex environments
+Strong problem-solving skills and ability to work autonomously
+Excellent communication skills with the ability to engage with a broad range of stakeholders
+Must be an Australian Citizen to be considered.
+
+ Highly regarded:
+Experience working with data-intensive systems or scientific/environmental datasets
+Experience developing training materials and delivering technical training
+Exposure to government or international program environments
+Willingness and ability to undertake short-term international travel
+If you would like to know more, please contact Milly Kerei-Keepa on 0476865411/milly.kerei-keepa@talentinternational.com or hit Apply Now
+
+Contains bad word ""PHP"". Skipping this job!
+",Skipped,Not Available
+4397426052,https://www.linkedin.com/jobs/view/4397426052,Previous resume,2026-04-04 09:23:45.839446,2026-04-06 09:23:57.708732,Problem in Easy Applying,"Could not find Next, Review, or Submit Application in Easy Apply modal",Easy Applied,4397426052 - Unable to advance Easy Apply - 2026-04-06 09:23:55.994594.png
+4397898660,https://www.linkedin.com/jobs/view/4397898660,Previous resume,2026-04-06 06:24:05.604982,2026-04-06 09:24:53.475921,Problem in Easy Applying,Application was not confirmed as submitted,Easy Applied,Not Available
+4397904714,https://www.linkedin.com/jobs/view/4397904714,Previous resume,2026-04-06 08:25:03.013868,2026-04-06 09:25:07.903131,Problem in Easy Applying,Easy Apply modal did not open,Easy Applied,Not Available
