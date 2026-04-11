@@ -7,20 +7,40 @@
   "stage_started_at": "2026-04-01T05:11:41+00:00",
   "stage_finished_at": "2026-04-01T05:18:03+00:00",
   "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
   "note": "LinkedIn stage failed.",
   "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py\n    options, driver, actions, wait = createChromeSession(True)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\linkdin_automation\\modules\\open_chrome.py\", line 139, in createChromeSession\n    driver = _create_undetected_chrome(options)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\linkdin_automation\\modules\\open_chrome.py\", line 115, in _create_undetected_chrome\n    return uc.Chrome(options=options, version_main=version_main)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 466, in __init__\n    super(Chrome, self).__init__(\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\chrome\\webdriver.py\", line 45, in __init__\n    super().__init__(\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\chromium\\webdriver.py\", line 55, in __init__\n    self.service.start()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 110, in start\n    self.assert_process_still_running()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 123, in assert_process_still_running\n    raise WebDriverException(f\"Service {self._path} unexpectedly exited. Status code was: {return_code}\")\nselenium.common.exceptions.WebDriverException: Message: Service C:\\Users\\USER\\appdata\\roaming\\undetected_chromedriver\\undetected_chromedriver.exe unexpectedly exited. Status code was: 3221225794",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "sender_name": "9jobsapplicationservice",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "9jobsapplicationservice@gmail.com",
+      "from": "9jobsapplicationservice@gmail.com"
+    }
+  },
   "paths": {
-    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71",
-    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-bcaa2bfe3f71\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-bcaa2bfe3f71.csv",
-    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-bcaa2bfe3f71.json",
-    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71",
-    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stderr.log"
+    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-bcaa2bfe3f71.csv",
+    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-bcaa2bfe3f71.json",
+    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-bcaa2bfe3f71",
+    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-bcaa2bfe3f71\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-bcaa2bfe3f71\\rocketreach.stderr.log"
   },
   "artifacts": {
     "applied_csv_exists": false,

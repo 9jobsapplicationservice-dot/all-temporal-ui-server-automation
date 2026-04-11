@@ -1,0 +1,145 @@
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+igure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+Please login manually.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Please login manually.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Please login manually.
+Launching Chrome using stable Selenium Chrome with default profile.
+Chrome launch attempt failed, trying next Chrome startup fallback
+first stable launch failed
+2026-04-11 10:18:51.481140
+Launching Chrome using stable Selenium Chrome with guest profile.
+The CSV file 'all excels/all_applied_applications_history.csv' does not exist.
+Trying target job "Backend Engineer | Acme". Job ID: 123456789
+HR info was not given for "Backend Engineer" with Job ID: 123456789!
+Target job "Backend Engineer | Acme" does not expose an Easy Apply button on the page. Skipping without crash.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+
+########################################################################################################################
+
+Date and Time: 2026-04-11 10:18:51.965312
+Cycle number: 1
+Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
+########################################################################################################################
+
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Please login manually.
+Launching Chrome using stable Selenium Chrome with default profile.
+Chrome launch attempt failed, trying next Chrome startup fallback
+first stable launch failed
+2026-04-11 10:18:52.267532
+Launching Chrome using stable Selenium Chrome with guest profile.
+The CSV file 'all excels/all_applied_applications_history.csv' does not exist.
+Trying target job "Backend Engineer | Acme". Job ID: 123456789
+HR info was not given for "Backend Engineer" with Job ID: 123456789!
+Target job "Backend Engineer | Acme" does not expose an Easy Apply button on the page. Skipping without crash.
+
+########################################################################################################################
+
+Date and Time: 2026-04-11 10:18:52.574061
+Cycle number: 1
+Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
+########################################################################################################################
+
+Pipeline mode detected. Waiting for manual LinkedIn login in the opened Chrome window. The bot will keep checking for up to 10 seconds.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+ form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+ session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Please login manually.
+Launching Chrome using stable Selenium Chrome with default profile.
+Chrome launch attempt failed, trying next Chrome startup fallback
+first stable launch failed
+2026-04-11 10:22:01.793041
+Launching Chrome using stable Selenium Chrome with guest profile.
+The CSV file 'all excels/all_applied_applications_history.csv' does not exist.
+Trying target job "Backend Engineer | Acme". Job ID: 123456789
+HR info was not given for "Backend Engineer" with Job ID: 123456789!
+Target job "Backend Engineer | Acme" does not expose an Easy Apply button on the page. Skipping without crash.
+
+########################################################################################################################
+
+Date and Time: 2026-04-11 10:22:02.084855
+Cycle number: 1
+Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
+########################################################################################################################
+
+Pipeline mode detected. Waiting for manual LinkedIn login in the opened Chrome window. The bot will keep checking for up to 10 seconds.
+Manual LinkedIn login detected. Continuing automation.
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+Please login manually.
+Launching Chrome using stable Selenium Chrome with default profile.
+Chrome launch attempt failed, trying next Chrome startup fallback
+first stable launch failed
+2026-04-11 10:22:12.783112
+Launching Chrome using stable Selenium Chrome with guest profile.
+The CSV file 'all excels/all_applied_applications_history.csv' does not exist.
+Trying target job "Backend Engineer | Acme". Job ID: 123456789
+HR info was not given for "Backend Engineer" with Job ID: 123456789!
+Target job "Backend Engineer | Acme" does not expose an Easy Apply button on the page. Skipping without crash.
+
+########################################################################################################################
+
+Date and Time: 2026-04-11 10:22:13.110852
+Cycle number: 1
+Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
+########################################################################################################################
+

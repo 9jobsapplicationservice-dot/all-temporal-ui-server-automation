@@ -1,0 +1,105 @@
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7e7a729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff7e779a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff7e74fdb2d]
+	chromedriver!(No symbol) [0x7ff7e753e742]
+	chromedriver!(No symbol) [0x7ff7e75397a1]
+	chromedriver!(No symbol) [0x7ff7e758dc51]
+	chromedriver!(No symbol) [0x7ff7e758d4b6]
+	chromedriver!(No symbol) [0x7ff7e7549298]
+	chromedriver!(No symbol) [0x7ff7e754a183]
+	chromedriver!GetHandleVerifier [0x7ff7e7a9de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff7e7a98588+313348]
+	chromedriver!GetHandleVerifier [0x7ff7e7ab9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff7e77b6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff7e77bfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff7e77a3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff7e77a37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff7e7787e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff92a767374+14]
+	ntdll!RtlUserThreadStart [0x7ff92badcc91+21]
+
+2026-04-11 12:18:35.701255
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+Pipeline mode detected. Waiting for manual LinkedIn login in the opened Chrome window. The bot will keep checking for up to 180 seconds.
+Browser window closed or session became invalid. Ending bot session.
+Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=146.0.7680.180); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7e7a729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff7e779a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff7e74fdb2d]
+	chromedriver!(No symbol) [0x7ff7e74e8ca2]
+	chromedriver!(No symbol) [0x7ff7e750f416]
+	chromedriver!(No symbol) [0x7ff7e75870e0]
+	chromedriver!(No symbol) [0x7ff7e75a3482]
+	chromedriver!(No symbol) [0x7ff7e7549298]
+	chromedriver!(No symbol) [0x7ff7e754a183]
+	chromedriver!GetHandleVerifier [0x7ff7e7a9de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff7e7a98588+313348]
+	chromedriver!GetHandleVerifier [0x7ff7e7ab9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff7e77b6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff7e77bfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff7e77a3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff7e77a37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff7e7787e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff92a767374+14]
+	ntdll!RtlUserThreadStart [0x7ff92badcc91+21]
+
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Browser window closed or session became invalid.
+
+Obstacles are those frightful things you see when you take your eyes off your goal. - Henry Ford (Not a sponsor)
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}

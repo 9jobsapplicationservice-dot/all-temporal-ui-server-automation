@@ -1,0 +1,562 @@
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7e7a729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff7e779a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff7e74fdb2d]
+	chromedriver!(No symbol) [0x7ff7e753e742]
+	chromedriver!(No symbol) [0x7ff7e75397a1]
+	chromedriver!(No symbol) [0x7ff7e758dc51]
+	chromedriver!(No symbol) [0x7ff7e758d4b6]
+	chromedriver!(No symbol) [0x7ff7e7549298]
+	chromedriver!(No symbol) [0x7ff7e754a183]
+	chromedriver!GetHandleVerifier [0x7ff7e7a9de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff7e7a98588+313348]
+	chromedriver!GetHandleVerifier [0x7ff7e7ab9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff7e77b6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff7e77bfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff7e77a3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff7e77a37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff7e7787e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff92a767374+14]
+	ntdll!RtlUserThreadStart [0x7ff92badcc91+21]
+
+2026-04-11 12:22:47.233113
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-11 12:22:56.252443
+Extracted about company info for AI: 'Sumedha'
+
+########################################################################################################################
+
+Date and Time: 2026-04-11 12:22:56.298714
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by 'Most recent'
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Trying to Apply to "Customer Relationship Management Analyst | Victoria Racing Club" job. Job ID: 4390413237
+HR info was not given for "Customer Relationship Management Analyst" with Job ID: 4390413237!
+
+About the job
+Join the Team Behind Australia’s Greatest Racing Carnival!
+
+Are you passionate about using data to shape meaningful customer experiences? Do you thrive in fast‑paced environments where insights drive strategy and impact? We’re looking for a curious, analytical and collaborative CRM Analyst to help us deliver world‑class experiences for members, guests and the broader community at the Victoria Racing Club.
+
+At the VRC, we’re not just about race days — we’re about building memorable, personalised moments that deepen engagement and bring joy year‑round.
+
+About the Opportunity
+We’re seeking a data‑driven CRM Analyst to support the execution of our customer and member strategy through high‑quality analysis, insights and CRM operational excellence.
+In this role, you will transform member and customer data into actionable insights, support targeted and effective communication campaigns, and contribute to a more personalised, customer‑led approach across the Club.
+
+You’ll work closely with Membership, Marketing, Events, Digital and Commercial teams to optimise journeys, segment audiences, improve lifecycle communication and uncover opportunities that drive engagement, retention and long‑term value.
+
+If you love turning data into stories, solving problems, and elevating customer experiences through insight — this role is for you.
+
+What you'll be responsible for
+
+Customer & Member Insights
+Analysing customer behaviour, lifecycle stages and engagement patterns.
+Building and maintaining segmentation models to support personalised experiences.
+Identifying opportunities to improve acquisition, retention, engagement and lifetime value.
+Providing reporting and insights that support operational and strategic decision making.
+Campaign Support
+Supporting the execution of targeted communications for members and customers.
+Building segmented audience lists based on triggers, behaviour and lifecycle stages.
+Ensuring communications align with tone, objectives and audience needs.
+Assisting with major event‑related communications, including the Melbourne Cup Carnival.
+Enablement & Operations
+Maintaining CRM workflows, data fields, automations and campaign setup.
+Optimising personalised journeys, lifecycle triggers and renewal programs.
+Partnering with Digital and IT to resolve issues and validate data accuracy.
+Monitoring campaign performance and advising on improvements.
+Data Visualisation & Reporting
+Creating dashboards and reports to visualise customer trends, funnels and behaviours.
+Tracking lifecycle activity, churn indicators and engagement metrics.
+Delivering insights that highlight risks, opportunities and business impact.
+Data Governance & Integrity
+Ensuring data quality and compliance with privacy requirements.
+Supporting the maintenance of a single customer view.
+Contributing to best‑practice data capture and usage workflows.
+Cross‑Department Integration
+Collaborating with Membership, Marketing, Events and Commercial teams to embed insights into planning and execution.
+Supporting major event strategies, targeting and member growth initiatives.
+Enhancing acquisition, retargeting and lookalike modelling using customer data.
+Capability, Process & Adoption
+Supporting uplift in CRM capability and data literacy across teams.
+Contributing to documentation, training materials and process improvement.
+Championing accurate data entry, structured workflows and customer‑first thinking.
+
+
+What your background includes
+Experience with CRM systems, customer data, segmentation or marketing automation.
+Strong analytical skills with the ability to interpret and communicate insights.
+Understanding of customer lifecycle stages and behavioural drivers.
+Competence with reporting and visualisation tools (e.g., dashboards, analytics platforms).
+Ability to work collaboratively with cross‑functional teams.
+Commitment to data governance, structured processes and accuracy.
+A proactive, curious and problem‑solving mindset.
+
+About You
+You’re an analytical thinker who brings curiosity, structure and a passion for understanding customer behaviour.
+
+You enjoy problem solving and translating complex data into clear, actionable insights that support great decision making.
+
+You communicate with clarity, collaborate naturally across teams, and take pride in delivering high‑quality work that supports a best‑in‑class member experience.
+Highly organised and proactive, you bring a continuous‑improvement mindset and a commitment to data integrity.
+
+Why Join the Club
+Be part of delivering one of Australia’s most iconic cultural and sporting events.
+Work with a passionate and supportive team dedicated to excellence.
+Make a measurable impact on membership growth, engagement and customer experience.
+Gain exposure to large‑scale event communications and high‑value customer strategies.
+Help shape the future of how the VRC connects with members and racegoers.
+
+How to Apply
+When submitting your application, please include your résumé and any other supporting documents.
+
+You must have the legal right to work in Australia.
+Appointment to the role is subject to meeting the Victoria Racing Club’s employment requirements, which may include (but are not limited to) reference checks, a VEVO check, and a National Criminal History Check.
+Only shortlisted candidates will be contacted.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Business Analyst (Voice) | FR Consultancy" job. Job ID: 4397747637
+
+About the job
+Role: Business Analyst (Voice)
+Type: Full time – Perm / Contract
+Location: Sydney, AU
+Status: Valid visa with full working rights
+
+Must Skills: Business Analysis, Omni Channel Journeys, Process Mapping, User Stories, Jira, Backlog Management, Contact Centre, CX Platforms, Data Analysis, Stakeholder Management
+Experience: 6+ years
+
+Requisites:
+Strong experience in process mapping and omni-channel journeys, including messaging, escalation, and handoff flows.
+Ability to create detailed user stories and acceptance criteria for conversational and asynchronous journeys.
+Act as a bridge between business and technology, translating requirements into technical and integration solutions.
+Experience in backlog refinement, prioritisation, and dependency management using Jira.
+Ability to represent customer, banker, and system perspectives in solution design.
+Analyse performance metrics and engagement data to drive continuous improvement.
+Gather, validate, and manage divisional requirements, sign-offs, and transition support.
+Strong communication, stakeholder management, and collaboration skills.
+Nice to Have:
+Contact centre / CX platform experience.
+Exposure to change management, training, and transition support.
+Experience with data analytics and reporting tools.
+Financial services domain experience.
+
+Interested? Please apply, thanks for your interest and time.
+To read about our privacy policy Link
+
+Experience required 6 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Business Intelligence Analyst | VGW" job. Job ID: 4392756353
+HR info was not given for "Business Intelligence Analyst" with Job ID: 4392756353!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-11 12:23:24.413214
+Extracted skills using gemini AI
+Easy apply failed I guess!
+
+-@-
+
+Already applied to "Business Analyst (Power BI) | NTT DATA" job. Job ID: 4389323603!
+
+-@-
+
+Already applied to "Business Analyst | Slater and Gordon Lawyers" job. Job ID: 4382826364!
+
+-@-
+
+Trying to Apply to "Business Analyst | QIX Consulting" job. Job ID: 4398339571
+
+About the job
+Maximo Migration Business Analyst / Lead BA
+Melbourne | Contract (3–6 Months) | Immediate Start
+
+Join a high-impact transformation project supporting the migration of a critical asset management platform within a complex, asset-intensive environment.
+
+The Opportunity
+We’re partnering with a well-established organisation undertaking a major Maximo migration and redeployment program.
+
+We are hiring for two positions:
+Business Analyst
+Lead Business Analyst
+
+Both roles will play a key part in ensuring business, operational, reporting, and integration requirements are clearly defined, validated, and traceable across the program.
+You’ll be supporting a controlled migration, helping minimise operational risk while maintaining strong business continuity across asset and maintenance functions.
+
+Key Responsibilities
+Engage stakeholders to elicit, document, and validate requirements
+Map As-Is and To-Be processes across asset and maintenance workflows
+Ensure requirements traceability across the full project lifecycle
+Define and support integration requirements between Maximo and enterprise systems
+Work closely with delivery and technical teams to ensure accurate implementation
+Support UAT planning, execution, and validation
+Identify and manage risks, gaps, and dependencies
+
+Additional for Lead BA:
+Provide leadership and oversight across BA activities
+Drive workshops and stakeholder alignment across business units
+Ensure consistency in documentation standards and delivery approach
+Act as a key liaison between business, delivery, and senior stakeholders
+
+What We’re Looking For
+Proven experience as a Business Analyst on system migration or transformation projects
+Exposure to IBM Maximo or similar EAM platforms (e.g. SAP PM, Infor EAM)
+Strong understanding of asset management and maintenance processes
+Experience within asset-intensive environments (utilities, transport, infrastructure, mining, or manufacturing)
+Someone who is good with numbers, mathematics and algorithms. 
+Strong stakeholder engagement and communication skills
+Experience with process mapping, requirements documentation, and traceability
+Experience supporting testing and implementation phases
+
+Nice to Have
+Experience in integration-heavy environments
+Exposure to data migration activities
+Familiarity with compliance, safety, or operational reporting frameworks
+
+Why Apply
+Immediate start on a high-impact transformation program
+Opportunity to step into either a BA or Lead BA capacity
+Collaborative delivery environment with strong stakeholder exposure
+
+Sterk Advisory Pty Ltd trading as QIX Consulting Group is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-11 12:23:30.646661
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('how many years of work experience do you have with sap products?', '0', 'text', '0'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>'), ('how many years of work experience do you have with sap erp?', '2', 'text', '2'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Skipping applied-history save for "Business Analyst | QIX Consulting" because the application was not confirmed submitted.
+
+-@-
+
+Already applied to "Senior Data Analyst | Nixil" job. Job ID: 4386802160!
+
+-@-
+
+Trying to Apply to "Senior BI Developer - Power BI | DWS" job. Job ID: 4400359697
+
+About the job
+Maximo Migration Business Analyst / Lead BA
+Melbourne | Contract (3–6 Months) | Immediate Start
+
+Join a high-impact transformation project supporting the migration of a critical asset management platform within a complex, asset-intensive environment.
+
+The Opportunity
+We’re partnering with a well-established organisation undertaking a major Maximo migration and redeployment program.
+
+We are hiring for two positions:
+Business Analyst
+Lead Business Analyst
+
+Both roles will play a key part in ensuring business, operational, reporting, and integration requirements are clearly defined, validated, and traceable across the program.
+You’ll be supporting a controlled migration, helping minimise operational risk while maintaining strong business continuity across asset and maintenance functions.
+
+Key Responsibilities
+Engage stakeholders to elicit, document, and validate requirements
+Map As-Is and To-Be processes across asset and maintenance workflows
+Ensure requirements traceability across the full project lifecycle
+Define and support integration requirements between Maximo and enterprise systems
+Work closely with delivery and technical teams to ensure accurate implementation
+Support UAT planning, execution, and validation
+Identify and manage risks, gaps, and dependencies
+
+Additional for Lead BA:
+Provide leadership and oversight across BA activities
+Drive workshops and stakeholder alignment across business units
+Ensure consistency in documentation standards and delivery approach
+Act as a key liaison between business, delivery, and senior stakeholders
+
+What We’re Looking For
+Proven experience as a Business Analyst on system migration or transformation projects
+Exposure to IBM Maximo or similar EAM platforms (e.g. SAP PM, Infor EAM)
+Strong understanding of asset management and maintenance processes
+Experience within asset-intensive environments (utilities, transport, infrastructure, mining, or manufacturing)
+Someone who is good with numbers, mathematics and algorithms. 
+Strong stakeholder engagement and communication skills
+Experience with process mapping, requirements documentation, and traceability
+Experience supporting testing and implementation phases
+
+Nice to Have
+Experience in integration-heavy environments
+Exposure to data migration activities
+Familiarity with compliance, safety, or operational reporting frameworks
+
+Why Apply
+Immediate start on a high-impact transformation program
+Opportunity to step into either a BA or Lead BA capacity
+Collaborative delivery environment with strong stakeholder exposure
+
+Sterk Advisory Pty Ltd trading as QIX Consulting Group is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-11 12:24:22.410025
+Extracted skills using gemini AI
+Easy apply failed I guess!
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=146.0.7680.180); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7e7a729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff7e779a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff7e74fdb2d]
+	chromedriver!(No symbol) [0x7ff7e7505ab1]
+	chromedriver!(No symbol) [0x7ff7e7508bc5]
+	chromedriver!(No symbol) [0x7ff7e7508c8f]
+	chromedriver!(No symbol) [0x7ff7e755631e]
+	chromedriver!(No symbol) [0x7ff7e7556eac]
+	chromedriver!(No symbol) [0x7ff7e754ab5c]
+	chromedriver!(No symbol) [0x7ff7e754aa06]
+	chromedriver!(No symbol) [0x7ff7e75a3b9b]
+	chromedriver!(No symbol) [0x7ff7e7549298]
+	chromedriver!(No symbol) [0x7ff7e754a183]
+	chromedriver!GetHandleVerifier [0x7ff7e7a9de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff7e7a98588+313348]
+	chromedriver!GetHandleVerifier [0x7ff7e7ab9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff7e77b6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff7e77bfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff7e77a3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff7e77a37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff7e7787e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff92a767374+14]
+	ntdll!RtlUserThreadStart [0x7ff92badcc91+21]
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Business Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Click Failed! Didn't find 'Most recent'
+
+-@-
+
+Already applied to "Business Analyst | Vantage" job. Job ID: 4386086072!
+
+-@-
+
+Already applied to "Business Analyst | The ItsMy Group" job. Job ID: 4387768263!
+
+-@-
+
+Trying to Apply to "Senior Business Analyst | Intellihub Group" job. Job ID: 4398881130
+
+About the job
+Intellihub is committed to simplifying the energy transition – as a leader in smart metering across ANZ and innovator of solar, battery, EV, virtual power plant and home electrification solutions.
+
+With strong leadership supporting you, a career at Intellihub is defined by flexibility, growth and a deeply fulfilling experience. We're changing energy – bring yours.
+
+
+
+Job Description
+
+The Behind the Meter (BtM) team is a newly created team focused on delivering on our future strategy, developing digitally powered renewable energy solutions like solar, batteries and EV chargers so that more people can electrify their home.
+
+We’re looking for a talented and experienced Senior Business Analyst to support our cutting-edge Behind the Meter (BtM) initiatives. In this role, you’ll work across a diverse and collaborative program that spans marketing, legal, field services operations, customer sales & service, technology, and product management.
+
+You’ll play a key role in shaping the future of energy by helping deliver integrated BtM solutions that include solar, battery storage, EV charging, and more making a real impact on how customers purchase devices, manage and consume energy.
+
+Lead stakeholder engagement to define and deliver business improvements, new products, and BtM initiatives
+Drive continuous improvement, embedding innovation and efficiency across processes and solutions
+Translate business needs into clear requirements, user stories, and functional specifications
+Partner with technology teams and vendors to deliver high‑quality, end‑to‑end solutions
+Lead UAT, risk management, and issue resolution to ensure solutions meet business objectives
+Support change management, training, and adoption, while mentoring business analysts and staying across industry trends
+
+Qualifications
+
+Bachelor’s degree in Business, Information Technology, or a related discipline
+Proven experience as a Senior Product Analyst or Senior Business Analyst delivering business‑led initiatives, including new product development and IT integration
+Strong capability in facilitating stakeholder workshops and translating outcomes into clear business requirements, user stories, and functional specifications
+Hands‑on experience planning and coordinating User Acceptance Testing (UAT), including test plans, test cases, and business-wide execution
+Comfortable working across hybrid delivery environments (Agile, Scrum, and Waterfall)
+Highly analytical with strong problem‑solving skills and a focus on quality outcomes
+Excellent communication and stakeholder management skills, with the ability to influence across cross‑functional teams
+Proficient with tools such as Jira, Microsoft Project, Confluence, SharePoint, or equivalent platforms.
+Energy industry experience is highly desirable, particularly across solar, batteries, EV chargers, hot water systems, or pool equipment
+
+Additional Information
+
+We offer a dynamic and inclusive workplace that values collaboration and diversity. With a flexible hybrid working mode, we prioritise work-life balance while fostering personal and professional growth. Our innovative culture provides opportunities for career development, access to industry-leading tools, and a strong commitment to employee well-being, all supported by a competitive salary and benefits package.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-11 12:24:42.669315
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Failed to find an option with text "Yes" for question labelled "What are your working rights in Australia and New Zealand?", answering randomly!
+Failed to find an option with text "Melbourne" for question labelled "Have you previously worked for Intellihub in any capacity, either as a permanent employee or contractor?", answering randomly!
+Failed to find an option with text "Yes" for question labelled "I identify as", answering randomly!
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('last name', 'Krishna Rao', 'text', 'Krishna Rao'), ('What are your working rights in Australia and New Zealand? [  "Select an option", "Australian Citizen", "Australian Permanent Resident", "New Zealand Citizen", "Visa Holder or Other", "No current working rights", ]', 'No current working rights', 'select', 'Select an option'), ('Have you previously worked for Intellihub in any capacity, either as a permanent employee or contractor? [  "Select an option", "Yes, I previously worked for Intellihub as a permanent employee", "Yes, I previously worked for Intellihub as a contractor", "No, I have not worked for Intellihub", ]', 'Yes, I previously worked for Intellihub as a permanent employee', 'select', 'Select an option'), ('what are your salary expectations?', '80000', 'text', ''), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Are you willing to complete a Background Check as part of this process? [  "Yes"<1>, "No"<0>, ]', 'Yes', 'radio', None), ('first name', 'Sumedha', 'text', 'Sumedha'), ('location (city)', 'Melbourne, Victoria, Australia', 'text', ''), ('you declare that you have read and understand the privacy notice of intellihub. ([X] I consent)', True, 'checkbox', False), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('I identify as [  "Select an option", "Male", "Female", "Non-binary", "Another Term", ]', 'Non-binary', 'select', 'Select an option'), ('Do you have any potential conflicts of interest that we should be aware of? (e.g. relationships with current employees, financial interests, etc.) [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Senior Business Analyst | Intellihub Group" job. Job ID: 4398881130 info
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Associate Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Trying to Apply to "Junior Data Analys | Playful Engineering Lab" job. Job ID: 4399329113
+HR info was not given for "Junior Data Analys" with Job ID: 4399329113!
+
+About the job
+🗂 We’re Hiring: Junior Data Analyst
+ 🕒 Employment Type: Full-Time
+ 💼 Level: Junior / Entry-Level
+We’re looking for a motivated and detail-oriented Junior Data Analyst to join our growing data team. In this role, you’ll help us collect, analyze, and interpret data to provide valuable insights that support business decisions and improve overall performance. As a Junior Data Analyst, you will work closely with senior analysts, data scientists, and cross-functional teams to drive data-driven strategies and enhance operational efficiency. If you’re passionate about working with data and eager to grow in the field, we’d love to hear from you!
+🎯 Key Responsibilities
+Assist in gathering, cleaning, and organizing data from various sources.
+Perform exploratory data analysis to identify trends, patterns, and outliers.
+Create reports and dashboards to visualize data and present key findings.
+Support senior analysts in developing models and forecasts to guide business decisions.
+Collaborate with different teams to understand data needs and provide actionable insights.
+Help with the maintenance and optimization of data systems and databases.
+Ensure data integrity and accuracy by identifying and resolving data discrepancies.
+Stay up to date with the latest data analysis tools, techniques, and best practices.
+✅ Requirements
+Strong analytical skills and a passion for working with data.
+Proficiency in data analysis tools such as Excel, SQL, and basic knowledge of data visualization platforms (e.g., Power BI, Tableau).
+Basic understanding of statistics and data modeling techniques.
+Good problem-solving skills and attention to detail.
+Ability to work effectively both independently and as part of a team.
+Strong communication skills, with the ability to present data in a clear and understandable way.
+Familiarity with programming languages like Python or R is a plus.
+Previous experience or internship in data analysis is an advantage but not required.
+🌟 What We Offer
+A collaborative and supportive work environment.
+Opportunities to work with cutting-edge data tools and technologies.
+Career growth and skill development in data analysis and business intelligence.
+Mentorship and training from senior analysts and data scientists.
+Competitive salary and benefits package.
+Access to continuous learning opportunities and professional development.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-11 12:26:27.290383
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('Have you completed the following level of education: Bachelor\'s Degree? [  "Yes"<Yes>, "No"<No>, ]', '"Yes"<Yes>', 'radio', '"Yes"<Yes>')}
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Junior Data Analys | Playful Engineering Lab" job. Job ID: 4399329113 info
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+########################################################################################################################
+
+Total runs: 2
+Jobs Applied: 2
+External job links collected: 0
+Total processed outcomes: 2
+Failed jobs: 0
+Irrelevant jobs skipped: 2
+
+
+
+Total runs:                     2
+Jobs Applied:                   2
+External job links collected:   0
+                              ----------
+Total processed outcomes:       2
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        2
+
+
+
+Questions randomly answered:
+  ('Have you previously worked for Intellihub in any capacity, either as a permanent employee or contractor? [  "Select an option", "Yes, I previously worked for Intellihub as a permanent employee", "Yes, I previously worked for Intellihub as a contractor", "No, I have not worked for Intellihub", ]', 'select');
+('I identify as [  "Select an option", "Male", "Female", "Non-binary", "Another Term", ]', 'select');
+('What are your working rights in Australia and New Zealand? [  "Select an option", "Australian Citizen", "Australian Permanent Resident", "New Zealand Citizen", "Visa Holder or Other", "No current working rights", ]', 'select')  
+
+
+Completed pipeline search/apply pass.
+
+Obstacles are those frightful things you see when you take your eyes off your goal. - Henry Ford (Not a sponsor)
+
+
+In this run, you saved approx 4 mins (240 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 2
+External job links collected: 0
+Total processed outcomes: 2
+Failed jobs: 0
+Irrelevant jobs skipped: 2
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 2, 'external_links_logged': 0, 'rows_written_to_applied_csv': 2, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 1, 'failed_jobs': 0, 'skipped_jobs': 2, 'total_runs': 2, 'pipeline_mode': True}

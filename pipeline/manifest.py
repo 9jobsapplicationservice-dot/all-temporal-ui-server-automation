@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 
+from .config import load_automation_summary
+
 
 def build_manifest(record: dict) -> dict:
     return {
@@ -14,8 +16,14 @@ def build_manifest(record: dict) -> dict:
         "stage_started_at": record.get("stage_started_at") or "",
         "stage_finished_at": record.get("stage_finished_at") or "",
         "retry_count": record.get("retry_count", 0),
+        "email_stats": {
+            "total": record.get("email_total", 0),
+            "sent": record.get("email_sent", 0),
+            "failed": record.get("email_failed", 0),
+        },
         "note": record.get("note") or "",
         "last_error": record.get("last_error") or "",
+        "automation": load_automation_summary(record.get("config_path") or None),
         "paths": {
             "run_dir": record["run_dir"],
             "applied_csv": record["applied_csv_path"],

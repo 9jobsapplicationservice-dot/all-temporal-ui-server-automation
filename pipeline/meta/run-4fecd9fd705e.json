@@ -1,0 +1,51 @@
+{
+  "run_id": "run-4fecd9fd705e",
+  "status": "completed",
+  "config_path": "",
+  "created_at": "2026-04-06T07:25:30+00:00",
+  "updated_at": "2026-04-06T11:00:23+00:00",
+  "stage_started_at": "2026-04-06T07:25:31+00:00",
+  "stage_finished_at": "2026-04-06T11:00:23+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
+  "note": "RocketReach enrichment completed with no sendable recruiter emails.",
+  "last_error": "",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "sender_name": "9jobsapplicationservice",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "9jobsapplicationservice@gmail.com",
+      "from": "9jobsapplicationservice@gmail.com"
+    }
+  },
+  "paths": {
+    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-4fecd9fd705e.csv",
+    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-4fecd9fd705e.json",
+    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-4fecd9fd705e",
+    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-4fecd9fd705e\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-4fecd9fd705e\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-4fecd9fd705e\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-4fecd9fd705e\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

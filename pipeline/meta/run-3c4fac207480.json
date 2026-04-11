@@ -7,20 +7,40 @@
   "stage_started_at": "2026-04-04T05:52:28+00:00",
   "stage_finished_at": "2026-04-04T05:59:20+00:00",
   "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
   "note": "LinkedIn stage failed.",
   "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python311\\python.exe pipeline_entry.py\nD:\\Automation- Project\\linkdin_automation\\modules\\ai\\geminiConnections.py:1: FutureWarning: \n\nAll support for the `google.generativeai` package has ended. It will no longer be receiving \nupdates or bug fixes. Please switch to the `google.genai` package as soon as possible.\nSee README for more details:\n\nhttps://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md\n\n  import google.generativeai as genai\nException ignored in: <function Chrome.__del__ at 0x000002228C6A9260>\nTraceback (most recent call last):\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 843, in __del__\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 798, in quit\nOSError: [WinError 6] The handle is invalid",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "sender_name": "9jobsapplicationservice",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "9jobsapplicationservice@gmail.com",
+      "from": "9jobsapplicationservice@gmail.com"
+    }
+  },
   "paths": {
-    "run_dir": "D:\\Automation- Project\\pipeline\\runs",
-    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-3c4fac207480.csv",
-    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-3c4fac207480.json",
-    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-3c4fac207480",
-    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-3c4fac207480\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-3c4fac207480\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-3c4fac207480\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-3c4fac207480\\rocketreach.stderr.log"
+    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-3c4fac207480.csv",
+    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-3c4fac207480.json",
+    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-3c4fac207480",
+    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-3c4fac207480\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-3c4fac207480\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-3c4fac207480\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-3c4fac207480\\rocketreach.stderr.log"
   },
   "artifacts": {
     "applied_csv_exists": false,

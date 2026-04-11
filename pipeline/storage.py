@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS runs (
     stage_started_at TEXT,
     stage_finished_at TEXT,
     retry_count INTEGER NOT NULL DEFAULT 0,
+    email_total INTEGER NOT NULL DEFAULT 0,
+    email_sent INTEGER NOT NULL DEFAULT 0,
+    email_failed INTEGER NOT NULL DEFAULT 0,
     note TEXT,
     last_error TEXT
 )
@@ -60,6 +63,11 @@ class PipelineStore:
                 connection.execute(
                     "ALTER TABLE runs ADD COLUMN external_jobs_csv_path TEXT NOT NULL DEFAULT ''"
                 )
+            for column_name in ("email_total", "email_sent", "email_failed"):
+                if column_name not in existing_columns:
+                    connection.execute(
+                        f"ALTER TABLE runs ADD COLUMN {column_name} INTEGER NOT NULL DEFAULT 0"
+                    )
             connection.commit()
 
     def _copy_config(self, run_paths, config_path: str | None) -> str:
@@ -85,21 +93,6 @@ class PipelineStore:
             artifact_path.parent.mkdir(parents=True, exist_ok=True)
             artifact_path.unlink(missing_ok=True)
 
-    def _is_shared_live_record(self, record: dict) -> bool:
-        shared_paths = self.paths.for_run(record['id'])
-        return (
-            Path(record.get('run_dir') or '') == shared_paths.run_dir
-            and Path(record.get('applied_csv_path') or '') == shared_paths.applied_csv
-            and Path(record.get('external_jobs_csv_path') or '') == shared_paths.external_jobs_csv
-            and Path(record.get('recruiters_csv_path') or '') == shared_paths.recruiters_csv
-        )
-
-    def _holds_live_review_state(self, record: dict) -> bool:
-        status = record.get('status')
-        if status == 'waiting_review':
-            return recruiter_sendable_row_count(record.get('recruiters_csv_path') or '') > 0
-        return status in {'queued', 'linkedin_running', 'rocketreach_running', 'sending'}
-
     def reset_live_artifacts_for_run(self, run_id: str) -> dict:
         record = self.get_run(run_id)
         config_name = Path(record['config_path']).name if record.get('config_path') else None
@@ -109,7 +102,7 @@ class PipelineStore:
         return self.get_run(run_id)
 
     def get_active_live_run(self, exclude_run_id: str | None = None) -> dict | None:
-        active_statuses = ('queued', 'linkedin_running', 'rocketreach_running', 'waiting_review', 'sending')
+        active_statuses = ('queued', 'waiting_login', 'linkedin_running', 'rocketreach_running', 'email_running', 'waiting_review', 'sending')
         placeholders = ', '.join('?' for _ in active_statuses)
         params: list[object] = list(active_statuses)
         query = f'SELECT * FROM runs WHERE status IN ({placeholders})'
@@ -120,12 +113,7 @@ class PipelineStore:
 
         with self._connect() as connection:
             rows = connection.execute(query, tuple(params)).fetchall()
-
-        for row in rows:
-            record = dict(row)
-            if self._is_shared_live_record(record) and self._holds_live_review_state(record):
-                return record
-        return None
+        return dict(rows[0]) if rows else None
 
     def _move_path(self, source: Path, destination: Path) -> bool:
         if not source.exists() or source.resolve() == destination.resolve():
@@ -160,18 +148,31 @@ class PipelineStore:
                     run_paths = self.paths.for_run(record['id'], config_name)
                     run_paths.ensure_directories()
 
+                    old_run_dir = Path(record['run_dir'])
+                    old_applied_csv = Path(record['applied_csv_path'])
+                    old_external_jobs_csv = Path(record['external_jobs_csv_path'])
+                    old_recruiters_csv = Path(record['recruiters_csv_path'])
                     old_manifest = Path(record['manifest_path'])
                     old_logs = Path(record['log_dir'])
                     old_send_report = Path(record['send_report_path'])
                     old_config = Path(record['config_path']) if record.get('config_path') else None
                     old_failed_jobs = Path(record['run_dir']) / 'failed_jobs.csv'
 
+                    self._move_path(old_applied_csv, run_paths.applied_csv)
+                    self._move_path(old_external_jobs_csv, run_paths.external_jobs_csv)
+                    self._move_path(old_recruiters_csv, run_paths.recruiters_csv)
                     self._move_path(old_manifest, run_paths.manifest_json)
                     self._move_path(old_logs, run_paths.logs_dir)
                     self._move_path(old_send_report, run_paths.send_report_csv)
                     self._move_path(old_failed_jobs, run_paths.failed_jobs_csv)
                     if old_config is not None and old_config.exists():
                         self._move_path(old_config, run_paths.config_copy_path)
+                    if (
+                        old_run_dir.exists()
+                        and old_run_dir.resolve() != run_paths.run_dir.resolve()
+                        and old_run_dir.name == record['id']
+                    ):
+                        shutil.rmtree(old_run_dir, ignore_errors=True)
 
                     migrated_config_path = record.get('config_path') or ''
                     if old_config is not None:
@@ -182,7 +183,10 @@ class PipelineStore:
 
                     updates = {
                         'config_path': migrated_config_path,
+                        'run_dir': str(run_paths.run_dir),
+                        'applied_csv_path': str(run_paths.applied_csv),
                         'external_jobs_csv_path': str(run_paths.external_jobs_csv),
+                        'recruiters_csv_path': str(run_paths.recruiters_csv),
                         'send_report_path': str(run_paths.send_report_csv),
                         'manifest_path': str(run_paths.manifest_json),
                         'log_dir': str(run_paths.logs_dir),
@@ -198,6 +202,16 @@ class PipelineStore:
                     ):
                         updates['status'] = 'blocked_runtime'
                         updates['note'] = 'LinkedIn runtime setup required.'
+                    if (
+                        record.get('status') == 'failed'
+                        and (
+                            'LinkedIn login was not confirmed' in last_error
+                            or 'Browser window closed or session became invalid.' in last_error
+                            or 'Complete manual login in Chrome and keep the browser window open.' in last_error
+                        )
+                    ):
+                        updates['status'] = 'waiting_login'
+                        updates['note'] = 'Chrome opened with your default profile. Log into LinkedIn there and keep the browser window open.'
                     if (
                         record.get('status') == 'failed'
                         and record.get('note') == 'LinkedIn stage completed with zero saved applied rows.'
@@ -242,7 +256,7 @@ class PipelineStore:
         active_run = self.get_active_live_run()
         if active_run is not None:
             raise RuntimeError(
-                "A pipeline run is already active in the shared live folder. "
+                "A pipeline run is already active. "
                 f"Finish or clear run {active_run['id']} before enqueueing another run."
             )
 
@@ -274,6 +288,9 @@ class PipelineStore:
             'stage_started_at': '',
             'stage_finished_at': '',
             'retry_count': 0,
+            'email_total': 0,
+            'email_sent': 0,
+            'email_failed': 0,
             'note': 'Run enqueued.',
             'last_error': '',
         }
@@ -343,7 +360,7 @@ class PipelineStore:
         recovered: list[dict] = []
         for record in self.list_runs():
             status = record['status']
-            if status in {'linkedin_running', 'rocketreach_running'}:
+            if status in {'linkedin_running', 'rocketreach_running', 'email_running'}:
                 recovered.append(
                     self.update_run(
                         record['id'],
@@ -357,6 +374,14 @@ class PipelineStore:
                         record['id'],
                         status='waiting_review',
                         note='Recovered interrupted email send stage after restart.',
+                    )
+                )
+            elif status == 'waiting_login':
+                recovered.append(
+                    self.update_run(
+                        record['id'],
+                        status='waiting_login',
+                        note=record.get('note') or 'LinkedIn login is still required in the opened Chrome window.',
                     )
                 )
         return recovered

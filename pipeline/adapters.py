@@ -7,6 +7,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from .config import load_automation_config, load_runtime_env_values
 from .constants import APPLIED_JOBS_HEADERS, ENRICHED_RECRUITER_HEADERS
 from .utils import csv_has_expected_header, csv_row_count, read_last_json_object, read_log_tail, recruiter_sendable_row_count
 
@@ -15,6 +16,7 @@ WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 LINKEDIN_PROJECT_ROOT = WORKSPACE_ROOT / "linkdin_automation"
 ROCKETREACH_PROJECT_ROOT = WORKSPACE_ROOT / "rocket_reach - testing"
 LINKEDIN_PYTHON_ENV_VAR = "PIPELINE_LINKEDIN_PYTHON"
+LINKEDIN_POPUPS_ENV_VAR = "PIPELINE_ENABLE_POPUPS"
 SUPPORTED_LINKEDIN_PYTHON_MIN = (3, 11)
 SUPPORTED_LINKEDIN_PYTHON_MAX_EXCLUSIVE = (3, 14)
 
@@ -233,7 +235,17 @@ def _run_subprocess(command: list[str], workdir: Path, stdout_log: Path, stderr_
 
 
 def run_linkedin_stage(record: dict, python_executable: str | None = None) -> dict:
+    configured_easy_apply_limit = "50"
+    runtime_env = load_runtime_env_values(record.get("config_path") or None)
+    try:
+        config = load_automation_config(record.get("config_path") or None)
+        configured_easy_apply_limit = str(config.max_easy_apply)
+    except Exception:
+        configured_easy_apply_limit = runtime_env.get("PIPELINE_MAX_EASY_APPLY", "").strip() or os.environ.get("PIPELINE_MAX_EASY_APPLY", "50").strip() or "50"
+    pipeline_enable_popups = os.environ.get(LINKEDIN_POPUPS_ENV_VAR, "").strip()
+
     env = {
+        **runtime_env,
         "PIPELINE_MODE": "1",
         "PIPELINE_RUN_ID": record["id"],
         "PIPELINE_OUTPUT_DIR": record["run_dir"],
@@ -243,7 +255,10 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
         "PIPELINE_FAILED_CSV_PATH": str(Path(record["log_dir"]) / "failed_jobs.csv"),
         "PIPELINE_LOGS_DIR": record["log_dir"],
         "PIPELINE_RUN_NON_STOP": "false",
+        "PIPELINE_MAX_EASY_APPLY": configured_easy_apply_limit,
     }
+    if pipeline_enable_popups:
+        env[LINKEDIN_POPUPS_ENV_VAR] = pipeline_enable_popups
     command = [python_executable or resolve_linkedin_python_executable(), "pipeline_entry.py"]
     stdout_log = Path(record["linkedin_stdout_log"])
     stderr_log = Path(record["linkedin_stderr_log"])
@@ -263,10 +278,15 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
     payload = read_last_json_object(stdout_log)
     csv_is_valid = csv_has_expected_header(record["applied_csv_path"], APPLIED_JOBS_HEADERS)
     rows_written = csv_row_count(record["applied_csv_path"]) if csv_is_valid else 0
+    session_end_reason = str(payload.get("session_end_reason", "") or "").strip()
 
     if command_error is not None and not csv_is_valid:
+        if session_end_reason:
+            raise StageError(session_end_reason) from command_error
         raise command_error
     if not csv_is_valid:
+        if session_end_reason:
+            raise StageError(session_end_reason)
         raise StageError(
             f"LinkedIn stage did not produce a valid applied jobs CSV at {record['applied_csv_path']}"
         )
@@ -277,6 +297,7 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
     payload.setdefault("rows_missing_hr_profile", 0)
     payload.setdefault("unexpected_failure", False)
     payload.setdefault("exit_code", completed.returncode if completed is not None else 1)
+    payload.setdefault("session_end_reason", session_end_reason)
 
     if payload["jobs_applied"] > 0 and payload["rows_written_to_applied_csv"] == 0:
         raise StageError(
@@ -284,6 +305,8 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
         )
 
     if command_error is not None and payload["rows_written_to_applied_csv"] == 0:
+        if session_end_reason:
+            raise StageError(session_end_reason) from command_error
         raise command_error
 
     return payload

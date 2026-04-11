@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 import pipeline.adapters as adapters
 from pipeline.constants import APPLIED_JOBS_HEADERS, ENRICHED_RECRUITER_HEADERS
+from pipeline.config import load_automation_summary
 from pipeline.storage import PipelineStore
 from pipeline.worker import PipelineWorker
 from pipeline.adapters import StageError, TransientStageError
@@ -209,6 +210,129 @@ class LinkedInPythonResolutionTests(unittest.TestCase):
         self.assertIn('Python 3.11', preflight.blocked_reason or '')
 
 
+class LinkedInStageEnvTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.root = Path(__file__).resolve().parents[2] / '.test-artifacts' / 'linkedin-stage-env'
+        if self.root.exists():
+            shutil.rmtree(self.root, ignore_errors=True)
+        self.root.mkdir(parents=True, exist_ok=True)
+
+    def tearDown(self) -> None:
+        shutil.rmtree(self.root, ignore_errors=True)
+
+    def _make_record(self) -> dict[str, str]:
+        run_dir = self.root / 'runs' / 'sample'
+        log_dir = self.root / 'logs' / 'sample'
+        return {
+            'id': 'run-sample',
+            'run_dir': str(run_dir),
+            'log_dir': str(log_dir),
+            'applied_csv_path': str(run_dir / 'csv' / 'applied_jobs.csv'),
+            'external_jobs_csv_path': str(run_dir / 'csv' / 'external_jobs.csv'),
+            'recruiters_csv_path': str(run_dir / 'csv' / 'recruiters_enriched.csv'),
+            'linkedin_stdout_log': str(log_dir / 'linkedin.stdout.log'),
+            'linkedin_stderr_log': str(log_dir / 'linkedin.stderr.log'),
+        }
+
+    def test_run_linkedin_stage_passes_popup_flag_when_configured(self) -> None:
+        record = self._make_record()
+        captured: dict[str, str] = {}
+
+        def fake_run_subprocess(command, workdir, stdout_log, stderr_log, env=None):
+            captured.update(env or {})
+            write_csv(Path(record['applied_csv_path']), APPLIED_JOBS_HEADERS, [])
+            Path(stdout_log).parent.mkdir(parents=True, exist_ok=True)
+            Path(stdout_log).write_text('{"jobs_applied": 0, "rows_written_to_applied_csv": 0}', encoding='utf-8')
+            return type('Completed', (), {'returncode': 0})()
+
+        with patch.dict(os.environ, {adapters.LINKEDIN_POPUPS_ENV_VAR: '1'}, clear=False), \
+             patch('pipeline.adapters.load_automation_config', side_effect=RuntimeError('skip config')), \
+             patch('pipeline.adapters._run_subprocess', side_effect=fake_run_subprocess):
+            payload = adapters.run_linkedin_stage(record, python_executable='python')
+
+        self.assertEqual(captured['PIPELINE_MODE'], '1')
+        self.assertEqual(captured[adapters.LINKEDIN_POPUPS_ENV_VAR], '1')
+        self.assertEqual(payload['jobs_applied'], 0)
+
+    def test_run_linkedin_stage_omits_popup_flag_by_default(self) -> None:
+        record = self._make_record()
+        captured: dict[str, str] = {}
+
+        def fake_run_subprocess(command, workdir, stdout_log, stderr_log, env=None):
+            captured.update(env or {})
+            write_csv(Path(record['applied_csv_path']), APPLIED_JOBS_HEADERS, [])
+            Path(stdout_log).parent.mkdir(parents=True, exist_ok=True)
+            Path(stdout_log).write_text('{"jobs_applied": 0, "rows_written_to_applied_csv": 0}', encoding='utf-8')
+            return type('Completed', (), {'returncode': 0})()
+
+        with patch.dict(os.environ, {}, clear=False), \
+             patch('pipeline.adapters.load_automation_config', side_effect=RuntimeError('skip config')), \
+             patch('pipeline.adapters._run_subprocess', side_effect=fake_run_subprocess):
+            adapters.run_linkedin_stage(record, python_executable='python')
+
+        self.assertEqual(captured['PIPELINE_MODE'], '1')
+        self.assertNotIn(adapters.LINKEDIN_POPUPS_ENV_VAR, captured)
+
+    def test_run_linkedin_stage_passes_runtime_env_credentials(self) -> None:
+        record = self._make_record()
+        captured: dict[str, str] = {}
+
+        def fake_run_subprocess(command, workdir, stdout_log, stderr_log, env=None):
+            captured.update(env or {})
+            write_csv(Path(record['applied_csv_path']), APPLIED_JOBS_HEADERS, [])
+            Path(stdout_log).parent.mkdir(parents=True, exist_ok=True)
+            Path(stdout_log).write_text('{"jobs_applied": 0, "rows_written_to_applied_csv": 0}', encoding='utf-8')
+            return type('Completed', (), {'returncode': 0})()
+
+        runtime_env = {
+            'PIPELINE_LINKEDIN_USERNAME': 'sumedhakrishnarao@gmail.com',
+            'PIPELINE_LINKEDIN_PASSWORD': 'Melbourne@1998',
+            'PIPELINE_LINKEDIN_AUTO_LOGIN': 'true',
+            'PIPELINE_LINKEDIN_SAFE_MODE': 'false',
+        }
+
+        with patch.dict(os.environ, {}, clear=False), \
+             patch('pipeline.adapters.load_runtime_env_values', return_value=runtime_env), \
+             patch('pipeline.adapters.load_automation_config', side_effect=RuntimeError('skip config')), \
+             patch('pipeline.adapters._run_subprocess', side_effect=fake_run_subprocess):
+            adapters.run_linkedin_stage(record, python_executable='python')
+
+        self.assertEqual(captured['PIPELINE_LINKEDIN_USERNAME'], 'sumedhakrishnarao@gmail.com')
+        self.assertEqual(captured['PIPELINE_LINKEDIN_PASSWORD'], 'Melbourne@1998')
+        self.assertEqual(captured['PIPELINE_LINKEDIN_AUTO_LOGIN'], 'true')
+        self.assertEqual(captured['PIPELINE_LINKEDIN_SAFE_MODE'], 'false')
+
+
+class AutomationSummaryTests(unittest.TestCase):
+    def test_load_automation_summary_defaults_to_saved_session_mode(self) -> None:
+        with patch.dict(os.environ, {}, clear=False):
+            summary = load_automation_summary()
+
+        linkedin = summary.get('linkedin')
+        self.assertIsInstance(linkedin, dict)
+        self.assertEqual(linkedin['mode'], 'saved_session')
+        self.assertFalse(linkedin['auto_login'])
+        self.assertFalse(linkedin['safe_mode'])
+
+    def test_load_automation_summary_honors_linkedin_env_overrides(self) -> None:
+        env = {
+            'PIPELINE_LINKEDIN_AUTO_LOGIN': 'true',
+            'PIPELINE_LINKEDIN_SAFE_MODE': 'true',
+            'PIPELINE_LINKEDIN_USERNAME': 'user@example.com',
+            'PIPELINE_MANUAL_LOGIN_TIMEOUT_SECONDS': '240',
+        }
+        with patch.dict(os.environ, env, clear=False):
+            summary = load_automation_summary()
+
+        linkedin = summary.get('linkedin')
+        self.assertIsInstance(linkedin, dict)
+        self.assertEqual(linkedin['mode'], 'auto_login')
+        self.assertTrue(linkedin['auto_login'])
+        self.assertTrue(linkedin['safe_mode'])
+        self.assertTrue(linkedin['username_configured'])
+        self.assertEqual(linkedin['manual_login_timeout_seconds'], 240)
+
+
 class PipelineWorkerTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
@@ -231,7 +355,10 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertTrue(Path(record['log_dir']).parent.name == 'logs')
         self.assertTrue(Path(record['send_report_path']).parent.name == 'reports')
         self.assertEqual(Path(record['external_jobs_csv_path']).name, 'external_jobs.csv')
-        self.assertEqual(sorted(path.name for path in run_dir.iterdir()), [])
+        self.assertEqual(
+            sorted(path.name for path in run_dir.iterdir()),
+            ['csv', 'external', 'job_applied', 'rocket_enrich'],
+        )
 
     def test_create_run_reuses_single_live_folder_and_resets_artifacts(self) -> None:
         store = PipelineStore(self.root)
@@ -372,7 +499,7 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertTrue(Path(final_record['recruiters_csv_path']).exists())
         self.assertEqual(
             sorted(path.name for path in Path(final_record['run_dir']).iterdir()),
-            ['applied_jobs.csv', 'external_jobs.csv', 'recruiters_enriched.csv'],
+            ['csv', 'external', 'job_applied', 'rocket_enrich'],
         )
         self.assertEqual(Path(final_record['run_dir']).name, 'runs')
         self.assertTrue(Path(final_record['manifest_path']).parent.name == 'meta')
@@ -395,7 +522,7 @@ class PipelineWorkerTests(unittest.TestCase):
                 'HR Profile Link': 'https://linkedin.com/in/jane-doe',
             }],
         )
-        fallback_path = Path(record['run_dir']) / 'recruiters_enriched_latest.csv'
+        fallback_path = Path(record['run_dir']) / 'rocket_enrich' / 'recruiters_enriched_latest.csv'
         write_csv(
             fallback_path,
             ENRICHED_RECRUITER_HEADERS,
@@ -525,6 +652,23 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertEqual(final_record['status'], 'failed')
         self.assertEqual(final_record['note'], 'LinkedIn stage failed.')
         self.assertIn('Chrome bootstrap failed.', final_record['last_error'])
+
+    def test_worker_marks_manual_login_issue_as_waiting_login(self) -> None:
+        worker = PipelineWorker(root=self.root)
+        record = worker.store.create_run(run_id='run-waiting-login')
+
+        with patch(
+            'pipeline.worker.preflight_linkedin_runtime',
+            return_value=adapters.LinkedInRuntimePreflight(executable='C:\\Python312\\python.exe', source='test', blocked_reason=None),
+        ), patch(
+            'pipeline.worker.run_linkedin_stage',
+            side_effect=StageError('LinkedIn login was not confirmed. Complete manual login in Chrome and keep the browser window open.'),
+        ):
+            final_record = worker.process_run(record['id'])
+
+        self.assertEqual(final_record['status'], 'waiting_login')
+        self.assertIn('Chrome opened with your default profile', final_record['note'])
+        self.assertIn('LinkedIn login was not confirmed', final_record['last_error'])
 
     def test_worker_marks_missing_runtime_as_blocked(self) -> None:
         worker = PipelineWorker(root=self.root)
@@ -803,6 +947,14 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertTrue(any(item['id'] == record['id'] for item in recovered))
         self.assertEqual(recovered_record['status'], 'queued')
         self.assertIn('Requeued automatically', recovered_record['note'])
+
+    def test_active_waiting_login_run_blocks_new_enqueue(self) -> None:
+        store = PipelineStore(self.root)
+        record = store.create_run(run_id='run-login-blocked')
+        store.update_run(record['id'], status='waiting_login', note='Login required.')
+
+        with self.assertRaises(RuntimeError):
+            store.create_run(run_id='run-should-block')
 
     def test_worker_converts_locked_csv_permission_error_into_failed_run(self) -> None:
         worker = PipelineWorker(root=self.root)

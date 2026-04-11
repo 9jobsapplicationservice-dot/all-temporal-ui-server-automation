@@ -10,6 +10,10 @@ from .constants import resolve_pipeline_root
 class RunPaths:
     run_id: str
     run_dir: Path
+    csv_dir: Path
+    job_applied_dir: Path
+    external_dir: Path
+    rocket_enrich_dir: Path
     applied_csv: Path
     external_jobs_csv: Path
     recruiters_csv: Path
@@ -25,6 +29,10 @@ class RunPaths:
 
     def ensure_directories(self) -> None:
         self.run_dir.mkdir(parents=True, exist_ok=True)
+        self.csv_dir.mkdir(parents=True, exist_ok=True)
+        self.job_applied_dir.mkdir(parents=True, exist_ok=True)
+        self.external_dir.mkdir(parents=True, exist_ok=True)
+        self.rocket_enrich_dir.mkdir(parents=True, exist_ok=True)
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.manifest_json.parent.mkdir(parents=True, exist_ok=True)
         self.send_report_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -64,14 +72,22 @@ class PipelinePaths:
 
     def for_run(self, run_id: str, config_name: str | None = None) -> RunPaths:
         run_dir = self.runs_dir
+        csv_dir = run_dir / "csv"
+        job_applied_dir = run_dir / "job_applied"
+        external_dir = run_dir / "external"
+        rocket_enrich_dir = run_dir / "rocket_enrich"
         logs_dir = self.logs_root / run_id
         config_filename = config_name or "config.json"
         return RunPaths(
             run_id=run_id,
             run_dir=run_dir,
-            applied_csv=run_dir / "applied_jobs.csv",
-            external_jobs_csv=run_dir / "external_jobs.csv",
-            recruiters_csv=run_dir / "recruiters_enriched.csv",
+            csv_dir=csv_dir,
+            job_applied_dir=job_applied_dir,
+            external_dir=external_dir,
+            rocket_enrich_dir=rocket_enrich_dir,
+            applied_csv=job_applied_dir / "applied_jobs.csv",
+            external_jobs_csv=external_dir / "external_jobs.csv",
+            recruiters_csv=rocket_enrich_dir / "recruiters_enriched.csv",
             send_report_csv=self.reports_dir / f"{run_id}.csv",
             manifest_json=self.meta_dir / f"{run_id}.json",
             logs_dir=logs_dir,

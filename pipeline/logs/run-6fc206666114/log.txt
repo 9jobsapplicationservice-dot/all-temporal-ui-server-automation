@@ -1,4 +1,0 @@
-IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
-Logging in with a guest profile, Web history will not be saved!
-Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
-Detected Chrome major version 146 for undetected-chromedriver

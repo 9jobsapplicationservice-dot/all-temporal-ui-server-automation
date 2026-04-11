@@ -54,6 +54,8 @@ def recruiter_sendable_row_count(csv_path: str | Path) -> int:
         reader = csv.DictReader(handle)
         sendable_rows = 0
         for row in reader:
+            if not any(str(value or "").strip() for value in row.values()):
+                continue
             primary = (row.get("HR Email") or "").strip()
             secondary = (row.get("HR Secondary Email") or "").strip()
             if "@" in primary or "@" in secondary:
@@ -70,6 +72,8 @@ def recruiter_csv_is_placeholder(csv_path: str | Path) -> bool:
         reader = csv.DictReader(handle)
         saw_row = False
         for row in reader:
+            if not any(str(value or "").strip() for value in row.values()):
+                continue
             saw_row = True
             status = (row.get("RocketReach Status") or "").strip().lower()
             if status != "pending_enrichment":

@@ -1,0 +1,27 @@
+Job ID,Job Link,Resume Tried,Date listed,Date Tried,Assumed Reason,Stack Trace,External Job link,Screenshot Name
+4398709987,https://www.linkedin.com/jobs/view/4398709987,resume.pdf,2026-04-11 09:32:11.044315,2026-04-11 10:01:16.192106,Problem in Easy Applying,"Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=146.0.7680.180); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x91cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x91cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x702120]
+	undetected_chromedriver!(No symbol) [0x6f108e]
+	undetected_chromedriver!(No symbol) [0x70fbe9]
+	undetected_chromedriver!(No symbol) [0x77450c]
+	undetected_chromedriver!(No symbol) [0x78a309]
+	undetected_chromedriver!(No symbol) [0x76d8a6]
+	undetected_chromedriver!(No symbol) [0x740229]
+	undetected_chromedriver!(No symbol) [0x740fe4]
+	undetected_chromedriver!GetHandleVerifier [0xb848b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0xb7feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0xb9e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x935cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x93d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x9258c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x925a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x90ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7628fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x774b82ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x774b827e+ee]
+",Easy Applied,Not Available

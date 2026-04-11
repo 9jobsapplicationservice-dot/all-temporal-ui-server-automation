@@ -12,8 +12,10 @@ MAX_ROCKETREACH_RETRIES = 3
 RUN_STATUSES = (
     "queued",
     "blocked_runtime",
+    "waiting_login",
     "linkedin_running",
     "rocketreach_running",
+    "email_running",
     "waiting_review",
     "sending",
     "completed",

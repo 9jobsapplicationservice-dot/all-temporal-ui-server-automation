@@ -7,20 +7,40 @@
   "stage_started_at": "2026-04-01T05:27:03+00:00",
   "stage_finished_at": "2026-04-01T05:27:05+00:00",
   "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
   "note": "LinkedIn stage failed.",
   "last_error": "Command failed with exit code 3221225794: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "sender_name": "9jobsapplicationservice",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "9jobsapplicationservice@gmail.com",
+      "from": "9jobsapplicationservice@gmail.com"
+    }
+  },
   "paths": {
-    "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300",
-    "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-95ccf2065300\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-95ccf2065300.csv",
-    "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-95ccf2065300.json",
-    "logs_dir": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300",
-    "linkedin_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stderr.log"
+    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-95ccf2065300.csv",
+    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-95ccf2065300.json",
+    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-95ccf2065300",
+    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-95ccf2065300\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-95ccf2065300\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-95ccf2065300\\rocketreach.stderr.log"
   },
   "artifacts": {
     "applied_csv_exists": false,
