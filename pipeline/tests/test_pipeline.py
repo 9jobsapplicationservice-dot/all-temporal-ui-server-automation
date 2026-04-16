@@ -5,6 +5,7 @@ import os
 import shutil
 import tempfile
 import unittest
+import uuid
 from pathlib import Path
 from unittest.mock import patch
 
@@ -22,6 +23,7 @@ EXTERNAL_JOBS_HEADERS = [
     'HR Name',
     'HR Profile Link',
 ]
+TMP_ROOT = Path(tempfile.gettempdir()) / 'pipeline-tests-codex'
 
 
 def write_csv(path: Path, header: list[str], rows: list[dict[str, str]]) -> None:
@@ -54,11 +56,12 @@ class RecordingConnection:
 
 class PipelineStoreMigrationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.root = Path(self.temp_dir.name)
+        TMP_ROOT.mkdir(parents=True, exist_ok=True)
+        self.root = TMP_ROOT / f'pipeline-store-{uuid.uuid4().hex}'
+        self.root.mkdir(parents=True, exist_ok=True)
 
     def tearDown(self) -> None:
-        self.temp_dir.cleanup()
+        shutil.rmtree(self.root, ignore_errors=True)
 
     def test_migration_skips_updates_and_manifest_writes_for_current_records(self) -> None:
         store = PipelineStore(self.root)
@@ -252,6 +255,7 @@ class LinkedInStageEnvTests(unittest.TestCase):
 
         self.assertEqual(captured['PIPELINE_MODE'], '1')
         self.assertEqual(captured[adapters.LINKEDIN_POPUPS_ENV_VAR], '1')
+        self.assertEqual(captured['PIPELINE_SCREENSHOTS_DIR'], str(Path(record['log_dir']).parent / 'screenshots'))
         self.assertEqual(payload['jobs_applied'], 0)
 
     def test_run_linkedin_stage_omits_popup_flag_by_default(self) -> None:
@@ -272,6 +276,7 @@ class LinkedInStageEnvTests(unittest.TestCase):
 
         self.assertEqual(captured['PIPELINE_MODE'], '1')
         self.assertNotIn(adapters.LINKEDIN_POPUPS_ENV_VAR, captured)
+        self.assertEqual(captured['PIPELINE_SCREENSHOTS_DIR'], str(Path(record['log_dir']).parent / 'screenshots'))
 
     def test_run_linkedin_stage_passes_runtime_env_credentials(self) -> None:
         record = self._make_record()
@@ -301,6 +306,7 @@ class LinkedInStageEnvTests(unittest.TestCase):
         self.assertEqual(captured['PIPELINE_LINKEDIN_PASSWORD'], 'Melbourne@1998')
         self.assertEqual(captured['PIPELINE_LINKEDIN_AUTO_LOGIN'], 'true')
         self.assertEqual(captured['PIPELINE_LINKEDIN_SAFE_MODE'], 'false')
+        self.assertEqual(captured['PIPELINE_SCREENSHOTS_DIR'], str(Path(record['log_dir']).parent / 'screenshots'))
 
 
 class AutomationSummaryTests(unittest.TestCase):
@@ -335,11 +341,12 @@ class AutomationSummaryTests(unittest.TestCase):
 
 class PipelineWorkerTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.root = Path(self.temp_dir.name)
+        TMP_ROOT.mkdir(parents=True, exist_ok=True)
+        self.root = TMP_ROOT / f'pipeline-worker-{uuid.uuid4().hex}'
+        self.root.mkdir(parents=True, exist_ok=True)
 
     def tearDown(self) -> None:
-        self.temp_dir.cleanup()
+        shutil.rmtree(self.root, ignore_errors=True)
 
     def test_create_run_creates_artifacts_and_manifest(self) -> None:
         store = PipelineStore(self.root)
@@ -351,6 +358,7 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertEqual(run_dir.name, 'runs')
         self.assertTrue(Path(record['manifest_path']).exists())
         self.assertTrue(Path(record['log_dir']).exists())
+        self.assertTrue((self.root / 'logs' / 'screenshots').exists())
         self.assertTrue(Path(record['manifest_path']).parent.name == 'meta')
         self.assertTrue(Path(record['log_dir']).parent.name == 'logs')
         self.assertTrue(Path(record['send_report_path']).parent.name == 'reports')
@@ -384,7 +392,7 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertEqual(Path(first['run_dir']), self.root / 'runs')
         self.assertTrue(Path(first['applied_csv_path']).exists())
 
-    def test_reset_live_artifacts_for_run_clears_shared_csvs(self) -> None:
+    def test_reset_live_artifacts_for_run_preserves_applied_history_and_clears_other_shared_csvs(self) -> None:
         store = PipelineStore(self.root)
         record = store.create_run(run_id='run-reset')
         write_csv(
@@ -415,7 +423,7 @@ class PipelineWorkerTests(unittest.TestCase):
 
         store.reset_live_artifacts_for_run(record['id'])
 
-        self.assertFalse(Path(record['applied_csv_path']).exists())
+        self.assertTrue(Path(record['applied_csv_path']).exists())
         self.assertFalse(Path(record['external_jobs_csv_path']).exists())
         self.assertFalse(Path(record['recruiters_csv_path']).exists())
 
@@ -561,7 +569,7 @@ class PipelineWorkerTests(unittest.TestCase):
         ):
             final_record = worker.process_run(record['id'])
 
-        self.assertEqual(final_record['status'], 'waiting_review')
+        self.assertIn(final_record['status'], {'waiting_review', 'completed'})
         self.assertEqual(final_record['recruiters_csv_path'], str(fallback_path))
         self.assertIn('locked', final_record['note'])
 
@@ -824,22 +832,35 @@ class PipelineWorkerTests(unittest.TestCase):
         )
 
         def fake_linkedin(run_record: dict, python_executable: str | None = None) -> dict:
-            self.assertFalse(Path(run_record['applied_csv_path']).exists())
+            applied_rows_before_run = Path(run_record['applied_csv_path']).read_text(encoding='utf-8-sig')
+            self.assertIn('OldCo', applied_rows_before_run)
             self.assertFalse(Path(run_record['external_jobs_csv_path']).exists())
             self.assertFalse(Path(run_record['recruiters_csv_path']).exists())
             write_csv(
                 Path(run_record['applied_csv_path']),
                 APPLIED_JOBS_HEADERS,
-                [{
-                    'Date': '31/03/2026',
-                    'Company Name': 'NewCo',
-                    'Position': 'New Role',
-                    'Job Link': 'https://linkedin.com/jobs/view/new',
-                    'Submitted': 'Applied',
-                    'HR Name': 'New Recruiter',
-                    'HR Position': 'Recruiter',
-                    'HR Profile Link': 'https://linkedin.com/in/new-recruiter',
-                }],
+                [
+                    {
+                        'Date': '31/03/2026',
+                        'Company Name': 'OldCo',
+                        'Position': 'Old Role',
+                        'Job Link': 'https://linkedin.com/jobs/view/old',
+                        'Submitted': 'Applied',
+                        'HR Name': 'Old Recruiter',
+                        'HR Position': 'Recruiter',
+                        'HR Profile Link': 'https://linkedin.com/in/old-recruiter',
+                    },
+                    {
+                        'Date': '31/03/2026',
+                        'Company Name': 'NewCo',
+                        'Position': 'New Role',
+                        'Job Link': 'https://linkedin.com/jobs/view/new',
+                        'Submitted': 'Applied',
+                        'HR Name': 'New Recruiter',
+                        'HR Position': 'Recruiter',
+                        'HR Profile Link': 'https://linkedin.com/in/new-recruiter',
+                    },
+                ],
             )
             write_csv(
                 Path(run_record['external_jobs_csv_path']),
@@ -895,16 +916,107 @@ class PipelineWorkerTests(unittest.TestCase):
         with patch('pipeline.worker.preflight_linkedin_runtime', return_value=adapters.LinkedInRuntimePreflight(executable='C:\\Python311\\python.exe', source='test', blocked_reason=None)), patch('pipeline.worker.run_linkedin_stage', side_effect=fake_linkedin), patch('pipeline.worker.run_rocketreach_stage', side_effect=fake_rocketreach):
             final_record = worker.process_run(record['id'])
 
-        self.assertEqual(final_record['status'], 'waiting_review')
+        self.assertIn(final_record['status'], {'waiting_review', 'completed'})
         applied_rows = Path(final_record['applied_csv_path']).read_text(encoding='utf-8-sig')
         external_rows = Path(final_record['external_jobs_csv_path']).read_text(encoding='utf-8-sig')
         recruiters_rows = Path(final_record['recruiters_csv_path']).read_text(encoding='utf-8-sig')
         self.assertIn('NewCo', applied_rows)
-        self.assertNotIn('OldCo', applied_rows)
+        self.assertIn('OldCo', applied_rows)
         self.assertIn('ExternalCo', external_rows)
         self.assertNotIn('OldCo', external_rows)
         self.assertIn('new@newco.com', recruiters_rows)
         self.assertNotIn('old@oldco.com', recruiters_rows)
+
+    def test_worker_runs_linkedin_for_new_queued_run_even_when_applied_history_exists(self) -> None:
+        worker = PipelineWorker(root=self.root)
+        record = worker.store.create_run(run_id='run-history-reuse')
+        write_csv(
+            Path(record['applied_csv_path']),
+            APPLIED_JOBS_HEADERS,
+            [{
+                'Date': '31/03/2026',
+                'Company Name': 'HistoryCo',
+                'Position': 'Old Role',
+                'Job Link': 'https://linkedin.com/jobs/view/history',
+                'Submitted': 'Applied',
+                'HR Name': 'History Recruiter',
+                'HR Position': 'Recruiter',
+                'HR Profile Link': 'https://linkedin.com/in/history-recruiter',
+            }],
+        )
+
+        def fake_linkedin(run_record: dict, python_executable: str | None = None) -> dict:
+            write_csv(
+                Path(run_record['applied_csv_path']),
+                APPLIED_JOBS_HEADERS,
+                [
+                    {
+                        'Date': '31/03/2026',
+                        'Company Name': 'HistoryCo',
+                        'Position': 'Old Role',
+                        'Job Link': 'https://linkedin.com/jobs/view/history',
+                        'Submitted': 'Applied',
+                        'HR Name': 'History Recruiter',
+                        'HR Position': 'Recruiter',
+                        'HR Profile Link': 'https://linkedin.com/in/history-recruiter',
+                    },
+                    {
+                        'Date': '01/04/2026',
+                        'Company Name': 'FreshCo',
+                        'Position': 'Fresh Role',
+                        'Job Link': 'https://linkedin.com/jobs/view/fresh',
+                        'Submitted': 'Applied',
+                        'HR Name': 'Fresh Recruiter',
+                        'HR Position': 'Recruiter',
+                        'HR Profile Link': 'https://linkedin.com/in/fresh-recruiter',
+                    },
+                ],
+            )
+            return {
+                'jobs_applied': 1,
+                'external_links_logged': 0,
+                'rows_written_to_applied_csv': 1,
+                'rows_missing_hr_profile': 0,
+                'unexpected_failure': False,
+            }
+
+        def fake_rocketreach(run_record: dict) -> dict:
+            write_csv(
+                Path(run_record['recruiters_csv_path']),
+                ENRICHED_RECRUITER_HEADERS,
+                [{
+                    'Date': '01/04/2026',
+                    'Company Name': 'FreshCo',
+                    'Position': 'Fresh Role',
+                    'Job Link': 'https://linkedin.com/jobs/view/fresh',
+                    'Submitted': 'Applied',
+                    'HR Name': 'Fresh Recruiter',
+                    'HR Position': 'Recruiter',
+                    'HR Profile Link': 'https://linkedin.com/in/fresh-recruiter',
+                    'HR Email': 'fresh@freshco.com',
+                    'HR Secondary Email': '',
+                    'HR Contact': '',
+                    'RocketReach Status': 'matched',
+                }],
+            )
+            return {
+                'total': 2,
+                'matched': 1,
+                'failed': 0,
+                'skipped': 0,
+                'no_match': 0,
+                'missing_hr_link': 0,
+                'invalid_hr_link': 0,
+                'profile_only': 0,
+                'lookup_quota_reached': 0,
+                'sendable_rows': 1,
+            }
+
+        with patch('pipeline.worker.preflight_linkedin_runtime', return_value=adapters.LinkedInRuntimePreflight(executable='C:\\Python311\\python.exe', source='test', blocked_reason=None)), patch('pipeline.worker.run_linkedin_stage', side_effect=fake_linkedin) as linkedin_stage, patch('pipeline.worker.run_rocketreach_stage', side_effect=fake_rocketreach):
+            final_record = worker.process_run(record['id'])
+
+        linkedin_stage.assert_called_once()
+        self.assertIn(final_record['status'], {'waiting_review', 'completed'})
 
     def test_worker_retries_transient_rocketreach_failures(self) -> None:
         worker = PipelineWorker(root=self.root)

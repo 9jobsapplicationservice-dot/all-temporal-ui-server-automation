@@ -1,0 +1,136 @@
+[pipeline_entry] run_id=run-ui-9f3aa8981e3d output_dir=D:\Automation- Project 1\pipeline\runs
+[PIPELINE ALERT SUPPRESSED] Support the project: Please consider sponsoring this project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Screenshot directory: D:\Automation- Project 1\pipeline\logs\screenshots
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7de28b]
+	chromedriver!(No symbol) [0x7ff66f7d9559]
+	chromedriver!(No symbol) [0x7ff66f82dc21]
+	chromedriver!(No symbol) [0x7ff66f82d486]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+2026-04-14 17:06:38.576643
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-14 17:06:46.406074
+Extracted about company info for AI: 'Sumedha'
+
+########################################################################################################################
+
+Date and Time: 2026-04-14 17:06:46.450923
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by 'Most recent'
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Already applied to "Junior/Mid-level Data Analyst | Method Recruitment Group" job. Job ID: 4399137319!
+
+-@-
+
+Already applied to "Data & Insights Executive | QMS" job. Job ID: 4390638825!
+
+-@-
+
+Already applied to "Senior Consultant | Forensic Data Analytics | (Melbourne or Sydney) | KPMG Australia" job. Job ID: 4392392046!
+
+-@-
+
+Trying to Apply to "Strategic Insights Consultant – Social + Commercial + Quant + Qual | Resources Group" job. Job ID: 4389833932
+Time Posted: Melbourne, Victoria, Australia · 2 weeks ago · 79 applicants
+Promoted by hirer · Actively reviewing applicants
+
+About the job
+Culturally, this agency exudes genuine warmth, capacious intelligence, and a passion for real human insight that can shift behaviours and reshape our world for the better.
+
+Hard to find elsewhere, the team thrives on mixed-methodology projects - seamlessly weaving quantitative and qualitative approaches to tackle both social and commercial research challenges.
+
+Their super-loyal team stays for the purposeful social impact work (often in social marketing and behavioural change), alongside wickedly sharp commercial challenges across brand, innovation, and communications.
+
+They offer exceptional learning and development to help you grow your career as a Strategic Insights Consultant.
+
+Key responsibilities:
+
+Confidently build strong client relationships
+Support the delivery of complex research programs - from design through to insight communication
+Further develop skills in survey design, meticulous project management, statistical analysis, reporting, and presenting with strategic perspective
+Get involved in qualitative research - including design, depth interviews, and focus groups
+Leverage insights from alternative sources, including their fabulous trends monitor
+Bring curiosity, energy, and ideas to support a brilliant team
+
+What you’re looking for:
+
+Variety in methodologies - qualitative and quantitative
+Diversity of clients - Government, NFPs, banks, retailers, tourism, and energy
+Meaningful human insights work, such as: Designing road safety campaigns; Behaviour change programs for marine safety; Commercialising green energy; Innovation and choice modelling within insurance; Identifying opportunities to drive summer tourism in ski resorts; Understanding behaviour and demand at cemeteries. 
+A renowned agency with an outstanding reputation
+Part of a creative group, offering a strong network to leverage
+Epic offices, rooftop bar, vibrant culture, socials, hybrid working, additional leave, and learning opportunities
+
+What we’re looking for:
+
+Experience within another social or market research agency is essential
+Experience in a customised research role with exposure to the full research cycle
+Experience managing multiple research projects and switching between tasks
+Strong analytical, interpretive, and storytelling skills
+Experience with a statistical package such as Q or SPSS
+Natural confidence in a client-facing role
+Tertiary qualifications in marketing, social sciences, psychology, business, or a related field
+
+Send your CV to Senior Partner Gemma Lewis at glewis@resourcesgroup.com or call 0452 417 265 for a confidential discussion about this role and other opportunities.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Already applied to "Casino Product & Integrity Analyst | BettingJobs" job. Job ID: 4385045168!
+
+-@-
+
+Already applied to "Data Analyst (AI Enhanced Reporting and Analytics) | Eightcap" job. Job ID: 4401028073!
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+-@-
+
+Trying to Apply to "Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based) | Agoda" job. Job ID: 4299779194
+Time Posted: Melbourne, Victoria, Australia · Reposted 3 weeks ago · 96 applicants
+Promoted by hirer · No response insights available yet

@@ -137,13 +137,14 @@ class PipelineWorker:
     def process_run(self, run_id: str) -> dict:
         try:
             record = self.store.get_run(run_id)
+            has_started_stage = bool((record.get("stage_started_at") or "").strip())
 
-            if csv_has_expected_header(record["recruiters_csv_path"], ENRICHED_RECRUITER_HEADERS):
+            if has_started_stage and csv_has_expected_header(record["recruiters_csv_path"], ENRICHED_RECRUITER_HEADERS):
                 if recruiter_csv_is_placeholder(record["recruiters_csv_path"]):
                     return self._run_rocketreach(run_id)
                 return self._resume_from_recruiters(run_id)
 
-            if csv_has_expected_header(record["applied_csv_path"], APPLIED_JOBS_HEADERS):
+            if has_started_stage and csv_has_expected_header(record["applied_csv_path"], APPLIED_JOBS_HEADERS):
                 if csv_row_count(record["applied_csv_path"]) == 0:
                     return self.store.update_run(
                         run_id,

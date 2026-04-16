@@ -85,7 +85,6 @@ class PipelineStore:
 
     def _reset_live_artifacts(self, run_paths) -> None:
         for artifact_path in (
-            run_paths.applied_csv,
             run_paths.external_jobs_csv,
             run_paths.recruiters_csv,
             run_paths.failed_jobs_csv,

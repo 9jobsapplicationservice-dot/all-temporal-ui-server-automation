@@ -1,0 +1,302 @@
+Screenshot directory: D:\Automation- Project 1\pipeline\logs\screenshots
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7de28b]
+	chromedriver!(No symbol) [0x7ff66f7d9559]
+	chromedriver!(No symbol) [0x7ff66f82dc21]
+	chromedriver!(No symbol) [0x7ff66f82d486]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+2026-04-14 17:06:38.576643
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-14 17:06:46.406074
+Extracted about company info for AI: 'Sumedha'
+
+########################################################################################################################
+
+Date and Time: 2026-04-14 17:06:46.450923
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by 'Most recent'
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Already applied to "Junior/Mid-level Data Analyst | Method Recruitment Group" job. Job ID: 4399137319!
+
+-@-
+
+Already applied to "Data & Insights Executive | QMS" job. Job ID: 4390638825!
+
+-@-
+
+Already applied to "Senior Consultant | Forensic Data Analytics | (Melbourne or Sydney) | KPMG Australia" job. Job ID: 4392392046!
+
+-@-
+
+Trying to Apply to "Strategic Insights Consultant – Social + Commercial + Quant + Qual | Resources Group" job. Job ID: 4389833932
+
+About the job
+Culturally, this agency exudes genuine warmth, capacious intelligence, and a passion for real human insight that can shift behaviours and reshape our world for the better.
+
+Hard to find elsewhere, the team thrives on mixed-methodology projects - seamlessly weaving quantitative and qualitative approaches to tackle both social and commercial research challenges.
+
+Their super-loyal team stays for the purposeful social impact work (often in social marketing and behavioural change), alongside wickedly sharp commercial challenges across brand, innovation, and communications.
+
+They offer exceptional learning and development to help you grow your career as a Strategic Insights Consultant.
+
+Key responsibilities:
+
+Confidently build strong client relationships
+Support the delivery of complex research programs - from design through to insight communication
+Further develop skills in survey design, meticulous project management, statistical analysis, reporting, and presenting with strategic perspective
+Get involved in qualitative research - including design, depth interviews, and focus groups
+Leverage insights from alternative sources, including their fabulous trends monitor
+Bring curiosity, energy, and ideas to support a brilliant team
+
+What you’re looking for:
+
+Variety in methodologies - qualitative and quantitative
+Diversity of clients - Government, NFPs, banks, retailers, tourism, and energy
+Meaningful human insights work, such as: Designing road safety campaigns; Behaviour change programs for marine safety; Commercialising green energy; Innovation and choice modelling within insurance; Identifying opportunities to drive summer tourism in ski resorts; Understanding behaviour and demand at cemeteries. 
+A renowned agency with an outstanding reputation
+Part of a creative group, offering a strong network to leverage
+Epic offices, rooftop bar, vibrant culture, socials, hybrid working, additional leave, and learning opportunities
+
+What we’re looking for:
+
+Experience within another social or market research agency is essential
+Experience in a customised research role with exposure to the full research cycle
+Experience managing multiple research projects and switching between tasks
+Strong analytical, interpretive, and storytelling skills
+Experience with a statistical package such as Q or SPSS
+Natural confidence in a client-facing role
+Tertiary qualifications in marketing, social sciences, psychology, business, or a related field
+
+Send your CV to Senior Partner Gemma Lewis at glewis@resourcesgroup.com or call 0452 417 265 for a confidential discussion about this role and other opportunities.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Already applied to "Casino Product & Integrity Analyst | BettingJobs" job. Job ID: 4385045168!
+
+-@-
+
+Already applied to "Data Analyst (AI Enhanced Reporting and Analytics) | Eightcap" job. Job ID: 4401028073!
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+-@-
+
+Trying to Apply to "Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based) | Agoda" job. Job ID: 4299779194
+
+About the job
+About Agoda
+
+At Agoda, we bridge the world through travel. Our story began in 2005, when two lifelong friends and entrepreneurs, driven by their passion for travel, launched Agoda to make it easier for everyone to explore the world.
+
+Today, we are part of Booking Holdings [NASDAQ: BKNG], with a diverse team of over 7,000 people from 90 countries, working together in offices around the globe. Every day, we connect people to destinations and experiences, with our great deals across our millions of hotels and holiday properties, flights, and experiences worldwide.
+
+No two days are the same at Agoda. Data and technology are at the heart of our culture, fueling our curiosity and innovation. If you’re ready to begin your best journey and help build travel for the world, join us.
+
+Get to Know our Team:
+
+The Performance Marketing Team of Agoda is a world leader in online marketing. This department is highly data-driven and focused on developing at-scale marketing programs that improve the lifetime value of Agoda customers through measurable marketing programs and channels. The team is a blend of the best analysts, marketing strategists, and data scientists in the world. The marketing leadership at Agoda have deep experience in data science, product, strategy, and other marketing fields and have built an organization that thrives on data, creative ideas, and technology. The Performance Marketing Team also fosters a great learning environment. You will be able to learn and grow by working closely with experts from a variety of backgrounds from all over the world.
+
+In this Role, you’ll get to:
+
+Search: Experiment with text ads, bidding, and campaign structures on Google, Bing, Baidu, Naver, and other search engines. Adapt to new product features and roll out changes from successful tests.
+Display: Test, analyze, and optimize campaigns on Facebook, Twitter, Instagram, and others.
+Modeling: Analyze the vast amounts of data generated by experiments, develop models we can use for optimization, and build dashboards for account managers.
+
+What you’ll Need to Succeed:
+
+Bachelor’s Degree or higher from top university in a quantitative subject (computer science, mathematics, economics, engineering, statistics or science)
+Fresh graduation are welcome (0-1 years of experience)
+Ability to communicate fluently in English
+Basic business acumen
+Proficient in statistics and Excel
+Exposure to data tools (SAS, R, SPSS, Python, VBA, SQL, Tableau)
+Familiar with A/B testing concepts
+Works under close supervision and supports projects with guidance
+
+It’s Great if you Have:
+
+Experience in digital marketing
+Academic research experience
+
+#Bengaluru #SãoPaulo #Delhi #NewYorkCity #Nigeria #London #Hyderabad #Pune #Mumbai #Colombia #Paris #Jakarta #Chennai #SanFrancisco #WashingtonDC #Toronto #Pakistan #LosAngeles #Dallas #Chicago #Kenya #Boston #Shanghai #Egypt #BuenosAires #Manila #Netherlands #Singapore #RiodeJaneiro #Beijing #Atlanta #Sydney #Madrid #Vietnam #SaudiArabia #Peru #Melbourne #Ireland #Russia #Bangladesh #MexicoCity #Philadelphia #Chile #SeattleArea #Noida #Kolkata #Guangdong #UnitedArabEmirates #TelAvivDistrict #Houston #KualaLumpur #BeloHorizonte #SouthKorea #Bangkok #Istanbul #Austin #Curitiba #Warsaw #Campinas #Barcelona #Ukraine #CostaRica #Berlin #Romania #Denver #Johannesburg #Minneapolis #Manchester #Miami #Phoenix #Detroit #Coimbatore #Milan #PortoAlegre #Vancouver #Montreal #Charlotte #SanDiego #Ghana #SaltLakeCity #Raleigh #HongKong #Munich #Prague #Ecuador #TampaBay #Tokyo #Serbia #Taipei #Cracow #Zhejiang #CapeTown #Brasilia #Columbus #Ahmedabad #Indore #Kochi #Gurgaon #Chandigarh #Lucknow #Bhubaneswar #Thiruvananthapuram #Visakhapatnam #Bhopal #JerseyCity #Irving #Denton #Worcester #Arlington #OverlandPark #AuroraDistrict #Baltimore #Tampa #Halethorpe #Dayton #Syracuse #Chonburi #ChiangMai #NakhonRatchasima #KhonKaen #HatYai #Phuket #Surabaya #Tangerang #Birmingham #Casablanca #Rabat #Camp #PetalingJaya #GeorgeTown
+
+Please review our Hiring Process Guidelines before your interview — click here to learn how interviewing at Agoda works.
+
+Discover More About Working At Agoda
+
+Agoda Careers https://careersatagoda.com
+Facebook https://www.facebook.com/agodacareers/
+LinkedIn https://www.linkedin.com/company/agoda
+YouTube https://www.youtube.com/agodalife
+
+Equal Opportunity Employer 
+
+At Agoda, we pride ourselves on being a company represented by people of all different backgrounds and orientations. We prioritize attracting diverse talent and cultivating an inclusive environment that encourages collaboration and innovation. Employment at Agoda is based solely on a person’s merit and qualifications. We are committed to providing equal employment opportunity regardless of sex, age, race, color, national origin, religion, marital status, pregnancy, sexual orientation, gender identity, disability, citizenship, veteran or military status, and other legally protected characteristics.
+
+We will keep your application on file so that we can consider you for future vacancies and you can always ask to have your details removed from the file. For more details please read our privacy policy.
+
+Disclaimer
+
+We do not accept any terms or conditions, nor do we recognize any agency’s representation of a candidate, from unsolicited third-party or agency submissions. If we receive unsolicited or speculative CVs, we reserve the right to contact and hire the candidate directly without any obligation to pay a recruitment fee.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Already applied to "Shopper and Category Insights Analyst – Retail & FMCG | Resources Group" job. Job ID: 4400082927!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Business Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Click Failed! Didn't find 'Most recent'
+
+-@-
+
+Already applied to "Business Analyst | The ItsMy Group" job. Job ID: 4387768263!
+
+-@-
+
+Already applied to "Senior Business Analyst | Intellihub Group" job. Job ID: 4398881130!
+
+-@-
+
+Already applied to "Business Analyst | Vantage" job. Job ID: 4386086072!
+
+-@-
+
+Trying to Apply to "Business Analyst - Defence Environment | Centorrino Technologies" job. Job ID: 4401534817
+
+About the job
+Join Centorrino Technologies: Innovate, Grow, and Thrive with Us!
+
+At Centorrino Technologies (CT), we're more than just tech—we're a community that goes beyond expectations. We've been recognised as a Great Place to Work in 2024-2025 and one of the Best Places to Work Medium & Large Size in Australia for 2025, with an outstanding eNPS score of 68. And we're not stopping there. We're on a mission to redefine the customer experience, and we need a passionate Business Analyst to join our team in Australia.
+
+The Business Analyst leads and delivers business analysis activities by eliciting, analysing, and translating stakeholder requirements into fit-for-purpose solutions that support portfolio, program, and project management outcomes and align with organisational P3M frameworks and governance models.
+
+Requirements
+
+What you'll do:
+
+Engage with stakeholders across PMOs and business units to gather, validate, and document business and system requirements 
+ Analyse current-state processes and identify opportunities for improvement and optimisation 
+ Translate business needs into clear functional and technical specifications for delivery teams 
+ Support alignment of systems and processes with P3M frameworks, governance structures, and strategic roadmaps 
+ Facilitate workshops, stakeholder meetings, and solution demonstrations to drive consensus and clarity 
+ Collaborate closely with technical teams to ensure requirements are accurately interpreted and implemented 
+ Support testing activities including UAT planning, execution, and validation of delivered solutions 
+ Contribute to continuous improvement initiatives across portfolio and project management practices 
+ Produce high-quality documentation including business cases, process maps, and requirements artefacts
+
+What you'll bring:
+
+Demonstrated experience as a Business Analyst within project, program, or portfolio management environments 
+ Strong capability in requirements elicitation, analysis, and documentation (e.g. user stories, process maps, functional specs) 
+ Experience working within P3M frameworks, governance models, and delivery lifecycles 
+ Proven stakeholder engagement and workshop facilitation skills across diverse groups 
+ Ability to bridge business and technical teams effectively 
+ Experience supporting system implementations or enhancements 
+ Experience in government or secure environments (desirable) 
+
+Benefits
+
+Why You'll Love Working Here:
+
+Our company is more than just a workplace, it's a hub of inspiration and creativity where employees love to work! Here's why:
+
+Hybrid working (for majority of our roles) with team anchor days to support collaboration
+Extensive training and development opportunities that enable continual growth as part of your career planning
+Extensive discounts and benefits to maximise your money
+A choice of your IT equipment to maximise your success and access to cost-price tech for your personal needs
+Fun team events to celebrate achievements and connect with colleagues outside work as part of our engaging culture
+
+CT celebrates diversity and enables every voice to be heard as we drive to create the world we want. Apply today and be part of a team that values innovation, inclusivity, variety and diverse backgrounds.
+
+Note: A valid Vulnerable People / Working with Children Check (WWCC) and Police Check are required.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-14 17:07:40.517337
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Failed to Easy apply!
+Somewhere in Easy Apply process
+Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f788842]
+	chromedriver!(No symbol) [0x7ff66f7af0b1]
+	chromedriver!(No symbol) [0x7ff66f8270b0]
+	chromedriver!(No symbol) [0x7ff66f8440e2]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+2026-04-14 17:08:38.107853

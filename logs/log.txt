@@ -143,3 +143,5 @@ Cycle number: 1
 Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
 ########################################################################################################################
 
+Trying target job "Backend Engineer | Acme". Job ID: 123456789
+HR info was not given for "Backend Engineer" with Job ID: 123456789!

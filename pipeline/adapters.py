@@ -254,6 +254,7 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
         "PIPELINE_RECRUITERS_CSV_PATH": record["recruiters_csv_path"],
         "PIPELINE_FAILED_CSV_PATH": str(Path(record["log_dir"]) / "failed_jobs.csv"),
         "PIPELINE_LOGS_DIR": record["log_dir"],
+        "PIPELINE_SCREENSHOTS_DIR": str(Path(record["log_dir"]).parent / "screenshots"),
         "PIPELINE_RUN_NON_STOP": "false",
         "PIPELINE_MAX_EASY_APPLY": configured_easy_apply_limit,
     }

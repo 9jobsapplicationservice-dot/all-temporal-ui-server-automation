@@ -1,0 +1,2190 @@
+[pipeline_entry] run_id=run-ui-0f90040a9b5d output_dir=D:\Automation- Project 1\pipeline\runs
+[PIPELINE ALERT SUPPRESSED] Support the project: Please consider sponsoring this project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Screenshot directory: D:\Automation- Project 1\pipeline\logs\screenshots
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6f2c10245+146d5]
+	chromedriver!GetHandleVerifier [0x7ff6f2c102b0+14740]
+	chromedriver!(No symbol) [0x7ff6f297d7cd]
+	chromedriver!(No symbol) [0x7ff6f29be28b]
+	chromedriver!(No symbol) [0x7ff6f29b9559]
+	chromedriver!(No symbol) [0x7ff6f2a0dc21]
+	chromedriver!(No symbol) [0x7ff6f2a0d486]
+	chromedriver!(No symbol) [0x7ff6f29c9018]
+	chromedriver!(No symbol) [0x7ff6f29c9f03]
+	chromedriver!GetHandleVerifier [0x7ff6f2f258f9+329d89]
+	chromedriver!GetHandleVerifier [0x7ff6f2f1fe46+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff6f2f430b2+347542]
+	chromedriver!GetHandleVerifier [0x7ff6f2c2d3d5+31865]
+	chromedriver!GetHandleVerifier [0x7ff6f2c3600c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff6f2c19634+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff6f2c197e6+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff6f2bfe2f7+2787]
+	KERNEL32!BaseThreadInitThunk [0x7ff914677374+14]
+	ntdll!RtlUserThreadStart [0x7ff91491cc91+21]
+
+2026-04-16 12:04:06.042810
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-16 12:04:14.151891
+Extracted about company info for AI: 'Sumedha'
+
+########################################################################################################################
+
+Date and Time: 2026-04-16 12:04:14.210696
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by 'Most recent'
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+-@-
+
+Trying to Apply to "Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based) | Agoda" job. Job ID: 4299779194
+Time Posted: Melbourne, Victoria, Australia · Reposted 1 day ago · 98 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+About Agoda
+
+At Agoda, we bridge the world through travel. Our story began in 2005, when two lifelong friends and entrepreneurs, driven by their passion for travel, launched Agoda to make it easier for everyone to explore the world.
+
+Today, we are part of Booking Holdings [NASDAQ: BKNG], with a diverse team of over 7,000 people from 90 countries, working together in offices around the globe. Every day, we connect people to destinations and experiences, with our great deals across our millions of hotels and holiday properties, flights, and experiences worldwide.
+
+No two days are the same at Agoda. Data and technology are at the heart of our culture, fueling our curiosity and innovation. If you’re ready to begin your best journey and help build travel for the world, join us.
+
+Get to Know our Team:
+
+The Performance Marketing Team of Agoda is a world leader in online marketing. This department is highly data-driven and focused on developing at-scale marketing programs that improve the lifetime value of Agoda customers through measurable marketing programs and channels. The team is a blend of the best analysts, marketing strategists, and data scientists in the world. The marketing leadership at Agoda have deep experience in data science, product, strategy, and other marketing fields and have built an organization that thrives on data, creative ideas, and technology. The Performance Marketing Team also fosters a great learning environment. You will be able to learn and grow by working closely with experts from a variety of backgrounds from all over the world.
+
+In this Role, you’ll get to:
+
+Search: Experiment with text ads, bidding, and campaign structures on Google, Bing, Baidu, Naver, and other search engines. Adapt to new product features and roll out changes from successful tests.
+Display: Test, analyze, and optimize campaigns on Facebook, Twitter, Instagram, and others.
+Modeling: Analyze the vast amounts of data generated by experiments, develop models we can use for optimization, and build dashboards for account managers.
+
+What you’ll Need to Succeed:
+
+Bachelor’s Degree or higher from top university in a quantitative subject (computer science, mathematics, economics, engineering, statistics or science)
+Fresh graduation are welcome (0-1 years of experience)
+Ability to communicate fluently in English
+Basic business acumen
+Proficient in statistics and Excel
+Exposure to data tools (SAS, R, SPSS, Python, VBA, SQL, Tableau)
+Familiar with A/B testing concepts
+Works under close supervision and supports projects with guidance
+
+It’s Great if you Have:
+
+Experience in digital marketing
+Academic research experience
+
+#Bengaluru #SãoPaulo #Delhi #NewYorkCity #Nigeria #London #Hyderabad #Pune #Mumbai #Colombia #Paris #Jakarta #Chennai #SanFrancisco #WashingtonDC #Toronto #Pakistan #LosAngeles #Dallas #Chicago #Kenya #Boston #Shanghai #Egypt #BuenosAires #Manila #Netherlands #Singapore #RiodeJaneiro #Beijing #Atlanta #Sydney #Madrid #Vietnam #SaudiArabia #Peru #Melbourne #Ireland #Russia #Bangladesh #MexicoCity #Philadelphia #Chile #SeattleArea #Noida #Kolkata #Guangdong #UnitedArabEmirates #TelAvivDistrict #Houston #KualaLumpur #BeloHorizonte #SouthKorea #Bangkok #Istanbul #Austin #Curitiba #Warsaw #Campinas #Barcelona #Ukraine #CostaRica #Berlin #Romania #Denver #Johannesburg #Minneapolis #Manchester #Miami #Phoenix #Detroit #Coimbatore #Milan #PortoAlegre #Vancouver #Montreal #Charlotte #SanDiego #Ghana #SaltLakeCity #Raleigh #HongKong #Munich #Prague #Ecuador #TampaBay #Tokyo #Serbia #Taipei #Cracow #Zhejiang #CapeTown #Brasilia #Columbus #Ahmedabad #Indore #Kochi #Gurgaon #Chandigarh #Lucknow #Bhubaneswar #Thiruvananthapuram #Visakhapatnam #Bhopal #JerseyCity #Irving #Denton #Worcester #Arlington #OverlandPark #AuroraDistrict #Baltimore #Tampa #Halethorpe #Dayton #Syracuse #Chonburi #ChiangMai #NakhonRatchasima #KhonKaen #HatYai #Phuket #Surabaya #Tangerang #Birmingham #Casablanca #Rabat #Camp #PetalingJaya #GeorgeTown
+
+Please review our Hiring Process Guidelines before your interview — click here to learn how interviewing at Agoda works.
+
+Discover More About Working At Agoda
+
+Agoda Careers https://careersatagoda.com
+Facebook https://www.facebook.com/agodacareers/
+LinkedIn https://www.linkedin.com/company/agoda
+YouTube https://www.youtube.com/agodalife
+
+Equal Opportunity Employer 
+
+At Agoda, we pride ourselves on being a company represented by people of all different backgrounds and orientations. We prioritize attracting diverse talent and cultivating an inclusive environment that encourages collaboration and innovation. Employment at Agoda is based solely on a person’s merit and qualifications. We are committed to providing equal employment opportunity regardless of sex, age, race, color, national origin, religion, marital status, pregnancy, sexual orientation, gender identity, disability, citizenship, veteran or military status, and other legally protected characteristics.
+
+We will keep your application on file so that we can consider you for future vacancies and you can always ask to have your details removed from the file. For more details please read our privacy policy.
+
+Disclaimer
+
+We do not accept any terms or conditions, nor do we recognize any agency’s representation of a candidate, from unsolicited third-party or agency submissions. If we receive unsolicited or speculative CVs, we reserve the right to contact and hire the candidate directly without any obligation to pay a recruitment fee.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Already applied to "Shopper and Category Insights Analyst – Retail & FMCG | Resources Group" job. Job ID: 4400082927!
+
+-@-
+
+Already applied to "Biomedical Analyst | QA Solidário" job. Job ID: 4401855406!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Business Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Click Failed! Didn't find 'Most recent'
+
+-@-
+
+Already applied to "Senior Business Analyst | Intellihub Group" job. Job ID: 4398881130!
+
+-@-
+
+Already applied to "Business Analyst | The ItsMy Group" job. Job ID: 4387768263!
+
+-@-
+
+Trying to Apply to "Business Analyst - Defence Environment | Centorrino Technologies" job. Job ID: 4401534817
+Time Posted: Melbourne, Victoria, Australia · 2 days ago · 53 applicants
+No response insights available yet
+
+About the job
+Join Centorrino Technologies: Innovate, Grow, and Thrive with Us!
+
+At Centorrino Technologies (CT), we're more than just tech—we're a community that goes beyond expectations. We've been recognised as a Great Place to Work in 2024-2025 and one of the Best Places to Work Medium & Large Size in Australia for 2025, with an outstanding eNPS score of 68. And we're not stopping there. We're on a mission to redefine the customer experience, and we need a passionate Business Analyst to join our team in Australia.
+
+The Business Analyst leads and delivers business analysis activities by eliciting, analysing, and translating stakeholder requirements into fit-for-purpose solutions that support portfolio, program, and project management outcomes and align with organisational P3M frameworks and governance models.
+
+Requirements
+
+What you'll do:
+
+Engage with stakeholders across PMOs and business units to gather, validate, and document business and system requirements 
+ Analyse current-state processes and identify opportunities for improvement and optimisation 
+ Translate business needs into clear functional and technical specifications for delivery teams 
+ Support alignment of systems and processes with P3M frameworks, governance structures, and strategic roadmaps 
+ Facilitate workshops, stakeholder meetings, and solution demonstrations to drive consensus and clarity 
+ Collaborate closely with technical teams to ensure requirements are accurately interpreted and implemented 
+ Support testing activities including UAT planning, execution, and validation of delivered solutions 
+ Contribute to continuous improvement initiatives across portfolio and project management practices 
+ Produce high-quality documentation including business cases, process maps, and requirements artefacts
+
+What you'll bring:
+
+Demonstrated experience as a Business Analyst within project, program, or portfolio management environments 
+ Strong capability in requirements elicitation, analysis, and documentation (e.g. user stories, process maps, functional specs) 
+ Experience working within P3M frameworks, governance models, and delivery lifecycles 
+ Proven stakeholder engagement and workshop facilitation skills across diverse groups 
+ Ability to bridge business and technical teams effectively 
+ Experience supporting system implementations or enhancements 
+ Experience in government or secure environments (desirable) 
+
+Benefits
+
+Why You'll Love Working Here:
+
+Our company is more than just a workplace, it's a hub of inspiration and creativity where employees love to work! Here's why:
+
+Hybrid working (for majority of our roles) with team anchor days to support collaboration
+Extensive training and development opportunities that enable continual growth as part of your career planning
+Extensive discounts and benefits to maximise your money
+A choice of your IT equipment to maximise your success and access to cost-price tech for your personal needs
+Fun team events to celebrate achievements and connect with colleagues outside work as part of our engaging culture
+
+CT celebrates diversity and enables every voice to be heard as we drive to create the world we want. Apply today and be part of a team that values innovation, inclusivity, variety and diverse backgrounds.
+
+Note: A valid Vulnerable People / Working with Children Check (WWCC) and Police Check are required.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:04:55.838335
+Extracted skills using gemini AI
+Easy apply failed I guess!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Associate Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Click Failed! Didn't find 'Most recent'
+Click Failed! Didn't find 'Past week'
+Click Failed! Didn't find 'Entry level'
+
+-@-
+
+Already applied to "Data Analyst | Hays" job. Job ID: 4399119523!
+
+-@-
+
+Already applied to "Data Migration Analyst | Talent" job. Job ID: 4399150026!
+
+-@-
+
+Already applied to "Senior Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299774296!
+
+-@-
+
+Trying to Apply to "Strategic Insights Consultant – Social + Commercial + Quant + Qual | Resources Group" job. Job ID: 4389833932
+Time Posted: Melbourne, Victoria, Australia · 3 weeks ago · 81 applicants
+Promoted by hirer · Actively reviewing applicants
+
+About the job
+Culturally, this agency exudes genuine warmth, capacious intelligence, and a passion for real human insight that can shift behaviours and reshape our world for the better.
+
+Hard to find elsewhere, the team thrives on mixed-methodology projects - seamlessly weaving quantitative and qualitative approaches to tackle both social and commercial research challenges.
+
+Their super-loyal team stays for the purposeful social impact work (often in social marketing and behavioural change), alongside wickedly sharp commercial challenges across brand, innovation, and communications.
+
+They offer exceptional learning and development to help you grow your career as a Strategic Insights Consultant.
+
+Key responsibilities:
+
+Confidently build strong client relationships
+Support the delivery of complex research programs - from design through to insight communication
+Further develop skills in survey design, meticulous project management, statistical analysis, reporting, and presenting with strategic perspective
+Get involved in qualitative research - including design, depth interviews, and focus groups
+Leverage insights from alternative sources, including their fabulous trends monitor
+Bring curiosity, energy, and ideas to support a brilliant team
+
+What you’re looking for:
+
+Variety in methodologies - qualitative and quantitative
+Diversity of clients - Government, NFPs, banks, retailers, tourism, and energy
+Meaningful human insights work, such as: Designing road safety campaigns; Behaviour change programs for marine safety; Commercialising green energy; Innovation and choice modelling within insurance; Identifying opportunities to drive summer tourism in ski resorts; Understanding behaviour and demand at cemeteries. 
+A renowned agency with an outstanding reputation
+Part of a creative group, offering a strong network to leverage
+Epic offices, rooftop bar, vibrant culture, socials, hybrid working, additional leave, and learning opportunities
+
+What we’re looking for:
+
+Experience within another social or market research agency is essential
+Experience in a customised research role with exposure to the full research cycle
+Experience managing multiple research projects and switching between tasks
+Strong analytical, interpretive, and storytelling skills
+Experience with a statistical package such as Q or SPSS
+Natural confidence in a client-facing role
+Tertiary qualifications in marketing, social sciences, psychology, business, or a related field
+
+Send your CV to Senior Partner Gemma Lewis at glewis@resourcesgroup.com or call 0452 417 265 for a confidential discussion about this role and other opportunities.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Senior Test Analyst -(BigQuery) | CloudMarc" job. Job ID: 4395930804
+Time Posted: Melbourne, Victoria, Australia · 1 week ago · 53 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+We Are Fujitsu
+We use technology to make happier lives. We are a global leader in technology and business solutions that transform organisations and the world around us. We have a long heritage of bringing innovation and expertise, continuously working to contribute to the growth of society and our customers.
+
+ 
+About the Role
+We are seeking a Senior Consultant – Testing to provide specialist testing advice and delivery across medium-complexity projects, supporting risk treatment, validation activities, and release readiness. The role is responsible for managing testing activities and providing stakeholders with clear evidence to support informed decisions on solution suitability for progression through development stages or release into production.
+
+This role suits an experienced testing professional with strong exposure to data platforms, analytics environments, and Agile delivery frameworks.
+
+
+
+Responsibilities and Accountabilities
+Define and agree testing scope with stakeholders across assigned projects or specialist testing areas
+Deliver testing activities within agreed timelines and budget constraints
+Develop test plans and test strategies aligned to project requirements and risk mitigation
+Coordinate test environments, tools, materials, and resources required for delivery
+Monitor and report test progress, risks, incidents, and quality metrics
+Manage or support test teams where required
+Produce clear and traceable test cases aligned to business and technical requirements
+Support User Acceptance Testing (UAT), Alpha and Beta testing activities
+Contribute to bid support and pre-sales testing activities
+Maintain alignment with organisational testing standards and frameworks
+Identify opportunities for improvement and follow-on engagement opportunities
+Stay current with relevant technology trends and certifications, particularly within AI & Data environments
+
+
+
+Requirements and Experience
+Produce high-quality test plans and strategies aligned to delivery risks and requirements
+Ensure accurate and well-documented test cases suitable for execution teams
+Successfully deliver testing activities across project lifecycle stages
+Communicate effectively with project teams, managers, and stakeholders
+Support quality assurance activities ensuring solutions meet defined standards
+Manage testing processes including quality control testing and validation activities
+Ensure completion and documentation of system testing outcomes and issue resolution
+Strong experience delivering testing activities across medium-complexity projects
+Good understanding of Data Modelling and Data Integration concepts
+Strong SQL skills
+Experience working with Power BI environments
+Strong technical capability supporting data-focused testing delivery
+Experience working within Agile delivery methodologies
+
+
+
+Why Fujitsu?
+We are an organization with a strong set of values and a history of respecting fairness and equality, whilst promoting diversity, equity, and inclusion. We constantly push ourselves to do better and strive to bring together a diverse mix of perspectives and talents in an inclusive environment, where we encourage our people to bring their full selves to work. We call this Be Completely You.
+
+We put people first. We believe in the power of diversity to drive innovation and our AWEI (Australian Workplace Equality Index) Gold Employer status, and Rainbow Tick certification for LGBTI+ inclusion show that we value an inclusive culture.
+We offer tailored career paths across our global organization to support your professional and personal growth.
+Our customers trust us. We have an excellent reputation across the region and globally.
+Best in-class reward and recognition programs flexible work, volunteering leave, and more.
+We live our values of aspiration, trust, and empathy, all day, every day.
+
+Commitment to Diversity, Equity and Inclusion
+As an inclusive employer, Fujitsu aims to recruit a diverse range of talents to help us achieve our purpose. In line with our diversity, equity, and inclusion strategy, we highly welcome applications from women and gender-diverse people; Aboriginal and Torres Strait Islander people; M\u0101ori and Pacific people; LGBTI+ people; people with a disability; culturally and linguistically diverse people; veterans, Australian Defence Force (ADF) and emergency responders. Transgender and gender-diverse applicants can request a copy of our Frequently Asked Questions to assist with the recruitment journey.
+
+If you don't tick every box in this job description, please don't rule yourself out. Research suggests that underrepresented groups tend to only apply if they meet every requirement. We focus on hiring people who value inclusion, collaboration, adaptability, courage, and integrity, rather than ticking boxes so if this resonates with you, then please apply. For more information, please email careersapac@fujitsu.com.
+
+Search Firm Representatives – PLEASE READ:
+Fujitsu does not accept unsolicited assistance from search firms for employment opportunities. All CVs or resumes submitted by search firms to any employee at our company without a valid written agreement in place for this position will be considered the sole property of our company. No fee will be paid if a candidate is hired by Fujitsu due to an agency referral where no existing agreement is in place with the Fujitsu Talent Acquisition Team. Where agency agreements are in place, introductions must be through engagement by the Fujitsu Talent Acquisition Team.
+
+For Security Cleared Roles – PLEASE NOTE:
+Due to the inherent requirements of the role, candidates must be Australian Citizens and hold an Australian Federal Government Security Clearance. The role will or will likely involve access to controlled technology and must satisfy additional restrictions and requirements as a consequence of the International Traffic in Arms Regulations and the Export Administration Regulations. As a consequence of these restrictions and requirements, applicants may be adversely impacted if they are not Australian citizens, are dual nationals, hold citizenship from proscribed countries, or are not of Australian national origin. Please refer to Discrimination (Fujitsu Australia Limited) Exemption 2017 (No 1) Notifiable instrument NI2020-672 (ACT).
+
+Found "Clearance" or "Polygraph". Skipping this job!
+
+
+About the job
+CloudMarc | Senior Test Analyst (Data / GCP / SQL)
+Location: Melbourne (Hybrid – 3 days onsite)
+Work Type: Contract
+
+About CloudMarc
+CloudMarc is a specialist consultancy delivering Quality Engineering, Test Automation, and cloud-native solutions to enterprise clients across Australia.
+We partner with organisations to uplift data quality, improve testing practices, and support large-scale digital and data transformation programs.
+
+The Opportunity
+We’re looking for a Senior Test Analyst with strong experience in data testing and validation to join a Melbourne-based delivery team.
+This role will focus on validating large-scale data pipelines, ensuring data accuracy, integrity, and system stability across complex environments.
+
+Key Responsibilities
+Analyse requirements and develop test scenarios and test cases for data validation
+Execute data testing across multiple layers and systems
+Perform regression testing on high-volume transactional data
+Validate data using SQL and Python-based checks where required
+Identify, log, and manage defects through to resolution
+Work with engineering teams to ensure data quality and availability
+Support testing across ETL processes and data transformations
+Contribute to test planning, execution, and reporting
+Skills & Experience (Required)
+Proven experience as a Senior Test Analyst in data-focused environments
+Strong hands-on experience with:
+SQL (data validation and reconciliation)
+Exposure to Python for data validation
+Experience working with:
+GCP (BigQuery preferred)
+Experience testing:
+High-volume data pipelines and transactional systems
+Strong understanding of:
+ETL processes and data transformations
+Excellent analytical and problem-solving skills
+
+Highly Regarded
+Experience with:
+GCP services (Cloud Run, Workflows, Cloud Build, Scheduler)
+Exposure to:
+Graph databases (Neo4j / Cypher)
+Experience working in:
+CI/CD and Agile environments
+
+What You’ll Bring
+Strong attention to detail and quality-first mindset
+Ability to work across complex data environments
+Strong communication and stakeholder engagement skills
+Ability to operate in fast-paced delivery environments
+
+Apply
+Apply via LinkedIn or reach out directly to the CloudMarc Talent team for a confidential discussion.
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Already applied to "Operations Analyst - Renewable Energy | Phillip Riley" job. Job ID: 4376035712!
+
+-@-
+
+Already applied to "Business Intelligence Specialist | Randstad Enterprise" job. Job ID: 4398207484!
+
+-@-
+
+Already applied to "Data Annotator | $30/hr Remote | Crossing Hurdles" job. Job ID: 4395421618!
+
+-@-
+
+Already applied to "Senior Data & Insights Analyst | Healthcare Professionals Group" job. Job ID: 4401082042!
+
+-@-
+
+Already applied to "Senior Consultant | Forensic Data Analytics | (Melbourne or Sydney) | KPMG Australia" job. Job ID: 4392392046!
+
+-@-
+
+Already applied to "Data & Insights Executive | QMS" job. Job ID: 4390638825!
+
+-@-
+
+Trying to Apply to "Senior Consultant – Data Testing | Fujitsu" job. Job ID: 4394752896
+Time Posted: Melbourne, Victoria, Australia · 1 week ago · Over 100 applicants
+Promoted by hirer · Company review time is typically 1 week
+
+-@-
+
+Trying to Apply to "LEAD DATA / AI SCIENTIST – STRATEGY CONSULTING - AUSTRALIA | TRIBE GLOBAL SEARCH" job. Job ID: 4399155882
+Time Posted: Melbourne, Victoria, Australia · 2 days ago · 65 applicants
+Promoted by hirer · Company review time is typically 1 week
+
+About the job
+LEAD DATA / AI SCIENTIST – STRATEGY CONSULTING - AUSTRALIA (SYDNEY OR MELBORNE)
+$$$ Excellent Package $$$
+Our client works on some of the most complex and interesting Digital and Data problems across industries. As a Senior Strategic Data / AI Scientist, you will build best data practices for clients and support key decisions at the highest level of the industry. 
+The Position:
+
+Ensure data best practices, model choices and model building
+Oversee statistical result interpretation and production of numerical and visual evidence to support decision making with C-suite clients
+As a Principal Data Scientist, you are primarily responsible for managing technical projects, including data engineering, model selection and design, and infrastructure deployment in both internal and client environments as well as AI use cases for transformation.
+Explaining, refining, and collaborating with stakeholders through the journey of model building
+Leading the development of proprietary statistical techniques, algorithms or analytical tools on projects and asset development
+Driving business growth, in terms of sales and account development.
+You?
+MUST HAVE - Experience with a top tier Management / Strategy Consulting firm
+Minimum 8 years relevant, professional experience focused on Data Science
+Ability to reduce solutions for ill-defined complex issues to small set of operationalizable components
+Deep understanding of general statistics
+Hands on experience with machine learning frameworks and AI preferred. 
+Strong engineering skills to develop scalable data science solutions that can be run on big data sets
+Superior ability to communicate complex results in the simplest manner
+Expert-level expertise in Python for data science
+Data expert skills in Pandas, Numpy and PySpark
+Experience with programmatic chart making: Matplotlib, Seaborn
+Experience of relational (e.g. SQL Server) and NoSQL databases (e.g. MongoDB)
+Technical expertise in computer science, data science, machine learning, artificial intelligence, statistics, or other quantitative and computational science
+Good knowledge of Data architecture
+Deep knowledge of modelling or analytical techniques (e.g. Bayesian modelling, time-series forecasting, etc.)
+
+Great opportunity to build a career in a growing team in APAC for a leading Strategy firm. Please send your CV in confidence to James Purdie at TRIBE GLOBAL SEARCH – james@tribeglobalsearch.com
+
+We regret that only shortlisted candidates will be contacted.
+
+Experience required 8 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Already applied to "Analytics Consultant | InterWorks" job. Job ID: 4398322737!
+
+-@-
+
+Trying to Apply to "ERP Data Analyst (Remote) | Velixo" job. Job ID: 4379064231
+HR info was not given for "ERP Data Analyst (Remote)" with Job ID: 4379064231!
+Time Posted: Australia · 1 month ago · Over 100 people clicked apply
+Responses managed off LinkedIn
+
+About the job
+About Velixo
+
+With close to 3,300 customers globally, Velixo is a leading Excel-based software company specializing in developing reporting, budgeting, data and template solutions for various ERP software such as Acumatica, Sage Intacct, and Microsoft Dynamics 365 Business Central. We provide advanced yet simple-to-use reporting tools that empower businesses to gain valuable insights, become more efficient, and automate processes from and to their ERP data.
+
+About The Role
+
+We are looking for a passionate ERP Data Analyst to join our team at Velixo. As an ERP Data Analyst, you will be responsible for demonstrating product capabilities, analyzing business requirements, and designing reporting solutions using SQL and Excel. Your expertise in Microsoft Excel, strong analytical mindset, and ability to provide valuable insights will play a crucial role in helping our customers leverage our Excel-based reporting solution for their ERP systems. This is an exciting opportunity to work in the ERP software industry and be part of a collaborative and growth-oriented team. We are considering candidates anywhere in Australia or New Zealand.
+
+Responsibilities: 
+
+Attend virtual product demonstrations with prospective customers, answer technical questions and demonstrate complex functionalities. 
+Create proof-of-concept to highlight Velixo capabilities to prospective customers. 
+Gather and analyse customer requirements, identify and solve roadblocks, estimate project scope and write specification documents. 
+Develop customer reports based on specification documents. 
+Provide initial support to new users, guiding them through the product’s features and troubleshooting common issues. 
+Conduct comprehensive training sessions for clients, partners and colleagues to ensure effective use of the product. 
+Develop training materials and documentation tailored to different user skill levels. 
+Develop a deep understanding of Velixo and the ERP systems that we integrate with. Stay up to date with the latest industry trends in reporting techniques. 
+
+Requirements: 
+
+Bachelor’s degree in finance, accounting, computer science or engineering. 
+5+ years of experience in the enterprise software industry. 
+Advanced proficiency in Microsoft Excel, including data-enhancement functions, dynamic arrays, filters, conditional formatting, pivot tables, lambdas, and data sources. 
+Strong analytical mindset with a keen eye for detail. 
+Excellent communication and presentation skills to effectively convey complex information to clients. 
+Working knowledge of SQL to manipulate and extract data. 
+Familiarity with financial reporting and accounting basics. 
+Experience working in an ERP system, particularly MYOB Acumatica, Sage Intacct or Busienss Central, is a plus. 
+
+Benefits:
+
+Competitive package, including super, vacation and personal days. 
+Financial support for professional development courses to enhance skills and knowledge. 
+Opportunity for career growth within a collaborative and supportive work environment. 
+
+At Velixo, we prioritize the growth and development of our employees, recognizing their potential and providing opportunities to excel in their chosen field. We are excited to welcome you to our team and embark on a journey of mutual success.
+
+Powered by JazzHR
+
+d7Io49oeB3
+
+Experience required 5 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Already applied to "Lifecycle Data Analyst | Open Universities Australia" job. Job ID: 4387815213!
+
+-@-
+
+Already applied to "Data Analyst | Tata Consultancy Services" job. Job ID: 4388659990!
+
+-@-
+
+Already applied to "Power Market Analyst | talisman" job. Job ID: 4400357747!
+
+-@-
+
+Already applied to "Casino Product & Integrity Analyst | BettingJobs" job. Job ID: 4385045168!
+
+-@-
+
+Already applied to "Data Scientist | Morgan McKinley" job. Job ID: 4387306637!
+
+-@-
+
+Trying to Apply to "Senior Analytics Consultant - GCP - Snowflake - Databricks | Banking and Finance Industry" job. Job ID: 4401400373
+HR info was not given for "Senior Analytics Consultant - GCP - Snowflake - Databricks" with Job ID: 4401400373!
+Time Posted: Melbourne, Victoria, Australia · 22 hours ago · 5 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+We are looking for a Data Consultant to join my clients Data & Analytics team in Sydney
+
+THIS IS A PERMANENT POSITION AND NOT CONTRACT 
+
+As a Data Consultant, you will help deliver meaningful and impactful solution for our clients, across a range of capabilities, making best use of data visualisation capabilities across platforms, providing knowledge around Data Governance frameworks/best practices and supporting our data engineering capability. You should have a consistent record of using standards and best practices to design and deliver intuitive, well designed solutions. Applicants should be confident in their ability to hear and manage client priorities in a collaborative environment.
+
+My client are going through an exciting period of growth in their Sydney office and want you to join them through the next step of our journey.
+
+Responsibilities
+
+(The responsibilities, Technologies, Qualifications and professional skills below provide a broad view of relevant areas within the three main capabilities noted above, we do not expect everyone to tick all of the items on this list)
+
+CLOUD - AWS - SNOWFLAKE - REDSHIFT
+Collaborate with business stakeholders and analyse user requirements.
+Create interactive dashboards
+Build required data extracts or models required for solutions
+Create functional and technical documentation related to Business Intelligence solutions
+Deliver transformative solutions to clients that are aligned to industry best practices and provide thought leadership in data space.
+Help our clients establish Data Governance Programmes and drive data ownership into the client businesses
+Advise clients on the selection, configuration, and implementation of Data Governance technology solutions to support Programme objectives. (e.g., Data Catalogue, Data Quality, Business Glossary tools)
+Develop, lead and implement plans that will roll out the Data Governance Programmes within the client organisation
+Learn new data engineering and data management skills and concepts, and apply them to our clients in a project and team setting.
+Architect data platforms to support our clients helping them fully leverage and organise data
+Implement data lakes as streaming platforms using the latest cloud and big data technologies
+
+Technologies You May Be Working With Include
+Cloud Platforms such as AWS and Azure
+CLOUD - AWS - SNOWFLAKE - GCP
+Data Engineering toolsets such as Spark, Databricks, Hadoop, AWS Services (Lambda, Glue, S3), Azure Data Factory and more
+Databases such as Amazon RDS, Redshift, Azure Synapse or Snowflake
+ETL and ELT tools such as Alteryx or Matillion
+
+Qualifications
+Demonstrate progressive experience in Business Intelligence, Data Governance or Data Engineering
+Experience with implementing high-value solutions and performing administrative activities across multi-environment infrastructure
+Solution delivery using Tableau or Microsoft Power BI
+Working knowledge of Alteryx, Python, and/or R would be a bonus
+Experience with various delivery methodologies; specifically, Agile
+Highly self-motivated to deliver both independently and with strong team collaboration
+Exceptional analytical, conceptual, and problem-solving abilities
+Ability to creatively take on new challenges and work outside comfort zone
+Enthusiasm to grow deep skill set in Tableau or Microsoft BI, and be on path toward certifications
+
+Professional Skills
+Eagerness to contribute in a team-oriented environment
+Ability to work creatively and analytically in a problem-solving environment
+Desire to work in an information systems environment
+Excellent leadership, communication (written and oral) and interpersonal skills
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+
+About the job
+Bapcor Ltd, the leading automotive aftermarket provider of accessories, equipment and service. We host one of the widest ranges of car parts in the world, with brands including Burson, Autobarn, Midas, Truckline, Premier Auto Trade and Baxters.
+
+In joining our team, you’ll be welcomed into a supportive business that spans more than 1,000 locations with over 5,000 team members across Australia, New Zealand and Thailand. We are passionate about our team, with safety and inclusivity at the forefront of everything we do. We’re also passionate about our customers, products, and living our values of:
+
+Doing the right thing
+Being in it together
+Giving a damn
+Getting it done
+
+Job Description
+
+We’re looking for a Senior Data Scientist to build next\u2011generation analytics solutions using AI, machine learning, and data mining. You’ll work closely with business stakeholders to translate complex problems into clear technical hypotheses, develop accurate and scalable models, and embed them into impactful data products and tools. You’ll collaborate with a supportive, cross\u2011functional team to deliver insights that drive real business decisions.
+
+What you’ll do
+
+Partner with business stakeholders to develop innovative, data\u2011driven solutions using cutting\u2011edge analytics tools and techniques
+ Clearly communicate analytics approaches and outcomes, explaining how insights align with and support business objectives
+ Champion data\u2011driven decision\u2011making by educating stakeholders on the how and why behind analytical solutions
+Lead analytical initiatives, working closely with data engineers, analysts, developers, and business leaders to integrate models into applications and tools
+Design and build repeatable, interpretable, scalable models that are embedded into production\u2011ready analytics products
+Engineer meaningful features using strong business acumen to improve model performance and interpretability
+Share knowledge and passion for Data Science across the organisation, contributing to long\u2011term frameworks, standards, tools, and best practices
+
+Qualifications
+
+Bachelor’s degree with 5+ years’ experience in Data Science or a related field
+Strong proficiency in Python, including hands\u2011on experience working with DataFrames
+Proven experience applying Data Science techniques to large\u2011scale datasets, including: Machine learning for clustering, classification, regression, and anomaly detection
+Optimisation or simulation techniques for prescriptive analytics
+Experience visualising complex insights using tools such as Plotly, matplotlib, or ggplot2; dashboarding experience (e.g. Shiny, Dash, Power BI) is desirable
+Demonstrated ability to generate new insights by merging, transforming, and analysing internal and external datasets
+Exposure to Big Data and Cloud technologies such as Hadoop, Spark, H2O.ai, cloud\u2011based AI platforms, and containerisation is desirable
+Experience supporting the deployment, monitoring, maintenance, and continuous improvement of analytical models is advantageous
+
+Additional Information
+
+At Bapcor, we focus on what matters most for our customers, team members and the communities we serve. We go the extra mile to get the job done and always live our values.
+
+In joining our team, you can access:
+
+Diverse career opportunities within the Bapcor Group
+Discounts across Bapcor products and services, including our Retail and Trade brands
+Industry leading policies to support your work/ life balance (gender neutral parental leave, purchase leave, volunteer leave etc…)
+Paid birthday leave
+Wellbeing support
+Novated leasing and more
+We pride ourselves on our inclusive work environment, and encourage applications from people of all ages, cultures, gender identity, abilities and backgrounds, providing a recruitment experience that’s fair, free from bias and accessible. If you need to inquire about reasonable accommodation for the application process, please email careers@bapcor.com.au.
+
+Experience required 5 > Current Experience 4. Skipping this job!
+
+
+About the job
+About Organization:
+
+Join Tata Consultancy Services, Asia Pacific and be part of an organization committed to sustainable development for our future. TCS follows the Tata group philosophy of building sustainable businesses that are rooted in the community and demonstrate care for the environment. Our unique values position us to combine a purpose-driven worldview with digital innovation, collaborating with customers, communities and governments to lead and shape innovative solutions for a sustainable future. TCS has been carbon neutral in its operations across 11 countries, 12 delivery centres and 18 offices in Asia Pacific since 2022. This is only the initial stage in TCS’ journey as we strive to achieve long-term net zero emissions by 2030.
+
+Corporate sustainability is embedded in our triple-bottom-line, focusing on people, the planet, and our purpose. Our offices are designed with eco-friendly features that significantly reduce our carbon footprint and enhance energy efficiency. We actively champion green initiatives, such as promoting paperless operations, implementing energy-efficient practices, and fostering employee engagement in sustainability efforts. When you become part of the TCS family, you will play an essential role dedicated to innovation, excellence, and crafting a brighter, greener future together. Join us and be a part of our mission to drive sustainability through technology and talent at Tata Consultancy Services, APAC today
+
+Required Technical Skill Set
+
+8–10+ years overall in data modeling/governance with at least 3+ years on GCP; strong SQL across analytical warehouses (BigQuery preferred).
+Proven delivery of conceptual/logical/physical models for analytics & data products; deep knowledge of dimensional modeling (Kimball) and familiarity with Data Vault 2.0.
+Hands\u2011on Collibra: configuring communities/domains, operating model, business glossary, policies, lineage ingestion, issue management, and stewardship workflows.
+Practical stewardship: defining CDEs, data quality rules/thresholds, certification criteria, and data access approvals.
+Experience collaborating with data engineers on Dataflow/Dataproc/Composer, and optimizing BigQuery for performance & cost.
+Excellent documentation, facilitation, and stakeholder management across business and technology. 
+
+Good-to-Have
+
+Collibra Certifications (e.g., Ranger, Data Steward, Governance) and GCP Professional Data Engineer. 
+Data modeling tools (e.g., erwin, ER/Studio, SqlDBM, Hackolade). 
+Experience with data quality/observability tooling (including Collibra DQ/Observability or equivalents) and Data Catalog/MDE integrations. 
+Python/dbt for transformations; CI/CD for data (Git, Terraform for infra is a plus). 
+
+Top Reasons to Join Our Team at TCS Australia
+
+Attractive compensation & rewards
+We offer a highly competitive salary package aligned with the Australian market, complemented by performance-based incentives, recognition programs, and comprehensive employee benefits. Your achievements are celebrated, and your contributions truly matter.
+Global exposure with local impact
+At TCS, you’ll work with leading Australian enterprises across diverse industries while collaborating with our global network of experts. This means access to world-class practices, transformative technologies, and the chance to shape solutions that have a real impact — locally and globally.
+Empowering leadership & supportive environment
+Our leadership team is committed to helping you succeed. We encourage initiative, reward innovation, and provide a collaborative environment where your ideas are heard and valued.
+Long-term career growth
+We believe in careers, not just jobs. With continuous learning, certification support, career mobility, and clear progression pathways, TCS empowers you to grow and evolve — whether you want to deepen your expertise, explore new domains, or take on leadership roles.
+Inclusive, collaborative culture
+Diversity, inclusion, and respect are central to who we are. At TCS Australia, you’ll join a workplace where collaboration thrives, individuality is valued, and everyone can contribute to meaningful outcomes.
+Continuous learning & cutting-edge innovation
+We invest heavily in your development, offering structured learning programs, global certifications, leadership development, and opportunities to work with emerging technologies. You’ll be part of an environment that constantly challenges and expands your capabilities.
+
+A Great Fit for the TCS Culture
+We’re looking for people who are:
+Passionate about technology and transformation
+Driven by curiosity, innovation, and continuous learning
+Excited to work in a collaborative, purpose-driven environment
+Motivated by delivering real impact for clients, communities, and society
+Our core values — Integrity, Excellence, Responsibility, Pioneering Spirit, and Unity — shape how we work and how we grow together.
+
+The TCS Community in Australia and Beyond
+Global strength: Over 600,000+ associates in 55+ countries, united by a shared purpose — to innovate and make a difference.
+Local presence: A trusted partner to Australia’s leading enterprises across financial services, government, retail, healthcare, telecom, and more.
+Social impact: Deeply committed to sustainability, digital inclusion, and community engagement initiatives in Australia and around the world.
+Empowered workplace: We foster a culture where diversity, equity, and accessibility are integral to how we operate.
+
+We don’t just imagine a better future — we help build it.
+About TCS
+Tata Consultancy Services (TCS) is a global leader in IT services, consulting, and business solutions. We have partnered with many of the world’s largest organisations to help them transform their businesses, operating models, and technology ecosystems.
+Learn more at www.tcs.com
+Equal Opportunity Employer
+TCS is an equal opportunity employer. All qualified applicants will be considered without regard to race, colour, religion, gender, gender identity, sexual orientation, national origin, disability, veteran status, or any other characteristic protected by applicable law.
+Note: Compensation details are accurate as of this posting and may be adjusted in line with Australian laws and market conditions. Applicants may be asked to attend interviews in person or via video conference and present valid identification during the process
+
+Contains bad word "iOS". Skipping this job!
+
+Gemini client is not available!
+2026-04-16 12:05:47.535610
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('A you confident with Snowflake?  [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have Foundation in DW and BI design, tools, processes and implementation approaches? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have Data Warehousing, Business Intelligence or Data Analytics project experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have Hands on experience in Tableau, Power BI or similar data visualisation technologies? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you live and work in Melbourne? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have Databricks experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option'), ('Do you have solid Azure experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')}
+
+
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('A you confident with Snowflake?  [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you have Foundation in DW and BI design, tools, processes and implementation approaches? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you have Data Warehousing, Business Intelligence or Data Analytics project experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you have Hands on experience in Tableau, Power BI or similar data visualisation technologies? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you live and work in Melbourne? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you have Databricks experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+('Do you have solid Azure experience? [  "Select an option", "Yes", "No", ]', 'Yes', 'select', 'Select an option')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Skipping applied-history save for "Senior Analytics Consultant - GCP - Snowflake - Databricks | Banking and Finance Industry" because the application was not confirmed submitted.
+
+-@-
+
+Already applied to "Data Analyst | NTT DATA, Inc." job. Job ID: 4390797925!
+
+-@-
+
+Already applied to "Data Annotation Specialist | Innodata Inc." job. Job ID: 4398842697!
+
+-@-
+
+Job details click intercepted for "Senior Data Scientist | Bapcor Limited". Retry 1/3
+Message: element click intercepted: Element <a data-control-id="ejC28A+8WWzGnatHFzSZdQ==" tabindex="0" href="/jobs/view/4398352297/?eBP=CwEAAAGdlQAiFZiZVxQGHDi5SF7p5qnUYi5xQEJwaM_OWvJSwSwZsCBvsXQRH9kSd5SrWYjfiQTHZE3JJPu8EIUROx7fbcMLmjFZQarAXFbqZkpnYh9I7ER9GCq15mncaFX4OdauZEvQT4I-nO3x01nhIZXHbjQmeRKjZiO7XAhzDszYpQq3WGUZL7EGroYw1la9UX5eX_XruDeBXpWpzLTbvnuRQV7yrOCfpVfs78BSyqQVxj2riRSnVX5eNno8nR1vaaN1HdlkUd7Arycrbg2yCITsdb1X9H_yarchfSU-P8UAEb-4B2Oiq6NhRu5zlai66mWREWMaLV1pzSQ4ekZLVcTbsUY3yCg2npa2zp9MOQkdXasM9WAvViOvBQo-YpwuQk12RfPuIyphiyAa__FnWSzvbLfyDMzP5am1QSywI9zs4qjc_oUZe6z_JVyQ2FK-jvM9PCuOtH5Br_VB4e227hFTBKKdGcjQWmUSTZ4pxV-A&amp;refId=lIUW6h2cdD4OMVpm8xKF3w%3D%3D&amp;trackingId=ejC28A%2B8WWzGnatHFzSZdQ%3D%3D&amp;trk=flagship3_search_srp_jobs" id="ember1087" class="disabled ember-view job-card-container__link
+                      QltyRgVyFFhraSbtwRNZUhIIwTxoubpiQ
+                      job-card-list__title--link" aria-label="Senior Data Scientist with verification" dir="ltr">...</a> is not clickable at point (557, 405). Other element would receive the click: <div data-test-modal-container="" data-test-modal-id="easy-apply-modal" aria-hidden="false" id="ember1708" class="artdeco-modal-overlay artdeco-modal-overlay--layer-default artdeco-modal-overlay--is-top-layer  ember-view">...</div>
+  (Session info: chrome=147.0.7727.57); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6f2c10245+146d5]
+	chromedriver!GetHandleVerifier [0x7ff6f2c102b0+14740]
+	chromedriver!(No symbol) [0x7ff6f297d7cd]
+	chromedriver!(No symbol) [0x7ff6f29df195]
+	chromedriver!(No symbol) [0x7ff6f29dc8aa]
+	chromedriver!(No symbol) [0x7ff6f29d9735]
+	chromedriver!(No symbol) [0x7ff6f29d85e7]
+	chromedriver!(No symbol) [0x7ff6f29cb106]
+	chromedriver!(No symbol) [0x7ff6f29fff6a]
+	chromedriver!(No symbol) [0x7ff6f29ca986]
+	chromedriver!(No symbol) [0x7ff6f2a24818]
+	chromedriver!(No symbol) [0x7ff6f29c9018]
+	chromedriver!(No symbol) [0x7ff6f29c9f03]
+	chromedriver!GetHandleVerifier [0x7ff6f2f258f9+329d89]
+	chromedriver!GetHandleVerifier [0x7ff6f2f1fe46+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff6f2f430b2+347542]
+	chromedriver!GetHandleVerifier [0x7ff6f2c2d3d5+31865]
+	chromedriver!GetHandleVerifier [0x7ff6f2c3600c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff6f2c19634+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff6f2c197e6+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff6f2bfe2f7+2787]
+	KERNEL32!BaseThreadInitThunk [0x7ff914677374+14]
+	ntdll!RtlUserThreadStart [0x7ff91491cc91+21]
+
+Click Failed! Didn't find Easy Apply button ['Discard']
+Trying to Apply to "Senior Data Scientist | Bapcor Limited" job. Job ID: 4398352297
+Time Posted: Mount Waverley, Victoria, Australia · 1 week ago · 60 applicants
+Promoted by hirer · Company review time is typically 1 week
+
+-@-
+
+Already applied to "Senior Marketing Data Analyst | August" job. Job ID: 4330720813!
+
+>-> Now on Page 2 
+
+
+-@-
+
+Already applied to "Data Quality Annotator | $30/hr Remote | Crossing Hurdles" job. Job ID: 4395428507!
+
+-@-
+
+Already applied to "Senior Analyst (Supply Analytics, Bangkok-based, Relocation provided) | Agoda" job. Job ID: 4299758879!
+
+-@-
+
+Trying to Apply to "Data Modeler | Tata Consultancy Services" job. Job ID: 4388667762
+Time Posted: Melbourne, Victoria, Australia · 3 weeks ago · 36 applicants
+Promoted by hirer · Actively reviewing applicants
+
+-@-
+
+Already applied to "Shopper and Category Insights Analyst – Retail & FMCG | Resources Group" job. Job ID: 4400082927!
+
+-@-
+
+Trying to Apply to "Associate Director | Forensic Data Analytics | Melbourne | KPMG Australia" job. Job ID: 4398466673
+Time Posted: Melbourne, Victoria, Australia · 1 week ago · 20 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Please submit your CV in English and indicate your level of English proficiency.
+
+Mindrift connects specialists with project-based AI opportunities for leading tech companies, focused on testing, evaluating, and improving AI systems. Participation is project-based, not permanent employment.
+
+What This Opportunity Involves
+
+While each project involves unique tasks, contributors may:
+
+Design original computational data science problems that simulate real-world analytical workflows across industries (telecom, finance, government, e-commerce, healthcare)
+Create problems requiring Python programming to solve (using Pandas, Numpy, Scipy, Sklearn, Statsmodels, Matplotlib, Seaborn)
+Ensure problems are computationally intensive and cannot be solved manually within reasonable timeframes (days/weeks)
+Develop problems requiring non-trivial reasoning chains in data processing, statistical analysis, feature engineering, predictive modeling, and insight extraction
+Create deterministic problems with reproducible answers: avoid stochastic elements or require fixed random seeds for exact reproducibility
+Base problems on real business challenges: customer analytics, risk assessment, fraud detection, forecasting, optimization, and operational efficiency
+Design end-to-end problems spanning the complete data science pipeline (data ingestion \u2192 cleaning \u2192 EDA \u2192 modeling \u2192 validation \u2192 deployment considerations)
+Incorporate big data processing scenarios requiring scalable computational approaches
+Verify solutions using Python with standard data science libraries and statistical methods
+Document problem statements clearly with realistic business contexts and provide verified correct answers
+
+What We Look For
+
+This opportunity is a good fit for Data Science specialists with an experience in python open to part-time, non-permanent projects. Ideally, contributors will have:
+
+5+ years of hands-on data science experience with proven business impact
+Portfolio of completed projects and publications showcasing real-world problem-solving
+Expert Python programming for data science (pandas, numpy, scipy, scikit-learn, statsmodels)
+Expert statistical analysis and machine learning - deep understanding of algorithms, methods, and their practical applications
+Expert with SQL and database operations for data manipulation and analysis
+Experience with GenAI technologies (LLMs, RAG, prompt engineering, vector databases)
+Understanding of MLOps practices and model deployment workflows
+Knowledge of modern frameworks (TensorFlow, PyTorch, LangChain)
+Strong written English (C1+)
+
+How It Works
+
+Apply \u2192 Pass qualification(s) \u2192 Join a project \u2192 Complete tasks \u2192 Get paid
+
+Project time expectations 
+
+For this project, tasks are estimated to require around 10-20 hours per week during active phases, based on project requirements. This is an estimate, not a guaranteed workload, and applies only while the project is active.
+
+Compensation
+
+On this project, contributors can earn up to $55 per hour equivalent, depending on their level and pace of contribution.
+
+Compensation varies across projects depending on scope, complexity, and required expertise. Please note that other projects on the platform may offer different earning levels based on their requirements.
+
+Contains bad word "iOS". Skipping this job!
+
+
+About the job
+Company Description
+
+About the Team 
+
+The KPMG Forensic team assists clients in detecting and responding to fraud, bribery, corruption, money laundering, misconduct, and other financial crime issues, as well as resolving commercial disputes. We help clients protect their businesses by identifying discrepancies in facts and figures, non-compliant behaviours, and advising on legal and regulatory requirements. Applying forensic techniques, investigation, intelligence, technology, and industry expertise, we help prevent and resolve commercial disputes, fraud, misconduct, and regulatory breaches.
+
+Job Description
+
+Your Opportunity 
+
+As a Forensic Data Analytics Associate Director specialising in wage compliance, you will play a pivotal role in helping our clients identify and remediate breaches against an employer’s Enterprise Agreement, Modern Award, National Employment Standards or jurisdictional based long service leave legislation.
+
+We’re looking for passionate data analysts driven by purpose and precision to make a real different in people’s lives. Wage compliance isn’t just about numbers, it’s about making sure every worker receives their fair entitlements.
+
+You will be leveraging your experience in business analysis, data investigation, and analytic skills to identify, investigate, quantify, and report on wage underpayment matters.
+
+Working with a diverse team of data analysts and subject matter specialists, your work will help uncover discrepancies, support ethical business practices, and uphold the rights of workers across Australia.
+
+Responsibilities
+
+Leading the technical design and development of analysis models (SQL or Excel) to identify and quantify wage compliance risks. 
+Work with subject matter specialists to understand the business requirements for modelling, including resolution of ambiguous requirements and identification of relevant data sources. 
+Work with clients to identify root causes of wage compliance issues and establish plans for remediation. 
+Review data quality and identify impacted cohorts. 
+Conduct testing and analyse root causes and potential fixes. 
+Document results and prepare working papers and reports to support analysis. 
+Support proposal development and other business development activities. 
+Assist in developing internal data analytics assets and tools. 
+Provide coaching and mentorship to team members. 
+ 
+ 
+
+Experience
+
+Must have experience in analysis of large and complex payroll and time & attendance data to identify or quantify wage compliance issues. 
+At least 8 years of experience in development of SQL, Alteryx or Excel data models. 
+Proven track record of leading small teams of data analysts, including task assignment, methodology design and quality review. 
+Skilled in translating complex business and legal requirements into technical specifications for analysis and preparation of written reports / methodologies for presentation to regulators and legal representatives. 
+Strong project management skills. 
+Background in professional services is preferred. 
+ 
+ 
+
+Qualifications
+
+Desired tertiary qualifications in a combination of business disciplines (e.g., finance, accounting, law) and technical disciplines (e.g., engineering, IT, computing). 
+ 
+ 
+
+Additional Information
+
+KPMG is a professional services firm with global outreach and deep sector experience. We work with clients across an array of industries to solve complex challenges, steer change and enable growth.
+
+Our people are what make KPMG the thriving workplace that it is and what sets us apart is that we know great minds think differently. Collaborate with a team of passionate, highly skilled professionals who’ve got your back. You’ll build relationships with unique and diverse colleagues who will provide you with the support you need to be your best and produce meaningful and impactful work in an inclusive, equitable culture.
+
+At KPMG, you’ll take control over how you work. We’re embracing a new way of working in many ways, from offering flexible hours and locations to generous paid parental leave and career breaks. Our people enjoy a variety of exciting perks, including retail discounts, health and wellbeing initiatives, learning and growth opportunities, salary packaging options and more.
+
+Diverse candidates have diverse needs. During your recruitment journey, information will be provided about adjustment requests. If you require additional support before submitting your application, please contact the Talent Attraction Support Team.
+
+At KPMG every career is different, and we look forward to seeing how you grow with us.
+
+KPMG Australia grow with us!
+
+Experience required 8 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Already applied to "Data & Image Annotation Specialist | Innodata Inc." job. Job ID: 4398851463!
+
+-@-
+
+Already applied to "Biomedical Analyst | QA Solidário" job. Job ID: 4401855406!
+
+-@-
+
+Already applied to "Lifecycle Data Analyst | Open Universities Australia" job. Job ID: 4387812367!
+
+-@-
+
+Trying to Apply to "Data Scientist (Python & SQL) - Freelance AI Trainer | Mindrift" job. Job ID: 4393502822
+HR info was not given for "Data Scientist (Python & SQL) - Freelance AI Trainer" with Job ID: 4393502822!
+Time Posted: Australia · 2 weeks ago · 12 applicants
+No response insights available yet
+
+-@-
+
+Already applied to "Lead Data Analyst - Marketing | Easygo" job. Job ID: 4399825877!
+
+-@-
+
+Trying to Apply to "IBM TM1 / Planning Analytics Consultants | Ethos BeathChapman" job. Job ID: 4401191747
+Time Posted: Australia · 23 hours ago · 2 applicants
+Promoted by hirer · Company review time is typically 1 week
+
+About the job
+IBM PLANNING ANALYTICS SENIOR TM1 CONSULTANTS
+
+
+
+In these roles, you will be responsible for designing and implementing financial planning solutions using IBM Planning Analytics to achieve project success as agreed with customers; deliver technical, functional, and business outcomes of a project and maintaining high standards of professional communication.
+
+Accountabilities include, but are not limited to:
+
+Analysis and evaluation of business requirements through a structured methodical approach
+Define the solution scope, time, cost and risk by translating business requirements into a set of functional and non-functional deliverables.
+Estimate and plan project deliverables and success criteria
+Identify project Risks and Assumptions
+Communicate with stakeholders, business and technical project teams to ensure the roles and responsibilities for the solution deliver are understood
+Implementation of financial planning solutions in IBM Planning Analytics / TM1 as designed in the solution scope definition
+Identify all potential Change Requests and work with designated Principal Consultant/ Project Manager on these variations
+Participate in Post Implementation Review and assume ownership of any actions
+
+ Desired Skills and Experience
+
+Essential
+
+Greater than 5 years’ experience in delivering financial planning applications (IBM Planning Analytics / TM1 will be highly valued);
+Minimum education level of Bachelor’s degree or equivalent in a relevant subject – Engineering, Mathematics, Computer Science, Business, Finance & Accounting;
+Proven project experience delivering financial planning solutions covering most phases of the project lifecycle including scoping, requirements gathering, design, development, testing and deployment while using project management methodologies;
+In-depth knowledge and senior level expertise in IBM Planning Analytics / TM1 including cube design, turbo integrator processes & rule engine; IBM TM1 Certified Developer would be an added advantage;
+A genuine talent for grasping complex business problems and engineering effective solutions;
+Excellent verbal and written communication skills
+
+ Highly Regarded
+
+Background in finance and understanding of financial processes such as budgeting & forecasting or supply chain roles is desirable;
+Well developed skills/ability researching, designing and implementing customer solutions and programs;
+Strong relationship management;
+Ability to identify opportunities and taking action to help achieve business goals;
+Ability to identify process improvement opportunities;
+Team player with a professional, pro-active approach
+Citizenship is highly regarded but not essential.
+
+Experience required 5 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "AI Trainer - Freelance Data Annotator | Toloka Annotators" job. Job ID: 4397053575
+HR info was not given for "AI Trainer - Freelance Data Annotator" with Job ID: 4397053575!
+Time Posted: Australia · 1 week ago · 41 applicants
+No response insights available yet
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:07:27.913368
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Failed to Easy apply!
+Somewhere in Easy Apply process
+cannot access local variable 'do_actions' where it is not associated with a value
+2026-04-16 12:07:41.947422
+Click Failed! Didn't find Easy Apply button ['Discard']
+
+-@-
+
+Trying to Apply to "Data Collectors - iPhone Users | Datavio.ai" job. Job ID: 4157816699
+Time Posted: Australia · Reposted 8 months ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Voice Recording Specialists Needed!
+
+Job Description:
+We are looking for resources to participate in a voice recording project. This task involves recording short phrases with names in different environments using our iOS app. It is a flexible, remote opportunity that you can complete whenever you're able.
+
+What You'll Do:
+Record phrases with names (e.g., "Hi, John" or "Can you help me, Sarah?").
+Each phrase will be recorded three times per distance per environment.
+Complete recordings in three different environments: (quiet, moderate, and noisy)
+Maintain two specific distances from the recording device: (0-5 feet and 8-15 feet)
+
+Estimated Time to Complete the Task: 
+2.5 to 3 hours
+
+Key Requirements:
+iOS device (iPhone)
+Reliable internet connection.
+Follow the structured recording process.
+Use a natural, native accent based on your market.
+Ensure all recordings are completed in real noisy locations (no artificial background noise).
+
+Compensation
+$80 for an approved collection by the client.
+*All recordings must meet quality standards to receive payment.
+
+To apply: https://www.surveymonkey.com/r/namingphase2
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Senior Data Scientist | XO Sports" job. Job ID: 4401840384
+HR info was not given for "Senior Data Scientist" with Job ID: 4401840384!
+Time Posted: Melbourne, Victoria, Australia · 2 hours ago · 3 applicants
+Company review time is typically 1 week
+Trying to Apply to "\u6570\u636e\u5206\u6790\u603b\u76d1 | CoinW" job. Job ID: 4393509776
+
+About the job
+\u5c97\u4f4d\u804c\u8d23
+1. \u6570\u636e\u6218\u7565\u4e0e\u4f53\u7cfb\u642d\u5efa- \u8d1f\u8d23\u516c\u53f8\u6574\u4f53\u6570\u636e\u5206\u6790\u4f53\u7cfb\u4e0e\u6570\u636e\u9a71\u52a8\u6218\u7565\u7684\u89c4\u5212\u4e0e\u843d\u5730- \u642d\u5efa\u7edf\u4e00\u7684\u6570\u636e\u6307\u6807\u4f53\u7cfb\uff08\u5982 DAU\u3001\u8f6c\u5316\u7387\u3001\u7559\u5b58\u3001\u4ea4\u6613\u76f8\u5173\u6307\u6807\u7b49\uff09- \u63a8\u52a8\u6570\u636e\u6807\u51c6\u5316\u3001\u53e3\u5f84\u7edf\u4e00\u53ca\u6570\u636e\u6cbb\u7406\u4f53\u7cfb\u5efa\u8bbe
+2. \u4e1a\u52a1\u652f\u6301\u4e0e\u51b3\u7b56\u8d4b\u80fd- \u6df1\u5ea6\u652f\u6301\u6838\u5fc3\u4e1a\u52a1\uff08\u4ea4\u6613\u3001\u589e\u957f\u3001\u4ea7\u54c1\u3001\u8fd0\u8425\u7b49\uff09\uff0c\u63d0\u4f9b\u6570\u636e\u6d1e\u5bdf\u4e0e\u51b3\u7b56\u652f\u6301- \u642d\u5efa\u4e1a\u52a1\u5206\u6790\u6846\u67b6\uff0c\u8bc6\u522b\u589e\u957f\u673a\u4f1a\u4e0e\u98ce\u9669\u70b9- \u8f93\u51fa\u9ad8\u8d28\u91cf\u5206\u6790\u62a5\u544a\uff0c\u652f\u6491\u7ba1\u7406\u5c42\u51b3\u7b56
+3. \u589e\u957f\u4e0e\u7528\u6237\u5206\u6790- \u8d1f\u8d23\u7528\u6237\u5168\u751f\u547d\u5468\u671f\u5206\u6790\uff08\u83b7\u5ba2\u3001\u8f6c\u5316\u3001\u7559\u5b58\u3001\u53ec\u56de\uff09- \u5efa\u7acb\u7528\u6237\u5206\u5c42\u3001\u7528\u6237\u753b\u50cf\u53ca\u884c\u4e3a\u5206\u6790\u4f53\u7cfb- \u652f\u6301\u7cbe\u7ec6\u5316\u8fd0\u8425\u53ca\u589e\u957f\u7b56\u7565\u5236\u5b9a\uff08\u5982\u88c2\u53d8\u3001\u6d3b\u52a8\u3001\u8f6c\u5316\u8def\u5f84\u4f18\u5316\u7b49\uff09
+4. \u6570\u636e\u4ea7\u54c1\u4e0e\u5de5\u5177\u5efa\u8bbe- \u63a8\u52a8 BI \u5e73\u53f0\u3001\u6570\u636e\u770b\u677f\u3001\u81ea\u52a9\u5206\u6790\u5de5\u5177\u5efa\u8bbe- \u4e0e\u4ea7\u54c1\u3001\u6280\u672f\u56e2\u961f\u534f\u540c\uff0c\u63a8\u52a8\u6570\u636e\u4ea7\u54c1\u5316\uff08\u6570\u636e\u4e2d\u53f0/\u6307\u6807\u5e73\u53f0\uff09- \u63d0\u5347\u6570\u636e\u4f7f\u7528\u6548\u7387\uff0c\u5b9e\u73b0“\u6570\u636e\u6c11\u4e3b\u5316”
+5. \u56e2\u961f\u7ba1\u7406\u4e0e\u8de8\u90e8\u95e8\u534f\u540c- \u642d\u5efa\u5e76\u7ba1\u7406\u6570\u636e\u5206\u6790\u56e2\u961f\uff08\u5206\u6790\u5e08\u3001\u6570\u636e\u79d1\u5b66\u5bb6\u7b49\uff09- \u5236\u5b9a\u56e2\u961f\u76ee\u6807\u4e0e\u4eba\u624d\u68af\u961f\u5efa\u8bbe- \u4e0e\u4ea7\u54c1\u3001\u6280\u672f\u3001\u8fd0\u8425\u3001\u98ce\u63a7\u7b49\u591a\u90e8\u95e8\u534f\u540c\u63a8\u8fdb\u9879\u76ee
+
+\u4efb\u804c\u8981\u6c42
+1. \u57fa\u7840\u8981\u6c42- \u672c\u79d1\u53ca\u4ee5\u4e0a\u5b66\u5386\uff0c\u7edf\u8ba1\u5b66\u3001\u6570\u5b66\u3001\u8ba1\u7b97\u673a\u3001\u7ecf\u6d4e\u5b66\u7b49\u76f8\u5173\u4e13\u4e1a\u4f18\u5148- 8\u5e74\u4ee5\u4e0a\u6570\u636e\u5206\u6790\u76f8\u5173\u7ecf\u9a8c\uff0c3\u5e74\u4ee5\u4e0a\u56e2\u961f\u7ba1\u7406\u7ecf\u9a8c- \u6709\u4e92\u8054\u7f51/\u91d1\u878d\u79d1\u6280/\u7535\u5546\u7b49\u884c\u4e1a\u7ecf\u9a8c\u4f18\u5148
+2. \u4e13\u4e1a\u80fd\u529b- \u719f\u6089\u5e38\u89c1\u6570\u636e\u5206\u6790\u65b9\u6cd5\uff08A/B Test\u3001\u56de\u5f52\u5206\u6790\u3001\u7528\u6237\u884c\u4e3a\u5206\u6790\u7b49\uff09- \u6709\u5b8c\u6574\u7684\u6570\u636e\u4f53\u7cfb\u642d\u5efa\u7ecf\u9a8c\uff08\u6307\u6807\u4f53\u7cfb / \u6570\u636e\u6cbb\u7406 / \u6570\u636e\u4e2d\u53f0\uff09
+3. \u4e1a\u52a1\u7406\u89e3\u80fd\u529b- \u5bf9\u4e1a\u52a1\u654f\u611f\uff0c\u80fd\u4ece\u6570\u636e\u4e2d\u53d1\u73b0\u95ee\u9898\u5e76\u63a8\u52a8\u843d\u5730- \u6709\u589e\u957f\u5206\u6790\u3001\u7528\u6237\u5206\u6790\u6216\u4ea4\u6613\u7c7b\u4e1a\u52a1\u7ecf\u9a8c\u4f18\u5148- \u80fd\u5c06\u590d\u6742\u6570\u636e\u95ee\u9898\u8f6c\u5316\u4e3a\u6e05\u6670\u4e1a\u52a1\u7ed3\u8bba
+4. \u7ba1\u7406\u4e0e\u6c9f\u901a\u80fd\u529b- \u4f18\u79c0\u7684\u8de8\u90e8\u95e8\u6c9f\u901a\u4e0e\u63a8\u52a8\u80fd\u529b- \u80fd\u5f71\u54cd\u4e1a\u52a1\u51b3\u7b56\uff0c\u800c\u4e0d\u4ec5\u662f\u63d0\u4f9b\u6570\u636e
+
+Couldn't find experience requirement in About the Job!
+{('\u662f\u5426\u613f\u610f\u63a5\u53d7\u8fdc\u7a0b\u5de5\u4f5c\uff1f [  "\u662f"<Yes>, "\u5426"<No>, ]', '"\u662f"<Yes>', 'radio', '"\u662f"<Yes>'), ('\u624b\u673a\u53f7\u7801', '0652448265', 'text', '0652448265'), ('\u90ae\u7bb1\u5730\u5740 [  "\u9009\u62e9\u4e00\u9879", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('\u56fd\u5bb6/\u5730\u533a\u7535\u8bdd\u533a\u53f7 [  "\u9009\u62e9\u4e00\u9879", "\u6fb3\u5927\u5229\u4e9a (+61)", "\u5370\u5ea6 (+91)", "\u4e0d\u4e39 (+975)", "\u4e1c\u5e1d\u6c76 (+670)", "\u4e2d\u56fd (+86)", "\u4e2d\u56fd\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a (+853)", "\u4e2d\u56fd\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a (+852)", "\u4e2d\u975e\u5171\u548c\u56fd (+236)", "\u4e39\u9ea6 (+45)", "\u4e4c\u514b\u5170 (+380)", "\u4e4c\u5179\u522b\u514b\u65af\u5766 (+998)", "\u4e4c\u5e72\u8fbe (+256)", "\u4e4c\u62c9\u572d (+598)", "\u4e4d\u5f97 (+235)", "\u4e5f\u95e8 (+967)", "\u4e9a\u7f8e\u5c3c\u4e9a (+374)", "\u4ee5\u8272\u5217 (+972)", "\u4f0a\u62c9\u514b (+964)", "\u4f0a\u6717 (+98)", "\u4f2f\u5229\u5179 (+501)", "\u4f5b\u5f97\u89d2 (+238)", "\u4fc4\u7f57\u65af (+7)", "\u4fdd\u52a0\u5229\u4e9a (+359)", "\u514b\u7f57\u5730\u4e9a (+385)", "\u5173\u5c9b (+1)", "\u5188\u6bd4\u4e9a (+220)", "\u51b0\u5c9b (+354)", "\u51e0\u5185\u4e9a (+224)", "\u51e0\u5185\u4e9a\u6bd4\u7ecd (+245)", "\u5217\u652f\u6566\u58eb\u767b (+423)", "\u521a\u679c\uff08\u5e03\uff09 (+242)", "\u521a\u679c\uff08\u91d1\uff09 (+243)", "\u5229\u6bd4\u4e9a (+218)", "\u5229\u6bd4\u91cc\u4e9a (+231)", "\u52a0\u62ff\u5927 (+1)", "\u52a0\u7eb3 (+233)", "\u52a0\u84ec (+241)", "\u5308\u7259\u5229 (+36)", "\u5317\u9a6c\u5176\u987f (+389)", "\u5317\u9a6c\u91cc\u4e9a\u7eb3\u7fa4\u5c9b (+1)", "\u5357\u4e54\u6cbb\u4e9a\u548c\u5357\u6851\u5a01\u5947\u7fa4\u5c9b (+0)", "\u5357\u6781\u6d32 (+0)", "\u5357\u82cf\u4e39 (+211)", "\u5357\u975e (+27)", "\u535a\u8328\u74e6\u7eb3 (+267)", "\u5361\u5854\u5c14 (+974)", "\u5362\u65fa\u8fbe (+250)", "\u5362\u68ee\u5821 (+352)", "\u5370\u5ea6\u5c3c\u897f\u4e9a (+62)", "\u5371\u5730\u9a6c\u62c9 (+502)", "\u5384\u74dc\u591a\u5c14 (+593)", "\u5384\u7acb\u7279\u91cc\u4e9a (+291)", "\u53d9\u5229\u4e9a (+963)", "\u53e4\u5df4 (+53)", "\u53f0\u6e7e (+886)", "\u5409\u5c14\u5409\u65af\u65af\u5766 (+996)", "\u5409\u5e03\u63d0 (+253)", "\u54c8\u8428\u514b\u65af\u5766 (+7)", "\u54e5\u4f26\u6bd4\u4e9a (+57)", "\u54e5\u65af\u8fbe\u9ece\u52a0 (+506)", "\u5580\u9ea6\u9686 (+237)", "\u56fe\u74e6\u5362 (+688)", "\u571f\u5e93\u66fc\u65af\u5766 (+993)", "\u571f\u8033\u5176 (+90)", "\u5723\u5362\u897f\u4e9a (+1)", "\u5723\u57fa\u8328\u548c\u5c3c\u7ef4\u65af (+1)", "\u5723\u591a\u7f8e\u548c\u666e\u6797\u897f\u6bd4 (+239)", "\u5723\u5df4\u6cf0\u52d2\u7c73 (+590)", "\u5723\u6587\u68ee\u7279\u548c\u683c\u6797\u7eb3\u4e01\u65af (+1)", "\u5723\u76ae\u57c3\u5c14\u548c\u5bc6\u514b\u9686\u7fa4\u5c9b (+508)", "\u5723\u8bde\u5c9b (+61)", "\u5723\u8d6b\u52d2\u62ff (+290)", "\u5723\u9a6c\u529b\u8bfa (+378)", "\u572d\u4e9a\u90a3 (+592)", "\u5766\u6851\u5c3c\u4e9a (+255)", "\u57c3\u53ca (+20)", "\u57c3\u585e\u4fc4\u6bd4\u4e9a (+251)", "\u57fa\u91cc\u5df4\u65af (+686)", "\u5854\u5409\u514b\u65af\u5766 (+992)", "\u585e\u5185\u52a0\u5c14 (+221)", "\u585e\u5c14\u7ef4\u4e9a (+381)", "\u585e\u62c9\u5229\u6602 (+232)", "\u585e\u6d66\u8def\u65af (+357)", "\u585e\u820c\u5c14 (+248)", "\u58a8\u897f\u54e5 (+52)", "\u591a\u54e5 (+228)", "\u591a\u7c73\u5c3c\u514b (+1)", "\u591a\u7c73\u5c3c\u52a0\u5171\u548c\u56fd (+1)", "\u5965\u5170\u7fa4\u5c9b (+358)", "\u5965\u5730\u5229 (+43)", "\u59d4\u5185\u745e\u62c9 (+58)", "\u5b5f\u52a0\u62c9\u56fd (+880)", "\u5b89\u54e5\u62c9 (+244)", "\u5b89\u572d\u62c9 (+1)", "\u5b89\u63d0\u74dc\u548c\u5df4\u5e03\u8fbe (+1)", "\u5b89\u9053\u5c14 (+376)", "\u5bc6\u514b\u7f57\u5c3c\u897f\u4e9a (+691)", "\u5c3c\u52a0\u62c9\u74dc (+505)", "\u5c3c\u65e5\u5229\u4e9a (+234)", "\u5c3c\u65e5\u5c14 (+227)", "\u5c3c\u6cca\u5c14 (+977)", "\u5df4\u52d2\u65af\u5766\u9886\u571f (+970)", "\u5df4\u54c8\u9a6c (+1)", "\u5df4\u57fa\u65af\u5766 (+92)", "\u5df4\u5df4\u591a\u65af (+1)", "\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a (+675)", "\u5df4\u62c9\u572d (+595)", "\u5df4\u62ff\u9a6c (+507)", "\u5df4\u6797 (+973)", "\u5df4\u897f (+55)", "\u5e03\u57fa\u7eb3\u6cd5\u7d22 (+226)", "\u5e03\u9686\u8fea (+257)", "\u5e03\u97e6\u5c9b (+0)", "\u5e0c\u814a (+30)", "\u5e15\u52b3 (+680)", "\u5e93\u514b\u7fa4\u5c9b (+682)", "\u5e93\u62c9\u7d22 (+599)", "\u5f00\u66fc\u7fa4\u5c9b (+1)", "\u5fb7\u56fd (+49)", "\u610f\u5927\u5229 (+39)", "\u6240\u7f57\u95e8\u7fa4\u5c9b (+677)", "\u6258\u514b\u52b3 (+690)", "\u62c9\u8131\u7ef4\u4e9a (+371)", "\u632a\u5a01 (+47)", "\u6377\u514b (+420)", "\u6469\u5c14\u591a\u74e6 (+373)", "\u6469\u6d1b\u54e5 (+212)", "\u6469\u7eb3\u54e5 (+377)", "\u6587\u83b1 (+673)", "\u65af\u5a01\u58eb\u5170 (+268)", "\u65af\u6d1b\u4f10\u514b (+421)", "\u65af\u6d1b\u6587\u5c3c\u4e9a (+386)", "\u65af\u74e6\u5c14\u5df4\u548c\u626c\u9a6c\u5ef6 (+47)", "\u65af\u91cc\u5170\u5361 (+94)", "\u65b0\u52a0\u5761 (+65)", "\u65b0\u5580\u91cc\u591a\u5c3c\u4e9a (+687)", "\u65b0\u897f\u5170 (+64)", "\u65e5\u672c (+81)", "\u667a\u5229 (+56)", "\u671d\u9c9c (+850)", "\u67ec\u57d4\u5be8 (+855)", "\u6839\u897f\u5c9b (+44)", "\u683c\u6797\u7eb3\u8fbe (+1)", "\u683c\u9675\u5170 (+299)", "\u683c\u9c81\u5409\u4e9a (+995)", "\u68b5\u8482\u5188 (+39)", "\u6bd4\u5229\u65f6 (+32)", "\u6bdb\u91cc\u5854\u5c3c\u4e9a (+222)", "\u6bdb\u91cc\u6c42\u65af (+230)", "\u6c64\u52a0 (+676)", "\u6c99\u7279\u963f\u62c9\u4f2f (+966)", "\u6cd5\u56fd (+33)", "\u6cd5\u5c5e\u5357\u90e8\u9886\u5730 (+0)", "\u6cd5\u5c5e\u5723\u9a6c\u4e01 (+590)", "\u6cd5\u5c5e\u572d\u4e9a\u90a3 (+594)", "\u6cd5\u5c5e\u6ce2\u5229\u5c3c\u897f\u4e9a (+689)", "\u6cd5\u7f57\u7fa4\u5c9b (+298)", "\u6ce2\u5170 (+48)", "\u6ce2\u591a\u9ece\u5404 (+1)", "\u6ce2\u65af\u5c3c\u4e9a\u548c\u9ed1\u585e\u54e5\u7ef4\u90a3 (+387)", "\u6cf0\u56fd (+66)", "\u6cfd\u897f\u5c9b (+44)", "\u6d25\u5df4\u5e03\u97e6 (+263)", "\u6d2a\u90fd\u62c9\u65af (+504)", "\u6d77\u5730 (+509)", "\u7231\u5c14\u5170 (+353)", "\u7231\u6c99\u5c3c\u4e9a (+372)", "\u7259\u4e70\u52a0 (+1)", "\u7279\u514b\u65af\u548c\u51ef\u79d1\u65af\u7fa4\u5c9b (+1)", "\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5 (+1)", "\u73bb\u5229\u7ef4\u4e9a (+591)", "\u7459\u9c81 (+674)", "\u745e\u5178 (+46)", "\u745e\u58eb (+41)", "\u74dc\u5fb7\u7f57\u666e (+590)", "\u74e6\u5229\u65af\u548c\u5bcc\u56fe\u7eb3 (+681)", "\u74e6\u52aa\u963f\u56fe (+678)", "\u7559\u5c3c\u6c6a (+262)", "\u767d\u4fc4\u7f57\u65af (+375)", "\u767e\u6155\u5927 (+1)", "\u76ae\u7279\u51ef\u6069\u7fa4\u5c9b (+0)", "\u76f4\u5e03\u7f57\u9640 (+350)", "\u798f\u514b\u5170\u7fa4\u5c9b (+500)", "\u79d1\u5a01\u7279 (+965)", "\u79d1\u6469\u7f57 (+269)", "\u79d1\u7279\u8fea\u74e6 (+225)", "\u79d1\u79d1\u65af\uff08\u57fa\u6797\uff09\u7fa4\u5c9b (+61)", "\u79d8\u9c81 (+51)", "\u7a81\u5c3c\u65af (+216)", "\u7acb\u9676\u5b9b (+370)", "\u7d22\u9a6c\u91cc (+252)", "\u7ea6\u65e6 (+962)", "\u7eb3\u7c73\u6bd4\u4e9a (+264)", "\u7ebd\u57c3 (+683)", "\u7f05\u7538 (+95)", "\u7f57\u9a6c\u5c3c\u4e9a (+40)", "\u7f8e\u56fd (+1)", "\u7f8e\u56fd\u672c\u571f\u5916\u5c0f\u5c9b\u5c7f (+0)", "\u7f8e\u5c5e\u7ef4\u5c14\u4eac\u7fa4\u5c9b (+1)", "\u7f8e\u5c5e\u8428\u6469\u4e9a (+1)", "\u8001\u631d (+856)", "\u80af\u5c3c\u4e9a (+254)", "\u82ac\u5170 (+358)", "\u82cf\u4e39 (+249)", "\u82cf\u91cc\u5357 (+597)", "\u82f1\u56fd (+44)", "\u82f1\u5c5e\u5370\u5ea6\u6d0b\u9886\u5730 (+246)", "\u82f1\u5c5e\u7ef4\u5c14\u4eac\u7fa4\u5c9b (+1)", "\u8377\u5170 (+31)", "\u8377\u5c5e\u52a0\u52d2\u6bd4\u533a (+599)", "\u8377\u5c5e\u5723\u9a6c\u4e01 (+1)", "\u83ab\u6851\u6bd4\u514b (+258)", "\u83b1\u7d22\u6258 (+266)", "\u83f2\u5f8b\u5bbe (+63)", "\u8428\u5c14\u74e6\u591a (+503)", "\u8428\u6469\u4e9a (+685)", "\u8461\u8404\u7259 (+351)", "\u8499\u53e4 (+976)", "\u8499\u7279\u585e\u62c9\u7279 (+1)", "\u897f\u6492\u54c8\u62c9 (+212)", "\u897f\u73ed\u7259 (+34)", "\u8bfa\u798f\u514b\u5c9b (+672)", "\u8d1d\u5b81 (+229)", "\u8d5e\u6bd4\u4e9a (+260)", "\u8d64\u9053\u51e0\u5185\u4e9a (+240)", "\u8d6b\u5fb7\u5c9b\u548c\u9ea6\u514b\u5510\u7eb3\u7fa4\u5c9b (+0)", "\u8d8a\u5357 (+84)", "\u963f\u585e\u62dc\u7586 (+994)", "\u963f\u5bcc\u6c57 (+93)", "\u963f\u5c14\u53ca\u5229\u4e9a (+213)", "\u963f\u5c14\u5df4\u5c3c\u4e9a (+355)", "\u963f\u62c9\u4f2f\u8054\u5408\u914b\u957f\u56fd (+971)", "\u963f\u66fc (+968)", "\u963f\u6839\u5ef7 (+54)", "\u963f\u9c81\u5df4 (+297)", "\u97e9\u56fd (+82)", "\u9a6c\u5c14\u4ee3\u592b (+960)", "\u9a6c\u6069\u5c9b (+44)", "\u9a6c\u62c9\u7ef4 (+265)", "\u9a6c\u63d0\u5c3c\u514b (+596)", "\u9a6c\u6765\u897f\u4e9a (+60)", "\u9a6c\u7ea6\u7279 (+262)", "\u9a6c\u7ecd\u5c14\u7fa4\u5c9b (+692)", "\u9a6c\u8033\u4ed6 (+356)", "\u9a6c\u8fbe\u52a0\u65af\u52a0 (+261)", "\u9a6c\u91cc (+223)", "\u9ece\u5df4\u5ae9 (+961)", "\u9ed1\u5c71 (+382)", "\u6590\u6d4e (+679)", ]', 'Yes', 'select', '\u6fb3\u5927\u5229\u4e9a (+61)'), ('\u60a8\u7684\u82f1\u8bed\u6c34\u5e73\u5982\u4f55\uff1f [  "\u9009\u62e9\u4e00\u9879", "\u4e0d\u638c\u63e1", "\u65e5\u5e38\u4f1a\u8bdd", "\u5546\u52a1\u6c9f\u901a", "\u6bcd\u8bed", ]', 'Yes', 'select', '\u5546\u52a1\u6c9f\u901a'), ('\u60a8\u7684\u4e2d\u6587\u6c34\u5e73\u5982\u4f55\uff1f [  "\u9009\u62e9\u4e00\u9879", "\u4e0d\u638c\u63e1", "\u65e5\u5e38\u4f1a\u8bdd", "\u5546\u52a1\u6c9f\u901a", "\u6bcd\u8bed", ]', 'Yes', 'select', '\u4e0d\u638c\u63e1'), ('\u60a8\u6709\u591a\u5c11\u5e74\u7684\u6570\u636e\u5206\u6790\u4f7f\u7528\u7ecf\u9a8c\uff1f', '4', 'text', '4')}
+
+About the job
+About XO Sports
+XO Sports is building a next-gen B2C mobile platform for the online sports market, starting with the NBA and expanding into AFL, NRL, and NFL over the next 12 months. Our platform is powered by Azure cloud, leveraging a broad range of data services including Data Factory, Databricks, ADLS Gen2 and github to enabling us to ingest, transform data model for ML training. These insights can then be published real-time insights to fans and punters.
+
+Role Summary
+We’re looking for a hands-on Data Scientist to join our growing backend team. You’ll be responsible for designing, training, and deploying the machine learning models that power our predictive analytics and in-app insights. This is a unique opportunity to own the end-to-end modeling lifecycle—from feature engineering in Databricks to real-time model deployment—helping shape the future of sports analytics.
+
+What You’ll Be Doing
+Model Development: Design and train predictive models (e.g., player performance, win probabilities, betting lines) using Python and Spark.
+Feature Engineering: Collaborate with data engineers to develop and maintain high-signal features within a Delta Lake medallion architecture.
+Statistical Analysis: Perform deep-dive analysis on raw NBA and multi-sport datasets to identify trends, biases, and opportunities for new model iterations.
+MLOps & Deployment: Use Databricks and Azure Machine Learning to manage the model lifecycle, ensuring low-latency inference for real-time fan insights.
+Validation & Tuning: Ensure model robustness through rigorous backtesting, cross-validation, and monitoring of model drift.
+Collaboration: Work closely with backend developers to integrate model outputs into the mobile app via Azure Function Apps and CosmosDB.
+Version Control: Use GitHub for reproducible research and collaborate in an Agile environment using Jira.
+
+What You Bring
+You’re a curious problem-solver who excels at turning messy sports data into actionable predictions. You write clean, production-ready Python and understand the mathematical foundations behind the models you build.
+
+Must-haves:
+Statistical Programming: Strong Python skills, specifically with the PyData stack (pandas, scikit-learn, NumPy) and Spark/PySpark for large-scale data.
+Databricks Expertise: Experience building models within the Databricks ecosystem, utilizing Delta Tables and MLflow for experiment tracking.
+Predictive Modeling: Proven experience in supervised and unsupervised learning, including regression, classification, and time-series forecasting.
+Feature Design: Ability to conceptualize and engineer complex features from raw, unstructured (JSONL) sports data.
+Evaluation Rigor: Strong understanding of model evaluation metrics and the ability to conduct rigorous offline and online testing.
+Cloud Fluency: Familiarity with the Azure ecosystem (ADLSv2, Azure ML, or Databricks) for data access and model scaling.
+
+Nice-to-haves:
+Sports Domain Knowledge: A passion for sports (NBA, AFL, NRL, NFL) and a deep understanding of advanced sports metrics.
+Probabilistic Modeling: Experience with Bayesian stats or Monte Carlo simulations for sports betting or gaming contexts.
+Deployment Experience: Experience with containerization or API integration for real-time model serving.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:07:55.794701
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('how many years of work experience do you have with azure databricks?', '4', 'text', ''), ('how many years of work experience do you have with machine learning?', '4', 'text', ''), ('how many years of work experience do you have with azure data factory?', '4', 'text', '')}
+
+
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('how many years of work experience do you have with azure databricks?', '4', 'text', '')
+('how many years of work experience do you have with machine learning?', '4', 'text', '')
+('how many years of work experience do you have with azure data factory?', '4', 'text', '')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Senior Data Scientist | XO Sports" job. Job ID: 4401840384 info
+
+-@-
+
+Time Posted: APAC · 2 weeks ago · 83 applicants
+Promoted by hirer · Actively reviewing applicants
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:09:25.062568
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+Failed to Easy apply!
+Somewhere in Easy Apply process
+'charmap' codec can't encode characters in position 6-16: character maps to <undefined>
+2026-04-16 12:09:55.340472
+Click Failed! Didn't find Easy Apply button ['Discard']
+
+-@-
+
+Trying to Apply to "Research Consultant | Verian Group" job. Job ID: 4399917383
+HR info was not given for "Research Consultant" with Job ID: 4399917383!
+Time Posted: Melbourne, Victoria, Australia · 1 day ago · 17 applicants
+Promoted by hirer · Company review time is typically 1 week
+
+About the job
+About Us:
+ Verian is a world leading, purpose-led and independent research, evidence, evaluation, and communications agency, providing services to government and the public realm. With offices across the globe, our specialist consultants and researchers are supported by our unique global data ecosystem. We provide gold standard data on the economy and society to decision makers.
+
+We combine expertise in human understanding with advanced technologies and data science, connecting governments with citizens across the world. We support the rapid development of policy thinking in moments of urgency. We implement policies on the ground for multi-laterals. We build communications to reach diverse and complex audiences.
+
+We are Verian. Powering decisions that shape the world. 
+ 
+Purpose of the role: 
+
+The primary responsibility of this role is Independently leading small / mid-size projects, including client management, design of all materials, reporting and presentation. Leading larger projects under supervision / with support of senior staff, including all facets of the project. Developing and maintaining client relationships and identifying opportunities for growth in the business 
+ Key responsibilities: 
+ Winning work 
+Leads medium complexity proposals with continuing support from senior staff in the development of highly complex proposals. 
+Able to design an appropriate methodology to meet clients’ objectives and budget and understands the broader issues impacting project scope and feasibility. 
+ Leading projects 
+Manages client relationship throughout the project, leading discussions on approach, progress and client impact. 
+Able to independently develop all materials required for data collection and brief the project team to ensure everyone understands the client’s needs and their role in the project. 
+Manages any issues through the project finding solutions and, where necessary, advising senior staff of any potential impacts on the business. 
+Independently develops questionnaire and discussion guides. 
+ Analysis and Reporting 
+Can independently prepare a full report for medium complexity projects and provide a full draft for more highly complex projects, including development of the ‘story’ report, implications and conclusions that address the client’s objectives. 
+Able to create and deliver a concise and engaging presentation demonstrating insight against client objectives 
+ Managing client relationships 
+Builds strong client relationships that go beyond the delivery of the project in isolation. Understands the client’s world and what is impacting them, and how this may impact our work together. 
+Able to identify growth opportunities and have proactive conversations with clients about them. 
+  Staff Development 
+Mentor and manage junior staff providing regular feedback on performance, create a development plan, meet regularly to assess performance against development goals and KPIs. 
+  Role capabilities: 
+Understand both qualitative and quantitative methods and how to utilise them appropriately to design a research program to meet client needs and budget 
+5 - 7 years’ experience in the research and consulting industry 
+Be able to draw conclusions from our evidence that address our client’s objectives 
+Articulate insights (both in writing and in person / presentation) to provide clients with outcomes that meet or exceed expectations 
+Present confidently to both internal and external audiences 
+
+
+Why Join Us:
+
+The chance to work on high-impact, meaningful projects that drive real-world change
+A competitive salary and benefits package
+Learning and development opportunities to help you grow professionally
+A collaborative, purpose-led team that supports diversity and inclusivity
+Up to 5 weeks of annual leave per year
+Work from anywhere for up to 4 weeks within any 12-month period
+
+
+Ready to apply?
+Click the link and submit your CV and cover letter. If your profile is a match, we’ll be in touch to arrange an initial interview.
+
+We celebrate diversity and are committed to creating an inclusive environment for all employees. If you require any adjustments to participate fully in the recruitment process, please let us know—we’d be happy to help.
+
+Visit www.veriangroup.com to learn more about who we are and the impact we make.
+
+Experience required 5 > Current Experience 4. Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Senior Data Scientist | TEG Pty Ltd" job. Job ID: 4391534518
+HR info was not given for "Senior Data Scientist" with Job ID: 4391534518!
+Time Posted: Melbourne, Victoria, Australia · 2 weeks ago · 21 applicants
+Actively reviewing applicants
+Found the word "master" in 
+About the job
+About Ticketek Entertainment Group
+
+Ticketek Entertainment Group is a global fan experience company that tickets, promotes and delivers live experiences that are impossible to forget. In a distracted world where nothing beats real human moments, We make life better live!
+
+Our Group includes; our Fan Experience Platform (Ticketek) that sells tickets and provides value added services, Event promoting, with businesses across Touring (TEG Touring), Sport (TEG Sport), and Family Experiences (TEG Experiences) and our digital business (Ovation) which focuses on delivering seamless data-driven outcomes for our fans and partner
+
+About The Role
+
+As Senior Data Scientist, you will provide the deep technical expertise and theoretical rigor required to build TEG's next generation of AI products. Supporting the Principal and Lead Data Scientists, you will bridge the gap between cutting-edge research and production-ready applications. Partnering with ML Engineers and Product teams, you will ensure technical excellence through the implementation of production-grade CI/CD, Dockerisation, and robust model monitoring. Your primary goal is to elevate the team’s technical execution, ensuring every solution is built on a foundation of scientific excellence and scalable engineering.
+
+Requirements
+
+What a day in the life looks like?
+
+SOTA Implementation: Implement state-of-the-art (SOTA) machine learning and Generative AI solutions and apply deep theoretical understanding to develop pragmatic solutions spanning from traditional machine learning to advanced GenAI techniques that drive real business outcomes
+Solution Design Support: Partner with the Principal and Lead Data Scientists to provide technical feasibility assessments and research-backed insights for the AI roadmap
+Experimentation & Measurement: Implement robust frameworks experimentation and measurement frameworks to quantitatively measure model performance and overall business impact
+Development and Operational Delivery: Write production-quality code to develop and refine models, partnering with ML Engineers to deploy these solutions in cloud platforms
+Vertex AI Mastery: Design and implement end-to-end AI solutions using the full Vertex AI ecosystem, including Pipelines, Agent Garden, and Vertex Search
+Stakeholder Collaboration: Act as a trusted advisor, translating complex model behaviours and AI-driven business impacts into actionable insights that align technical delivery with TEG's broader commercial strategy
+
+About You
+
+Essential experience & skills:
+
+Minimum 5 years experience in delivering high-impact data science projects from inception to production, ideally within a high-volume e-commerce or digital environment. 
+A tertiary degree in a quantitative field such as Statistics, Mathematics, Engineering, Computer Science, or a related discipline
+Significant theoretical and practical experience in at least two of our core delivery areas: recommendation engines, pricing optimisation, or customer lifecycle modeling. Proven experience building GenAI and Agentic AI solutions is a plus
+Proven ability to design experimental frameworks and apply statistical methods to validate model performance and business uplift
+Advanced skills in BigQuery and Python, and hands-on experience with GCP and Vertex AI
+Extensive experience working in a collaborative software development environment, including version control (Git) and CI/CD pipelines
+Possess the ability to communicate technical concepts and experimental outcomes to stakeholders at all levels. 
+
+Benefits
+
+Here’s a taste of what TEG offers:
+
+Complimentary event tickets
+Birthday and volunteering leave
+Wellbeing discounts & flu vaccinations
+Paid parental leave & free employee support (EAP)
+Global rewards and recognition
+Learning, development & career pathways
+A diverse, inclusive, and passionate team
+
+Equal opportunities
+
+TEG is an equal opportunity employer committed to embrace diversity, respect, and care for our people and communities.
+
+If there are any adjustments that need to be made to ensure you have a fair and equitable experience in our recruitment process, please advise us when scheduling your interview.
+
+*Only direct applications will be considered. No recruiters please*
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:10:08.708945
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Stuck for one or some of the following questions...
+{('location (city)', 'Melbourne, Victoria, Australia', 'text', ''), ('cover letter', '', 'textarea', 'Hi,\n\nI am writing to express my interest in the Data Analyst Position at Eightcap. With over four years of experience in data analytics and business analysis, I specialise in translating business requirements into actionable insights and scalable solutions.\n\nAt NTT Data, I deliver end-to-end analytics solutions, develop Power BI dashboards and automate reporting processes, saving approximately 200 hours annually. I have strong experience in stakeholder engagement, requirements gathering and Agile environments.\n\nMy expertise in Power BI, SQL, Python and Excel supports effective decision-making. I would welcome the opportunity to contribute to your team.\n\nKind regards,\nSumedha Krishna Rao\nM: 452 448 265\nE: sumedhakrishnarao@gmail.com'), ('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('cover letter', 'Hi,\n\nI am writing to express my interest in the Analytics Consultant Position at Inter Workst. With over four years of experience in data analytics and business analysis, I specialise in translating business requirements into actionable insights and scalable solutions.\n\nAt NTT Data, I deliver end-to-end analytics solutions, develop Power BI dashboards and automate reporting processes, saving approximately 200 hours annually. I have strong experience in stakeholder engagement, requirements gathering and Agile environments.\n\nMy expertise in Power BI, SQL, Python and Excel supports effective decision-making. I would welcome the opportunity to contribute to your team.\n\nKind regards,\nSumedha Krishna Rao\nM: 452 448 265\nE: sumedhakrishnarao@gmail.com   \nCover Letter\n', 'textarea', ''), ('cover letter', '', 'textarea', 'Hi,\n\nI am writing to express my interest in the Analytics Consultant Position at Inter Workst. With over four years of experience in data analytics and business analysis, I specialise in translating business requirements into actionable insights and scalable solutions.\n\nAt NTT Data, I deliver end-to-end analytics solutions, develop Power BI dashboards and automate reporting processes, saving approximately 200 hours annually. I have strong experience in stakeholder engagement, requirements gathering and Agile environments.\n\nMy expertise in Power BI, SQL, Python and Excel supports effective decision-making. I would welcome the opportunity to contribute to your team.\n\nKind regards,\nSumedha Krishna Rao\nM: 452 448 265\nE: sumedhakrishnarao@gmail.com   \nCover Letter'), ('headline', 'Data Analyst and Business Analyst with 4 years of experience in reporting, dashboards, business insights, and stakeholder support', 'text', ''), ('last name', 'Krishna Rao', 'text', 'Krishna Rao'), ('headline', 'Data Analyst and Business Analyst with 4 years of experience in reporting, dashboards, business insights, and stakeholder support', 'text', 'Data Analyst and Business Analyst with 4 years of experience in reporting, dashboards, business insights, and stakeholder support'), ('summary', '', 'textarea', 'I am a Data Analyst and Business Analyst with 4 years of experience working on reporting, dashboarding, data analysis, and business insights.\nI enjoy translating raw data into clear recommendations, supporting stakeholders with decision-making, and improving process visibility through structured analysis.\nI am currently focused on analyst opportunities in Melbourne across data analysis, business analysis, and reporting-driven roles.'), ('summary', 'I am a Data Analyst and Business Analyst with 4 years of experience working on reporting, dashboarding, data analysis, and business insights.\nI enjoy translating raw data into clear recommendations, supporting stakeholders with decision-making, and improving process visibility through structured analysis.\nI am currently focused on analyst opportunities in Melbourne across data analysis, business analysis, and reporting-driven roles.\n', 'textarea', '')}
+Failed to Easy apply!
+Somewhere in Easy Apply process
+Seems like stuck in a continuous loop of next/review, probably because of new questions.
+2026-04-16 12:13:40.364896
+Click Failed! Didn't find Easy Apply button ['Discard']
+
+-@-
+
+Already applied to "Senior Data Scientist | DIXON APPOINTMENTS | Recruitment Agency" job. Job ID: 4399571750!
+
+-@-
+
+Already applied to "Senior Data Scientist | Cox Purtell Staffing Services" job. Job ID: 4388678084!
+
+-@-
+
+Trying to Apply to "Data Scientist | Joveo Ai" job. Job ID: 4402262811
+Time Posted: Australia · 19 hours ago · 53 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+About Us: At Joveo, we are on a mission to deliver a job for everyone. As the global leader in programmatic job advertising, our Data Science team operates like a hybrid of a librarian and a Swiss army knife—leveraging gargantuan data sets and cutting-edge AI to match the right talent to the right roles.
+
+The Role (TL;DR): We are looking for a Data Scientist to join our cross-functional pods. You will build and deploy state-of-the-art NLP models (like SentenceBERT) and predictive algorithms to optimize job embeddings, occupation classification, and applicant forecasting.
+
+What You’ll Do:
+Develop and fine-tune language-agnostic embedding models to process millions of job postings.
+Work with transfer learning models and predictive techniques (XGBoost, gradient boosting) to lower Cost-Per-Applicant (CPA) for our clients.
+Partner directly with Product Managers and Software Engineers in decentralized, semi-autonomous pods to push code into production.
+Identify opportunities to use AI/ML to eliminate bias in recruitment advertising.
+
+What You Bring:
+Proven experience in building machine learning models, specifically in NLP and predictive analytics.
+Proficiency in Python and relevant libraries (NumPy, Pandas, SciPy, Gensim).
+Experience with big data frameworks and deploying models into cloud environments.
+A "can-do" mindset and a passion for solving complex, real-world problems.
+
+Why Joveo?
+Impact: Your code will directly help millions of people find jobs.
+Flexibility: Remote-first culture with flexible working hours.
+Growth: Generous learning and development budgets.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:13:52.273363
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('phone', '0652448265', 'text', '0652448265'), ('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')}
+
+
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('phone', '0652448265', 'text', '0652448265')
+('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Data Scientist | Joveo Ai" job. Job ID: 4402262811 info
+
+-@-
+
+Already applied to "Senior Data Scientist | Discovered People" job. Job ID: 4399203929!
+
+-@-
+
+Trying to Apply to "Data Scientist | Joveo Ai" job. Job ID: 4402268626
+Time Posted: APAC · 19 hours ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+About Us: At Joveo, we are on a mission to deliver a job for everyone. As the global leader in programmatic job advertising, our Data Science team operates like a hybrid of a librarian and a Swiss army knife—leveraging gargantuan data sets and cutting-edge AI to match the right talent to the right roles.
+
+The Role (TL;DR): We are looking for a Data Scientist to join our cross-functional pods. You will build and deploy state-of-the-art NLP models (like SentenceBERT) and predictive algorithms to optimize job embeddings, occupation classification, and applicant forecasting.
+
+What You’ll Do:
+Develop and fine-tune language-agnostic embedding models to process millions of job postings.
+Work with transfer learning models and predictive techniques (XGBoost, gradient boosting) to lower Cost-Per-Applicant (CPA) for our clients.
+Partner directly with Product Managers and Software Engineers in decentralized, semi-autonomous pods to push code into production.
+Identify opportunities to use AI/ML to eliminate bias in recruitment advertising.
+
+What You Bring:
+Proven experience in building machine learning models, specifically in NLP and predictive analytics.
+Proficiency in Python and relevant libraries (NumPy, Pandas, SciPy, Gensim).
+Experience with big data frameworks and deploying models into cloud environments.
+A "can-do" mindset and a passion for solving complex, real-world problems.
+
+Why Joveo?
+Impact: Your code will directly help millions of people find jobs.
+Flexibility: Remote-first culture with flexible working hours.
+Growth: Generous learning and development budgets.
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:14:51.005950
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('phone', '0652448265', 'text', '0652448265'), ('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')}
+
+
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('phone', '0652448265', 'text', '0652448265')
+('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Data Scientist | Joveo Ai" job. Job ID: 4402268626 info
+
+-@-
+
+Already applied to "Senior Data Scientist | Ai Talent Australia" job. Job ID: 4398489338!
+
+-@-
+
+Trying to Apply to "Data Analyst - Corporate Reporting | Praemium" job. Job ID: 4401569250
+Time Posted: Melbourne, Victoria, Australia · 2 days ago · 72 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+About Us
+Praemium was established in 2001 to simplify and streamline the complexities of wealth management. Today, we offer a fully integrated platform that enables every part of an investor’s wealth to be managed in one place.
+Managing over $67 billion in funds under administration for leading institutions, private wealth firms and financial advisers, we deliver innovative technology and exceptional service to our clients.
+We are committed to empowering better business decisions through data, insights and technology. Join us as we continue to redefine wealth management in Australia.
+ 
+The Role
+We are seeking a Corporate Reporting Analyst to join our Corporate Operations team.
+This role is responsible for designing, building and continuously improving corporate dashboards and reporting that drive business decision-making and operational transparency across the organisation.
+
+With a strong focus on Power BI and Microsoft Fabric, you will translate business questions into clear, trusted and well-governed reporting solutions.
+
+Beyond building dashboards, you will play a key role in uplifting data literacy across the business — helping stakeholders interpret insights, build confidence in data, and move towards self-service analytics.
+
+This is a highly collaborative role suited to someone who enjoys combining technical capability with stakeholder engagement and commercial thinking.
+ 
+Key Responsibilities
+
+Design, develop and maintain Power BI dashboards supporting executive, operational and governance reporting 
+Build and enhance reporting solutions using Microsoft Fabric, including governed datasets and semantic models 
+Translate business requirements into clear, accurate and visually compelling dashboards 
+Partner with stakeholders across Finance, Operations, Risk and Corporate teams to understand reporting needs 
+Act as a trusted analytics partner, delivering insights and recommendations (not just reports) 
+Educate stakeholders on interpreting data, metrics and trends to improve data literacy 
+Develop and maintain supplier and vendor performance dashboards (SLA/KPI reporting) 
+Analyse supplier performance trends and provide insights for governance and decision-making 
+Use SQL to query, validate and analyse data across enterprise systems 
+Investigate data issues and partner with system owners to improve data quality 
+Support the adoption of self-service analytics and reduce manual reporting 
+About You
+You are a detail-oriented and commercially minded reporting professional who enjoys turning data into meaningful insights. You are equally comfortable building dashboards and engaging with stakeholders to influence better decisions.
+
+You will have:
+
+Strong experience in corporate or enterprise reporting environments 
+Advanced Power BI dashboard development capability 
+Experience with Microsoft Fabric or modern Microsoft data platforms 
+Working knowledge of SQL for data analysis and validation 
+Proven ability to translate business questions into actionable insights 
+Excellent communication skills, with the ability to explain data to non-technical audiences 
+High attention to detail and commitment to data accuracy 
+Experience supporting data literacy or analytics enablement initiatives 
+Qualifications:
+
+Microsoft Certified: Power BI Data Analyst Associate (PL-300) – required 
+Microsoft Certified: Fabric Analytics Engineer Associate (DP-600) – desirable 
+Exposure to financial services or regulated environments – advantageous 
+ What We Offer
+
+Flexible hybrid work environment 
+Competitive salary package 
+Comprehensive leave benefits, including paid parental leave 
+Access to financial wellbeing initiatives and novated leasing 
+Ongoing professional development and certification support 
+Modern office with end of trip facilities located on Collins Street, Melbourne 
+ 
+How to Apply
+Please apply with your CV and a cover letter outlining your experience and alignment to the role.
+
+We are committed to building a diverse and inclusive workforce and welcome applications from all qualified candidates.
+
+Please note: Applicants must have full, unrestricted working rights in Australia (PR or citizenship). 
+
+A police check will be required for successful candidates.
+
+Desired Skills and Experience
+power bi, Microsoft fabric, fabric analytics engineer, SQL, corporate reporting, enterprise reporting, dashboards, supplier management
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:15:50.080154
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Next']
+Answered the following questions...
+{('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('phone', '0652448265', 'text', '0652448265'), ('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')}
+
+
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('phone', '0652448265', 'text', '0652448265')
+('Email [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Data Analyst - Corporate Reporting | Praemium" job. Job ID: 4401569250 info
+
+-@-
+
+Trying to Apply to "Lead Data Scientist | VERSA AI" job. Job ID: 4394750635
+HR info was not given for "Lead Data Scientist" with Job ID: 4394750635!
+Time Posted: Australia · 1 week ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+Found the word "master" in 
+About the job
+About VERSA AI 
+
+VERSA AI is an innovative and fast-growing start-up in the Contact Centre automation space designing and deploying GenAI voice and chat agents. We’re on a mission to build and support the Contact Centre of the future, using the power of conversational AI to create natural, beautiful conversations between humans and machines. 
+
+Our technology helps clients deliver exceptional customer experiences while simultaneously cutting costs and scaling efficiently. An Australian-founded business with a strong foothold in the US, we are expanding our operations and building out our team on the ground in the critical market. 
+
+We are looking for passionate, entrepreneurial individuals who are eager to make a significant impact in a dynamic, fast-moving environment, and who want to shape how we deliver our platform and inform what we build next through real world implementations. 
+
+The Role 
+
+We're hiring a Lead Data Scientist who builds, not just advises. You'll own our data science function end-to-end, building models, engineering pipelines, creating insights, and turning the rich data generated by our AI platform into competitive advantage. 
+
+This isn't a strategy-only seat. You'll design the approach and do the work. Reporting to the Head of Engineering, your scope covers the entire business: product, engineering, customer success, operations, finance, and people not just the profit centres. 
+
+You'll be our first dedicated data science hire, with the opportunity to shape and grow a team as the function matures. 
+
+What You'll Do 
+
+Build and deploy ML models and statistical analyses that solve real business problems, from customer behaviour prediction to cost optimisation 
+Work hands-on with LLM and RAG system data: retrieval quality, conversation outcomes, latency, and model performance 
+Architect scalable data pipelines across cloud platforms (AWS/GCP/Azure) and stand up a modern data stack 
+Create dashboards and operational scorecards that teams across the business actually use 
+Define key metrics: customer experience, product reliability, unit economics, and operational health 
+Establish data governance and compliance frameworks (Australian Privacy Act, GDPR, SOC 2) 
+Translate ambiguous business questions into measurable data problems for non-technical stakeholders 
+Build the case for growing the data function and hire your team as the need arises 
+
+What You Bring 
+
+8–10+ years across data science, data engineering, analytics, or applied AI/ML 
+Track record of deploying ML models in production, not just prototyping in notebooks 
+Strong Python, SQL, and modern data tooling (dbt, Airflow/Dagster, Spark, Snowflake/BigQuery) 
+Experience with LLM-based systems: RAG architectures, vector databases, orchestration frameworks 
+Solid statistical foundations: experimental design, causal inference, regression, time-series 
+Ability to communicate data insights to senior stakeholders and non-technical audiences 
+Experience in SaaS, AI/ML product companies, or enterprise implementation environments 
+
+Bonus Points 
+
+Familiarity with conversational AI metrics (deflection, containment, intent accuracy) 
+MLOps experience: model versioning, monitoring, CI/CD for ML 
+Australian market experience and familiarity with local privacy legislation 
+Quantitative degree (Master's/PhD valued, not required if experience is strong) 
+
+About the job
+About VERSA AI 
+
+VERSA AI is an innovative and fast-growing start-up in the Contact Centre automation space designing and deploying GenAI voice and chat agents. We’re on a mission to build and support the Contact Centre of the future, using the power of conversational AI to create natural, beautiful conversations between humans and machines. 
+
+Our technology helps clients deliver exceptional customer experiences while simultaneously cutting costs and scaling efficiently. An Australian-founded business with a strong foothold in the US, we are expanding our operations and building out our team on the ground in the critical market. 
+
+We are looking for passionate, entrepreneurial individuals who are eager to make a significant impact in a dynamic, fast-moving environment, and who want to shape how we deliver our platform and inform what we build next through real world implementations. 
+
+The Role 
+
+We're hiring a Lead Data Scientist who builds, not just advises. You'll own our data science function end-to-end, building models, engineering pipelines, creating insights, and turning the rich data generated by our AI platform into competitive advantage. 
+
+This isn't a strategy-only seat. You'll design the approach and do the work. Reporting to the Head of Engineering, your scope covers the entire business: product, engineering, customer success, operations, finance, and people not just the profit centres. 
+
+You'll be our first dedicated data science hire, with the opportunity to shape and grow a team as the function matures. 
+
+What You'll Do 
+
+Build and deploy ML models and statistical analyses that solve real business problems, from customer behaviour prediction to cost optimisation 
+Work hands-on with LLM and RAG system data: retrieval quality, conversation outcomes, latency, and model performance 
+Architect scalable data pipelines across cloud platforms (AWS/GCP/Azure) and stand up a modern data stack 
+Create dashboards and operational scorecards that teams across the business actually use 
+Define key metrics: customer experience, product reliability, unit economics, and operational health 
+Establish data governance and compliance frameworks (Australian Privacy Act, GDPR, SOC 2) 
+Translate ambiguous business questions into measurable data problems for non-technical stakeholders 
+Build the case for growing the data function and hire your team as the need arises 
+
+What You Bring 
+
+8–10+ years across data science, data engineering, analytics, or applied AI/ML 
+Track record of deploying ML models in production, not just prototyping in notebooks 
+Strong Python, SQL, and modern data tooling (dbt, Airflow/Dagster, Spark, Snowflake/BigQuery) 
+Experience with LLM-based systems: RAG architectures, vector databases, orchestration frameworks 
+Solid statistical foundations: experimental design, causal inference, regression, time-series 
+Ability to communicate data insights to senior stakeholders and non-technical audiences 
+Experience in SaaS, AI/ML product companies, or enterprise implementation environments 
+
+Bonus Points 
+
+Familiarity with conversational AI metrics (deflection, containment, intent accuracy) 
+MLOps experience: model versioning, monitoring, CI/CD for ML 
+Australian market experience and familiarity with local privacy legislation 
+Quantitative degree (Master's/PhD valued, not required if experience is strong) 
+
+Experience required 10 > Current Experience 6. Skipping this job!
+
+
+>-> Now on Page 3 
+
+
+-@-
+
+Trying to Apply to "STEM Research Assistant – AI Data Analysis & Evaluation | $42/hr Remote | Crossing Hurdles" job. Job ID: 4399612937
+Time Posted: Australia · 2 days ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Position: STEM Undergraduates
+Type: Hourly contract
+Compensation: $42/hour
+Location: Remote
+Commitment: Part-time, flexible based on project needs
+
+Role Responsibilities
+Conduct research tasks to support AI training and evaluation projects
+Analyze and synthesize information from various sources
+Evaluate credibility and relevance of research materials
+Follow project guidelines to produce accurate and structured outputs
+Work independently on open-ended problem-solving tasks
+
+Requirements
+Currently enrolled STEM undergraduate or completed undergraduate degree only
+Strong ability to conduct independent research and analysis
+Strong information literacy and source evaluation skills
+Strong attention to detail and accuracy
+Ability to work independently and manage tasks effectively
+Background in chemistry, physics, or engineering is preferred
+
+Application Process (Takes 20 Mins)
+Upload your resume.
+Complete an interview.
+Submit a short form.
+
+Desired Skills and Experience
+Engineering
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:16:54.932137
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('last name', 'Krishna Rao', 'text', 'Krishna Rao')}
+
+
+('first name', 'Sumedha', 'text', 'Sumedha')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('last name', 'Krishna Rao', 'text', 'Krishna Rao')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "STEM Research Assistant – AI Data Analysis & Evaluation | $42/hr Remote | Crossing Hurdles" job. Job ID: 4399612937 info
+
+-@-
+
+Trying to Apply to "Undergraduate STEM Analyst – AI Research & Data Projects | $42/hr Remote | Crossing Hurdles" job. Job ID: 4399620900
+Time Posted: Australia · 2 days ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Position: STEM Undergraduates
+Type: Hourly contract
+Compensation: $42/hour
+Location: Remote
+Commitment: Part-time, flexible based on project needs
+
+Role Responsibilities
+Conduct research tasks to support AI training and evaluation projects
+Analyze and synthesize information from various sources
+Evaluate credibility and relevance of research materials
+Follow project guidelines to produce accurate and structured outputs
+Work independently on open-ended problem-solving tasks
+
+Requirements
+Currently enrolled STEM undergraduate or completed undergraduate degree only
+Strong ability to conduct independent research and analysis
+Strong information literacy and source evaluation skills
+Strong attention to detail and accuracy
+Ability to work independently and manage tasks effectively
+Background in chemistry, physics, or engineering is preferred
+
+Application Process (Takes 20 Mins)
+Upload your resume.
+Complete an interview.
+Submit a short form.
+
+Desired Skills and Experience
+Engineering
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:18:33.715703
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('last name', 'Krishna Rao', 'text', 'Krishna Rao')}
+
+
+('first name', 'Sumedha', 'text', 'Sumedha')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('last name', 'Krishna Rao', 'text', 'Krishna Rao')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Undergraduate STEM Analyst – AI Research & Data Projects | $42/hr Remote | Crossing Hurdles" job. Job ID: 4399620900 info
+
+-@-
+
+Trying to Apply to "Applied Physicist - Data Analysis & Stimulation | $80/hr Remote | Crossing Hurdles" job. Job ID: 4379171100
+HR info was not given for "Applied Physicist - Data Analysis & Stimulation | $80/hr Remote" with Job ID: 4379171100!
+Time Posted: Australia · Reposted 1 day ago · Over 100 applicants
+Promoted by hirer · Actively reviewing applicants
+
+About the job
+Position: Physicist Talent Network
+Type: Part time position
+Compensation: $60 to $80 per hour
+Location: Remote
+
+Role Responsibilities
+Create domain specific tasks based on real world scenarios.
+Provide expert feedback on theoretical and experimental content.
+Support frontier AI research with structured analysis.
+
+Requirements
+Professional experience in theoretical or computational modeling.
+Experience with experimental design and data analysis.
+Familiarity with scientific programming tools.
+Strong written and verbal communication skills.
+Ability to work independently in a remote environment.
+
+Application Process (Takes 20 Min)
+Upload resume
+Interview
+Profile verification
+Screening process
+
+Desired Skills and Experience
+engineer
+
+Contains bad word "iOS". Skipping this job!
+
+
+-@-
+
+Trying to Apply to "Data Scientist - AI/ML | Remote | Crossing Hurdles" job. Job ID: 4400759281
+Time Posted: APJ · 1 day ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Position: Data Scientist
+Type: Hourly contract
+Compensation: $59 - $114/hour
+Location: Remote
+Commitment: 10–40 hours/week
+
+Role Responsibilities
+Design, develop, and implement machine learning models for AI training initiatives.
+Analyze large and complex datasets to generate actionable insights.
+Collaborate with cross-functional teams to define requirements and deliver data-driven solutions.
+Evaluate model performance through validation and testing processes.
+Document methodologies, findings, and workflows clearly for stakeholders.
+Ensure data quality, privacy, and security across all project stages.
+Research and apply advanced data science techniques to improve outcomes. 
+
+Requirements
+Strong experience in data science and machine learning projects.
+Proficiency in Python, R, or similar programming languages.
+Strong knowledge of statistical analysis, data mining, and ML algorithms.
+Experience working with large-scale structured and unstructured datasets.
+Excellent written and verbal communication skills.
+Ability to work independently in a remote environment.
+Strong attention to detail and problem-solving capabilities. 
+
+Application Process (Takes 20 Min)
+Easy Apply on LinkedIn
+Check email for next steps
+Participate in resume evaluation & interview stage
+
+Desired Skills and Experience
+Software Development
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:20:21.789851
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('last name', 'Krishna Rao', 'text', 'Krishna Rao')}
+
+
+('first name', 'Sumedha', 'text', 'Sumedha')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('last name', 'Krishna Rao', 'text', 'Krishna Rao')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Data Scientist - AI/ML | Remote | Crossing Hurdles" job. Job ID: 4400759281 info
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+-@-
+
+Skipping previously rejected "Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based) | Agoda" job. Job ID: 4299779194!
+
+-@-
+
+Trying to Apply to "Machine Learning Data Scientist | Remote | Crossing Hurdles" job. Job ID: 4401188631
+Time Posted: APJ · 1 day ago · Over 100 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Position: Data Scientist
+Type: Hourly contract
+Compensation: $59 - $114/hour
+Location: Remote
+Commitment: 10–40 hours/week
+
+Role Responsibilities
+Design, develop, and implement machine learning models for AI training initiatives.
+Analyze large and complex datasets to generate actionable insights.
+Collaborate with cross-functional teams to define requirements and deliver data-driven solutions.
+Evaluate model performance through validation and testing processes.
+Document methodologies, findings, and workflows clearly for stakeholders.
+Ensure data quality, privacy, and security across all project stages.
+Research and apply advanced data science techniques to improve outcomes. 
+
+Requirements
+Strong experience in data science and machine learning projects.
+Proficiency in Python, R, or similar programming languages.
+Strong knowledge of statistical analysis, data mining, and ML algorithms.
+Experience working with large-scale structured and unstructured datasets.
+Excellent written and verbal communication skills.
+Ability to work independently in a remote environment.
+Strong attention to detail and problem-solving capabilities. 
+
+Application Process (Takes 20 Min)
+Easy Apply on LinkedIn
+Check email for next steps
+Participate in resume evaluation & interview stage
+
+Desired Skills and Experience
+Software Development
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:22:00.440955
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('last name', 'Krishna Rao', 'text', 'Krishna Rao')}
+
+
+('first name', 'Sumedha', 'text', 'Sumedha')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('last name', 'Krishna Rao', 'text', 'Krishna Rao')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Machine Learning Data Scientist | Remote | Crossing Hurdles" job. Job ID: 4401188631 info
+
+-@-
+
+Already applied to "Data Analyst (Vietnamese) | $11/hr Remote | Crossing Hurdles" job. Job ID: 4376989421!
+
+-@-
+
+Already applied to "Data Annotator (Greek) | $15/hr Remote | Crossing Hurdles" job. Job ID: 4392878374!
+
+-@-
+
+Trying to Apply to "Senior Data Scientist - Machine Learning | Remote | Crossing Hurdles" job. Job ID: 4401188819
+Time Posted: APJ · 23 hours ago · 63 applicants
+Promoted by hirer · No response insights available yet
+
+About the job
+Please submit your CV in English and indicate your level of English proficiency.
+
+Mindrift connects specialists with project-based AI opportunities for leading tech companies, focused on testing, evaluating, and improving AI systems. Participation is project-based, not permanent employment.
+
+What This Opportunity Involves
+
+While each project involves unique tasks, contributors may:
+
+Design original computational data science problems that simulate real-world analytical workflows across industries (telecom, finance, government, e-commerce, healthcare)
+Create problems requiring Python programming to solve (using Pandas, Numpy, Scipy, Sklearn, Statsmodels, Matplotlib, Seaborn)
+Ensure problems are computationally intensive and cannot be solved manually within reasonable timeframes (days/weeks)
+Develop problems requiring non-trivial reasoning chains in data processing, statistical analysis, feature engineering, predictive modeling, and insight extraction
+Create deterministic problems with reproducible answers: avoid stochastic elements or require fixed random seeds for exact reproducibility
+Base problems on real business challenges: customer analytics, risk assessment, fraud detection, forecasting, optimization, and operational efficiency
+Design end-to-end problems spanning the complete data science pipeline (data ingestion \u2192 cleaning \u2192 EDA \u2192 modeling \u2192 validation \u2192 deployment considerations)
+Incorporate big data processing scenarios requiring scalable computational approaches
+Verify solutions using Python with standard data science libraries and statistical methods
+Document problem statements clearly with realistic business contexts and provide verified correct answers
+
+What We Look For
+
+This opportunity is a good fit for Data Science specialists with an experience in python open to part-time, non-permanent projects. Ideally, contributors will have:
+
+5+ years of hands-on data science experience with proven business impact
+Portfolio of completed projects and publications showcasing real-world problem-solving
+Expert Python programming for data science (pandas, numpy, scipy, scikit-learn, statsmodels)
+Expert statistical analysis and machine learning - deep understanding of algorithms, methods, and their practical applications
+Expert with SQL and database operations for data manipulation and analysis
+Experience with GenAI technologies (LLMs, RAG, prompt engineering, vector databases)
+Understanding of MLOps practices and model deployment workflows
+Knowledge of modern frameworks (TensorFlow, PyTorch, LangChain)
+Strong written English (C1+)
+
+How It Works
+
+Apply \u2192 Pass qualification(s) \u2192 Join a project \u2192 Complete tasks \u2192 Get paid
+
+Project time expectations 
+
+For this project, tasks are estimated to require around 10-20 hours per week during active phases, based on project requirements. This is an estimate, not a guaranteed workload, and applies only while the project is active.
+
+Compensation
+
+On this project, contributors can earn up to $55 per hour equivalent, depending on their level and pace of contribution.
+
+Compensation varies across projects depending on scope, complexity, and required expertise. Please note that other projects on the platform may offer different earning levels based on their requirements.
+
+Contains bad word "iOS". Skipping this job!
+
+
+About the job
+Position: Data Scientist
+Type: Hourly contract
+Compensation: $59 - $114/hour
+Location: Remote
+Commitment: 10–40 hours/week
+
+Role Responsibilities
+Design, develop, and implement machine learning models for AI training initiatives.
+Analyze large and complex datasets to generate actionable insights.
+Collaborate with cross-functional teams to define requirements and deliver data-driven solutions.
+Evaluate model performance through validation and testing processes.
+Document methodologies, findings, and workflows clearly for stakeholders.
+Ensure data quality, privacy, and security across all project stages.
+Research and apply advanced data science techniques to improve outcomes. 
+
+Requirements
+Strong experience in data science and machine learning projects.
+Proficiency in Python, R, or similar programming languages.
+Strong knowledge of statistical analysis, data mining, and ML algorithms.
+Experience working with large-scale structured and unstructured datasets.
+Excellent written and verbal communication skills.
+Ability to work independently in a remote environment.
+Strong attention to detail and problem-solving capabilities. 
+
+Application Process (Takes 20 Min)
+Easy Apply on LinkedIn
+Check email for next steps
+Participate in resume evaluation & interview stage
+
+Desired Skills and Experience
+Software Development
+
+Couldn't find experience requirement in About the Job!
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-16 12:23:48.052284
+Extracted skills using gemini AI
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Review']
+Answered the following questions...
+{('first name', 'Sumedha', 'text', 'Sumedha'), ('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)'), ('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com'), ('mobile phone number', '0652448265', 'text', '0652448265'), ('last name', 'Krishna Rao', 'text', 'Krishna Rao')}
+
+
+('first name', 'Sumedha', 'text', 'Sumedha')
+('Phone country code [ "List of phone country codes" ]', 'Yes', 'select', 'Australia (+61)')
+('Email address [  "Select an option", "sumedhak.rao@gmail.com", "sumedhakrishnarao@gmail.com", ]', 'Yes', 'select', 'sumedhak.rao@gmail.com')
+('mobile phone number', '0652448265', 'text', '0652448265')
+('last name', 'Krishna Rao', 'text', 'Krishna Rao')
+
+
+Click Failed! Didn't find Easy Apply button ['Review']
+Click Failed! Didn't find Easy Apply button ['Done']
+Successfully saved "Senior Data Scientist - Machine Learning | Remote | Crossing Hurdles" job. Job ID: 4401188819 info
+
+-@-
+
+Trying to Apply to "Data Scientist (Python & SQL) - Freelance AI Trainer | Mindrift" job. Job ID: 4393517214
+HR info was not given for "Data Scientist (Python & SQL) - Freelance AI Trainer" with Job ID: 4393517214!
+Time Posted: Australia · 2 weeks ago · 8 applicants
+No response insights available yet
+
+-@-
+
+Already applied to "Data Annotator (Romanian) | $15/hr Remote | Crossing Hurdles" job. Job ID: 4393412320!
+
+-@-
+
+Already applied to "AI Trainer - Freelance Data Annotator | Toloka Annotators" job. Job ID: 4397042958!
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: stale element reference: stale element not found
+  (Session info: chrome=147.0.7727.57); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6f2c10245+146d5]
+	chromedriver!GetHandleVerifier [0x7ff6f2c102b0+14740]
+	chromedriver!(No symbol) [0x7ff6f297d7cd]
+	chromedriver!(No symbol) [0x7ff6f2994ece]
+	chromedriver!(No symbol) [0x7ff6f29935d0]
+	chromedriver!(No symbol) [0x7ff6f298640b]
+	chromedriver!(No symbol) [0x7ff6f29841ae]
+	chromedriver!(No symbol) [0x7ff6f2988875]
+	chromedriver!(No symbol) [0x7ff6f298893f]
+	chromedriver!(No symbol) [0x7ff6f29d63ce]
+	chromedriver!(No symbol) [0x7ff6f29d6f5c]
+	chromedriver!(No symbol) [0x7ff6f29caadc]
+	chromedriver!(No symbol) [0x7ff6f29ca986]
+	chromedriver!(No symbol) [0x7ff6f2a24818]
+	chromedriver!(No symbol) [0x7ff6f29c9018]
+	chromedriver!(No symbol) [0x7ff6f29c9f03]
+	chromedriver!GetHandleVerifier [0x7ff6f2f258f9+329d89]
+	chromedriver!GetHandleVerifier [0x7ff6f2f1fe46+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff6f2f430b2+347542]
+	chromedriver!GetHandleVerifier [0x7ff6f2c2d3d5+31865]
+	chromedriver!GetHandleVerifier [0x7ff6f2c3600c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff6f2c19634+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff6f2c197e6+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff6f2bfe2f7+2787]
+	KERNEL32!BaseThreadInitThunk [0x7ff914677374+14]
+	ntdll!RtlUserThreadStart [0x7ff91491cc91+21]
+
+########################################################################################################################
+
+Total runs: 2
+Jobs Applied: 9
+External job links collected: 0
+Total processed outcomes: 9
+Failed jobs: 3
+Irrelevant jobs skipped: 16
+
+
+
+Total runs:                     2
+Jobs Applied:                   9
+External job links collected:   0
+                              ----------
+Total processed outcomes:       9
+
+Failed jobs:                    3
+Irrelevant jobs skipped:        16
+
+[PIPELINE ALERT SUPPRESSED] Session ended: Completed pipeline search/apply pass.
+
+If you're tired, learn to take rest but never give up. - Sai Vignesh Golla
+
+
+In this run, you saved approx 16 mins (940 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 9
+External job links collected: 0
+Total processed outcomes: 9
+Failed jobs: 3
+Irrelevant jobs skipped: 16
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Completed pipeline search/apply pass.
+
+If you're tired, learn to take rest but never give up. - Sai Vignesh Golla
+
+
+In this run, you saved approx 16 mins (940 secs), please consider supporting the project.
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 9
+External job links collected: 0
+Total processed outcomes: 9
+Failed jobs: 3
+Irrelevant jobs skipped: 16
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 9, 'external_links_logged': 0, 'rows_written_to_applied_csv': 9, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 1, 'failed_jobs': 3, 'skipped_jobs': 16, 'total_runs': 2, 'pipeline_mode': True}
+{"run_id": "run-ui-0f90040a9b5d", "output_dir": "D:\\Automation- Project 1\\pipeline\\runs", "exit_code": 0, "session_end_reason": "Completed pipeline search/apply pass.", "unexpected_failure": false, "jobs_applied": 9, "external_links_logged": 0, "rows_written_to_applied_csv": 9, "rows_written_to_external_csv": 0, "rows_missing_hr_profile": 1, "failed_jobs": 3, "skipped_jobs": 16, "total_runs": 2, "pipeline_mode": true}

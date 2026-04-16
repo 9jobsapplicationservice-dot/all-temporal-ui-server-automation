@@ -1,0 +1,15 @@
+{
+  "total": 34,
+  "matched": 0,
+  "preview_match": 0,
+  "failed": 20,
+  "skipped": 11,
+  "no_match": 3,
+  "missing_hr_link": 11,
+  "invalid_hr_link": 0,
+  "profile_only": 0,
+  "lookup_quota_reached": 20,
+  "authentication_failed": 0,
+  "sendable_rows": 0,
+  "recruiters_csv_path": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv"
+}

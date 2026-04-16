@@ -1,0 +1,58 @@
+{
+  "run_id": "run-ui-d2edd823c59a",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-14T11:35:07+00:00",
+  "updated_at": "2026-04-14T11:36:27+00:00",
+  "stage_started_at": "2026-04-14T11:36:25+00:00",
+  "stage_finished_at": "2026-04-14T11:36:27+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
+  "note": "RocketReach stage failed.",
+  "last_error": "Command failed with exit code 3221225786: C:\\Python314\\python.exe bulk_enrich.py --input D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv --output D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "sender_name": "Your Name",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\Automation- Project 1\\pipeline\\automation.env, config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "9jobsapplicationservice@gmail.com",
+      "from": "9jobsapplicationservice@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
+    }
+  },
+  "paths": {
+    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-ui-d2edd823c59a.csv",
+    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-ui-d2edd823c59a.json",
+    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-ui-d2edd823c59a",
+    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-ui-d2edd823c59a\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-ui-d2edd823c59a\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-ui-d2edd823c59a\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-ui-d2edd823c59a\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": true,
+    "external_jobs_csv_exists": true,
+    "recruiters_csv_exists": true,
+    "send_report_exists": false
+  }
+}

@@ -1,0 +1,156 @@
+Screenshot directory: D:\Automation- Project 1\pipeline\logs\screenshots
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7de28b]
+	chromedriver!(No symbol) [0x7ff66f7d9559]
+	chromedriver!(No symbol) [0x7ff66f82dc21]
+	chromedriver!(No symbol) [0x7ff66f82d486]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+2026-04-14 17:05:13.611293
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[autocomplete="username"]"}
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7f6c4e]
+	chromedriver!(No symbol) [0x7ff66f7f6f5c]
+	chromedriver!(No symbol) [0x7ff66f847cc7]
+	chromedriver!(No symbol) [0x7ff66f844818]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[autocomplete="username"]"}
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7f6c4e]
+	chromedriver!(No symbol) [0x7ff66f7f6f5c]
+	chromedriver!(No symbol) [0x7ff66f847cc7]
+	chromedriver!(No symbol) [0x7ff66f844818]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+Pipeline mode detected. Waiting for manual LinkedIn login in the opened Chrome window. The bot will keep checking for up to 180 seconds.
+Browser window closed or session became invalid. Ending bot session.
+Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f788842]
+	chromedriver!(No symbol) [0x7ff66f7af0b1]
+	chromedriver!(No symbol) [0x7ff66f8270b0]
+	chromedriver!(No symbol) [0x7ff66f8440e2]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Browser window closed or session became invalid.
+
+The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. - Steve Jobs (Not a sponsor)
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}

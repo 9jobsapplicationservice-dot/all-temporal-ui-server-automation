@@ -46,6 +46,7 @@ class PipelinePaths:
     runs_dir: Path
     meta_dir: Path
     logs_root: Path
+    screenshots_dir: Path
     reports_dir: Path
     configs_dir: Path
 
@@ -58,6 +59,7 @@ class PipelinePaths:
             runs_dir=resolved_root / "runs",
             meta_dir=resolved_root / "meta",
             logs_root=resolved_root / "logs",
+            screenshots_dir=resolved_root / "logs" / "screenshots",
             reports_dir=resolved_root / "reports",
             configs_dir=resolved_root / "configs",
         )
@@ -67,6 +69,7 @@ class PipelinePaths:
         self.runs_dir.mkdir(parents=True, exist_ok=True)
         self.meta_dir.mkdir(parents=True, exist_ok=True)
         self.logs_root.mkdir(parents=True, exist_ok=True)
+        self.screenshots_dir.mkdir(parents=True, exist_ok=True)
         self.reports_dir.mkdir(parents=True, exist_ok=True)
         self.configs_dir.mkdir(parents=True, exist_ok=True)
 

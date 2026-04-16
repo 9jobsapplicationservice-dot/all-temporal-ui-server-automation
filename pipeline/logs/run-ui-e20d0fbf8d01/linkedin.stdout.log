@@ -1,0 +1,347 @@
+
+About the job
+\U0001f5c2 We’re Hiring: Business Analyst (Entry-Level / Associate)
+\U0001f552 Employment Type: Full-Time
+\U0001f4bc Level: Entry-Level / Associate
+We are seeking a motivated and detail-oriented Business Analyst (Entry-Level / Associate) to join our team. In this role, you will support business operations by analyzing data, gathering requirements, and helping identify opportunities for process improvement and growth.
+You will work closely with stakeholders across departments to translate business needs into actionable insights and contribute to strategic initiatives. This is an excellent opportunity for someone early in their career who is eager to develop strong analytical and business skills in a collaborative environment.
+\U0001f3af Key Responsibilities
+Gather, analyze, and document business requirements from stakeholders
+Assist in data analysis to identify trends, issues, and opportunities
+Develop reports, dashboards, and business insights
+Support process mapping and workflow optimization initiatives
+Collaborate with cross-functional teams to implement solutions
+Monitor key metrics and support performance tracking
+Prepare documentation such as business cases, reports, and process guides
+Participate in meetings and contribute to project planning and execution
+\u2705 Requirements
+Bachelor’s degree in Business, Economics, Information Systems, or a related field
+Basic knowledge of data analysis tools (e.g., Excel, SQL; Power BI/Tableau is a plus)
+Strong analytical and problem-solving skills
+Good communication and stakeholder management abilities
+Attention to detail and strong organizational skills
+Ability to work independently and as part of a team
+Internship, academic projects, or relevant experience is preferred
+\U0001f31f What We Offer
+A collaborative and supportive work environment
+Exposure to real business projects and cross-functional teams
+Opportunities for career growth and development
+Mentorship and training from experienced professionals
+Competitive salary and benefits package
+Access to learning and professional development resources
+
+Couldn't find experience requirement in About the Job!
+[pipeline_entry] run_id=run-ui-e20d0fbf8d01 output_dir=D:\Automation- Project 1\pipeline\runs
+[PIPELINE ALERT SUPPRESSED] Support the project: Please consider sponsoring this project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Screenshot directory: D:\Automation- Project 1\pipeline\logs\screenshots
+Launching Chrome using undetected Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7de28b]
+	chromedriver!(No symbol) [0x7ff66f7d9559]
+	chromedriver!(No symbol) [0x7ff66f82dc21]
+	chromedriver!(No symbol) [0x7ff66f82d486]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+2026-04-14 16:47:17.087553
+Launching Chrome using undetected Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Login successful!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-14 16:47:28.390434
+Extracted about company info for AI: 'Sumedha'
+
+########################################################################################################################
+
+Date and Time: 2026-04-14 16:47:28.435284
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by 'Most recent'
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Already applied to "Shopper and Category Insights Analyst – Retail & FMCG | Resources Group" job. Job ID: 4400082927!
+
+-@-
+
+Already applied to "Junior/Mid-level Data Analyst | Method Recruitment Group" job. Job ID: 4399137319!
+
+-@-
+
+Already applied to "Data Analyst (AI Enhanced Reporting and Analytics) | Eightcap" job. Job ID: 4401028073!
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Business Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Trying to Apply to "Business Analys (Entry-Level / Associate) | Pi Vector" job. Job ID: 4400713797
+HR info was not given for "Business Analys (Entry-Level / Associate)" with Job ID: 4400713797!
+Time Posted: Australia · 1 hour ago · 22 applicants
+Company review time is typically 1 week
+Extracting skills from job description using Gemini...
+Error occurred while extracting skills with Gemini!
+Gemini client is not available!
+2026-04-14 16:48:10.236960
+Extracted skills using gemini AI
+Failed to Easy apply!
+Somewhere in Easy Apply process
+Easy Apply modal did not open
+2026-04-14 16:48:16.212854
+Click Failed! Didn't find Easy Apply button ['Discard']
+Click Failed! Didn't find 'Discard'
+
+-@-
+
+Already applied to "Senior Business Analyst | Intellihub Group" job. Job ID: 4398881130!
+
+-@-
+
+Job details click intercepted for "Business Analyst - Defence Environment | Centorrino Technologies". Retry 1/3
+Message: element click intercepted: Element <a data-control-id="dbleMK7Jeb4TVV9Jb70JGg==" tabindex="0" href="/jobs/view/4401534817/?eBP=NOT_ELIGIBLE_FOR_CHARGING&amp;refId=OUPDRIYebRa1aJlRzC34MQ%3D%3D&amp;trackingId=dbleMK7Jeb4TVV9Jb70JGg%3D%3D&amp;trk=flagship3_search_srp_jobs" id="ember968" class="disabled ember-view job-card-container__link
+                      OSwueDiaZoWowXCZhXesWgOwmNcnKg
+                      job-card-list__title--link" aria-label="Business Analyst - Defence Environment" dir="ltr">...</a> is not clickable at point (617, 185). Other element would receive the click: <img width="56" title="Sumedha Krishna Rao" src="https://media.licdn.com/dms/image/v2/D5603AQGhpTC3hP35IA/profile-displayphoto-scale_100_100/B56ZxvpyIpKUAc-/0/1771399751695?e=1777507200&amp;v=beta&amp;t=Qi7td9A2SZiqkc3rbUfVZUeR7VHI3TVPgLnu_isK9fE" loading="lazy" height="56" alt="Sumedha Krishna Rao" id="ember1204" class="evi-image lazy-image ember-view">
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7ff195]
+	chromedriver!(No symbol) [0x7ff66f7fc8aa]
+	chromedriver!(No symbol) [0x7ff66f7f9735]
+	chromedriver!(No symbol) [0x7ff66f7f85e7]
+	chromedriver!(No symbol) [0x7ff66f7eb106]
+	chromedriver!(No symbol) [0x7ff66f81ff6a]
+	chromedriver!(No symbol) [0x7ff66f7ea986]
+	chromedriver!(No symbol) [0x7ff66f844818]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+Click Failed! Didn't find Easy Apply button ['Discard']
+Click Failed! Didn't find 'Discard'
+Job details click intercepted for "Business Analyst - Defence Environment | Centorrino Technologies". Retry 2/3
+Message: element click intercepted: Element <a data-control-id="dbleMK7Jeb4TVV9Jb70JGg==" tabindex="0" href="/jobs/view/4401534817/?eBP=NOT_ELIGIBLE_FOR_CHARGING&amp;refId=OUPDRIYebRa1aJlRzC34MQ%3D%3D&amp;trackingId=dbleMK7Jeb4TVV9Jb70JGg%3D%3D&amp;trk=flagship3_search_srp_jobs" id="ember968" class="disabled ember-view job-card-container__link
+                      OSwueDiaZoWowXCZhXesWgOwmNcnKg
+                      job-card-list__title--link" aria-label="Business Analyst - Defence Environment" dir="ltr">...</a> is not clickable at point (617, 185). Other element would receive the click: <img width="56" title="Sumedha Krishna Rao" src="https://media.licdn.com/dms/image/v2/D5603AQGhpTC3hP35IA/profile-displayphoto-scale_100_100/B56ZxvpyIpKUAc-/0/1771399751695?e=1777507200&amp;v=beta&amp;t=Qi7td9A2SZiqkc3rbUfVZUeR7VHI3TVPgLnu_isK9fE" loading="lazy" height="56" alt="Sumedha Krishna Rao" id="ember1204" class="evi-image lazy-image ember-view">
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7ff195]
+	chromedriver!(No symbol) [0x7ff66f7fc8aa]
+	chromedriver!(No symbol) [0x7ff66f7f9735]
+	chromedriver!(No symbol) [0x7ff66f7f85e7]
+	chromedriver!(No symbol) [0x7ff66f7eb106]
+	chromedriver!(No symbol) [0x7ff66f81ff6a]
+	chromedriver!(No symbol) [0x7ff66f7ea986]
+	chromedriver!(No symbol) [0x7ff66f844818]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+Click Failed! Didn't find Easy Apply button ['Discard']
+Click Failed! Didn't find 'Discard'
+Job details click intercepted for "Business Analyst - Defence Environment | Centorrino Technologies". Retry 3/3
+Message: element click intercepted: Element <a data-control-id="dbleMK7Jeb4TVV9Jb70JGg==" tabindex="0" href="/jobs/view/4401534817/?eBP=NOT_ELIGIBLE_FOR_CHARGING&amp;refId=OUPDRIYebRa1aJlRzC34MQ%3D%3D&amp;trackingId=dbleMK7Jeb4TVV9Jb70JGg%3D%3D&amp;trk=flagship3_search_srp_jobs" id="ember968" class="disabled ember-view job-card-container__link
+                      OSwueDiaZoWowXCZhXesWgOwmNcnKg
+                      job-card-list__title--link" aria-label="Business Analyst - Defence Environment" dir="ltr">...</a> is not clickable at point (617, 185). Other element would receive the click: <div class="job-details-easy-apply-top-choice__footer">...</div>
+  (Session info: chrome=147.0.7727.56); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff66fa30295+146d5]
+	chromedriver!GetHandleVerifier [0x7ff66fa30300+14740]
+	chromedriver!(No symbol) [0x7ff66f79d7cd]
+	chromedriver!(No symbol) [0x7ff66f7ff195]
+	chromedriver!(No symbol) [0x7ff66f7fc8aa]
+	chromedriver!(No symbol) [0x7ff66f7f9735]
+	chromedriver!(No symbol) [0x7ff66f7f85e7]
+	chromedriver!(No symbol) [0x7ff66f7eb106]
+	chromedriver!(No symbol) [0x7ff66f81ff6a]
+	chromedriver!(No symbol) [0x7ff66f7ea986]
+	chromedriver!(No symbol) [0x7ff66f844818]
+	chromedriver!(No symbol) [0x7ff66f7e9018]
+	chromedriver!(No symbol) [0x7ff66f7e9f03]
+	chromedriver!GetHandleVerifier [0x7ff66fd45949+329d89]
+	chromedriver!GetHandleVerifier [0x7ff66fd3fe96+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff66fd63102+347542]
+	chromedriver!GetHandleVerifier [0x7ff66fa4d425+31865]
+	chromedriver!GetHandleVerifier [0x7ff66fa5605c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff66fa39684+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff66fa39836+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff66fa1e347+2787]
+	KERNEL32!BaseThreadInitThunk [0x7fffa1947374+14]
+	ntdll!RtlUserThreadStart [0x7fffa285cc91+21]
+
+Click Failed! Didn't find Easy Apply button ['Discard']
+Click Failed! Didn't find 'Discard'
+Skipping "Business Analyst - Defence Environment | Centorrino Technologies" after repeated job-card access failures. Job ID: 4401534817!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Associate Data Analyst" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+
+-@-
+
+Already applied to "Junior/Mid-level Data Analyst | Method Recruitment Group" job. Job ID: 4399137319!
+
+-@-
+
+Already applied to "Data Analyst (Marketing Analytics, Bangkok Based, Relocation provided) | Agoda" job. Job ID: 4299761904!
+
+-@-
+
+Already applied to "Data Analyst (AI Enhanced Reporting and Analytics) | Eightcap" job. Job ID: 4401028073!
+
+-@-
+
+Already applied to "Shopper and Category Insights Analyst – Retail & FMCG | Resources Group" job. Job ID: 4400082927!
+
+>-> Didn't find Page 2. Probably at the end page of results!
+
+########################################################################################################################
+
+Total runs: 2
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 1
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     2
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    1
+Irrelevant jobs skipped:        0
+
+[PIPELINE ALERT SUPPRESSED] Session ended: Completed pipeline search/apply pass.
+
+Keep up with the progress. You got this. - Sai Vignesh Golla
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 1
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Completed pipeline search/apply pass.
+
+Keep up with the progress. You got this. - Sai Vignesh Golla
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 2
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 1
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 1, 'skipped_jobs': 0, 'total_runs': 2, 'pipeline_mode': True}
+{"run_id": "run-ui-e20d0fbf8d01", "output_dir": "D:\\Automation- Project 1\\pipeline\\runs", "exit_code": 0, "session_end_reason": "Completed pipeline search/apply pass.", "unexpected_failure": false, "jobs_applied": 0, "external_links_logged": 0, "rows_written_to_applied_csv": 0, "rows_written_to_external_csv": 0, "rows_missing_hr_profile": 0, "failed_jobs": 1, "skipped_jobs": 0, "total_runs": 2, "pipeline_mode": true}
