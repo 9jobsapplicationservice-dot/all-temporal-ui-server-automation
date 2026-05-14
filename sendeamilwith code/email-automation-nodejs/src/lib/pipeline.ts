@@ -896,6 +896,9 @@ export async function saveWorkflowConfig(updates: EditableLinkedInConfigUpdates)
 }
 
 export async function startPipelineRun(configPath?: string): Promise<{ runId: string; run: WorkflowRunSummary }> {
+  if (process.env.VERCEL) {
+    throw new Error('Automation (browser-based) cannot be started from Vercel serverless functions. Please run the dashboard locally on your machine to use this feature.');
+  }
   const runId = `run-ui-${randomUUID().replace(/-/g, '').slice(0, 12)}`;
   const resolvedConfigPath = assertConfigPathAllowed(configPath ?? await pickDefaultAutomationConfigPath());
   const args = ['-m', 'pipeline.run_once', '--fresh', '--run-id', runId];
@@ -908,12 +911,18 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
 }
 
 export async function retryPipelineRun(runId: string): Promise<{ runId: string; run: WorkflowRunSummary }> {
+  if (process.env.VERCEL) {
+    throw new Error('Automation retry cannot be started from Vercel. Please run the dashboard locally.');
+  }
   launchDetachedPythonCommand(['-m', 'pipeline.run_once', '--resume', '--run-id', runId]);
   const run = await waitForWorkflowRun(runId);
   return { runId, run };
 }
 
 export async function createManualRecruiterEnrichment(fileName: string, csvBuffer: Buffer): Promise<ManualEnrichmentResult> {
+  if (process.env.VERCEL) {
+    throw new Error('Manual enrichment requires a local Python environment and cannot be run on Vercel.');
+  }
   if (!csvBuffer.length) {
     throw new Error('Uploaded CSV file is empty.');
   }
