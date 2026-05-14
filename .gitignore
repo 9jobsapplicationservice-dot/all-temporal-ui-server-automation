@@ -1,5 +1,7 @@
-.env
-automation.env
+**/.env
+**/*.env
+**/*.env.local
+**/*automation.env
 node_modules/
 dist/
 build/
@@ -9,3 +11,6 @@ build/
 .test-artifacts/
 logs/
 output.txt
+.git/
+# Ignore nested git directories if we want to commit everything to one repo
+# But git doesn't ignore .git folders this way, we have to delete them or move them.
