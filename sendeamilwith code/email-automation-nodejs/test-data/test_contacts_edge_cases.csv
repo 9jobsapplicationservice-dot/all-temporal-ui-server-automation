@@ -1,0 +1,5 @@
+Contact,Email Address,Employer,Job Title
+"Sam Smith",sam@startup.io,"Startup Inc","Founder"
+,"ghost@unknown.com",,"Unknown Role"
+"Maria Garcia",maria@global.org,"Global Org",
+"Mixed Up",invalid-email-here,,"No Email"

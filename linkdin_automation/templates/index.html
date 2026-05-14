@@ -1,0 +1,212 @@
+<!-- ##> ------ Karthik Sarode : karthik.sarode23@gmail.com - UI for excel files ------ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applied Jobs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) { background-color: #f8f8f8; }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        button {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .sl-column {
+            width: 50px;
+            text-align: center;
+        }
+        .sort-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0 5px;
+            font-size: 12px;
+        }
+        .sort-button:hover {
+            color: #0066cc;
+        }
+        .applied-column {
+            width: 120px;
+            text-align: center;
+        }
+        .tick {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Applied Jobs History</h1>
+        <table id="jobsTable">
+            <thead>
+                <tr>
+                    <th class="sl-column">Sl No</th>
+                    <th>
+                        Date
+                        <button class="sort-button" onclick="sortByDate()">&#8597;</button>
+                    </th>
+                    <th>Company Name</th>
+                    <th>Position</th>
+                    <th class="applied-column">Submitted</th>
+                    <th>HR Name</th>
+                    <th>HR Position</th>
+                    <th>HR Profile Link</th>
+                </tr>
+            </thead>
+            <tbody id="jobsBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let sortOrder = 'asc';
+        let jobsData = [];
+
+        function renderRows() {
+            const tbody = document.getElementById('jobsBody');
+            tbody.innerHTML = '';
+            jobsData.forEach((job, index) => {
+                tbody.appendChild(createTableRow(job, index));
+            });
+        }
+
+        async function markSubmitted(job, statusCell) {
+            try {
+                const response = await fetch('/applied-jobs/mark-submitted', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ job_link: job.Job_Link })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to update submitted status');
+                }
+
+                job.Submitted = 'Applied';
+                job.Date = new Date().toLocaleDateString('en-GB');
+                statusCell.innerHTML = '<span class="tick">&#10003;</span> Applied';
+            } catch (error) {
+                console.error('Error updating submitted status:', error);
+            }
+        }
+
+        function createTableRow(job, index) {
+            const row = document.createElement('tr');
+
+            const slCell = document.createElement('td');
+            slCell.textContent = index + 1;
+            slCell.className = 'sl-column';
+            row.appendChild(slCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = job.Date || 'N/A';
+            row.appendChild(dateCell);
+
+            const companyCell = document.createElement('td');
+            companyCell.textContent = job.Company_Name || 'N/A';
+            row.appendChild(companyCell);
+
+            const positionCell = document.createElement('td');
+            if (job.Job_Link) {
+                const positionLink = document.createElement('a');
+                positionLink.href = job.Job_Link;
+                positionLink.textContent = job.Position || job.Job_Link;
+                positionLink.target = '_blank';
+                positionCell.appendChild(positionLink);
+            } else {
+                positionCell.textContent = job.Position || 'N/A';
+            }
+            row.appendChild(positionCell);
+
+            const statusCell = document.createElement('td');
+            statusCell.className = 'applied-column';
+            if (job.Submitted === 'Applied') {
+                statusCell.innerHTML = '<span class="tick">&#10003;</span> Applied';
+            } else {
+                const markButton = document.createElement('button');
+                markButton.textContent = 'Mark Applied';
+                markButton.addEventListener('click', () => markSubmitted(job, statusCell));
+                statusCell.textContent = 'Pending ';
+                statusCell.appendChild(markButton);
+            }
+            row.appendChild(statusCell);
+
+            const hrNameCell = document.createElement('td');
+            if (job.HR_Name) {
+                const hrLink = document.createElement('a');
+                hrLink.href = job.HR_Profile_Link || '#';
+                hrLink.textContent = job.HR_Name;
+                hrLink.target = '_blank';
+                hrNameCell.appendChild(hrLink);
+            } else {
+                hrNameCell.textContent = 'N/A';
+            }
+            row.appendChild(hrNameCell);
+
+            const hrPositionCell = document.createElement('td');
+            hrPositionCell.textContent = job.HR_Position || 'N/A';
+            row.appendChild(hrPositionCell);
+
+            const hrProfileCell = document.createElement('td');
+            if (job.HR_Profile_Link) {
+                const profileLink = document.createElement('a');
+                profileLink.href = job.HR_Profile_Link;
+                profileLink.textContent = 'Open Profile';
+                profileLink.target = '_blank';
+                hrProfileCell.appendChild(profileLink);
+            } else {
+                hrProfileCell.textContent = 'N/A';
+            }
+            row.appendChild(hrProfileCell);
+
+            return row;
+        }
+
+        function sortByDate() {
+            sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+
+            jobsData.sort((a, b) => {
+                const valueA = a.Date || '';
+                const valueB = b.Date || '';
+                return sortOrder === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+            });
+
+            renderRows();
+        }
+
+        fetch('/applied-jobs')
+            .then(response => response.json())
+            .then(jobs => {
+                jobsData = jobs;
+                renderRows();
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
+
+<!-- ##< -->

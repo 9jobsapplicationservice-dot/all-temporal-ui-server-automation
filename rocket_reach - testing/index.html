@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RocketReach Recruiter Enrichment</title>
+  <style>
+    :root {
+      --bg-1: #0a1730;
+      --bg-2: #0f2748;
+      --bg-3: #081326;
+      --panel: rgba(255, 255, 255, 0.94);
+      --panel-soft: rgba(248, 251, 255, 0.9);
+      --text: #17314b;
+      --muted: #6b8196;
+      --line: #d7e1ec;
+      --line-strong: #c8d6e5;
+      --accent: #2488ff;
+      --accent-soft: #eaf4ff;
+      --success-bg: #edf9f3;
+      --success-line: #cfead9;
+      --warn-bg: #fff7e7;
+      --warn-line: #efdfb4;
+      --error-bg: #fff1f1;
+      --error-line: #efcaca;
+      --shadow: 0 18px 40px rgba(7, 20, 39, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(67, 143, 255, 0.24), transparent 24%),
+        radial-gradient(circle at 34% 10%, rgba(36, 136, 255, 0.10), transparent 20%),
+        linear-gradient(90deg, #10294d 0%, #0a1832 48%, #081224 100%);
+    }
+
+    .page {
+      width: min(1040px, calc(100% - 28px));
+      margin: 18px auto 28px;
+    }
+
+    .hero,
+    .app-shell {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero {
+      padding: 20px;
+    }
+
+    .app-shell {
+      margin-top: 16px;
+      padding: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 0 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #d7e8fb;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.85fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 800;
+    }
+
+    .lead {
+      margin: 12px 0 0;
+      max-width: 650px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .hero-stats {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 12px;
+    }
+
+    .notice {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--warn-line);
+      background: var(--warn-bg);
+      color: #7b6540;
+      line-height: 1.55;
+      font-size: 12px;
+    }
+
+    .section-head {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 7px 0 0;
+      max-width: 650px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 12px;
+    }
+
+    .capsule {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #dbe8f7;
+      background: #eff6ff;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    form {
+      margin-top: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    input[type="file"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .dropzone {
+      border-radius: 18px;
+      border: 1px dashed #c2d7eb;
+      background: linear-gradient(180deg, #fbfdff, #f5f9fd);
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+    }
+
+    .dropzone:hover,
+    .dropzone.active {
+      transform: translateY(-1px);
+      border-color: #91bbed;
+      box-shadow: 0 10px 26px rgba(36, 136, 255, 0.08);
+    }
+
+    .dropzone.has-file {
+      border-style: solid;
+      border-color: #95d0c0;
+      background: linear-gradient(180deg, #fbfffd, #f1faf6);
+    }
+
+    .dropzone-content {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      max-width: 620px;
+    }
+
+    .drop-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #edf6ff, #f1fbf8);
+      border: 1px solid #dae7f3;
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .dropzone-title {
+      font-size: clamp(16px, 2.5vw, 24px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .dropzone-copy {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 11px;
+      max-width: 560px;
+    }
+
+    .dropzone-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2488ff, #3ea7ff);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      box-shadow: 0 10px 20px rgba(36, 136, 255, 0.12);
+    }
+
+    .file-picked {
+      display: none;
+      padding: 12px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      background: #fbfdff;
+      color: var(--text);
+    }
+
+    .file-picked.show { display: block; }
+
+    .file-picked strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .file-picked-name {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button,
+    .download-link {
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2488ff, #3ea7ff);
+      color: #fff;
+      padding: 11px 14px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 22px rgba(36, 136, 255, 0.12);
+    }
+
+    button:hover,
+    .download-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(36, 136, 255, 0.16);
+    }
+
+    button:disabled {
+      opacity: 0.72;
+      cursor: progress;
+      transform: none;
+    }
+
+    .env-note {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .status {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      display: none;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      font-size: 12px;
+    }
+
+    .status.show { display: block; }
+    .status.error { background: var(--error-bg); border-color: var(--error-line); color: #9a4a4a; }
+    .status.success { background: var(--success-bg); border-color: var(--success-line); color: #2f6c53; }
+    .status.warning { background: var(--warn-bg); border-color: var(--warn-line); color: #7b6540; }
+
+    .summary-grid {
+      display: none;
+      margin-top: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .summary-grid.show { display: grid; }
+
+    .summary-tile {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      min-height: 82px;
+    }
+
+    .summary-tile strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .summary-tile span {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .download-wrap {
+      display: none;
+      margin-top: 14px;
+    }
+
+    .download-wrap.show { display: block; }
+
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 14px, 1040px);
+        margin: 10px auto 18px;
+      }
+
+      .hero,
+      .app-shell {
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .dropzone {
+        min-height: 160px;
+        padding: 18px 12px;
+      }
+
+      .section-head h2 { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">AI Recruiter Extractor</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Drag, upload, and export recruiter contacts.</h1>
+          <p class="lead">
+            Upload your jobs CSV and let RocketReach create a clean recruiter sheet with HR name, profile link, position, email, contact, and a short RocketReach status reason.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="mini-card">
+            <strong>Clean Output</strong>
+            <span>Recruiter-only CSV with clean columns plus a small RocketReach status field for blank-contact explanation.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Smart Matching</strong>
+            <span>Reads the <code>HR Link</code> column, ignores teaser domains, and keeps only real emails and phone numbers.</span>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        The exported CSV contains <code>HR Name</code>, <code>HR Profile Link</code>, <code>Position</code>, <code>HR Email</code>, <code>HR Secondary Email</code>, <code>HR Contact</code>, and <code>RocketReach Status</code>. Blank contact fields can happen when RocketReach lookup quota is reached or the profile has no revealable contact data.
+      </div>
+    </section>
+
+    <section class="app-shell">
+      <div class="section-head">
+        <div>
+          <h2>Bulk CSV Recruiter Enrichment</h2>
+          <p>Drop a CSV here or click to upload. The output will be a clean recruiter-only export built from RocketReach results, with a status reason when email or contact is unavailable.</p>
+        </div>
+        <div class="capsule">Powered by local RocketReach proxy</div>
+      </div>
+
+      <form id="bulk-form">
+        <div class="field">
+          <label for="csvFile">CSV Source</label>
+          <input id="csvFile" name="csvFile" type="file" accept=".csv,text/csv" required>
+          <label id="dropzone" for="csvFile" class="dropzone" tabindex="0">
+            <div class="dropzone-content">
+              <div class="drop-icon">+</div>
+              <div class="dropzone-title">Drag and drop your CSV here</div>
+              <div class="dropzone-copy">Or click anywhere in this panel to upload a single CSV file. We will read recruiter LinkedIn URLs from the <code>HR Link</code> column and generate a clean export.</div>
+              <div class="dropzone-pill">Choose CSV File</div>
+            </div>
+          </label>
+          <div id="filePicked" class="file-picked">
+            <strong>Selected File</strong>
+            <div id="filePickedName" class="file-picked-name">No file selected yet.</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="bulkSubmitBtn" type="submit">Generate Clean CSV</button>
+          <span class="env-note">Sequential enrichment on <code>/bulk-enrich</code></span>
+        </div>
+      </form>
+
+      <div id="bulkStatus" class="status" aria-live="polite"></div>
+
+      <div id="bulkSummary" class="summary-grid">
+        <div class="summary-tile"><strong>Total Rows</strong><span id="sumTotal">0</span></div>
+        <div class="summary-tile"><strong>Matched</strong><span id="sumMatched">0</span></div>
+        <div class="summary-tile"><strong>No Match</strong><span id="sumNoMatch">0</span></div>
+        <div class="summary-tile"><strong>Failed</strong><span id="sumFailed">0</span></div>
+        <div class="summary-tile"><strong>Skipped</strong><span id="sumSkipped">0</span></div>
+      </div>
+
+      <div id="downloadWrap" class="download-wrap">
+        <a id="downloadLink" class="download-link" href="#">Download Clean Recruiter CSV</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const bulkForm = document.getElementById('bulk-form');
+    const csvFileInput = document.getElementById('csvFile');
+    const dropzone = document.getElementById('dropzone');
+    const filePicked = document.getElementById('filePicked');
+    const filePickedName = document.getElementById('filePickedName');
+    const bulkSubmitBtn = document.getElementById('bulkSubmitBtn');
+    const bulkStatus = document.getElementById('bulkStatus');
+    const bulkSummary = document.getElementById('bulkSummary');
+    const downloadWrap = document.getElementById('downloadWrap');
+    const downloadLink = document.getElementById('downloadLink');
+    const sumTotal = document.getElementById('sumTotal');
+    const sumMatched = document.getElementById('sumMatched');
+    const sumNoMatch = document.getElementById('sumNoMatch');
+    const sumFailed = document.getElementById('sumFailed');
+    const sumSkipped = document.getElementById('sumSkipped');
+
+    let currentDownloadUrl = null;
+
+    bulkForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus(bulkStatus);
+      hideDownload();
+      hideSummary();
+
+      const file = csvFileInput.files && csvFileInput.files[0];
+      if (!file) {
+        showStatus(bulkStatus, 'Please choose or drop a CSV file first.', 'error');
+        return;
+      }
+
+      if (!isCsvFile(file)) {
+        showStatus(bulkStatus, 'Only CSV files are supported for recruiter enrichment.', 'error');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file, file.name);
+
+      setButtonLoading(bulkSubmitBtn, true, 'Generating CSV...');
+      showStatus(bulkStatus, 'Processing your CSV through RocketReach and building the clean recruiter export...', 'success');
+
+      try {
+        const response = await fetch('/bulk-enrich', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          const text = await response.text();
+          let data;
+          try {
+            data = text ? JSON.parse(text) : {};
+          } catch (error) {
+            data = { message: text };
+          }
+          throw buildRequestError(response.status, data);
+        }
+
+        const blob = await response.blob();
+        const filename = getDownloadFilename(response.headers.get('Content-Disposition')) || 'rocketreach_clean_recruiters.csv';
+        const stats = {
+          total: Number(response.headers.get('X-RR-Total') || 0),
+          matched: Number(response.headers.get('X-RR-Matched') || 0),
+          noMatch: Number(response.headers.get('X-RR-No-Match') || 0),
+          failed: Number(response.headers.get('X-RR-Failed') || 0),
+          skipped: Number(response.headers.get('X-RR-Skipped') || 0),
+        };
+
+        updateSummary(stats);
+        showDownload(blob, filename);
+        showStatus(bulkStatus, 'CSV enrichment complete. Download the clean recruiter CSV below.', 'success');
+      } catch (error) {
+        showStatus(bulkStatus, error.message, 'error');
+      } finally {
+        setButtonLoading(bulkSubmitBtn, false, 'Generate Clean CSV');
+      }
+    });
+
+    csvFileInput.addEventListener('change', () => {
+      const file = csvFileInput.files && csvFileInput.files[0];
+      setSelectedFile(file || null);
+    });
+
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropzone.classList.add('active');
+      });
+    });
+
+    ['dragleave', 'dragend'].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!dropzone.contains(event.relatedTarget)) {
+          dropzone.classList.remove('active');
+        }
+      });
+    });
+
+    dropzone.addEventListener('drop', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dropzone.classList.remove('active');
+
+      const files = event.dataTransfer && event.dataTransfer.files ? event.dataTransfer.files : null;
+      if (!files || files.length === 0) {
+        showStatus(bulkStatus, 'No file was dropped. Please try again with a CSV file.', 'error');
+        return;
+      }
+      if (files.length > 1) {
+        showStatus(bulkStatus, 'Please drop only one CSV file at a time.', 'error');
+        return;
+      }
+
+      const file = files[0];
+      if (!isCsvFile(file)) {
+        showStatus(bulkStatus, 'Only CSV files are supported for recruiter enrichment.', 'error');
+        return;
+      }
+
+      try {
+        const transfer = new DataTransfer();
+        transfer.items.add(file);
+        csvFileInput.files = transfer.files;
+      } catch (error) {
+        showStatus(bulkStatus, 'Your browser could not attach the dropped file automatically. Please click the panel and choose the CSV manually.', 'error');
+        return;
+      }
+
+      clearStatus(bulkStatus);
+      setSelectedFile(file);
+    });
+
+    dropzone.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        csvFileInput.click();
+      }
+    });
+
+    function isCsvFile(file) {
+      if (!file) return false;
+      const name = (file.name || '').toLowerCase();
+      const type = (file.type || '').toLowerCase();
+      return name.endsWith('.csv') || type === 'text/csv' || type === 'application/vnd.ms-excel';
+    }
+
+    function setSelectedFile(file) {
+      if (!file) {
+        filePicked.classList.remove('show');
+        dropzone.classList.remove('has-file');
+        filePickedName.textContent = 'No file selected yet.';
+        return;
+      }
+      dropzone.classList.add('has-file');
+      filePicked.classList.add('show');
+      filePickedName.textContent = `${file.name} (${formatFileSize(file.size)}) is ready to process.`;
+    }
+
+    function formatFileSize(size) {
+      if (!Number.isFinite(size) || size <= 0) return '0 B';
+      if (size < 1024) return `${size} B`;
+      if (size < 1024 * 1024) return `${(size / 1024).toFixed(1)} KB`;
+      return `${(size / (1024 * 1024)).toFixed(1)} MB`;
+    }
+
+    function buildRequestError(status, data) {
+      const message = data && (data.message || data.detail || data.error || data.lookup_message);
+      if (message) return new Error(typeof message === 'string' ? message : JSON.stringify(message, null, 2));
+      return new Error(`Request failed with status ${status}.`);
+    }
+
+    function getDownloadFilename(disposition) {
+      if (!disposition) return null;
+      const match = /filename="?([^";]+)"?/i.exec(disposition);
+      return match ? match[1] : null;
+    }
+
+    function showStatus(target, message, kind) {
+      target.textContent = message;
+      target.className = 'status show ' + kind;
+    }
+
+    function clearStatus(target) {
+      target.textContent = '';
+      target.className = 'status';
+    }
+
+    function updateSummary(stats) {
+      sumTotal.textContent = stats.total;
+      sumMatched.textContent = stats.matched;
+      sumNoMatch.textContent = stats.noMatch;
+      sumFailed.textContent = stats.failed;
+      sumSkipped.textContent = stats.skipped;
+      bulkSummary.classList.add('show');
+    }
+
+    function hideSummary() {
+      bulkSummary.classList.remove('show');
+      sumTotal.textContent = '0';
+      sumMatched.textContent = '0';
+      sumNoMatch.textContent = '0';
+      sumFailed.textContent = '0';
+      sumSkipped.textContent = '0';
+    }
+
+    function showDownload(blob, filename) {
+      if (currentDownloadUrl) {
+        URL.revokeObjectURL(currentDownloadUrl);
+      }
+      currentDownloadUrl = URL.createObjectURL(blob);
+      downloadLink.href = currentDownloadUrl;
+      downloadLink.download = filename;
+      downloadWrap.classList.add('show');
+    }
+
+    function hideDownload() {
+      if (currentDownloadUrl) {
+        URL.revokeObjectURL(currentDownloadUrl);
+        currentDownloadUrl = null;
+      }
+      downloadLink.removeAttribute('href');
+      downloadLink.removeAttribute('download');
+      downloadWrap.classList.remove('show');
+    }
+
+    function setButtonLoading(button, loading, loadingText) {
+      button.disabled = loading;
+      button.textContent = loading ? loadingText : button.getAttribute('data-default') || button.textContent;
+    }
+
+    bulkSubmitBtn.setAttribute('data-default', 'Generate Clean CSV');
+  </script>
+</body>
+</html>
