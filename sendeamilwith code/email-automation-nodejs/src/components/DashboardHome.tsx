@@ -154,7 +154,12 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       const baseUrl = localBridgeUrl.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/dashboard/overview` : '/api/dashboard/overview';
       
-      const response = await fetch(url, { cache: 'no-store' });
+      const headers: Record<string, string> = {};
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
+      const response = await fetch(url, { cache: 'no-store', headers });
       const payload = await readApiJson<WorkflowDashboardPayload>(response, 'Failed to load workflow dashboard.');
 
       setDashboard(payload);
@@ -174,7 +179,13 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     try {
       const baseUrl = localBridgeUrl.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
-      const response = await fetch(url, { cache: 'no-store' });
+      
+      const headers: Record<string, string> = {};
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
+      const response = await fetch(url, { cache: 'no-store', headers });
       const payload = await readApiJson<WorkflowConfigPayload>(response, 'Failed to load automation config.');
       setConfigPayload(payload);
     } catch (error: unknown) {
@@ -251,9 +262,14 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     const baseUrl = localBridgeUrl.trim() || '';
     const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/run-status` : '/api/pipeline/run-status';
 
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (baseUrl) {
+      headers['ngrok-skip-browser-warning'] = 'any';
+    }
+
     const response = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         runId: activeRunRef.current.runId,
         status: nextStatus,
@@ -406,9 +422,14 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       const baseUrl = localBridgeUrl.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/start` : '/api/pipeline/start';
       
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
       const response = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ configPath: configPathOverride ?? configPayload?.configPath }),
       });
       const payload = await readApiJson<{ run: WorkflowRunSummary }>(response, 'Failed to start workflow run.');
@@ -462,9 +483,14 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       const baseUrl = localBridgeUrl.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
 
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
       const response = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ updates: configDraft }),
       });
       const payload = await readApiJson<WorkflowConfigPayload>(response, 'Failed to save automation config.');
@@ -550,9 +576,14 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       const baseUrl = localBridgeUrl.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/retry` : '/api/pipeline/retry';
 
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
       const response = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ runId: activeRun.runId }),
       });
       await readApiJson<{ run: WorkflowRunSummary }>(response, 'Failed to retry LinkedIn workflow run.');

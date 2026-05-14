@@ -31,8 +31,14 @@ export default function RecruiterEnricher({ onEnriched, bridgeUrl }: RecruiterEn
       const baseUrl = bridgeUrl?.trim() || '';
       const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/enrich` : '/api/pipeline/enrich';
 
+      const headers: Record<string, string> = {};
+      if (baseUrl) {
+        headers['ngrok-skip-browser-warning'] = 'any';
+      }
+
       const response = await fetch(url, {
         method: 'POST',
+        headers,
         body: formData,
       });
       const payload = await readApiJson<ManualRecruiterEnrichmentResponse>(response, 'Failed to enrich recruiter CSV.');
