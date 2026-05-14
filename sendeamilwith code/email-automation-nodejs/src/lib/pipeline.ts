@@ -78,6 +78,7 @@ const ROCKETREACH_ROOT = path.join(WORKSPACE_ROOT, 'rocket_reach - testing');
 const LINKEDIN_LEGACY_CONFIG_PATH = path.join(WORKSPACE_ROOT, 'linkdin_automation', 'modules', '__deprecated__', '__setup__', 'config.py');
 const PIPELINE_ENV_PATH = path.join(PIPELINE_ROOT, 'automation.env');
 const PYTHON_BIN = process.env.PIPELINE_PYTHON?.trim() || 'python';
+const IS_VERCEL_RUNTIME = Boolean(process.env.VERCEL);
 
 type LatestPipelinePayload = {
   run: PipelineRunSummary | null;
@@ -871,6 +872,23 @@ function loadEditableConfig(): EditableLinkedInConfig {
 }
 
 export async function getWorkflowConfig(): Promise<WorkflowConfigPayload> {
+  if (IS_VERCEL_RUNTIME) {
+    return {
+      configPath: '',
+      summary: {
+        error: 'Connect your local bridge URL to load and save Python automation settings from this SaaS dashboard.',
+        source: 'vercel-saas-mode',
+        linkedin: {
+          mode: 'saved_session',
+          auto_login: false,
+          safe_mode: true,
+          username_configured: false,
+        },
+      },
+      editable: { files: {} },
+    };
+  }
+
   const configPath = await pickDefaultAutomationConfigPath();
   const summary = runPythonJson<WorkflowAutomationSummary>([
     'import json',
@@ -886,6 +904,10 @@ export async function getWorkflowConfig(): Promise<WorkflowConfigPayload> {
 }
 
 export async function saveWorkflowConfig(updates: EditableLinkedInConfigUpdates): Promise<WorkflowConfigPayload> {
+  if (IS_VERCEL_RUNTIME) {
+    throw new Error('Connect a local bridge URL before saving Python automation settings from Vercel.');
+  }
+
   runPythonJson<EditableLinkedInConfig>([
     'import json, sys',
     'from pipeline.config import update_editable_linkedin_config',
@@ -896,8 +918,8 @@ export async function saveWorkflowConfig(updates: EditableLinkedInConfigUpdates)
 }
 
 export async function startPipelineRun(configPath?: string): Promise<{ runId: string; run: WorkflowRunSummary }> {
-  if (process.env.VERCEL) {
-    throw new Error('Automation (browser-based) cannot be started from Vercel serverless functions. Please run the dashboard locally on your machine to use this feature.');
+  if (IS_VERCEL_RUNTIME) {
+    throw new Error('Connect a local bridge URL before starting browser automation from Vercel.');
   }
   const runId = `run-ui-${randomUUID().replace(/-/g, '').slice(0, 12)}`;
   const resolvedConfigPath = assertConfigPathAllowed(configPath ?? await pickDefaultAutomationConfigPath());
@@ -911,8 +933,8 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
 }
 
 export async function retryPipelineRun(runId: string): Promise<{ runId: string; run: WorkflowRunSummary }> {
-  if (process.env.VERCEL) {
-    throw new Error('Automation retry cannot be started from Vercel. Please run the dashboard locally.');
+  if (IS_VERCEL_RUNTIME) {
+    throw new Error('Connect a local bridge URL before retrying browser automation from Vercel.');
   }
   launchDetachedPythonCommand(['-m', 'pipeline.run_once', '--resume', '--run-id', runId]);
   const run = await waitForWorkflowRun(runId);
@@ -920,8 +942,8 @@ export async function retryPipelineRun(runId: string): Promise<{ runId: string; 
 }
 
 export async function createManualRecruiterEnrichment(fileName: string, csvBuffer: Buffer): Promise<ManualEnrichmentResult> {
-  if (process.env.VERCEL) {
-    throw new Error('Manual enrichment requires a local Python environment and cannot be run on Vercel.');
+  if (IS_VERCEL_RUNTIME) {
+    throw new Error('Connect a local bridge URL before running manual Python enrichment from Vercel.');
   }
   if (!csvBuffer.length) {
     throw new Error('Uploaded CSV file is empty.');

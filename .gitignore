@@ -1,8 +1,12 @@
 **/.env
+**/.env.*
 **/*.env
 **/*.env.local
 **/*automation.env
 node_modules/
+__pycache__/
+**/__pycache__/
+*.pyc
 dist/
 build/
 *.db

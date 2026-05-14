@@ -1,0 +1,10 @@
+flask
+flask-cors
+google-generativeai
+openai
+pyautogui
+python-dotenv
+requests
+selenium
+temporalio
+undetected-chromedriver

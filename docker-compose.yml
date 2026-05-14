@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+    env_file:
+      - .env.saas
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - PIPELINE_WORKSPACE_ROOT=/app
+      - PIPELINE_ROOT=/data/pipeline
+      - PIPELINE_PYTHON=python3
+      - PIPELINE_TEMPORAL_AUTO_START=true
+      - DISPLAY=:99
+    ports:
+      - "3000:3000"
+    volumes:
+      - pipeline-data:/data/pipeline
+      - chrome-data:/root/.config/google-chrome
+    restart: unless-stopped
+
+volumes:
+  pipeline-data:
+  chrome-data:

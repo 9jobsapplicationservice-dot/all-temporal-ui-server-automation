@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: rocketflow-saas
+    env: docker
+    plan: standard
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: rocketflow-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: PIPELINE_WORKSPACE_ROOT
+        value: /app
+      - key: PIPELINE_ROOT
+        value: /data/pipeline
+      - key: PIPELINE_PYTHON
+        value: python3
+      - key: PIPELINE_TEMPORAL_AUTO_START
+        value: "true"
+      - key: PIPELINE_RUN_ONCE_ALWAYS_FRESH
+        value: "true"
+      - key: PIPELINE_LINKEDIN_SAFE_MODE
+        value: "true"

@@ -48,6 +48,14 @@ I would love the opportunity to connect and share how I can contribute.
 Best regards,
 {{sendername}}`;
 
+function normalizeBridgeUrl(value: string) {
+  return value.trim().replace(/\/$/, '');
+}
+
+function buildBridgeHeaders(baseUrl: string, headers: Record<string, string> = {}) {
+  return baseUrl ? { ...headers, 'ngrok-skip-browser-warning': 'any' } : headers;
+}
+
 function getStoredValue(key: string, fallback: string) {
   if (typeof window === 'undefined') {
     return fallback;
@@ -84,7 +92,8 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
   const [status, setStatus] = useState<SendStatus>('idle');
   const [logs, setLogs] = useState<EmailLog[]>([]);
   const [activeEmail, setActiveEmail] = useState<string | null>(null);
-  const [localBridgeUrl, setLocalBridgeUrl] = useState(() => getStoredValue('rr_local_bridge_url', ''));
+  const [localBridgeUrl] = useState(() => getStoredValue('rr_local_bridge_url', ''));
+  const localBridgeUrlRef = useRef(localBridgeUrl);
 
   const statusRef = useRef(status);
   const logsRef = useRef(logs);
@@ -151,15 +160,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     }
 
     try {
-      const baseUrl = localBridgeUrl.trim() || '';
-      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/dashboard/overview` : '/api/dashboard/overview';
-      
-      const headers: Record<string, string> = {};
-      if (baseUrl) {
-        headers['ngrok-skip-browser-warning'] = 'any';
-      }
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/dashboard/overview` : '/api/dashboard/overview';
 
-      const response = await fetch(url, { cache: 'no-store', headers });
+      const response = await fetch(url, { cache: 'no-store', headers: buildBridgeHeaders(baseUrl) });
       const payload = await readApiJson<WorkflowDashboardPayload>(response, 'Failed to load workflow dashboard.');
 
       setDashboard(payload);
@@ -177,15 +181,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setIsConfigLoading(true);
     setConfigError(null);
     try {
-      const baseUrl = localBridgeUrl.trim() || '';
-      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
-      
-      const headers: Record<string, string> = {};
-      if (baseUrl) {
-        headers['ngrok-skip-browser-warning'] = 'any';
-      }
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/pipeline/config` : '/api/pipeline/config';
 
-      const response = await fetch(url, { cache: 'no-store', headers });
+      const response = await fetch(url, { cache: 'no-store', headers: buildBridgeHeaders(baseUrl) });
       const payload = await readApiJson<WorkflowConfigPayload>(response, 'Failed to load automation config.');
       setConfigPayload(payload);
     } catch (error: unknown) {
@@ -259,13 +258,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       return;
     }
 
-    const baseUrl = localBridgeUrl.trim() || '';
-    const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/run-status` : '/api/pipeline/run-status';
-
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (baseUrl) {
-      headers['ngrok-skip-browser-warning'] = 'any';
-    }
+    const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+    const url = baseUrl ? `${baseUrl}/api/pipeline/run-status` : '/api/pipeline/run-status';
+    const headers = buildBridgeHeaders(baseUrl, { 'Content-Type': 'application/json' });
 
     const response = await fetch(url, {
       method: 'POST',
@@ -419,13 +414,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setPageMessage(null);
     setPageError(null);
     try {
-      const baseUrl = localBridgeUrl.trim() || '';
-      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/start` : '/api/pipeline/start';
-      
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-      if (baseUrl) {
-        headers['ngrok-skip-browser-warning'] = 'any';
-      }
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/pipeline/start` : '/api/pipeline/start';
+      const headers = buildBridgeHeaders(baseUrl, { 'Content-Type': 'application/json' });
 
       const response = await fetch(url, {
         method: 'POST',
@@ -480,13 +471,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setIsConfigSaving(true);
     setConfigError(null);
     try {
-      const baseUrl = localBridgeUrl.trim() || '';
-      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
-
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-      if (baseUrl) {
-        headers['ngrok-skip-browser-warning'] = 'any';
-      }
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/pipeline/config` : '/api/pipeline/config';
+      const headers = buildBridgeHeaders(baseUrl, { 'Content-Type': 'application/json' });
 
       const response = await fetch(url, {
         method: 'POST',
@@ -573,13 +560,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setPageError(null);
     setPageMessage(null);
     try {
-      const baseUrl = localBridgeUrl.trim() || '';
-      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/retry` : '/api/pipeline/retry';
-
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-      if (baseUrl) {
-        headers['ngrok-skip-browser-warning'] = 'any';
-      }
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/pipeline/retry` : '/api/pipeline/retry';
+      const headers = buildBridgeHeaders(baseUrl, { 'Content-Type': 'application/json' });
 
       const response = await fetch(url, {
         method: 'POST',
@@ -606,8 +589,8 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
   };
 
   const handleArtifactDownload = (runId: string, artifact: PipelineArtifactSummary['key']) => {
-    const baseUrl = localBridgeUrl.trim() || '';
-    const prefix = baseUrl ? baseUrl.replace(/\/$/, '') : '';
+    const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+    const prefix = baseUrl ? baseUrl : '';
     const url = `${prefix}/api/pipeline/artifact?runId=${encodeURIComponent(runId)}&artifact=${encodeURIComponent(artifact)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -746,21 +729,11 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
 
                 <div className="linkedin-login-card mt-5">
                   <div>
-                    <p className="eyebrow">Local Bridge (ngrok)</p>
-                    <h4>Connect to your computer</h4>
+                    <p className="eyebrow">Hosted Worker</p>
+                    <h4>Runs on the SaaS server</h4>
                   </div>
-                  <div className="mt-4">
-                    <label className="block text-sm font-medium text-slate-700">Ngrok / Local URL</label>
-                    <input
-                      type="text"
-                      value={localBridgeUrl}
-                      onChange={(e) => setLocalBridgeUrl(e.target.value)}
-                      placeholder="https://xxxx-xxxx-xxxx.ngrok-free.app"
-                      className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
-                    />
-                    <p className="mt-2 text-xs text-slate-500">
-                      Paste your ngrok URL here to trigger local Chrome automation from this Vercel dashboard.
-                    </p>
+                  <div className="message-banner message-banner-info mt-4">
+                    Automation starts from this deployed server. No ngrok URL or local laptop process is required.
                   </div>
                 </div>
 

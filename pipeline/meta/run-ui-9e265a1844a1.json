@@ -1,11 +1,11 @@
 {
-  "run_id": "run-ui-a64f2ef8b5e2",
+  "run_id": "run-ui-9e265a1844a1",
   "status": "waiting_login",
-  "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-a64f2ef8b5e2-automation.env",
-  "created_at": "2026-05-14T07:11:41+00:00",
-  "updated_at": "2026-05-14T09:04:09+00:00",
-  "stage_started_at": "2026-05-14T09:03:33+00:00",
-  "stage_finished_at": "2026-05-14T09:04:09+00:00",
+  "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-9e265a1844a1-automation.env",
+  "created_at": "2026-05-14T09:03:34+00:00",
+  "updated_at": "2026-05-14T09:04:39+00:00",
+  "stage_started_at": "2026-05-14T09:03:37+00:00",
+  "stage_finished_at": "2026-05-14T09:04:39+00:00",
   "retry_count": 0,
   "email_stats": {
     "total": 0,
@@ -23,7 +23,7 @@
     "last_failed_stage": ""
   },
   "temporal": {
-    "workflow_id": "pipeline-run-ui-a64f2ef8b5e2",
+    "workflow_id": "pipeline-run-ui-9e265a1844a1",
     "task_queue": "automation-pipeline",
     "backend": "temporal"
   },
@@ -43,7 +43,7 @@
     "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
     "auto_send_reason": "Automatic sending is disabled because SMTP credentials still use placeholder values. Update SMTP_USER / SMTP_PASS / SMTP_FROM to enable sending.",
-    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-a64f2ef8b5e2-automation.env",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-9e265a1844a1-automation.env",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,
@@ -65,13 +65,13 @@
     "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
     "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
     "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-ui-a64f2ef8b5e2.csv",
-    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-ui-a64f2ef8b5e2.json",
-    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2",
-    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2\\rocketreach.stderr.log"
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-ui-9e265a1844a1.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-ui-9e265a1844a1.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-9e265a1844a1",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-9e265a1844a1\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-9e265a1844a1\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-9e265a1844a1\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-9e265a1844a1\\rocketreach.stderr.log"
   },
   "artifacts": {
     "applied_csv_exists": false,
