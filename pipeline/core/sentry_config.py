@@ -39,8 +39,7 @@ def _load_sentry_env_defaults(config_path: str | None = None) -> None:
             os.environ[key] = value
 
 
-def sentry_enabled(config_path: str | None = None) -> bool:
-    _load_sentry_env_defaults(config_path)
+def sentry_enabled() -> bool:
     return bool(os.environ.get("SENTRY_DSN", "").strip())
 
 
