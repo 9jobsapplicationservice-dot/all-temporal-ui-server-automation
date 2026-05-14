@@ -12,40 +12,52 @@
     "sent": 0,
     "failed": 0
   },
+  "temporal": {
+    "workflow_id": "",
+    "task_queue": "",
+    "backend": ""
+  },
   "note": "RocketReach stage failed.",
   "last_error": "Command failed with exit code 1: C:\\Python314\\python.exe bulk_enrich.py --input D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv --output D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv\nTraceback (most recent call last):\n  File \"D:\\Automation- Project\\rocket_reach - testing\\bulk_enrich.py\", line 15, in <module>\n    stats = bulk_enrich(args.input, args.output)\n  File \"D:\\Automation- Project\\rocket_reach - testing\\rocketreach_bulk.py\", line 1133, in bulk_enrich\n    csv_text, stats = process_csv_bytes(file_bytes, headers)\n                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\rocket_reach - testing\\rocketreach_bulk.py\", line 838, in process_csv_bytes\n    result = lookup_then_search(hr_link, headers, row=row)\n  File \"D:\\Automation- Project\\rocket_reach - testing\\rocketreach_bulk.py\", line 964, in lookup_then_search\n    raise_for_authentication_failure(lookup_status, lookup_raw)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Automation- Project\\rocket_reach - testing\\rocketreach_bulk.py\", line 330, in raise_for_authentication_failure\n    raise RuntimeError(f'RocketReach authentication failed: {message}')\nRuntimeError: RocketReach authentication failed: Verify your email in order to use the full API",
   "automation": {
     "auto_send": true,
     "max_easy_apply": 50,
     "send_delay_seconds": 10,
-    "sender_name": "9jobsapplicationservice",
+    "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
-    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,
       "secure": false,
       "user": "9jobsapplicationservice@gmail.com",
       "from": "9jobsapplicationservice@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
     }
   },
   "paths": {
-    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
-    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-f1fe4b83f5c3.csv",
-    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-f1fe4b83f5c3.json",
-    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3",
-    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\rocketreach.stderr.log"
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-f1fe4b83f5c3.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-f1fe4b83f5c3.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f1fe4b83f5c3\\rocketreach.stderr.log"
   },
   "artifacts": {
-    "applied_csv_exists": false,
-    "external_jobs_csv_exists": false,
-    "recruiters_csv_exists": false,
+    "applied_csv_exists": true,
+    "external_jobs_csv_exists": true,
+    "recruiters_csv_exists": true,
     "send_report_exists": false
   }
 }

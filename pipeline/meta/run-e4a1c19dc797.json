@@ -12,40 +12,52 @@
     "sent": 0,
     "failed": 0
   },
+  "temporal": {
+    "workflow_id": "",
+    "task_queue": "",
+    "backend": ""
+  },
   "note": "LinkedIn stage failed.",
   "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python311\\python.exe pipeline_entry.py\nD:\\Automation- Project 1\\linkdin_automation\\modules\\ai\\geminiConnections.py:1: FutureWarning: \n\nAll support for the `google.generativeai` package has ended. It will no longer be receiving \nupdates or bug fixes. Please switch to the `google.genai` package as soon as possible.\nSee README for more details:\n\nhttps://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md\n\n  import google.generativeai as genai",
   "automation": {
     "auto_send": true,
     "max_easy_apply": 50,
     "send_delay_seconds": 10,
-    "sender_name": "9jobsapplicationservice",
+    "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
-    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,
       "secure": false,
       "user": "9jobsapplicationservice@gmail.com",
       "from": "9jobsapplicationservice@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
     }
   },
   "paths": {
-    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
-    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-e4a1c19dc797.csv",
-    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-e4a1c19dc797.json",
-    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797",
-    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\rocketreach.stderr.log"
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-e4a1c19dc797.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-e4a1c19dc797.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-e4a1c19dc797\\rocketreach.stderr.log"
   },
   "artifacts": {
     "applied_csv_exists": true,
     "external_jobs_csv_exists": true,
-    "recruiters_csv_exists": false,
+    "recruiters_csv_exists": true,
     "send_report_exists": false
   }
 }

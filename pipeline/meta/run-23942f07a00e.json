@@ -12,40 +12,52 @@
     "sent": 0,
     "failed": 0
   },
+  "temporal": {
+    "workflow_id": "",
+    "task_queue": "",
+    "backend": ""
+  },
   "note": "LinkedIn output exists but contains zero saved applied rows.",
   "last_error": "No applied jobs were written to applied_jobs.csv.",
   "automation": {
     "auto_send": true,
     "max_easy_apply": 50,
     "send_delay_seconds": 10,
-    "sender_name": "9jobsapplicationservice",
+    "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
-    "source": "config file D:\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,
       "secure": false,
       "user": "9jobsapplicationservice@gmail.com",
       "from": "9jobsapplicationservice@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
     }
   },
   "paths": {
-    "run_dir": "D:\\Automation- Project 1\\pipeline\\runs",
-    "applied_csv": "D:\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
-    "recruiters_csv": "D:\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
-    "send_report_csv": "D:\\Automation- Project 1\\pipeline\\reports\\run-23942f07a00e.csv",
-    "manifest_json": "D:\\Automation- Project 1\\pipeline\\meta\\run-23942f07a00e.json",
-    "logs_dir": "D:\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e",
-    "linkedin_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\linkedin.stdout.log",
-    "linkedin_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\linkedin.stderr.log",
-    "rocketreach_stdout_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\rocketreach.stdout.log",
-    "rocketreach_stderr_log": "D:\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\rocketreach.stderr.log"
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-23942f07a00e.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-23942f07a00e.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-23942f07a00e\\rocketreach.stderr.log"
   },
   "artifacts": {
-    "applied_csv_exists": false,
-    "external_jobs_csv_exists": false,
-    "recruiters_csv_exists": false,
+    "applied_csv_exists": true,
+    "external_jobs_csv_exists": true,
+    "recruiters_csv_exists": true,
     "send_report_exists": false
   }
 }

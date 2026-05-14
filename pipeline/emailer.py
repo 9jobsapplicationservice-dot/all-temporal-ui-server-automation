@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import logging
 import smtplib
 import time
 from dataclasses import dataclass
@@ -9,6 +10,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 from .config import AutomationConfig
+from .core.sentry_config import build_temporal_tags, capture_exception_with_context
 
 
 TRANSIENT_SMTP_MARKERS = (
@@ -24,6 +26,16 @@ TRANSIENT_SMTP_MARKERS = (
     "451",
     "452",
 )
+
+AUTH_SMTP_MARKERS = (
+    "badcredentials",
+    "username and password not accepted",
+    "authentication failed",
+    "smtp authentication",
+    "5.7.8",
+    "535",
+)
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -102,6 +114,16 @@ def _is_transient_error(error: Exception) -> bool:
     return any(marker in lowered for marker in TRANSIENT_SMTP_MARKERS)
 
 
+def is_transient_email_error_message(message: str) -> bool:
+    lowered = (message or "").lower()
+    return any(marker in lowered for marker in TRANSIENT_SMTP_MARKERS)
+
+
+def is_auth_email_error_message(message: str) -> bool:
+    lowered = (message or "").lower()
+    return any(marker in lowered for marker in AUTH_SMTP_MARKERS)
+
+
 def _send_single_email(config: AutomationConfig, contact: EmailContact) -> str:
     if config.smtp is None:
         raise EmailSendError("SMTP configuration is missing.")
@@ -129,6 +151,25 @@ def _send_single_email(config: AutomationConfig, contact: EmailContact) -> str:
                 return server.send_message(message) or message.get("Message-ID", "")
         except Exception as error:  # pragma: no cover - library error surfaces
             last_error = error
+            logger.exception(
+                "SMTP send attempt failed. email=%s company=%s position=%s attempt=%s",
+                contact.email,
+                contact.company,
+                contact.position,
+                attempt,
+            )
+            capture_exception_with_context(
+                error,
+                message="smtp send attempt failed",
+                tags=build_temporal_tags(stage="email"),
+                extras={
+                    "email": contact.email,
+                    "company": contact.company,
+                    "position": contact.position,
+                    "smtp_host": config.smtp.host if config.smtp else "",
+                    "attempt": attempt,
+                },
+            )
             if attempt == 3 or not _is_transient_error(error):
                 break
             time.sleep(attempt)
@@ -217,6 +258,23 @@ def send_run_emails(record: dict, config: AutomationConfig) -> dict[str, object]
                 )
             )
         except EmailSendError as error:
+            logger.exception(
+                "Email send failed for contact. email=%s company=%s position=%s",
+                contact.email,
+                contact.company,
+                contact.position,
+            )
+            capture_exception_with_context(
+                error,
+                message="email send failed for contact",
+                tags=build_temporal_tags(stage="email"),
+                extras={
+                    "email": contact.email,
+                    "company": contact.company,
+                    "position": contact.position,
+                    "job_link": contact.job_link,
+                },
+            )
             logs.append(
                 EmailLog(
                     email=contact.email,
@@ -236,11 +294,16 @@ def send_run_emails(record: dict, config: AutomationConfig) -> dict[str, object]
 
     sent = sum(1 for log in logs if log.success)
     failed = sum(1 for log in logs if not log.success)
+    transient_failures = sum(1 for log in logs if not log.success and is_transient_email_error_message(log.error))
+    auth_failures = sum(1 for log in logs if not log.success and is_auth_email_error_message(log.error))
     return {
         "contacts": contacts,
         "logs": logs,
         "email_total": len(contacts),
         "email_sent": sent,
         "email_failed": failed,
+        "transient_failure_count": transient_failures,
+        "auth_failure_count": auth_failures,
+        "permanent_failure_count": max(failed - transient_failures, 0),
         "report_path": str(record["send_report_path"]),
     }

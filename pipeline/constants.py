@@ -4,10 +4,20 @@ import os
 from pathlib import Path
 
 
-PACKAGE_ROOT = Path(__file__).resolve().parent
+# Keep module import Temporal-workflow-sandbox safe by avoiding Path.resolve at import time.
+PACKAGE_ROOT = Path(__file__).parent
 DEFAULT_PIPELINE_ROOT = PACKAGE_ROOT
 DEFAULT_POLL_INTERVAL_SECONDS = 5.0
-MAX_ROCKETREACH_RETRIES = 3
+MAX_ROCKETREACH_RETRIES = 5
+MAX_EMAIL_STAGE_RETRIES = 3
+DEFAULT_LINKEDIN_STAGE_TIMEOUT_SECONDS = 1800
+DEFAULT_LINKEDIN_IDLE_TIMEOUT_SECONDS = 300
+TEMPORAL_DEFAULT_ADDRESS = "localhost:7233"
+TEMPORAL_DEFAULT_NAMESPACE = "default"
+TEMPORAL_DEFAULT_TASK_QUEUE = "automation-pipeline"
+DEFAULT_PROVIDER_RATE_LIMIT_PER_MINUTE = 2
+MAX_PROVIDER_RATE_LIMIT_PER_MINUTE = 3
+DEFAULT_WORKFLOW_MAX_RERUNS = 3
 
 RUN_STATUSES = (
     "queued",
@@ -20,6 +30,7 @@ RUN_STATUSES = (
     "sending",
     "completed",
     "failed",
+    "terminated",
 )
 
 APPLIED_JOBS_HEADERS = [
@@ -48,6 +59,10 @@ ENRICHED_RECRUITER_HEADERS = [
     "HR Contact",
     "HR Contact Preview",
     "RocketReach Status",
+    "Email Source",
+    "Email Lookup Status",
+    "Lookup Attempts",
+    "Last Provider Error",
 ]
 
 

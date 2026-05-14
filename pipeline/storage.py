@@ -34,8 +34,34 @@ CREATE TABLE IF NOT EXISTS runs (
     email_total INTEGER NOT NULL DEFAULT 0,
     email_sent INTEGER NOT NULL DEFAULT 0,
     email_failed INTEGER NOT NULL DEFAULT 0,
+    provider_success_count INTEGER NOT NULL DEFAULT 0,
+    no_email_count INTEGER NOT NULL DEFAULT 0,
+    provider_retry_count INTEGER NOT NULL DEFAULT 0,
+    workflow_retry_count INTEGER NOT NULL DEFAULT 0,
+    temporal_workflow_id TEXT NOT NULL DEFAULT '',
+    temporal_task_queue TEXT NOT NULL DEFAULT '',
+    orchestration_backend TEXT NOT NULL DEFAULT '',
+    last_workflow_rerun_reason TEXT NOT NULL DEFAULT '',
+    last_failed_stage TEXT NOT NULL DEFAULT '',
     note TEXT,
     last_error TEXT
+)
+"""
+
+CREATE_ENRICHMENT_CACHE_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS enrichment_cache (
+    fingerprint TEXT PRIMARY KEY,
+    run_id TEXT NOT NULL,
+    provider TEXT NOT NULL DEFAULT '',
+    lookup_status TEXT NOT NULL DEFAULT '',
+    email TEXT NOT NULL DEFAULT '',
+    secondary_email TEXT NOT NULL DEFAULT '',
+    contact TEXT NOT NULL DEFAULT '',
+    provider_attempts INTEGER NOT NULL DEFAULT 0,
+    provider_retry_count INTEGER NOT NULL DEFAULT 0,
+    last_provider_error TEXT NOT NULL DEFAULT '',
+    raw_payload TEXT NOT NULL DEFAULT '',
+    updated_at TEXT NOT NULL
 )
 """
 
@@ -55,6 +81,7 @@ class PipelineStore:
     def _initialize(self) -> None:
         with self._connect() as connection:
             connection.execute(CREATE_RUNS_TABLE_SQL)
+            connection.execute(CREATE_ENRICHMENT_CACHE_TABLE_SQL)
             existing_columns = {
                 row["name"]
                 for row in connection.execute("PRAGMA table_info(runs)").fetchall()
@@ -63,10 +90,29 @@ class PipelineStore:
                 connection.execute(
                     "ALTER TABLE runs ADD COLUMN external_jobs_csv_path TEXT NOT NULL DEFAULT ''"
                 )
-            for column_name in ("email_total", "email_sent", "email_failed"):
+            for column_name in (
+                "email_total",
+                "email_sent",
+                "email_failed",
+                "provider_success_count",
+                "no_email_count",
+                "provider_retry_count",
+                "workflow_retry_count",
+            ):
                 if column_name not in existing_columns:
                     connection.execute(
                         f"ALTER TABLE runs ADD COLUMN {column_name} INTEGER NOT NULL DEFAULT 0"
+                    )
+            for column_name in (
+                "temporal_workflow_id",
+                "temporal_task_queue",
+                "orchestration_backend",
+                "last_workflow_rerun_reason",
+                "last_failed_stage",
+            ):
+                if column_name not in existing_columns:
+                    connection.execute(
+                        f"ALTER TABLE runs ADD COLUMN {column_name} TEXT NOT NULL DEFAULT ''"
                     )
             connection.commit()
 
@@ -78,10 +124,20 @@ class PipelineStore:
         if not source_path.exists():
             raise FileNotFoundError(f"Config file not found: {source_path}")
 
-        target_path = self.paths.for_run(run_paths.run_id, source_path.name).config_copy_path
+        target_path = self.paths.for_run(
+            run_paths.run_id,
+            self._normalized_config_name(run_paths.run_id, source_path.name),
+        ).config_copy_path
         target_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source_path, target_path)
         return str(target_path)
+
+    def _normalized_config_name(self, run_id: str, config_path: str | None) -> str:
+        config_name = Path(config_path).name if config_path else "config.json"
+        prefix = f"{run_id}-"
+        while config_name.startswith(prefix):
+            config_name = config_name[len(prefix):]
+        return config_name or "config.json"
 
     def _reset_live_artifacts(self, run_paths) -> None:
         for artifact_path in (
@@ -100,7 +156,40 @@ class PipelineStore:
         self._reset_live_artifacts(run_paths)
         return self.get_run(run_id)
 
+    def reset_fresh_artifacts_for_run(self, run_id: str) -> dict:
+        record = self.get_run(run_id)
+        config_name = Path(record['config_path']).name if record.get('config_path') else None
+        run_paths = self.paths.for_run(run_id, config_name)
+        run_paths.ensure_directories()
+        for artifact_path in (
+            run_paths.applied_csv,
+            run_paths.external_jobs_csv,
+            run_paths.recruiters_csv,
+            run_paths.failed_jobs_csv,
+            run_paths.send_report_csv,
+            run_paths.linkedin_stdout_log,
+            run_paths.linkedin_stderr_log,
+            run_paths.rocketreach_stdout_log,
+            run_paths.rocketreach_stderr_log,
+        ):
+            artifact_path.parent.mkdir(parents=True, exist_ok=True)
+            artifact_path.unlink(missing_ok=True)
+        return self.get_run(run_id)
+
     def get_active_live_run(self, exclude_run_id: str | None = None) -> dict | None:
+        runs = self.list_active_live_runs(exclude_run_id=exclude_run_id)
+        if not runs:
+            return None
+        shared_run_dir = self.paths.runs_dir.resolve()
+        shared_runs = [
+            record for record in runs
+            if Path(record.get('run_dir') or '').resolve() == shared_run_dir
+        ]
+        if shared_runs:
+            return shared_runs[-1]
+        return runs[0]
+
+    def list_active_live_runs(self, exclude_run_id: str | None = None) -> list[dict]:
         active_statuses = ('queued', 'waiting_login', 'linkedin_running', 'rocketreach_running', 'email_running', 'waiting_review', 'sending')
         placeholders = ', '.join('?' for _ in active_statuses)
         params: list[object] = list(active_statuses)
@@ -112,7 +201,20 @@ class PipelineStore:
 
         with self._connect() as connection:
             rows = connection.execute(query, tuple(params)).fetchall()
-        return dict(rows[0]) if rows else None
+        shared_run_dir = self.paths.runs_dir.resolve()
+        results: list[dict] = []
+        for row in rows:
+            record = dict(row)
+            run_dir = Path(record.get('run_dir') or '').resolve()
+            if run_dir != shared_run_dir and run_dir.name == record['id']:
+                continue
+            if (
+                record.get('status') == 'waiting_review'
+                and recruiter_sendable_row_count(record.get('recruiters_csv_path') or '') == 0
+            ):
+                continue
+            results.append(record)
+        return results
 
     def _move_path(self, source: Path, destination: Path) -> bool:
         if not source.exists() or source.resolve() == destination.resolve():
@@ -131,7 +233,10 @@ class PipelineStore:
         if destination.exists():
             source.unlink(missing_ok=True)
             return True
-        shutil.move(str(source), str(destination))
+        try:
+            shutil.move(str(source), str(destination))
+        except FileNotFoundError:
+            return False
         return True
 
     def _migrate_existing_artifacts(self) -> None:
@@ -143,7 +248,7 @@ class PipelineStore:
         with self._connect() as connection:
             try:
                 for record in records:
-                    config_name = Path(record['config_path']).name if record.get('config_path') else None
+                    config_name = self._normalized_config_name(record['id'], record.get('config_path'))
                     run_paths = self.paths.for_run(record['id'], config_name)
                     run_paths.ensure_directories()
 
@@ -173,7 +278,7 @@ class PipelineStore:
                     ):
                         shutil.rmtree(old_run_dir, ignore_errors=True)
 
-                    migrated_config_path = record.get('config_path') or ''
+                    migrated_config_path = ''
                     if old_config is not None:
                         if run_paths.config_copy_path.exists():
                             migrated_config_path = str(run_paths.config_copy_path)
@@ -207,10 +312,12 @@ class PipelineStore:
                             'LinkedIn login was not confirmed' in last_error
                             or 'Browser window closed or session became invalid.' in last_error
                             or 'Complete manual login in Chrome and keep the browser window open.' in last_error
+                            or 'Automatic LinkedIn login did not complete successfully.' in last_error
+                            or 'session was blocked by LinkedIn' in last_error
                         )
                     ):
                         updates['status'] = 'waiting_login'
-                        updates['note'] = 'Chrome opened with your default profile. Log into LinkedIn there and keep the browser window open.'
+                        updates['note'] = 'LinkedIn needs manual confirmation in Chrome. Complete login there and keep the browser window open.'
                     if (
                         record.get('status') == 'failed'
                         and record.get('note') == 'LinkedIn stage completed with zero saved applied rows.'
@@ -250,16 +357,16 @@ class PipelineStore:
         for run_id in migrated_run_ids:
             write_manifest(self.get_run(run_id))
 
-    def create_run(self, run_id: str | None = None, config_path: str | None = None) -> dict:
+    def create_run(self, run_id: str | None = None, config_path: str | None = None, *, allow_active_conflict: bool = False) -> dict:
         created_run_id = run_id or f"run-{uuid.uuid4().hex[:12]}"
-        active_run = self.get_active_live_run()
+        active_run = None if allow_active_conflict else self.get_active_live_run()
         if active_run is not None:
             raise RuntimeError(
                 "A pipeline run is already active. "
                 f"Finish or clear run {active_run['id']} before enqueueing another run."
             )
 
-        config_name = Path(config_path).name if config_path else None
+        config_name = self._normalized_config_name(created_run_id, config_path)
         run_paths = self.paths.for_run(created_run_id, config_name)
         run_paths.ensure_directories()
         self._reset_live_artifacts(run_paths)
@@ -290,6 +397,15 @@ class PipelineStore:
             'email_total': 0,
             'email_sent': 0,
             'email_failed': 0,
+            'provider_success_count': 0,
+            'no_email_count': 0,
+            'provider_retry_count': 0,
+            'workflow_retry_count': 0,
+            'temporal_workflow_id': '',
+            'temporal_task_queue': '',
+            'orchestration_backend': '',
+            'last_workflow_rerun_reason': '',
+            'last_failed_stage': '',
             'note': 'Run enqueued.',
             'last_error': '',
         }
@@ -313,9 +429,10 @@ class PipelineStore:
                 'SELECT * FROM runs WHERE id = ?',
                 (run_id,),
             ).fetchone()
-        if row is None:
+            result = dict(row) if row is not None else None
+        if result is None:
             raise KeyError(f"Run not found: {run_id}")
-        return dict(row)
+        return result
 
     def list_runs(self, limit: int | None = None) -> list[dict]:
         query = 'SELECT * FROM runs ORDER BY created_at DESC'
@@ -326,14 +443,16 @@ class PipelineStore:
 
         with self._connect() as connection:
             rows = connection.execute(query, params).fetchall()
-        return [dict(row) for row in rows]
+            result = [dict(row) for row in rows]
+        return result
 
     def get_next_queued_run(self) -> dict | None:
         with self._connect() as connection:
             row = connection.execute(
                 "SELECT * FROM runs WHERE status = 'queued' ORDER BY created_at ASC LIMIT 1"
             ).fetchone()
-        return dict(row) if row else None
+            result = dict(row) if row else None
+        return result
 
     def update_run(self, run_id: str, **changes) -> dict:
         if not changes:
@@ -354,6 +473,48 @@ class PipelineStore:
         record = self.get_run(run_id)
         write_manifest(record)
         return record
+
+    def get_enrichment_cache(self, fingerprint: str) -> dict | None:
+        with self._connect() as connection:
+            row = connection.execute(
+                "SELECT * FROM enrichment_cache WHERE fingerprint = ?",
+                (fingerprint,),
+            ).fetchone()
+            return dict(row) if row is not None else None
+
+    def upsert_enrichment_cache(self, fingerprint: str, **changes) -> dict:
+        payload = {
+            "fingerprint": fingerprint,
+            "run_id": str(changes.get("run_id") or ""),
+            "provider": str(changes.get("provider") or ""),
+            "lookup_status": str(changes.get("lookup_status") or ""),
+            "email": str(changes.get("email") or ""),
+            "secondary_email": str(changes.get("secondary_email") or ""),
+            "contact": str(changes.get("contact") or ""),
+            "provider_attempts": int(changes.get("provider_attempts", 0) or 0),
+            "provider_retry_count": int(changes.get("provider_retry_count", 0) or 0),
+            "last_provider_error": str(changes.get("last_provider_error") or ""),
+            "raw_payload": str(changes.get("raw_payload") or ""),
+            "updated_at": utc_now_iso(),
+        }
+        columns = ", ".join(payload.keys())
+        placeholders = ", ".join("?" for _ in payload)
+        assignments = ", ".join(f"{column} = excluded.{column}" for column in payload.keys() if column != "fingerprint")
+        with self._connect() as connection:
+            connection.execute(
+                f"""
+                INSERT INTO enrichment_cache ({columns})
+                VALUES ({placeholders})
+                ON CONFLICT(fingerprint) DO UPDATE SET {assignments}
+                """,
+                tuple(payload.values()),
+            )
+            connection.commit()
+            row = connection.execute(
+                "SELECT * FROM enrichment_cache WHERE fingerprint = ?",
+                (fingerprint,),
+            ).fetchone()
+        return dict(row) if row is not None else payload
 
     def recover_interrupted_runs(self) -> list[dict]:
         recovered: list[dict] = []

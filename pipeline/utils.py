@@ -18,7 +18,9 @@ def csv_has_expected_header(csv_path: str | Path, expected_header: list[str]) ->
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.reader(handle)
         header = next(reader, None)
-    return list(header or []) == list(expected_header)
+    header_values = list(header or [])
+    expected_values = list(expected_header)
+    return header_values[: len(expected_values)] == expected_values
 
 
 def read_log_tail(log_path: str | Path, line_count: int = 20) -> str:
@@ -118,6 +120,10 @@ def ensure_placeholder_recruiter_csv(
                 "HR Contact": "",
                 "HR Contact Preview": "",
                 "RocketReach Status": status,
+                "Email Source": "",
+                "Email Lookup Status": status,
+                "Lookup Attempts": "0",
+                "Last Provider Error": "",
             }
             writer.writerow(clean_row)
             row_count += 1

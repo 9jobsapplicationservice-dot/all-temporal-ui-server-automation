@@ -21,6 +21,21 @@ def build_manifest(record: dict) -> dict:
             "sent": record.get("email_sent", 0),
             "failed": record.get("email_failed", 0),
         },
+        "enrichment_stats": {
+            "provider_success_count": record.get("provider_success_count", 0),
+            "no_email_count": record.get("no_email_count", 0),
+            "provider_retry_count": record.get("provider_retry_count", 0),
+        },
+        "workflow_recovery": {
+            "workflow_retry_count": record.get("workflow_retry_count", 0),
+            "last_workflow_rerun_reason": record.get("last_workflow_rerun_reason") or "",
+            "last_failed_stage": record.get("last_failed_stage") or "",
+        },
+        "temporal": {
+            "workflow_id": record.get("temporal_workflow_id") or "",
+            "task_queue": record.get("temporal_task_queue") or "",
+            "backend": record.get("orchestration_backend") or "",
+        },
         "note": record.get("note") or "",
         "last_error": record.get("last_error") or "",
         "automation": load_automation_summary(record.get("config_path") or None),

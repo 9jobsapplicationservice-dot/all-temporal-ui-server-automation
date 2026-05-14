@@ -145,3 +145,19 @@ Running single target job flow for: https://www.linkedin.com/jobs/view/123456789
 
 Trying target job "Backend Engineer | Acme". Job ID: 123456789
 HR info was not given for "Backend Engineer" with Job ID: 123456789!
+LinkedIn auto login is disabled in secrets.py. Please log in manually before the bot continues.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Automatic LinkedIn login did not complete successfully. Please finish the login manually, then confirm it in the popup.
+User did not configure username and password in secrets.py, hence automatic login is unavailable. Please log in manually.
+LinkedIn login form was not ready at https://www.linkedin.com/login. Trying fallback if available.
+missing form
+LinkedIn login form was not ready at https://www.linkedin.com/uas/login. Trying fallback if available.
+missing form
+Couldn't Login!
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+Please login manually.

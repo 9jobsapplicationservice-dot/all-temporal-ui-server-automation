@@ -1,0 +1,11 @@
+.env
+automation.env
+node_modules/
+dist/
+build/
+*.db
+*.db-journal
+.tmp-tests/
+.test-artifacts/
+logs/
+output.txt

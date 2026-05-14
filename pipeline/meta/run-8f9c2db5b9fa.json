@@ -1,0 +1,66 @@
+{
+  "run_id": "run-8f9c2db5b9fa",
+  "status": "failed",
+  "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-8f9c2db5b9fa-automation.env",
+  "created_at": "2026-04-17T04:02:24+00:00",
+  "updated_at": "2026-04-17T06:40:00+00:00",
+  "stage_started_at": "2026-04-17T06:39:33+00:00",
+  "stage_finished_at": "2026-04-17T06:40:00+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 3,
+    "sent": 0,
+    "failed": 3
+  },
+  "temporal": {
+    "workflow_id": "pipeline-run-8f9c2db5b9fa-restart-1776407962",
+    "task_queue": "automation-pipeline",
+    "backend": "temporal"
+  },
+  "note": "Automated email stage finished with failures. total=3 sent=0 failed=3.",
+  "last_error": "One or more automated emails failed.",
+  "automation": {
+    "auto_send": true,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "linkedin_stage_timeout_seconds": 1800,
+    "linkedin_idle_timeout_seconds": 300,
+    "temporal_auto_start": true,
+    "sender_name": "Your Name",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-8f9c2db5b9fa-automation.env",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "your-email@gmail.com",
+      "from": "your-email@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
+    }
+  },
+  "paths": {
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-8f9c2db5b9fa.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-8f9c2db5b9fa.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-8f9c2db5b9fa",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-8f9c2db5b9fa\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-8f9c2db5b9fa\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-8f9c2db5b9fa\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-8f9c2db5b9fa\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": true,
+    "external_jobs_csv_exists": true,
+    "recruiters_csv_exists": true,
+    "send_report_exists": true
+  }
+}
