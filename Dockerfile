@@ -47,7 +47,7 @@ RUN python3 -m pip install --break-system-packages --no-cache-dir -r /app/requir
 COPY . /app
 
 WORKDIR /app/sendemailwith-code/email-automation-nodejs
-RUN npm ci \
+RUN npm ci --include=dev \
     && npm run build \
     && npm prune --omit=dev
 
