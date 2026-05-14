@@ -151,7 +151,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     }
 
     try {
-      const response = await fetch('/api/dashboard/overview', { cache: 'no-store' });
+      const baseUrl = localBridgeUrl.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/dashboard/overview` : '/api/dashboard/overview';
+      
+      const response = await fetch(url, { cache: 'no-store' });
       const payload = await readApiJson<WorkflowDashboardPayload>(response, 'Failed to load workflow dashboard.');
 
       setDashboard(payload);
@@ -169,7 +172,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setIsConfigLoading(true);
     setConfigError(null);
     try {
-      const response = await fetch('/api/pipeline/config', { cache: 'no-store' });
+      const baseUrl = localBridgeUrl.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
+      const response = await fetch(url, { cache: 'no-store' });
       const payload = await readApiJson<WorkflowConfigPayload>(response, 'Failed to load automation config.');
       setConfigPayload(payload);
     } catch (error: unknown) {
@@ -243,7 +248,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       return;
     }
 
-    const response = await fetch('/api/pipeline/run-status', {
+    const baseUrl = localBridgeUrl.trim() || '';
+    const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/run-status` : '/api/pipeline/run-status';
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -451,7 +459,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setIsConfigSaving(true);
     setConfigError(null);
     try {
-      const response = await fetch('/api/pipeline/config', {
+      const baseUrl = localBridgeUrl.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/config` : '/api/pipeline/config';
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ updates: configDraft }),
@@ -564,7 +575,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
   };
 
   const handleArtifactDownload = (runId: string, artifact: PipelineArtifactSummary['key']) => {
-    const url = `/api/pipeline/artifact?runId=${encodeURIComponent(runId)}&artifact=${encodeURIComponent(artifact)}`;
+    const baseUrl = localBridgeUrl.trim() || '';
+    const prefix = baseUrl ? baseUrl.replace(/\/$/, '') : '';
+    const url = `${prefix}/api/pipeline/artifact?runId=${encodeURIComponent(runId)}&artifact=${encodeURIComponent(artifact)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -853,7 +866,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
               />
 
               <div ref={enrichmentRef}>
-                <RecruiterEnricher onEnriched={(payload) => void handleRecruiterEnriched(payload)} />
+                <RecruiterEnricher 
+                  onEnriched={(payload) => void handleRecruiterEnriched(payload)} 
+                  bridgeUrl={localBridgeUrl}
+                />
               </div>
             </div>
 

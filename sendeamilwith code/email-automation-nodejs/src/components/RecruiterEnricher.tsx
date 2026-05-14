@@ -7,9 +7,10 @@ import type { ManualRecruiterEnrichmentResponse } from '@/types';
 
 interface RecruiterEnricherProps {
   onEnriched: (payload: ManualRecruiterEnrichmentResponse) => void;
+  bridgeUrl?: string;
 }
 
-export default function RecruiterEnricher({ onEnriched }: RecruiterEnricherProps) {
+export default function RecruiterEnricher({ onEnriched, bridgeUrl }: RecruiterEnricherProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [summary, setSummary] = useState<ManualRecruiterEnrichmentResponse | null>(null);
@@ -27,7 +28,10 @@ export default function RecruiterEnricher({ onEnriched }: RecruiterEnricherProps
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('/api/pipeline/enrich', {
+      const baseUrl = bridgeUrl?.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/enrich` : '/api/pipeline/enrich';
+
+      const response = await fetch(url, {
         method: 'POST',
         body: formData,
       });
