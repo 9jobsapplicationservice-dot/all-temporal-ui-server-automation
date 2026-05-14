@@ -132,6 +132,16 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
             raise RuntimeError("undetected_chromedriver is unavailable for this Python environment.") from error
     else:
         options = Options()
+    if os.name == 'posix':
+        # Standard paths for Chromium on Render/Linux
+        for path in ['/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome']:
+            if os.path.exists(path):
+                options.binary_location = path
+                break
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
+
     if run_in_background:   options.add_argument("--headless")
     if disable_extensions:  options.add_argument("--disable-extensions")
 
