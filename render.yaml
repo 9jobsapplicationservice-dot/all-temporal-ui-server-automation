@@ -23,5 +23,19 @@ services:
         value: "true"
       - key: PIPELINE_RUN_ONCE_ALWAYS_FRESH
         value: "true"
+      - key: PIPELINE_LINKEDIN_USERNAME
+        sync: false
+      - key: PIPELINE_LINKEDIN_PASSWORD
+        sync: false
+      - key: ROCKETREACH_API_KEY
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: PIPELINE_LINKEDIN_AUTO_LOGIN
+        value: "true"
       - key: PIPELINE_LINKEDIN_SAFE_MODE
         value: "true"
