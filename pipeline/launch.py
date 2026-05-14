@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import os
@@ -12,7 +12,7 @@ from .worker import PipelineWorker
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
-EMAIL_APP_ROOT = WORKSPACE_ROOT / "sendeamilwith code" / "email-automation-nodejs"
+EMAIL_APP_ROOT = WORKSPACE_ROOT / "sendemailwith-code" / "email-automation-nodejs"
 
 
 def npm_command() -> list[str]:

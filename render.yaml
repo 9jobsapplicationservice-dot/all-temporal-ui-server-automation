@@ -12,7 +12,7 @@ services:
       - key: PIPELINE_WORKSPACE_ROOT
         value: /app
       - key: PIPELINE_ROOT
-        value: /data/pipeline
+        value: /app/data/pipeline
       - key: PIPELINE_PYTHON
         value: python3
       - key: PIPELINE_TEMPORAL_AUTO_START

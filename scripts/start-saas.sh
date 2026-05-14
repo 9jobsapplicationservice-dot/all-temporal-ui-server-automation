@@ -2,13 +2,13 @@
 set -eu
 
 export PIPELINE_WORKSPACE_ROOT="${PIPELINE_WORKSPACE_ROOT:-/app}"
-export PIPELINE_ROOT="${PIPELINE_ROOT:-/data/pipeline}"
+export PIPELINE_ROOT="${PIPELINE_ROOT:-/app/data/pipeline}"
 export PIPELINE_PYTHON="${PIPELINE_PYTHON:-python3}"
 export PIPELINE_TEMPORAL_AUTO_START="${PIPELINE_TEMPORAL_AUTO_START:-true}"
 export DISPLAY="${DISPLAY:-:99}"
 export PORT="${PORT:-3000}"
 
-mkdir -p "$PIPELINE_ROOT" /data/chrome /tmp/chrome-profile
+mkdir -p "$PIPELINE_ROOT" /app/data/chrome /tmp/chrome-profile
 
 if ! pgrep Xvfb >/dev/null 2>&1; then
   echo "Starting Xvfb..."
@@ -19,7 +19,7 @@ if [ "${PIPELINE_TEMPORAL_AUTO_START:-true}" = "true" ]; then
   if ! pgrep temporal >/dev/null 2>&1; then
     echo "Starting Temporal Server..."
     temporal server start-dev \
-      --db-filename /data/temporal.db \
+      --db-filename /app/data/temporal.db \
       --ui-port 8233 \
       --ip 0.0.0.0 \
       >/tmp/temporal.log 2>&1 &
@@ -35,4 +35,4 @@ if [ "${PIPELINE_TEMPORAL_AUTO_START:-true}" = "true" ]; then
 fi
 
 echo "Starting Next.js App on port $PORT..."
-exec npm --prefix "/app/sendeamilwith code/email-automation-nodejs" start
+exec npm --prefix "/app/sendemailwith-code/email-automation-nodejs" start

@@ -43,7 +43,7 @@
     "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
     "auto_send_reason": null,
-    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendeamilwith code\\email-automation-nodejs\\.env.local, environment variables",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendemailwith-code\\email-automation-nodejs\\.env.local, environment variables",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,

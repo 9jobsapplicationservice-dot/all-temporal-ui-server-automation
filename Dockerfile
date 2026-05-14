@@ -5,7 +5,7 @@ FROM node:20-bookworm
 ENV NEXT_TELEMETRY_DISABLED=1 \
     NODE_ENV=production \
     PIPELINE_WORKSPACE_ROOT=/app \
-    PIPELINE_ROOT=/data/pipeline \
+    PIPELINE_ROOT=/app/data/pipeline \
     PIPELINE_PYTHON=python3 \
     PIPELINE_TEMPORAL_AUTO_START=true \
     DISPLAY=:99 \
@@ -46,14 +46,14 @@ RUN python3 -m pip install --break-system-packages --no-cache-dir -r /app/requir
 
 COPY . /app
 
-WORKDIR /app/sendeamilwith code/email-automation-nodejs
+WORKDIR /app/sendemailwith-code/email-automation-nodejs
 RUN npm ci \
     && npm run build \
     && npm prune --omit=dev
 
 WORKDIR /app
 RUN chmod +x /app/scripts/start-saas.sh \
-    && mkdir -p /data/pipeline /data/chrome /tmp/chrome-profile \
+    && mkdir -p /app/data/pipeline /app/data/chrome /tmp/chrome-profile \
     && ln -sf /usr/bin/chromium /usr/bin/google-chrome
 
 EXPOSE 3000

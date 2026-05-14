@@ -17,7 +17,7 @@ from .constants import (
 TRUTHY_VALUES = {"1", "true", "yes", "on"}
 FALSY_VALUES = {"0", "false", "no", "off"}
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
-EMAIL_APP_ENV_PATH = WORKSPACE_ROOT / "sendeamilwith code" / "email-automation-nodejs" / ".env.local"
+EMAIL_APP_ENV_PATH = WORKSPACE_ROOT / "sendemailwith-code" / "email-automation-nodejs" / ".env.local"
 PIPELINE_ENV_PATH = WORKSPACE_ROOT / "pipeline" / "automation.env"
 ALLOWED_ENV_PREFIXES = ("PIPELINE_", "SMTP_", "ROCKETREACH_", "HUNTER_", "APOLLO_", "SENTRY_")
 PYTHON_CONFIG_ENV_ALIASES = {
