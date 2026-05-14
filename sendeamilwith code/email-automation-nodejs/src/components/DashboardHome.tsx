@@ -84,6 +84,7 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
   const [status, setStatus] = useState<SendStatus>('idle');
   const [logs, setLogs] = useState<EmailLog[]>([]);
   const [activeEmail, setActiveEmail] = useState<string | null>(null);
+  const [localBridgeUrl, setLocalBridgeUrl] = useState(() => getStoredValue('rr_local_bridge_url', ''));
 
   const statusRef = useRef(status);
   const logsRef = useRef(logs);
@@ -128,7 +129,8 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     window.localStorage.setItem('rr_template_subject_v3', templateSubject);
     window.localStorage.setItem('rr_sender_name_v3', senderName);
     window.localStorage.setItem('rr_send_delay_v3', delayStr);
-  }, [delayStr, senderName, templateBody, templateSubject]);
+    window.localStorage.setItem('rr_local_bridge_url', localBridgeUrl);
+  }, [delayStr, localBridgeUrl, senderName, templateBody, templateSubject]);
 
   useEffect(() => {
     const currentRunId = activeRun?.runId ?? null;
@@ -393,7 +395,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setPageMessage(null);
     setPageError(null);
     try {
-      const response = await fetch('/api/pipeline/start', {
+      const baseUrl = localBridgeUrl.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/start` : '/api/pipeline/start';
+      
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ configPath: configPathOverride ?? configPayload?.configPath }),
@@ -531,7 +536,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     setPageError(null);
     setPageMessage(null);
     try {
-      const response = await fetch('/api/pipeline/retry', {
+      const baseUrl = localBridgeUrl.trim() || '';
+      const url = baseUrl ? `${baseUrl.replace(/\/$/, '')}/api/pipeline/retry` : '/api/pipeline/retry';
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ runId: activeRun.runId }),
@@ -689,6 +697,26 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
                     {renderConfigField('secrets', linkedInLoginFields.username)}
                     {renderConfigField('secrets', linkedInLoginFields.password)}
                     {renderConfigField('secrets', linkedInLoginFields.autoLogin)}
+                  </div>
+                </div>
+
+                <div className="linkedin-login-card mt-5">
+                  <div>
+                    <p className="eyebrow">Local Bridge (ngrok)</p>
+                    <h4>Connect to your computer</h4>
+                  </div>
+                  <div className="mt-4">
+                    <label className="block text-sm font-medium text-slate-700">Ngrok / Local URL</label>
+                    <input
+                      type="text"
+                      value={localBridgeUrl}
+                      onChange={(e) => setLocalBridgeUrl(e.target.value)}
+                      placeholder="https://xxxx-xxxx-xxxx.ngrok-free.app"
+                      className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                    />
+                    <p className="mt-2 text-xs text-slate-500">
+                      Paste your ngrok URL here to trigger local Chrome automation from this Vercel dashboard.
+                    </p>
                   </div>
                 </div>
 
