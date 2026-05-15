@@ -1,0 +1,85 @@
+{
+  "id": "run-616b02a76dfe",
+  "runId": "run-616b02a76dfe",
+  "run_id": "run-616b02a76dfe",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-02T04:42:39+00:00",
+  "updated_at": "2026-04-02T04:42:44+00:00",
+  "stage_started_at": "2026-04-02T04:42:43+00:00",
+  "stage_finished_at": "2026-04-02T04:42:44+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
+  "enrichment_stats": {
+    "provider_success_count": 0,
+    "no_email_count": 0,
+    "provider_retry_count": 0
+  },
+  "workflow_recovery": {
+    "workflow_retry_count": 0,
+    "last_workflow_rerun_reason": "",
+    "last_failed_stage": ""
+  },
+  "temporal": {
+    "workflow_id": "",
+    "task_queue": "",
+    "backend": ""
+  },
+  "note": "LinkedIn stage failed.",
+  "last_error": "Command failed with exit code 1: C:\\Python314\\python.exe pipeline_entry.py\n[pipeline_entry] startup failure: No module named 'distutils'\nTraceback (most recent call last):\n  File \"D:\\Automation- Project\\linkdin_automation\\pipeline_entry.py\", line 14, in <module>\n    from runAiBot import main\n  File \"D:\\Automation- Project\\linkdin_automation\\runAiBot.py\", line 44, in <module>\n    from modules.open_chrome import *\n  File \"D:\\Automation- Project\\linkdin_automation\\modules\\open_chrome.py\", line 25, in <module>\n    import undetected_chromedriver as uc\n  File \"C:\\Users\\USER\\AppData\\Roaming\\Python\\Python314\\site-packages\\undetected_chromedriver\\__init__.py\", line 44, in <module>\n    from .patcher import IS_POSIX\n  File \"C:\\Users\\USER\\AppData\\Roaming\\Python\\Python314\\site-packages\\undetected_chromedriver\\patcher.py\", line 4, in <module>\n    from distutils.version import LooseVersion\nModuleNotFoundError: No module named 'distutils'",
+  "live_status": {},
+  "automation": {
+    "auto_send": false,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "linkedin_stage_timeout_seconds": 1800,
+    "linkedin_idle_timeout_seconds": 300,
+    "temporal_auto_start": true,
+    "run_once_always_fresh": false,
+    "provider_rate_limit_per_minute": 2,
+    "enrichment_sequential": true,
+    "workflow_max_reruns": 3,
+    "sender_name": "Your Name",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "auto_send_reason": "Automatic sending is disabled because SMTP credentials still use placeholder values. Update SMTP_USER / SMTP_PASS / SMTP_FROM to enable sending.",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendemailwith-code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "your-email@gmail.com",
+      "from": "your-email@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": true,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
+    },
+    "config_preview": {}
+  },
+  "paths": {
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-616b02a76dfe",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-616b02a76dfe\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-616b02a76dfe\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-616b02a76dfe\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-616b02a76dfe.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-616b02a76dfe.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-616b02a76dfe",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-616b02a76dfe\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-616b02a76dfe\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-616b02a76dfe\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-616b02a76dfe\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

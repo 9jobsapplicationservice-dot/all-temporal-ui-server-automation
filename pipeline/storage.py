@@ -422,7 +422,16 @@ class PipelineStore:
             connection.commit()
 
         record = self.get_run(created_run_id)
-        write_manifest(record)
+        # Normalize record for manifest build
+        record["id"] = created_run_id
+        record["runId"] = created_run_id
+        record["run_id"] = created_run_id
+        
+        try:
+            write_manifest(record)
+        except Exception as e:
+            print(f"[Storage] Failed to write manifest during creation: {e}")
+            
         return record
 
     def get_run(self, run_id: str) -> dict:
@@ -486,7 +495,16 @@ class PipelineStore:
             connection.commit()
 
         record = self.get_run(run_id)
-        write_manifest(record)
+        # Normalize record for manifest build
+        record["id"] = run_id
+        record["runId"] = run_id
+        record["run_id"] = run_id
+        
+        try:
+            write_manifest(record)
+        except Exception as e:
+            print(f"[Storage] Failed to write manifest during update: {e}")
+            
         return record
 
     def get_enrichment_cache(self, fingerprint: str) -> dict | None:

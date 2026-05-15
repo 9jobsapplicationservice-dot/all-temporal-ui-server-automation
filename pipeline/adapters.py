@@ -387,7 +387,7 @@ def _run_subprocess(
 
             # Parse live status from logs and update manifest periodically
             if record and stdout_log.exists() and time.monotonic() - last_manifest_update > 2:
-                tail = read_log_tail(stdout_log, limit=30)
+                tail = read_log_tail(stdout_log, line_count=30)
                 live_status = record.get("live_status", {})
                 updated = False
                 for line in (tail or "").splitlines():

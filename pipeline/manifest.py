@@ -41,6 +41,7 @@ def safe_read_manifest(run_id: str, data_dir: str | None = None) -> dict:
                 
     # Default safe manifest if none found
     return {
+        "id": run_id,
         "runId": run_id,
         "run_id": run_id,
         "status": "starting",
@@ -93,9 +94,12 @@ def safe_write_manifest(run_id: str, manifest: dict, data_dir: str | None = None
 
 
 def build_manifest(record: dict) -> dict:
+    run_id = record.get("id") or record.get("runId") or record.get("run_id") or "unknown"
     return {
-        "run_id": record["id"],
-        "status": record["status"],
+        "id": run_id,
+        "runId": run_id,
+        "run_id": run_id,
+        "status": record.get("status") or "starting",
         "config_path": record.get("config_path") or "",
         "created_at": record.get("created_at") or "",
         "updated_at": record.get("updated_at") or "",

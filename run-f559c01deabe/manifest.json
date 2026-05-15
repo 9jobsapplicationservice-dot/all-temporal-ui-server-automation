@@ -1,0 +1,85 @@
+{
+  "id": "run-f559c01deabe",
+  "runId": "run-f559c01deabe",
+  "run_id": "run-f559c01deabe",
+  "status": "terminated",
+  "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-f559c01deabe-automation.env",
+  "created_at": "2026-04-18T10:14:53+00:00",
+  "updated_at": "2026-04-25T05:55:10+00:00",
+  "stage_started_at": "2026-04-18T10:14:54+00:00",
+  "stage_finished_at": "2026-04-25T05:55:10+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
+  "enrichment_stats": {
+    "provider_success_count": 0,
+    "no_email_count": 0,
+    "provider_retry_count": 0
+  },
+  "workflow_recovery": {
+    "workflow_retry_count": 0,
+    "last_workflow_rerun_reason": "",
+    "last_failed_stage": ""
+  },
+  "temporal": {
+    "workflow_id": "pipeline-run-f559c01deabe",
+    "task_queue": "automation-pipeline",
+    "backend": "temporal"
+  },
+  "note": "Superseded by a newer fresh run. Previous workflow status: closed/unavailable.",
+  "last_error": "A newer fresh LinkedIn-first run replaced this shared-folder run.",
+  "live_status": {},
+  "automation": {
+    "auto_send": false,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "linkedin_stage_timeout_seconds": 1800,
+    "linkedin_idle_timeout_seconds": 300,
+    "temporal_auto_start": true,
+    "run_once_always_fresh": false,
+    "provider_rate_limit_per_minute": 2,
+    "enrichment_sequential": true,
+    "workflow_max_reruns": 3,
+    "sender_name": "Your Name",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "auto_send_reason": "Automatic sending is disabled because SMTP credentials still use placeholder values. Update SMTP_USER / SMTP_PASS / SMTP_FROM to enable sending.",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-f559c01deabe-automation.env",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "your-email@gmail.com",
+      "from": "your-email@gmail.com"
+    },
+    "linkedin": {
+      "mode": "saved_session",
+      "auto_login": false,
+      "safe_mode": false,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
+    },
+    "config_preview": {}
+  },
+  "paths": {
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-f559c01deabe",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-f559c01deabe\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-f559c01deabe\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-f559c01deabe\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-f559c01deabe.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-f559c01deabe.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f559c01deabe",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f559c01deabe\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f559c01deabe\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f559c01deabe\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-f559c01deabe\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

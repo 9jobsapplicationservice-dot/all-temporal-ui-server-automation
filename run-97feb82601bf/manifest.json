@@ -1,0 +1,85 @@
+{
+  "id": "run-97feb82601bf",
+  "runId": "run-97feb82601bf",
+  "run_id": "run-97feb82601bf",
+  "status": "failed",
+  "config_path": "",
+  "created_at": "2026-04-01T07:21:59+00:00",
+  "updated_at": "2026-04-01T07:32:03+00:00",
+  "stage_started_at": "2026-04-01T07:30:10+00:00",
+  "stage_finished_at": "2026-04-01T07:32:03+00:00",
+  "retry_count": 0,
+  "email_stats": {
+    "total": 0,
+    "sent": 0,
+    "failed": 0
+  },
+  "enrichment_stats": {
+    "provider_success_count": 0,
+    "no_email_count": 0,
+    "provider_retry_count": 0
+  },
+  "workflow_recovery": {
+    "workflow_retry_count": 0,
+    "last_workflow_rerun_reason": "",
+    "last_failed_stage": ""
+  },
+  "temporal": {
+    "workflow_id": "",
+    "task_queue": "",
+    "backend": ""
+  },
+  "note": "LinkedIn stage failed.",
+  "last_error": "Command failed with exit code 1: C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe pipeline_entry.py\nD:\\Automation- Project\\linkdin_automation\\modules\\ai\\geminiConnections.py:1: FutureWarning: \n\nAll support for the `google.generativeai` package has ended. It will no longer be receiving \nupdates or bug fixes. Please switch to the `google.genai` package as soon as possible.\nSee README for more details:\n\nhttps://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md\n\n  import google.generativeai as genai\nException ignored in: <function Chrome.__del__ at 0x000002AB61756480>\nTraceback (most recent call last):\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 843, in __del__\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\undetected_chromedriver\\__init__.py\", line 798, in quit\nOSError: [WinError 6] The handle is invalid",
+  "live_status": {},
+  "automation": {
+    "auto_send": false,
+    "max_easy_apply": 50,
+    "send_delay_seconds": 10,
+    "linkedin_stage_timeout_seconds": 1800,
+    "linkedin_idle_timeout_seconds": 300,
+    "temporal_auto_start": true,
+    "run_once_always_fresh": false,
+    "provider_rate_limit_per_minute": 2,
+    "enrichment_sequential": true,
+    "workflow_max_reruns": 3,
+    "sender_name": "Your Name",
+    "email_subject": "Quick note re: {{position}} at {{company}}",
+    "auto_send_reason": "Automatic sending is disabled because SMTP credentials still use placeholder values. Update SMTP_USER / SMTP_PASS / SMTP_FROM to enable sending.",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendemailwith-code\\email-automation-nodejs\\.env.local, environment variables",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "your-email@gmail.com",
+      "from": "your-email@gmail.com"
+    },
+    "linkedin": {
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": true,
+      "username_configured": true,
+      "manual_login_timeout_seconds": 180
+    },
+    "config_preview": {}
+  },
+  "paths": {
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-97feb82601bf",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-97feb82601bf\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-97feb82601bf\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-97feb82601bf\\rocket_enrich\\recruiters_enriched.csv",
+    "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-97feb82601bf.csv",
+    "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-97feb82601bf.json",
+    "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-97feb82601bf",
+    "linkedin_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-97feb82601bf\\linkedin.stdout.log",
+    "linkedin_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-97feb82601bf\\linkedin.stderr.log",
+    "rocketreach_stdout_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-97feb82601bf\\rocketreach.stdout.log",
+    "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-97feb82601bf\\rocketreach.stderr.log"
+  },
+  "artifacts": {
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
+    "recruiters_csv_exists": false,
+    "send_report_exists": false
+  }
+}

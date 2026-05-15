@@ -314,14 +314,18 @@ async def run_once(
         try:
             store.get_run(run_id)
             print("RUN_RECORD_EXISTS=true", flush=True)
+            print("MANIFEST_LOADED=true", flush=True)
         except KeyError:
             print(f"RUN_RECORD_EXISTS=false. Creating run {run_id}...", flush=True)
             store.create_run(run_id=run_id, config_path=config_path, allow_active_conflict=True)
+            print("MANIFEST_LOADED=true", flush=True)
 
     # DIRECT EXECUTION MODE (Bypassing Temporal)
     # The user wants direct execution for LinkedIn.
     print("Running in DIRECT EXECUTION mode (bypassing Temporal)...", flush=True)
     
+    owned_worker = None
+    owned_server = None
     try:
         from .stage_manager import PipelineStageManager
         manager = PipelineStageManager(store)
