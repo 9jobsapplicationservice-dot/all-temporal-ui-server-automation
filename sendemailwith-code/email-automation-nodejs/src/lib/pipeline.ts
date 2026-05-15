@@ -76,12 +76,20 @@ type PipelineManifest = {
 const LIB_ROOT = path.dirname(fileURLToPath(import.meta.url));
 const APP_ROOT = path.resolve(LIB_ROOT, '..', '..');
 const DEFAULT_WORKSPACE_ROOT = path.resolve(APP_ROOT, '..', '..');
+const SHARED_DATA_DIR = '/app/data/pipeline';
 const WORKSPACE_ROOT = process.env.PIPELINE_WORKSPACE_ROOT?.trim()
   ? path.resolve(process.env.PIPELINE_WORKSPACE_ROOT)
   : DEFAULT_WORKSPACE_ROOT;
-const PIPELINE_ROOT = process.env.PIPELINE_ROOT?.trim()
-  ? path.resolve(process.env.PIPELINE_ROOT)
-  : path.join(WORKSPACE_ROOT, 'pipeline');
+
+// Prioritize shared data dir for Render/Production
+const PIPELINE_ROOT = process.env.PIPELINE_DATA_DIR?.trim()
+  ? path.resolve(process.env.PIPELINE_DATA_DIR)
+  : process.env.PIPELINE_ROOT?.trim()
+    ? path.resolve(process.env.PIPELINE_ROOT)
+    : process.env.RENDER
+      ? SHARED_DATA_DIR
+      : path.join(WORKSPACE_ROOT, 'pipeline');
+
 const RUNS_ROOT = path.join(PIPELINE_ROOT, 'runs');
 const META_ROOT = path.join(PIPELINE_ROOT, 'meta');
 const LOGS_ROOT = path.join(PIPELINE_ROOT, 'logs');
@@ -384,6 +392,7 @@ function toInt(value: unknown): number {
 function pickCurrentStage(status: string): WorkflowStageId {
   switch (status) {
     case 'queued':
+    case 'starting':
     case 'blocked_runtime':
     case 'waiting_login':
     case 'linkedin_running':
@@ -499,9 +508,9 @@ function buildStageStates(manifest: PipelineManifest, counts: WorkflowCounts): W
         status === 'blocked_runtime' ? 'blocked'
           : status === 'waiting_login' ? 'waiting'
           : status === 'failed' && counts.appliedRows === 0 ? 'failed'
-            : ['linkedin_running'].includes(status) ? 'running'
+            : ['starting', 'linkedin_running'].includes(status) ? 'running'
               : counts.appliedRows > 0 || ['rocketreach_running', 'email_running', 'waiting_review', 'sending', 'completed', 'manual_review'].includes(status) ? 'completed'
-                : status === 'queued' ? 'queued'
+                : ['queued', 'starting'].includes(status) ? 'queued'
                   : 'idle',
       description: 'Run the LinkedIn automation and save applied jobs to CSV.',
       detail: linkedinDetail,
@@ -822,7 +831,7 @@ export async function writeSendReport(runId: string, logs: EmailLog[]): Promise<
   return manifest.paths.send_report_csv;
 }
 
-export function updatePipelineRunStatus(runId: string, status: 'queued' | 'running' | 'waiting_review' | 'sending' | 'completed' | 'failed', note: string): void {
+export function updatePipelineRunStatus(runId: string, status: 'queued' | 'starting' | 'running' | 'waiting_review' | 'sending' | 'completed' | 'failed', note: string): void {
   const result = spawnSync(
     PYTHON_BIN,
     ['-m', 'pipeline.mark_status', '--run-id', runId, '--status', status, '--note', note],
@@ -864,7 +873,10 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
   console.log(`[Pipeline] Launching attached process with live stdout/stderr for ${runId}...`);
   const bin = process.env.RENDER ? 'python3' : PYTHON_BIN;
   const cwd = process.env.RENDER ? '/app' : WORKSPACE_ROOT;
+  const dataDir = process.env.RENDER ? SHARED_DATA_DIR : PIPELINE_ROOT;
+  
   console.log(`[Pipeline] Command: ${bin} -u ${args.join(' ')}`);
+  console.log(`[Pipeline] PIPELINE_DATA_DIR: ${dataDir}`);
 
   // Force unbuffered Python output
   const child = spawn(
@@ -877,6 +889,8 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
       env: {
         ...process.env,
         PYTHONUNBUFFERED: '1',
+        PIPELINE_DATA_DIR: dataDir,
+        PIPELINE_ROOT: dataDir,
       },
     }
   );
@@ -1099,6 +1113,19 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   if (IS_VERCEL_RUNTIME) {
     throw new Error('Connect a local bridge URL before starting browser automation from Vercel.');
   }
+
+  // 1. Concurrency Check: Prevent multiple overlapping runs
+  try {
+    const dashboard = await findWorkflowDashboard(10);
+    if (dashboard.activeRun && ['queued', 'starting', 'running', 'linkedin_running', 'rocketreach_running'].includes(dashboard.activeRun.status)) {
+       console.warn(`[Pipeline] BLOCKING START: A run is already active (${dashboard.activeRun.runId} status=${dashboard.activeRun.status})`);
+       throw new Error(`Automation is already running (ID: ${dashboard.activeRun.runId}). Please wait for it to finish or fail before starting a new one.`);
+    }
+  } catch (e) {
+    if (e instanceof Error && e.message.includes('already running')) throw e;
+    console.error('[Pipeline] Error checking active runs:', e);
+  }
+
   const runId = `run-ui-${randomUUID().replace(/-/g, '').slice(0, 12)}`;
   const resolvedConfigPath = assertConfigPathAllowed(configPath ?? await pickDefaultAutomationConfigPath());
   
@@ -1109,18 +1136,32 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
     args.push('--config', resolvedConfigPath);
   }
 
-  // Pre-create the directory so mark_status doesn't fail if manifest isn't there yet
+  // 2. Pre-create the directory and RUN RECORD
   await fs.mkdir(path.join(RUNS_ROOT, runId), { recursive: true });
-  
-  // Set initial status to queued
+  await fs.mkdir(META_ROOT, { recursive: true });
+
+  // Use mark_status to initialize the record - this ensures the DB has it
+  // Since we updated storage.py, this will create it if missing.
   try {
     updatePipelineRunStatus(runId, 'queued', 'Preparing automation environment...');
-    // We mark it as failed first just so it exists in DB, then run_once will fix it or we mark it running
-    // Actually, mark_status probably creates it. 
-    // Let's just launch it and let launchAutomationProcess handle status flow.
   } catch (e) {
-    // Ignore if not exists yet
+    console.error('[Pipeline] Failed to initialize run record in DB:', e);
   }
+
+  // 3. Verify storage consistency
+  const recordPath = path.join(META_ROOT, `${runId}.json`);
+  const recordExists = await fileExists(recordPath);
+  console.log(`[Pipeline] RUN_RECORD_PATH=${recordPath}`);
+  console.log(`[Pipeline] RUN_RECORD_EXISTS=${recordExists}`);
+
+  if (!recordExists) {
+    console.error('[Pipeline] ERROR: Run record was not created successfully after initialization.');
+  }
+
+  // 4. Launch with 'starting' status
+  try {
+    updatePipelineRunStatus(runId, 'starting', 'Spawning automation process...');
+  } catch (e) { /* ignore */ }
 
   launchAutomationProcess(runId, args);
   

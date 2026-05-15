@@ -302,6 +302,15 @@ async def run_once(
     print(f"RUN_ID={run_id or 'unknown'}", flush=True)
     print(f"CONFIG_PATH={config_path or 'default'}", flush=True)
 
+    # Storage Validation
+    store = PipelineStore(root)
+    data_dir = store.paths.root
+    record_path = store.paths.meta_dir / f"{run_id}.json"
+    record_exists = record_path.exists()
+    print(f"PIPELINE_DATA_DIR={data_dir}", flush=True)
+    print(f"RUN_RECORD_PATH={record_path}", flush=True)
+    print(f"RUN_RECORD_EXISTS={str(record_exists).lower()}", flush=True)
+
     owned_server: subprocess.Popen[str] | None = None
     owned_worker: subprocess.Popen[str] | None = None
     auto_start = _resolve_auto_start(config_path)

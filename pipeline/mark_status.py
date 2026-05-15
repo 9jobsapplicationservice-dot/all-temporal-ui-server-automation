@@ -9,7 +9,7 @@ from .utils import utc_now_iso
 def main() -> None:
     parser = argparse.ArgumentParser(description="Update pipeline run status from external tooling.")
     parser.add_argument("--run-id", required=True, help="Pipeline run id.")
-    parser.add_argument("--status", required=True, choices=["queued", "running", "waiting_review", "sending", "email_running", "completed", "failed"])
+    parser.add_argument("--status", required=True, choices=["queued", "starting", "running", "waiting_review", "sending", "email_running", "completed", "failed"])
     parser.add_argument("--note", default="", help="Optional status note.")
     parser.add_argument("--root", help="Optional pipeline root override.", default=None)
     parser.add_argument("--email-total", type=int, default=None)
@@ -33,7 +33,13 @@ def main() -> None:
     else:
         changes["stage_finished_at"] = utc_now_iso()
 
-    record = store.update_run(args.run_id, **changes)
+    try:
+        record = store.update_run(args.run_id, **changes)
+    except Exception as e:
+        # storage.update_run is now safe, but if it still fails, log it
+        print(f"[MarkStatus] ERROR updating status for {args.run_id}: {e}")
+        raise
+    
     print(f"{record['id']} -> {record['status']}")
 
 

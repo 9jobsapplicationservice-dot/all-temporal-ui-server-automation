@@ -21,6 +21,7 @@ DEFAULT_WORKFLOW_MAX_RERUNS = 3
 
 RUN_STATUSES = (
     "queued",
+    "starting",
     "blocked_runtime",
     "waiting_login",
     "linkedin_running",
@@ -70,8 +71,17 @@ def resolve_pipeline_root(explicit_root: str | Path | None = None) -> Path:
     if explicit_root:
         return Path(explicit_root).expanduser().resolve()
 
+    # Prioritize shared data dir for Render/Production
+    data_dir = os.environ.get("PIPELINE_DATA_DIR", "").strip()
+    if data_dir:
+        return Path(data_dir).expanduser().resolve()
+
     env_root = os.environ.get("PIPELINE_ROOT", "").strip()
     if env_root:
         return Path(env_root).expanduser().resolve()
+
+    # Default fallback for Render
+    if os.path.exists("/app/data/pipeline") or os.environ.get("RENDER"):
+        return Path("/app/data/pipeline")
 
     return DEFAULT_PIPELINE_ROOT

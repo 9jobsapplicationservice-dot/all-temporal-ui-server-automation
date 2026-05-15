@@ -432,8 +432,16 @@ class PipelineStore:
                 (run_id,),
             ).fetchone()
             result = dict(row) if row is not None else None
+        
         if result is None:
-            raise KeyError(f"Run not found: {run_id}")
+            # Check if manifest file exists as a fallback
+            manifest_path = self.paths.meta_dir / f"{run_id}.json"
+            if manifest_path.exists():
+                from .manifest import safe_read_manifest
+                manifest = safe_read_manifest(str(manifest_path))
+                if manifest:
+                    return manifest
+            raise KeyError(f"Run not found in database or meta: {run_id}")
         return result
 
     def list_runs(self, limit: int | None = None) -> list[dict]:
@@ -457,6 +465,12 @@ class PipelineStore:
         return result
 
     def update_run(self, run_id: str, **changes) -> dict:
+        try:
+            self.get_run(run_id)
+        except KeyError:
+            print(f"[Storage] RUN_RECORD_MISSING_CREATED={run_id}")
+            self.create_run(run_id=run_id, allow_active_conflict=True)
+
         if not changes:
             return self.get_run(run_id)
 
