@@ -2,12 +2,12 @@
   "id": "test-run-3",
   "runId": "test-run-3",
   "run_id": "test-run-3",
-  "status": "linkedin_running",
+  "status": "failed",
   "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\test-run-3-config.py",
   "created_at": "2026-05-15T10:58:23+00:00",
-  "updated_at": "2026-05-15T10:58:24+00:00",
+  "updated_at": "2026-05-15T10:59:48+00:00",
   "stage_started_at": "2026-05-15T10:58:24+00:00",
-  "stage_finished_at": "",
+  "stage_finished_at": "2026-05-15T10:59:48+00:00",
   "retry_count": 0,
   "email_stats": {
     "total": 0,
@@ -29,18 +29,9 @@
     "task_queue": "",
     "backend": ""
   },
-  "note": "Running LinkedIn job application stage.",
-  "last_error": "",
-  "live_status": {
-    "last_screenshot": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\screenshots\\0017_linkedin_loaded_jobs.png",
-    "login_required": false,
-    "current_url": "https://www.linkedin.com/jobs/search/?currentJobId",
-    "page_title": "(23) Full Stack Developer Jobs",
-    "checkpoint_required": false,
-    "job_cards_count": "8",
-    "job_details_count": "1",
-    "easy_apply_count": "1"
-  },
+  "note": "Direct execution failed.",
+  "last_error": "Browser window closed or session became invalid.",
+  "live_status": {},
   "automation": {
     "auto_send": false,
     "max_easy_apply": 30,

@@ -121,11 +121,6 @@ def build_manifest(record: dict) -> dict:
             "last_workflow_rerun_reason": record.get("last_workflow_rerun_reason") or "",
             "last_failed_stage": record.get("last_failed_stage") or "",
         },
-        "temporal": {
-            "workflow_id": record.get("temporal_workflow_id") or "",
-            "task_queue": record.get("temporal_task_queue") or "",
-            "backend": record.get("orchestration_backend") or "",
-        },
         "note": record.get("note") or "",
         "last_error": record.get("last_error") or "",
         "live_status": record.get("live_status", {}),

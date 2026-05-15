@@ -10,14 +10,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import AutomationConfigError, load_automation_config
-from .start_workflow import start_temporal_workflow
 from .storage import PipelineStore
 from .utils import utc_now_iso
-from .temporal_config import find_temporal_cli, get_temporal_workflow_status, temporal_server_is_reachable
-from .temporal_types import TemporalStartResult
 
 TERMINAL_STATUSES = {"completed", "failed", "waiting_login", "waiting_review", "blocked_runtime"}
-TEMPORAL_UI_URL = "http://localhost:8233"
 FRESH_REUSE_WINDOW_SECONDS = 120.0
 
 
@@ -33,122 +29,8 @@ def _open_log(path: Path):
     return path.open("w", encoding="utf-8")
 
 
-def _spawn_temporal_server(root: str | None = None) -> subprocess.Popen[str]:
-    temporal_cli = find_temporal_cli()
-    if not temporal_cli:
-        raise RuntimeError(
-            "Temporal CLI not found. Install it or set TEMPORAL_CLI_PATH to temporal.exe."
-        )
-
-    log_dir = _runner_log_dir(root)
-    stdout_handle = _open_log(log_dir / "temporal-server.stdout.log")
-    stderr_handle = _open_log(log_dir / "temporal-server.stderr.log")
-    process = subprocess.Popen(
-        [temporal_cli, "server", "start-dev", "--db-filename", "temporal.db"],
-        cwd=str(Path.cwd()),
-        stdout=stdout_handle,
-        stderr=stderr_handle,
-        text=True,
-        creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) if os.name == "nt" else 0,
-        start_new_session=os.name != "nt",
-    )
-    process._stdout_handle = stdout_handle  # type: ignore[attr-defined]
-    process._stderr_handle = stderr_handle  # type: ignore[attr-defined]
-    return process
-
-
-def _spawn_worker(root: str | None = None) -> subprocess.Popen[str]:
-    log_dir = _runner_log_dir(root)
-    stdout_handle = _open_log(log_dir / "temporal-worker.stdout.log")
-    stderr_handle = _open_log(log_dir / "temporal-worker.stderr.log")
-    process = subprocess.Popen(
-        [sys.executable, "-m", "pipeline.temporal_worker"],
-        cwd=str(Path.cwd()),
-        stdout=stdout_handle,
-        stderr=stderr_handle,
-        text=True,
-        env=os.environ.copy(),
-        creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0) if os.name == "nt" else 0,
-        start_new_session=os.name != "nt",
-    )
-    process._stdout_handle = stdout_handle  # type: ignore[attr-defined]
-    process._stderr_handle = stderr_handle  # type: ignore[attr-defined]
-    return process
-
-
-def _close_process_logs(process: subprocess.Popen[str]) -> None:
-    for attribute_name in ("_stdout_handle", "_stderr_handle"):
-        handle = getattr(process, attribute_name, None)
-        if handle is not None:
-            try:
-                handle.close()
-            except OSError:
-                pass
-
-
-def _stop_process(process: subprocess.Popen[str]) -> None:
-    if process.poll() is not None:
-        _close_process_logs(process)
-        return
-    try:
-        if os.name == "nt":
-            subprocess.run(
-                ["taskkill", "/PID", str(process.pid), "/T", "/F"],
-                capture_output=True,
-                text=True,
-                check=False,
-            )
-        else:
-            process.terminate()
-    except OSError:
-        pass
-    try:
-        process.wait(timeout=10)
-    except subprocess.TimeoutExpired:
-        try:
-            process.kill()
-        except OSError:
-            pass
-    _close_process_logs(process)
-
-
-def _wait_for_temporal_server(
-    process: subprocess.Popen[str] | None,
-    *,
-    timeout_seconds: float = 30.0,
-) -> None:
-    deadline = time.monotonic() + timeout_seconds
-    while time.monotonic() < deadline:
-        if temporal_server_is_reachable():
-            return
-        if process is not None and process.poll() is not None:
-            raise RuntimeError(
-                "Temporal dev server exited before it became ready. "
-                "Check pipeline/logs/launcher/temporal-server.stderr.log."
-            )
-        time.sleep(1)
-    raise RuntimeError("Temporal dev server did not become ready on localhost:7233.")
-
-
-def _wait_for_worker_start(process: subprocess.Popen[str], *, timeout_seconds: float = 10.0) -> None:
-    deadline = time.monotonic() + timeout_seconds
-    while time.monotonic() < deadline:
-        if process.poll() is not None:
-            raise RuntimeError(
-                "Temporal worker exited during startup. "
-                "Check pipeline/logs/launcher/temporal-worker.stderr.log."
-            )
-        time.sleep(0.5)
-
-
-def _resolve_auto_start(config_path: str | None) -> bool:
-    try:
-        return load_automation_config(config_path).temporal_auto_start
-    except AutomationConfigError:
-        raw = os.environ.get("PIPELINE_TEMPORAL_AUTO_START", "").strip().lower()
-        if raw in {"0", "false", "no", "off"}:
-            return False
-        return True
+# Temporal logic removed for Direct Execution migration
+# Temporal logic removed for Direct Execution migration
 
 
 def _resolve_effective_fresh_mode(config_path: str | None, requested_fresh: bool) -> bool:
@@ -326,12 +208,7 @@ async def run_once(
         applied_path = Path(record.get("applied_csv_path") or "")
         print(f"APPLIED_CSV_EXISTS={str(applied_path.exists()).lower()}", flush=True)
 
-    # DIRECT EXECUTION MODE (Bypassing Temporal)
-    # The user wants direct execution for LinkedIn.
-    print("Running in DIRECT EXECUTION mode (bypassing Temporal)...", flush=True)
-    
-    owned_worker = None
-    owned_server = None
+    # DIRECT EXECUTION MODE
     try:
         from .stage_manager import PipelineStageManager
         manager = PipelineStageManager(store)
@@ -364,15 +241,12 @@ async def run_once(
             )
         return 1
     finally:
-        if owned_worker is not None:
-            _stop_process(owned_worker)
-        if owned_server is not None:
-            _close_process_logs(owned_server)
+        pass
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Run the Temporal-backed pipeline end-to-end from one terminal."
+        description="Run the Direct Execution pipeline end-to-end from one terminal."
     )
     parser.add_argument("--config", help="Optional config file to copy into the run folder.", default=None)
     parser.add_argument("--run-id", help="Optional explicit run id.", default=None)

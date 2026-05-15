@@ -164,24 +164,14 @@ def log_and_capture_error(
     raise error.with_traceback(error.__traceback__)
 
 
-def build_temporal_tags(
+def build_pipeline_tags(
     *,
-    workflow_id: str | None = None,
-    workflow_type: str | None = None,
-    task_queue: str | None = None,
-    activity_name: str | None = None,
-    attempt: int | None = None,
     run_id: str | None = None,
     stage: str | None = None,
     provider: str | None = None,
 ) -> dict[str, str]:
     tags: dict[str, str] = {}
     raw_values = {
-        "workflow_id": workflow_id,
-        "workflow_type": workflow_type,
-        "task_queue": task_queue,
-        "activity_name": activity_name,
-        "attempt": attempt,
         "run_id": run_id,
         "stage": stage,
         "provider": provider,
@@ -193,18 +183,3 @@ def build_temporal_tags(
         if text:
             tags[key] = text
     return tags
-
-
-def build_activity_context(payload: object) -> dict[str, object]:
-    run_id = getattr(payload, "run_id", None)
-    return {"run_id": str(run_id) if run_id else ""}
-
-
-def workflow_safe_capture_exception(error: BaseException, *, tags: Mapping[str, object] | None = None) -> None:
-    # Workflow-side reporting must remain passive. It should never affect workflow
-    # control flow or make Temporal decisions depend on Sentry availability.
-    capture_exception_with_context(
-        error,
-        message="workflow execution failed",
-        tags=tags,
-    )
