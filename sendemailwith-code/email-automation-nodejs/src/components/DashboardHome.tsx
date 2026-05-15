@@ -31,6 +31,7 @@ import type {
   EmailLog,
   ManualRecruiterEnrichmentResponse,
   PipelineArtifactSummary,
+  PipelineRunStatus,
   SendStatus,
   WorkflowDashboardPayload,
   WorkflowConfigPayload,
@@ -98,7 +99,7 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
   const statusRef = useRef(status);
   const logsRef = useRef(logs);
   const activeRunRef = useRef<WorkflowRunSummary | null>(null);
-  const syncedPipelineStatusRef = useRef<string | null>(null);
+  const syncedPipelineStatusRef = useRef<PipelineRunStatus | null>(null);
   const previousRunIdRef = useRef<string | null>(null);
 
   const enrichmentRef = useRef<HTMLDivElement | null>(null);
@@ -238,7 +239,7 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     return null;
   }, [activeRun]);
 
-  const buildPipelineNote = (nextStatus: 'waiting_review' | 'sending' | 'completed' | 'failed') => {
+  const buildPipelineNote = (nextStatus: PipelineRunStatus) => {
     const sent = logsRef.current.filter((log) => log.success).length;
     const failed = logsRef.current.filter((log) => !log.success).length;
     if (nextStatus === 'sending') {
@@ -253,7 +254,7 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     return `Returned to review state. sent=${sent} failed=${failed}`;
   };
 
-  const syncPipelineStatus = useEffectEvent(async (nextStatus: 'waiting_review' | 'sending' | 'completed' | 'failed') => {
+  const syncPipelineStatus = useEffectEvent(async (nextStatus: PipelineRunStatus) => {
     if (!activeRunRef.current) {
       return;
     }
@@ -282,7 +283,7 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
       return;
     }
 
-    let nextPipelineStatus: 'waiting_review' | 'sending' | 'completed' | 'failed' | null = null;
+    let nextPipelineStatus: PipelineRunStatus | null = null;
     if (status === 'sending') {
       nextPipelineStatus = 'sending';
     } else if (status === 'completed') {

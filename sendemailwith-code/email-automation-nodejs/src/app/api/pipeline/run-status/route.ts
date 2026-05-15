@@ -1,10 +1,10 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { writeSendReport, updatePipelineRunStatus } from '@/lib/pipeline';
-import type { EmailLog } from '@/types';
+import type { EmailLog, PipelineRunStatus } from '@/types';
 
 type RunStatusPayload = {
   runId?: string;
-  status?: 'waiting_review' | 'sending' | 'completed' | 'failed';
+  status?: PipelineRunStatus;
   note?: string;
   logs?: EmailLog[];
 };

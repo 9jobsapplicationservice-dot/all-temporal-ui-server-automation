@@ -1,3 +1,23 @@
+export type PipelineRunStatus =
+  | 'queued'
+  | 'starting'
+  | 'running'
+  | 'browser_launched'
+  | 'linkedin_loaded'
+  | 'applying'
+  | 'waiting_review'
+  | 'sending'
+  | 'completed'
+  | 'failed'
+  | 'cancelled'
+  | 'manual_review'
+  | 'waiting_login'
+  | 'linkedin_running'
+  | 'rocketreach_running'
+  | 'email_running'
+  | 'blocked_runtime'
+  | 'idle';
+
 export interface ContactRow {
   id?: string;
   email: string;
@@ -13,7 +33,7 @@ export interface ContactRow {
 
 export interface PipelineRunSummary {
   runId: string;
-  status: string;
+  status: PipelineRunStatus;
   updatedAt: string;
   runDir: string;
   recruitersCsvPath: string;
@@ -30,7 +50,7 @@ export interface PipelineRunSummary {
 
 export interface PipelineFailureSummary {
   runId: string;
-  status: string;
+  status: PipelineRunStatus;
   updatedAt: string;
   note?: string;
   lastError?: string;
@@ -127,6 +147,7 @@ export interface WorkflowPreviewData {
 
 export interface WorkflowAutomationSummary {
   auto_send?: boolean;
+  jobs_applied?: number;
   max_easy_apply?: number;
   send_delay_seconds?: number;
   sender_name?: string;
@@ -179,7 +200,7 @@ export type EditableLinkedInConfigUpdates = Record<string, Record<string, string
 
 export interface WorkflowRunSummary {
   runId: string;
-  status: string;
+  status: PipelineRunStatus;
   currentStage: WorkflowStageId;
   updatedAt: string;
   createdAt?: string;

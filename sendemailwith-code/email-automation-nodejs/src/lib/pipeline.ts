@@ -16,6 +16,7 @@ import type {
   EditableLinkedInConfigUpdates,
   PipelineArtifactSummary,
   PipelineFailureSummary,
+  PipelineRunStatus,
   PipelineRunSummary,
   RecruiterEnrichmentSummary,
   RecruiterPreviewRow,
@@ -31,7 +32,7 @@ import type {
 
 type PipelineManifest = {
   run_id: string;
-  status: string;
+  status: PipelineRunStatus;
   created_at?: string;
   updated_at: string;
   note?: string;
@@ -687,6 +688,11 @@ async function readManifestByRunId(runId: string): Promise<PipelineManifest> {
   return manifest;
 }
 
+async function writeManifest(runId: string, manifest: PipelineManifest): Promise<void> {
+  const manifestPath = path.join(META_ROOT, `${runId}.json`);
+  await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+}
+
 function assertWithinPipelineRoot(targetPath: string): string {
   const resolved = path.resolve(targetPath);
   const pipelineRootWithSep = `${path.resolve(PIPELINE_ROOT)}${path.sep}`;
@@ -831,7 +837,7 @@ export async function writeSendReport(runId: string, logs: EmailLog[]): Promise<
   return manifest.paths.send_report_csv;
 }
 
-export function updatePipelineRunStatus(runId: string, status: 'queued' | 'starting' | 'running' | 'browser_launched' | 'linkedin_loaded' | 'applying' | 'completed' | 'failed', note: string): void {
+export function updatePipelineRunStatus(runId: string, status: PipelineRunStatus, note: string): void {
   const result = spawnSync(
     PYTHON_BIN,
     ['-m', 'pipeline.mark_status', '--run-id', runId, '--status', status, '--note', note],
@@ -1014,7 +1020,7 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
 
       // Update Manifest with live status and latest log line
       try {
-        const manifest = await readManifest(runId);
+        const manifest = await readManifestByRunId(runId);
         if (manifest) {
           manifest.live_status = {
             ...(manifest.live_status || {}),
@@ -1037,7 +1043,7 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
     lastActivityAt = Date.now();
     try {
       await fs.appendFile(logFile, chunk);
-      const manifest = await readManifest(runId);
+      const manifest = await readManifestByRunId(runId);
       if (manifest) {
         manifest.live_status = {
           ...(manifest.live_status || {}),
