@@ -1,10 +1,12 @@
 ##> ------ Yang Li : MARKYangL - Feature ------
 from config.secrets import *
 from config.settings import showAiErrorAlerts
-from modules.helpers import print_lg, critical_error_log, convert_to_json
+from modules.helpers import print_lg, critical_error_log, convert_to_json, show_confirm, show_alert
+
 from modules.ai.prompts import *
 
-from pyautogui import confirm
+# from pyautogui import confirm
+
 from openai import OpenAI
 from openai.types.model import Model
 from openai.types.chat import ChatCompletion, ChatCompletionChunk
@@ -43,7 +45,8 @@ def deepseek_create_client() -> OpenAI | None:
         error_message = f"Error occurred while creating DeepSeek client. Make sure your API connection details are correct."
         critical_error_log(error_message, e)
         if showAiErrorAlerts:
-            if "Pause AI error alerts" == confirm(f"{error_message}\n{str(e)}", "DeepSeek Connection Error", ["Pause AI error alerts", "Okay Continue"]):
+            if "Pause AI error alerts" == show_confirm(f"{error_message}\n{str(e)}", "DeepSeek Connection Error", ["Pause AI error alerts", "Okay Continue"]):
+
                 showAiErrorAlerts = False
         return None
 

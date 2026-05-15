@@ -20,7 +20,11 @@ import os
 import csv
 import re
 import time
-import pyautogui
+try:
+    import pyautogui
+except Exception:
+    pyautogui = None
+
 import pathlib
 import importlib.util
 
@@ -56,7 +60,8 @@ if use_AI:
 from typing import Literal
 
 
-pyautogui.FAILSAFE = False
+if pyautogui: pyautogui.FAILSAFE = False
+
 # Dialog helpers come from modules.helpers and are pipeline-aware.
 # if use_resume_generator:    from resume_generator import is_logged_in_GPT, login_GPT, open_resume_chat, create_custom_resume
 
