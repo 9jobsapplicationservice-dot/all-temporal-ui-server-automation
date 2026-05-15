@@ -25,12 +25,20 @@ if [ "${PIPELINE_TEMPORAL_AUTO_START:-true}" = "true" ]; then
       >/tmp/temporal.log 2>&1 &
     
     # Wait for temporal to be ready
-    sleep 5
+    echo "Waiting for Temporal Server to listen on 7233..."
+    for i in $(seq 1 30); do
+      if nc -z localhost 7233 >/dev/null 2>&1; then
+        echo "Temporal Server is ready."
+        break
+      fi
+      sleep 1
+    done
   fi
 
   if ! pgrep -f "python3 -m pipeline.temporal_worker" >/dev/null 2>&1; then
     echo "Starting Temporal Worker..."
     python3 -m pipeline.temporal_worker >/tmp/temporal_worker.log 2>&1 &
+    echo "Temporal Worker started in background."
   fi
 fi
 

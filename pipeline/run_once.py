@@ -338,24 +338,56 @@ async def run_once(
         store = PipelineStore(root)
         previous_status: str | None = None
         previous_note: str | None = None
+        start_time = time.monotonic()
+        queued_timeout = 30.0 # 30 seconds to start or we fallback/fail
+        
         while True:
-            if owned_worker is not None and owned_worker.poll() is not None:
-                raise RuntimeError(
-                    "Temporal worker exited while the workflow was still running. "
-                    "Check pipeline/logs/launcher/temporal-worker.stderr.log."
-                )
-
             record = store.get_run(result.run_id)
+            status = str(record.get("status") or "")
             _print_status(record, previous_status, previous_note)
-            previous_status = str(record.get("status") or "")
+            previous_status = status
             previous_note = str(record.get("note") or "")
-            if previous_status in TERMINAL_STATUSES:
-                print(f"final_status={previous_status}")
+            
+            if status in TERMINAL_STATUSES:
+                print(f"final_status={status}")
                 if record.get("last_error"):
                     print(f"last_error={record['last_error']}")
                 for line in _final_artifact_lines(record):
                     print(line)
-                return 0 if previous_status in {"completed", "waiting_review"} else 1
+                return 0 if status in {"completed", "waiting_review"} else 1
+            
+            # Check for stuck queued state
+            if status == "queued" and (time.monotonic() - start_time) > queued_timeout:
+                print(f"Workflow stuck in queued state for >{queued_timeout}s. Falling back to direct execution...")
+                # Fallback: Run stage manager directly
+                try:
+                    from .stage_manager import PipelineStageManager
+                    manager = PipelineStageManager(store)
+                    manager.process_run(result.run_id)
+                    # Reset start time to allow the direct execution to proceed without immediately timing out again
+                    start_time = time.monotonic()
+                except Exception as e:
+                    print(f"Direct execution fallback failed: {e}")
+                    store.update_run(
+                        result.run_id,
+                        status="failed",
+                        note=f"Workflow stuck in queued state and direct fallback failed.",
+                        last_error=str(e),
+                        stage_finished_at=utc_now_iso()
+                    )
+                    return 1
+
+            if owned_worker is not None and owned_worker.poll() is not None:
+                # If the worker we started died, we should probably fallback to direct execution too
+                print("Local Temporal worker died. Attempting direct execution...")
+                try:
+                    from .stage_manager import PipelineStageManager
+                    manager = PipelineStageManager(store)
+                    manager.process_run(result.run_id)
+                except Exception as e:
+                    print(f"Direct execution fallback (after worker death) failed: {e}")
+                    return 1
+
             await asyncio.sleep(2)
     finally:
         if owned_worker is not None:

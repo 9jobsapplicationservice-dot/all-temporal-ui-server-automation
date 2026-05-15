@@ -116,6 +116,21 @@ function summarizeLastError(value: unknown): string {
     return '';
   }
 
+  // Common user-friendly mappings
+  const lowered = raw.toLowerCase();
+  if (lowered.includes('linkedin login was not confirmed') || lowered.includes('session was blocked') || lowered.includes('checkpoint')) {
+    return 'LinkedIn login session missing or verification required.';
+  }
+  if (lowered.includes('chrome startup needs manual recovery') || lowered.includes('chrome default profile crashed')) {
+    return 'Chrome failed to initialize properly. Profile may be locked or corrupted.';
+  }
+  if (lowered.includes('browser window closed') || lowered.includes('session became invalid')) {
+    return 'Automation stopped because the browser was closed or the session timed out.';
+  }
+  if (lowered.includes('no confirmed easy apply submissions')) {
+    return 'No jobs were successfully applied to (LinkedIn Easy Apply failed or no matches found).';
+  }
+
   const lines = raw
     .split(/\r?\n/)
     .map((line) => line.trim())
@@ -662,12 +677,13 @@ function resolveArtifactPath(manifest: PipelineManifest, artifactKey: PipelineAr
 export async function findWorkflowDashboard(limit = 8): Promise<WorkflowDashboardPayload> {
   try {
     const manifestPaths = await listManifestPaths();
-    const manifests = (await Promise.all(manifestPaths.map((manifestPath) => safeReadManifest(manifestPath))))
+    // Optimization: Only read and process the most recent 25 manifests to avoid 502 timeouts on Render
+    const manifests = (await Promise.all(manifestPaths.slice(0, 25).map((manifestPath) => safeReadManifest(manifestPath))))
       .filter((manifest): manifest is PipelineManifest => Boolean(manifest))
       .sort((left, right) => right.updated_at.localeCompare(left.updated_at));
 
     const latestFailure = manifests.find((manifest) => isActionableFailure(manifest)) ?? null;
-    const hydratedRuns = await Promise.all(manifests.slice(0, Math.max(limit, 1)).map((manifest) => hydrateWorkflowRun(manifest)));
+    const hydratedRuns = await Promise.all(manifests.slice(0, Math.min(limit, manifests.length)).map((manifest) => hydrateWorkflowRun(manifest)));
     const activeRun = hydratedRuns
       .slice()
       .sort((left, right) => {
@@ -695,7 +711,8 @@ export async function findWorkflowDashboard(limit = 8): Promise<WorkflowDashboar
 export async function findLatestPipelineRun(): Promise<LatestPipelinePayload> {
   try {
     const manifestPaths = await listManifestPaths();
-    const manifests = await Promise.all(manifestPaths.map((manifestPath) => safeReadManifest(manifestPath)));
+    // Optimization: Only scan the most recent 25 runs for the 'latest' actionable run
+    const manifests = await Promise.all(manifestPaths.slice(0, 25).map((manifestPath) => safeReadManifest(manifestPath)));
     const resolvedManifests = manifests.filter((manifest): manifest is PipelineManifest => Boolean(manifest));
     const latestFailure = resolvedManifests
       .filter((manifest) => isActionableFailure(manifest))

@@ -444,9 +444,12 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
         "PIPELINE_MAX_EASY_APPLY": configured_easy_apply_limit,
         "PIPELINE_RUN_IN_BACKGROUND": "true" if os.name != 'nt' else "false",
     }
-    if pipeline_enable_popups:
-        env[LINKEDIN_POPUPS_ENV_VAR] = pipeline_enable_popups
+    env_log_msg = f"[Pipeline] Launching LinkedIn automation. Run ID: {record['id']}, Mode: {env.get('PIPELINE_MODE')}"
+    print(env_log_msg)
+    
     command = [python_executable or resolve_linkedin_python_executable(), "pipeline_entry.py"]
+    print(f"[Pipeline] Command: {' '.join(command)}")
+    
     stdout_log = Path(record["linkedin_stdout_log"])
     stderr_log = Path(record["linkedin_stderr_log"])
     try:

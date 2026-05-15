@@ -19,15 +19,30 @@ from .temporal_workflow import AutomationPipelineWorkflow
 
 
 async def run_temporal_worker() -> None:
-    if not temporal_server_is_reachable():
-        address = temporal_address()
+    address = temporal_address()
+    print(f"Temporal worker starting. Target address: {address}")
+    
+    # Wait for server to be ready (retry loop)
+    max_retries = 30
+    retry_interval = 2
+    server_ready = False
+    
+    for i in range(max_retries):
+        if temporal_server_is_reachable():
+            server_ready = True
+            print("Temporal server is reachable.")
+            break
+        print(f"Waiting for Temporal server at {address}... (attempt {i+1}/{max_retries})")
+        await asyncio.sleep(retry_interval)
+        
+    if not server_ready:
         cli_hint = (
             "Run `temporal server start-dev --db-filename temporal.db` in another terminal first."
             if find_temporal_cli()
             else "Start the server with `python -m pipeline.run_once --config pipeline/automation.env`, which can auto-start the local Temporal dev server."
         )
         raise RuntimeError(
-            f"Temporal server is not reachable at {address}. "
+            f"Temporal server is not reachable at {address} after {max_retries * retry_interval}s. "
             f"{cli_hint}"
         )
     init_sentry()
