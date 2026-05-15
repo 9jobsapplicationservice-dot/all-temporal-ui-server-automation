@@ -25,6 +25,8 @@ try:
 except Exception:
     pyautogui = None
 
+import threading
+
 import pathlib
 import importlib.util
 
@@ -2684,7 +2686,18 @@ def run(total_runs: int) -> int:
 chatGPT_tab = False
 linkedIn_tab = False
 
+def heartbeat_thread():
+    while True:
+        try:
+            print_lg("Bot Heartbeat: Working...")
+        except:
+            pass
+        time.sleep(20)
+
 def main() -> dict[str, str | int | bool]:
+    h_thread = threading.Thread(target=heartbeat_thread, daemon=True)
+    h_thread.start()
+
     show_alert("Please consider sponsoring this project at:\n\nhttps://github.com/sponsors/GodsScion\n\n", "Support the project", "Okay")
     total_runs = 1
     session_end_reason = "Session ended."

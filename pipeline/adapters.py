@@ -442,6 +442,7 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
         "PIPELINE_SCREENSHOTS_DIR": str(Path(record["log_dir"]).parent / "screenshots"),
         "PIPELINE_RUN_NON_STOP": "false",
         "PIPELINE_MAX_EASY_APPLY": configured_easy_apply_limit,
+        "PIPELINE_RUN_IN_BACKGROUND": "true",
     }
     if pipeline_enable_popups:
         env[LINKEDIN_POPUPS_ENV_VAR] = pipeline_enable_popups

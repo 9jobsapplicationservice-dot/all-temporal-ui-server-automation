@@ -85,12 +85,12 @@ generated_resume_path = 'all resumes/'
 # >>>>>>>>>>> Global Settings <<<<<<<<<<<
 
 # Directory and name of the files where history of applied jobs is saved (Sentence after the last "/" will be considered as the file name).
-file_name = 'all excels/all_applied_applications_history.csv'
-recruiters_file_name = 'all excels/recruiters_enriched.csv'
-failed_file_name = 'all excels/all_failed_applications_history.csv'
-external_jobs_file_name = 'all excels/external_jobs.csv'
-logs_folder_path = 'logs/'
-screenshot_folder_path = ''
+file_name = _read_path_env("PIPELINE_APPLIED_CSV_PATH", 'all excels/all_applied_applications_history.csv')
+recruiters_file_name = _read_path_env("PIPELINE_RECRUITERS_CSV_PATH", 'all excels/recruiters_enriched.csv')
+failed_file_name = _read_path_env("PIPELINE_FAILED_CSV_PATH", 'all excels/all_failed_applications_history.csv')
+external_jobs_file_name = _read_path_env("PIPELINE_EXTERNAL_CSV_PATH", 'all excels/external_jobs.csv')
+logs_folder_path = _read_path_env("PIPELINE_LOGS_DIR", "logs/")
+screenshot_folder_path = _read_path_env("PIPELINE_SCREENSHOTS_DIR", "")
 
 # Set the maximum amount of time allowed to wait between each click in secs
 click_gap = 1
@@ -102,14 +102,13 @@ manual_pause_on_form = False
 manual_form_pacing = 2
 
 # If you want to see Chrome running then set run_in_background as False (May reduce performance).
-run_in_background = False
+run_in_background = _read_bool_env("PIPELINE_RUN_IN_BACKGROUND", False)
 
 # If you want to disable extensions then set disable_extensions as True (Better for performance)
 disable_extensions = False
 
 # Run in safe mode. Set this true if chrome is taking too long to open or if you have multiple profiles in browser. This will open chrome in guest profile!
-safe_mode = False                   # True or False, Note: True or False are case-sensitive
-safe_mode = False
+safe_mode = _read_bool_env("PIPELINE_LINKEDIN_SAFE_MODE", False)
 
 # Do you want scrolling to be smooth or instantaneous? (Can reduce performance if True)
 smooth_scroll = False
