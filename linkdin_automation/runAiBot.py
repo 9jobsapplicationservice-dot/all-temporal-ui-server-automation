@@ -573,9 +573,11 @@ def apply_to_target_job(job_link: str) -> None:
 
         modal, before_apply_screenshot_name = launch_easy_apply(job_id)
         if not modal:
-            print_lg(f'Target job "{title} | {company}" does not expose an Easy Apply button on the page. Skipping without crash.')
+            print_lg(f'Target job "{title} | {company}" does not expose an Easy Apply button on the page. Skipping.')
             skip_count += 1
             return
+        
+        print_lg(f"Easy Apply clicked for {title}. Starting application flow...")
 
         while True:
             next_counter += 1
@@ -640,6 +642,7 @@ def apply_to_target_job(job_link: str) -> None:
             if confirmed_easy_apply_submission(3.5):
                 date_applied = datetime.now()
                 application_submitted = True
+                print_lg(f"Application submitted successfully for {title} | {company}")
                 capture_application_screenshot(job_id, "After Submitted")
                 close_easy_apply_success_dialog()
         elif confirmed_easy_apply_submission(3.0):
@@ -2356,7 +2359,6 @@ def apply_to_jobs(search_terms: list[str]) -> None:
         driver.get(f"https://www.linkedin.com/jobs/search/?keywords={searchTerm}")
         print_lg("\n________________________________________________________________________________________________________________________\n")
         print_lg(f'\n>>>> Now searching for "{searchTerm}" <<<<\n\n')
-
         apply_filters()
 
         current_count = 0
@@ -2381,7 +2383,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                     while stale_retry < 2:
                         try:
                             job = find_job_card_by_id(listed_job_id)
-                            job_id,title,company,work_location,work_style,skip = get_job_main_details(job, blacklisted_companies, rejected_jobs)
+                            job_id, title, company, work_location, work_style, skip = get_job_main_details(job, blacklisted_companies, rejected_jobs)
                             break
                         except StaleElementReferenceException as e:
                             stale_retry += 1
@@ -2402,7 +2404,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                     except StaleElementReferenceException as e:
                         print_lg(f"Recoverable stale element while checking applied state for {job_id}. Continuing.", e)
                     except Exception:
-                        print_lg(f'Trying to Apply to "{title} | {company}" job. Job ID: {job_id}')
+                        print_lg(f'Job card opened: "{title} | {company}". Job ID: {job_id}')
 
                     application_link = "Easy Applied"
                     application_submitted = False
@@ -2410,16 +2412,16 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                     hr_link = ""
                     hr_name = ""
                     hr_position = ""
-                    connect_request = "In Development" # Still in development
+                    connect_request = "In Development"
                     date_listed = "Unknown"
-                    skills = "Needs an AI" # Still in development
+                    skills = "Needs an AI"
                     resume = "Pending"
                     reposted = False
                     questions_list = None
                     screenshot_name = "Not Available"
 
                     try:
-                        rejected_jobs, blacklisted_companies, jobs_top_card = check_blacklist(rejected_jobs,job_id,company,blacklisted_companies)
+                        rejected_jobs, blacklisted_companies, jobs_top_card = check_blacklist(rejected_jobs, job_id, company, blacklisted_companies)
                     except ValueError as e:
                         print_lg(e, 'Skipping this job!\n')
                         failed_job(job_id, job_link, resume, date_listed, "Found Blacklisted words in About Company", e, "Skipped", screenshot_name)
@@ -2443,15 +2445,12 @@ def apply_to_jobs(search_terms: list[str]) -> None:
 
                     try:
                         time_posted_text = jobs_top_card.find_element(By.XPATH, './/span[contains(normalize-space(), " ago")]').text
-                        print("Time Posted: " + time_posted_text)
-                        if time_posted_text.__contains__("Reposted"):
+                        if "Reposted" in time_posted_text:
                             reposted = True
                             time_posted_text = time_posted_text.replace("Reposted", "")
                         date_listed = calculate_date_posted(time_posted_text.strip())
-                    except StaleElementReferenceException as e:
-                        print_lg(f"Recoverable stale element while reading posted date for {job_id}.", e)
                     except Exception as e:
-                        print_lg("Failed to calculate the date posted!",e)
+                        print_lg("Failed to calculate the date posted!", e)
 
                     description, experience_required, skip, reason, message = get_job_description()
                     if skip:
@@ -2486,9 +2485,11 @@ def apply_to_jobs(search_terms: list[str]) -> None:
 
                             modal, before_apply_screenshot_name = launch_easy_apply(job_id)
                             if not modal:
-                                print_lg(f'Job "{title} | {company}" does not expose an Easy Apply button on the page. Skipping without crash.')
+                                print_lg(f'Job "{title} | {company}" does not expose an Easy Apply button on the page. Skipping.')
                                 skip_count += 1
                                 continue
+                            
+                            print_lg(f"Easy Apply clicked for {title}. Starting application flow...")
 
                             while True:
                                 next_counter += 1
@@ -2557,6 +2558,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                                 if confirmed_easy_apply_submission(3.5):
                                     date_applied = datetime.now()
                                     application_submitted = True
+                                    print_lg(f"Application submitted successfully for {title} | {company}")
                                     capture_application_screenshot(job_id, "After Submitted")
                                     close_easy_apply_success_dialog()
                             elif confirmed_easy_apply_submission(3.0):
@@ -2669,6 +2671,7 @@ def run(total_runs: int) -> int:
         apply_to_target_job(target_job_link.strip())
     else:
         print_lg(f"Currently looking for jobs posted within '{date_posted}' and sorting them by '{sort_by}'")
+        print_lg(f"Job search started for terms: {search_terms}")
         apply_to_jobs(search_terms)
     print_lg("########################################################################################################################\n")
     if target_job_link.strip():
@@ -2723,9 +2726,12 @@ def main() -> dict[str, str | int | bool]:
         options, driver, actions, wait = initializeChromeSession()
         tabs_count = len(driver.window_handles)
         driver.get("https://www.linkedin.com/login")
-        if not is_logged_in_LN() and not login_LN():
-            pipeline_failed = True
-            session_end_reason = "LinkedIn login was not confirmed. Complete manual login in Chrome and keep the browser window open."
+        print_lg("LinkedIn opened. Checking login session...")
+        if not is_logged_in_LN():
+            print_lg("LinkedIn login session missing. Attempting login...")
+            if not login_LN():
+                pipeline_failed = True
+                session_end_reason = "LinkedIn login was not confirmed. Complete manual login in Chrome and keep the browser window open."
             print_lg(session_end_reason)
             return {
                 "exit_code": 1,
@@ -2734,6 +2740,7 @@ def main() -> dict[str, str | int | bool]:
                 **build_stage_summary(total_runs),
             }
         
+        print_lg("Login detected. LinkedIn session is active and confirmed.")
         linkedIn_tab = driver.current_window_handle
 
         # # Login to ChatGPT in a new tab for resume customization

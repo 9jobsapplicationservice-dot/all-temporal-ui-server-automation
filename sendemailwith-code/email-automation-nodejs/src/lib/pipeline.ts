@@ -923,12 +923,20 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   }
   const runId = `run-ui-${randomUUID().replace(/-/g, '').slice(0, 12)}`;
   const resolvedConfigPath = assertConfigPathAllowed(configPath ?? await pickDefaultAutomationConfigPath());
+  
+  console.log(`[Pipeline] Initializing fresh run: ${runId}`);
   const args = ['-m', 'pipeline.run_once', '--fresh', '--run-id', runId];
   if (resolvedConfigPath) {
+    console.log(`[Pipeline] Using config: ${resolvedConfigPath}`);
     args.push('--config', resolvedConfigPath);
   }
+
+  console.log(`[Pipeline] Launching detached process: ${PYTHON_BIN} ${args.join(' ')}`);
   launchDetachedPythonCommand(args);
+  
+  console.log(`[Pipeline] Waiting for manifest visibility for ${runId}...`);
   const run = await waitForWorkflowRun(runId);
+  console.log(`[Pipeline] Run visible. Current status: ${run.status}`);
   return { runId, run };
 }
 

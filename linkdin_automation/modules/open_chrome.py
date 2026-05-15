@@ -159,6 +159,7 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         
         # Enhanced flags for Headless/Docker/Render
         options.add_argument('--no-sandbox')
+        options.add_argument('--disable-setuid-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument('--disable-software-rasterizer')
@@ -166,7 +167,7 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         run_id_num = sum(ord(c) for c in os.environ.get("PIPELINE_RUN_ID", "0")) % 1000
         debug_port = 9222 + run_id_num
         options.add_argument(f'--remote-debugging-port={debug_port}')
-        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--window-size=1365,768')
         options.add_argument('--no-first-run')
         options.add_argument('--no-default-browser-check')
         options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
