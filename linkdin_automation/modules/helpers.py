@@ -283,12 +283,14 @@ def print_lg(*msgs: str | dict, end: str = "\n", pretty: bool = False, flush: bo
 
     for raw_message in msgs:
         message_text = pformat(raw_message) if pretty else _stringify_message(raw_message)
-        _emit_console_line(message_text, end=message_end, flush=should_flush)
+        _emit_console_line(message_text, end=message_end, flush=should_flush or PIPELINE_MODE)
 
         try:
             _ensure_log_parent()
             with open(__logs_file_path, 'a+', encoding='utf-8') as file:
                 file.write(message_text + message_end)
+                if PIPELINE_MODE:
+                    file.flush()
         except Exception as error:
             if _is_log_lock_error(error):
                 _warn_log_file_locked_once(error, message_text, from_critical)
