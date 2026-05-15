@@ -53,7 +53,7 @@ def _run_command_for_version(command):
     return _parse_major_version(output)
 
 
-def _detect_windows_chrome_major_version():
+def _detect_chrome_major_version():
     env_override = os.getenv("CHROME_VERSION_MAIN")
     if env_override:
         override_version = _parse_major_version(env_override)
@@ -62,7 +62,21 @@ def _detect_windows_chrome_major_version():
             return override_version
         print_lg(f"Ignoring invalid CHROME_VERSION_MAIN value: {env_override}")
 
+    if os.name == 'posix':
+        linux_commands = [
+            ["google-chrome", "--version"],
+            ["chromium", "--version"],
+            ["chromium-browser", "--version"],
+        ]
+        for command in linux_commands:
+            version_main = _run_command_for_version(command)
+            if version_main is not None:
+                print_lg(f"Detected Linux Chrome major version {version_main}")
+                return version_main
+        return None
+
     commands_to_try = [
+
         [
             "reg",
             "query",
@@ -110,7 +124,7 @@ def _create_undetected_chrome(options):
     except Exception as error:
         raise RuntimeError("undetected_chromedriver is unavailable for this Python environment.") from error
     print_lg("Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!")
-    version_main = _detect_windows_chrome_major_version()
+    version_main = _detect_chrome_major_version()
     if version_main is None:
         return uc.Chrome(options=options)
     return uc.Chrome(options=options, version_main=version_main)

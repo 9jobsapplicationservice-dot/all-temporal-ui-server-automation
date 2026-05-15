@@ -37,6 +37,7 @@ RUN apt-get update \
       python3-pip \
       python3-venv \
       python3-tk \
+      python3-setuptools \
       libx11-6 \
       libxext6 \
       xvfb \

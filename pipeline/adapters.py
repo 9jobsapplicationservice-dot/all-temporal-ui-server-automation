@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import os
 import shutil
@@ -29,7 +29,7 @@ ROCKETREACH_PROJECT_ROOT = WORKSPACE_ROOT / "rocket_reach - testing"
 LINKEDIN_PYTHON_ENV_VAR = "PIPELINE_LINKEDIN_PYTHON"
 LINKEDIN_POPUPS_ENV_VAR = "PIPELINE_ENABLE_POPUPS"
 SUPPORTED_LINKEDIN_PYTHON_MIN = (3, 11)
-SUPPORTED_LINKEDIN_PYTHON_MAX_EXCLUSIVE = (3, 14)
+SUPPORTED_LINKEDIN_PYTHON_MAX_EXCLUSIVE = (3, 16)
 logger = logging.getLogger(__name__)
 
 
@@ -181,7 +181,7 @@ def _validate_linkedin_python_executable(executable: str, source: str) -> str:
             f"LinkedIn stage selected Python interpreter '{executable}' from {source}, "
             f"but Python {version[0]}.{version[1]} is incompatible with the current "
             "LinkedIn automation dependencies because undetected_chromedriver still imports "
-            f"distutils. Set {LINKEDIN_PYTHON_ENV_VAR} to a Python 3.11, 3.12, or 3.13 executable."
+            f"distutils. Set {LINKEDIN_PYTHON_ENV_VAR} to a Python 3.11 through 3.15 executable."
         )
     return executable
 

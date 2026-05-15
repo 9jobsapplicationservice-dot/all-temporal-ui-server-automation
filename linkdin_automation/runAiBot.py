@@ -1,4 +1,4 @@
-﻿'''
+'''
 Author:     Sai Vignesh Golla
 LinkedIn:   https://www.linkedin.com/in/saivigneshgolla/
 
@@ -1071,8 +1071,9 @@ def get_job_description(
             experience_required = "Error in extraction"
             print_lg("Unable to extract years of experience required!")
             # print_lg(e)
-    finally:
-        return jobDescription, experience_required, skip, skipReason, skipMessage
+
+    return jobDescription, experience_required, skip, skipReason, skipMessage
+
         
 
 

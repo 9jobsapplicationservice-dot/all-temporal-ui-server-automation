@@ -32,10 +32,10 @@ def _read_str_env(name: str, default: str) -> str:
 
 
 # Login Credentials for LinkedIn (Optional)
-username = 'simrankaur9jobs@gmail.com'
-password = 'Alok@123'
-linkedin_auto_login = True
-target_job_link = ''
+username = _read_str_env("PIPELINE_LINKEDIN_USERNAME", 'simrankaur9jobs@gmail.com')
+password = _read_str_env("PIPELINE_LINKEDIN_PASSWORD", 'Alok@123')
+linkedin_auto_login = _read_bool_env("PIPELINE_LINKEDIN_AUTO_LOGIN", True)
+target_job_link = _read_str_env("PIPELINE_TARGET_JOB_LINK", '')
 
 
 ## Artificial Intelligence (Beta Not-Recommended)
@@ -73,7 +73,7 @@ Note: Don't forget to add / at the end of your url. You may not need this if you
 '''
 
 # Your LLM API key or other AI API key 
-llm_api_key = ''
+llm_api_key = _read_str_env("GEMINI_API_KEY", '')
 '''
 Note: Leave it empty as "" or "not-needed" if not needed. Else will result in error!
 If you are using ollama, you MUST put "not-needed".
