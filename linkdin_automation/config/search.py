@@ -91,7 +91,7 @@ about_company_bad_words = ['Crossover']
 about_company_good_words = []
 
 # Avoid applying to these companies if they have these bad words in their 'Job Description' section...  (In development)
-bad_words = ['US Citizen', 'USA Citizen', 'No C2C', 'No Corp2Corp', '.NET', 'Embedded Programming', 'PHP', 'Ruby', 'CNC', 'Java Developer', 'React Developer', 'Frontend Developer', 'Full Stack Developer', 'Android', 'iOS']
+bad_words = ['US Citizen', 'USA Citizen', 'No C2C', 'No Corp2Corp', 'Embedded Programming', 'PHP', 'Ruby', 'CNC', 'Android', 'iOS']
 
 # Do you have an active Security Clearance? (True for Yes and False for No)
 security_clearance = False

@@ -93,13 +93,13 @@ logs_folder_path = _read_path_env("PIPELINE_LOGS_DIR", "logs/")
 screenshot_folder_path = _read_path_env("PIPELINE_SCREENSHOTS_DIR", "")
 
 # Set the maximum amount of time allowed to wait between each click in secs
-click_gap = 1
+click_gap = 0.4
 
 # Pause and wait for you when Easy Apply shows a custom form page that needs manual input.
 manual_pause_on_form = False
 
 # Additional pacing for Easy Apply steps to avoid very fast button clicks. 0 = off, 1 = light, 2 = moderate, 3 = slower
-manual_form_pacing = 2
+manual_form_pacing = 0
 
 # If you want to see Chrome running then set run_in_background as False (May reduce performance).
 run_in_background = _read_bool_env("PIPELINE_RUN_IN_BACKGROUND", False)
