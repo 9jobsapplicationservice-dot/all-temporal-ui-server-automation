@@ -298,6 +298,10 @@ async def run_once(
     root: str | None = None,
     fresh: bool = False,
 ) -> int:
+    print("SCRIPT_STARTED: pipeline.run_once", flush=True)
+    print(f"RUN_ID={run_id or 'unknown'}", flush=True)
+    print(f"CONFIG_PATH={config_path or 'default'}", flush=True)
+
     owned_server: subprocess.Popen[str] | None = None
     owned_worker: subprocess.Popen[str] | None = None
     auto_start = _resolve_auto_start(config_path)

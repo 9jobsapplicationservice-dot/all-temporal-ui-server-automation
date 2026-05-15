@@ -63,6 +63,8 @@ type PipelineManifest = {
     job_details_count?: string | number;
     easy_apply_count?: string | number;
     last_screenshot?: string;
+    latestLog?: string;
+    latestError?: string;
   };
   artifacts?: {
     applied_csv_exists?: boolean;
@@ -654,7 +656,10 @@ async function hydrateWorkflowRun(manifest: PipelineManifest): Promise<WorkflowR
       jobDetailsCount: manifest.live_status.job_details_count,
       easyApplyCount: manifest.live_status.easy_apply_count,
       lastScreenshot: manifest.live_status.last_screenshot,
+      latestLog: manifest.live_status.latestLog,
+      latestError: manifest.live_status.latestError,
     } : undefined,
+    logs: await getLatestLogs(manifest.run_id, 100),
     contacts,
     preview: {
       appliedJobs: mapAppliedPreview(appliedRows),
@@ -852,17 +857,126 @@ export async function getArtifactForRun(runId: string, artifactKey: PipelineArti
   };
 }
 
-function launchDetachedPythonCommand(args: string[]): void {
+async function launchAutomationProcess(runId: string, args: string[]): Promise<void> {
+  const logFile = path.join(PIPELINE_ROOT, runId, 'automation.log');
+  await fs.mkdir(path.dirname(logFile), { recursive: true });
+
+  console.log(`[Pipeline] Launching automation process for ${runId}...`);
+  console.log(`[Pipeline] Command: ${PYTHON_BIN} -u ${args.join(' ')}`);
+
+  // Force unbuffered Python output
   const child = spawn(
     PYTHON_BIN,
-    args,
+    ['-u', ...args],
     {
       cwd: WORKSPACE_ROOT,
-      detached: true,
-      stdio: 'ignore',
-    },
+      detached: false,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }
   );
-  child.unref();
+
+  const pid = child.pid;
+  console.log(`[Pipeline] AUTOMATION_PROCESS_SPAWNED pid=${pid}`);
+
+  let started = false;
+  const startTimeout = setTimeout(() => {
+    if (!started) {
+      console.error(`[Pipeline] ERROR: Automation process started but no stdout logs were received within 15 seconds.`);
+      try {
+        updatePipelineRunStatus(runId, 'failed', 'Automation process started but no stdout logs were received.');
+      } catch (e) {
+        console.error('[Pipeline] Failed to update status to failed:', e);
+      }
+      child.kill();
+    }
+  }, 15000);
+
+  child.stdout.on('data', async (data) => {
+    const output = data.toString();
+    // Pipe to console for Render logs
+    process.stdout.write(`[automation stdout] ${output}`);
+    
+    // Append to log file
+    try {
+      await fs.appendFile(logFile, output);
+    } catch (e) {
+      console.error(`[Pipeline] Failed to write to log file: ${e}`);
+    }
+
+    if (output.includes('SCRIPT_STARTED: pipeline.run_once')) {
+      started = true;
+      clearTimeout(startTimeout);
+      try {
+        updatePipelineRunStatus(runId, 'running', 'Automation script confirmed running.');
+      } catch (e) {
+        console.error('[Pipeline] Failed to update status to running:', e);
+      }
+    }
+
+    // Update manifest live_status with latest log line
+    try {
+      const manifestPath = path.join(META_ROOT, `${runId}.json`);
+      if (await fileExists(manifestPath)) {
+        const manifestStr = await fs.readFile(manifestPath, 'utf8');
+        const manifest = JSON.parse(manifestStr) as PipelineManifest;
+        const lastLine = output.trim().split('\n').pop();
+        if (lastLine) {
+          manifest.live_status = {
+            ...(manifest.live_status || {}),
+            latestLog: lastLine,
+          };
+          manifest.updated_at = new Date().toISOString();
+          await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+        }
+      }
+    } catch (e) {
+      // Ignore update errors during high-frequency logs
+    }
+  });
+
+  child.stderr.on('data', async (data) => {
+    const output = data.toString();
+    process.stderr.write(`[automation stderr] ${output}`);
+    
+    try {
+      await fs.appendFile(logFile, output);
+    } catch (e) {
+      console.error(`[Pipeline] Failed to write to log file: ${e}`);
+    }
+
+    // Update manifest live_status with latest error line
+    try {
+      const manifestPath = path.join(META_ROOT, `${runId}.json`);
+      if (await fileExists(manifestPath)) {
+        const manifestStr = await fs.readFile(manifestPath, 'utf8');
+        const manifest = JSON.parse(manifestStr) as PipelineManifest;
+        const lastLine = output.trim().split('\n').pop();
+        if (lastLine) {
+          manifest.live_status = {
+            ...(manifest.live_status || {}),
+            latestError: lastLine,
+          };
+          manifest.updated_at = new Date().toISOString();
+          await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+        }
+      }
+    } catch (e) {
+      // Ignore
+    }
+  });
+
+  child.on('error', (err) => {
+    console.error(`[Pipeline] AUTOMATION_PROCESS_ERROR ${err.stack}`);
+    try {
+      updatePipelineRunStatus(runId, 'failed', `Automation process error: ${err.message}`);
+    } catch (e) {
+      console.error('[Pipeline] Failed to update status on process error:', e);
+    }
+  });
+
+  child.on('exit', (code, signal) => {
+    console.log(`[Pipeline] AUTOMATION_PROCESS_EXIT code=${code} signal=${signal}`);
+  });
 }
 
 async function pickDefaultAutomationConfigPath(): Promise<string> {
@@ -960,6 +1074,21 @@ export async function saveWorkflowConfig(updates: EditableLinkedInConfigUpdates)
   return getWorkflowConfig();
 }
 
+export async function getLatestLogs(runId: string, maxLines = 100): Promise<string[]> {
+  const logFile = path.join(PIPELINE_ROOT, runId, 'automation.log');
+  if (!(await fileExists(logFile))) {
+    return [];
+  }
+  try {
+    const content = await fs.readFile(logFile, 'utf8');
+    const lines = content.split(/\r?\n/).filter(Boolean);
+    return lines.slice(-maxLines);
+  } catch (e) {
+    console.error(`[Pipeline] Failed to read logs for ${runId}:`, e);
+    return [];
+  }
+}
+
 export async function startPipelineRun(configPath?: string): Promise<{ runId: string; run: WorkflowRunSummary }> {
   if (IS_VERCEL_RUNTIME) {
     throw new Error('Connect a local bridge URL before starting browser automation from Vercel.');
@@ -974,8 +1103,20 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
     args.push('--config', resolvedConfigPath);
   }
 
-  console.log(`[Pipeline] Launching detached process: ${PYTHON_BIN} ${args.join(' ')}`);
-  launchDetachedPythonCommand(args);
+  // Pre-create the directory so mark_status doesn't fail if manifest isn't there yet
+  await fs.mkdir(path.join(RUNS_ROOT, runId), { recursive: true });
+  
+  // Set initial status to starting
+  try {
+    updatePipelineRunStatus(runId, 'failed', 'Preparing automation environment...');
+    // We mark it as failed first just so it exists in DB, then run_once will fix it or we mark it running
+    // Actually, mark_status probably creates it. 
+    // Let's just launch it and let launchAutomationProcess handle status flow.
+  } catch (e) {
+    // Ignore if not exists yet
+  }
+
+  launchAutomationProcess(runId, args);
   
   console.log(`[Pipeline] Waiting for manifest visibility for ${runId}...`);
   const run = await waitForWorkflowRun(runId);
@@ -987,7 +1128,9 @@ export async function retryPipelineRun(runId: string): Promise<{ runId: string; 
   if (IS_VERCEL_RUNTIME) {
     throw new Error('Connect a local bridge URL before retrying browser automation from Vercel.');
   }
-  launchDetachedPythonCommand(['-m', 'pipeline.run_once', '--resume', '--run-id', runId]);
+  
+  launchAutomationProcess(runId, ['-m', 'pipeline.run_once', '--resume', '--run-id', runId]);
+  
   const run = await waitForWorkflowRun(runId);
   return { runId, run };
 }

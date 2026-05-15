@@ -206,7 +206,10 @@ export interface WorkflowRunSummary {
     jobDetailsCount?: string | number;
     easyApplyCount?: string | number;
     lastScreenshot?: string;
+    latestLog?: string;
+    latestError?: string;
   };
+  logs?: string[];
   preview: WorkflowPreviewData;
 }
 
