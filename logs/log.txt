@@ -161,3 +161,210 @@ missing form
 Couldn't Login!
 Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
 Please login manually.
+Bot Heartbeat: Working...
+The variable "click_gap" in "config/settings.py" must be an Integer!
+Received "0.4" of type "<class 'float'>" instead!
+
+Solution:
+Please open "config/settings.py" and update "click_gap" to be an Integer.
+Example: `click_gap = 10`
+
+NOTE: Do NOT surround Integer values in quotes ("10")X !
+
+
+2026-05-15 10:54:19.234450
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Stopped because of an unexpected error.
+
+Keep up with the progress. You got this. - Sai Vignesh Golla
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}
+In Applier Main
+rking...
+The variable "click_gap" in "config/settings.py" must be an Integer!
+Received "0.4" of type "<class 'float'>" instead!
+
+Solution:
+Please open "config/settings.py" and update "click_gap" to be an Integer.
+Example: `click_gap = 10`
+
+NOTE: Do NOT surround Integer values in quotes ("10")X !
+
+
+2026-05-15 10:54:34.941656
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Stopped because of an unexpected error.
+
+The road to success and the road to failure are almost exactly the same. The difference is perseverance. - Colin R. Davis (Not a sponsor)
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}
+Screenshot directory: screenshots
+Bot Heartbeat: Working...
+Launching Chrome using stable Selenium Chrome with default profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Creating standard Selenium Chrome driver...
+Failed to create Chrome Session, trying next Chrome startup fallback
+Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6ac971e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6ac69e6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6ac3ed57d]
+	chromedriver!(No symbol) [0x7ff6ac42f1f7]
+	chromedriver!(No symbol) [0x7ff6ac42a2a9]
+	chromedriver!(No symbol) [0x7ff6ac47e0f1]
+	chromedriver!(No symbol) [0x7ff6ac47d956]
+	chromedriver!(No symbol) [0x7ff6ac439d58]
+	chromedriver!(No symbol) [0x7ff6ac43ac43]
+	chromedriver!GetHandleVerifier [0x7ff6ac99dab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6ac99802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6ac9bc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6ac6bb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6ac6c42bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6ac6a7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6ac6a80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6ac68bf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ff965927374+14]
+	ntdll!RtlUserThreadStart [0x7ff96793cc91+21]
+
+2026-05-15 10:55:05.926824
+Launching Chrome using stable Selenium Chrome with guest profile.
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Creating standard Selenium Chrome driver...
+Bot Heartbeat: Working...
+Bot Heartbeat: Working...
+Seems like login attempt failed! Possibly due to wrong credentials, captcha, 2FA, checkpoint, or an already-open LinkedIn session.
+In Applier Main
+Automatic LinkedIn login did not complete successfully. The login page/form was unavailable or the session was blocked by LinkedIn. Complete manual login in Chrome and keep the browser window open.
+2026-05-15 10:55:44.390567
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Total runs:                     1
+Jobs Applied:                   0
+External job links collected:   0
+                              ----------
+Total processed outcomes:       0
+
+Failed jobs:                    0
+Irrelevant jobs skipped:        0
+
+Automatic LinkedIn login did not complete successfully. The login page/form was unavailable or the session was blocked by LinkedIn. Complete manual login in Chrome and keep the browser window open.
+
+The road to success and the road to failure are almost exactly the same. The difference is perseverance. - Colin R. Davis (Not a sponsor)
+
+
+
+You can also get your quote and name shown here, or prioritize your bug reports by supporting the project at:
+
+https://github.com/sponsors/GodsScion
+
+
+Summary:
+Total runs: 1
+Jobs Applied: 0
+External job links collected: 0
+Total processed outcomes: 0
+Failed jobs: 0
+Irrelevant jobs skipped: 0
+
+
+
+Best regards,
+Sai Vignesh Golla
+https://www.linkedin.com/in/saivigneshgolla/
+
+Top Sponsors:
+Be the first to have your name here!
+Closing the browser...
+LinkedIn stage summary: {'jobs_applied': 0, 'external_links_logged': 0, 'rows_written_to_applied_csv': 0, 'rows_written_to_external_csv': 0, 'rows_missing_hr_profile': 0, 'failed_jobs': 0, 'skipped_jobs': 0, 'total_runs': 1, 'pipeline_mode': True}

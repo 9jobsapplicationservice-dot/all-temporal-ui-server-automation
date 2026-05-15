@@ -200,13 +200,13 @@ def show_alert(message=None, title="Info", button="OK", text=None):
     alert_title = _stringify_message(title)
     alert_button = _stringify_message(button or "OK")
 
-    if PIPELINE_MODE and not PIPELINE_ENABLE_POPUPS:
+    if PIPELINE_MODE:
         _emit_console_line(f"[PIPELINE ALERT SUPPRESSED] {alert_title}: {alert_message}")
         return alert_button
 
     try:
-        from pyautogui import alert as pyautogui_alert
-        return pyautogui_alert(alert_message, alert_title, alert_button)
+        import pyautogui
+        return pyautogui.alert(alert_message, alert_title, alert_button)
     except Exception as error:
         _emit_console_line(f"[ALERT FALLBACK] {alert_title}: {alert_message} | {error}")
         return alert_button
@@ -217,14 +217,14 @@ def show_confirm(message=None, title="Info", buttons=None, text=None):
     confirm_title = _stringify_message(title)
     confirm_buttons = _normalize_buttons(buttons)
 
-    if PIPELINE_MODE and not PIPELINE_ENABLE_POPUPS:
+    if PIPELINE_MODE:
         fallback_button = _pick_confirm_fallback(confirm_buttons)
         _emit_console_line(f"[PIPELINE CONFIRM SUPPRESSED] {confirm_title}: {confirm_message} -> {fallback_button}")
         return fallback_button
 
     try:
-        from pyautogui import confirm as pyautogui_confirm
-        return pyautogui_confirm(confirm_message, confirm_title, confirm_buttons)
+        import pyautogui
+        return pyautogui.confirm(confirm_message, confirm_title, confirm_buttons)
     except Exception as error:
         fallback_button = _pick_confirm_fallback(confirm_buttons)
         _emit_console_line(f"[CONFIRM FALLBACK] {confirm_title}: {confirm_message} | {error} -> {fallback_button}")

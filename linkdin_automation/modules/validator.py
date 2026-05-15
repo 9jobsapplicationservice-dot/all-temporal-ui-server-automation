@@ -26,6 +26,11 @@ def check_int(var: int, var_name: str, min_value: int=0) -> bool | TypeError | V
     if var < min_value: raise ValueError(f'The variable "{var_name}" in "{__validation_file_path}" expects an Integer greater than or equal to `{min_value}`! Received `{var}` instead!\n\nSolution:\nPlease open "{__validation_file_path}" and update "{var_name}" accordingly.')
     return True
 
+def check_number(var: int | float, var_name: str, min_value: int | float=0) -> bool | TypeError | ValueError:
+    if not isinstance(var, (int, float)): raise TypeError(f'The variable "{var_name}" in "{__validation_file_path}" must be a Number (Integer or Float)!\nReceived "{var}" of type "{type(var)}" instead!\n\nSolution:\nPlease open "{__validation_file_path}" and update "{var_name}" to be a Number.\nExample: `{var_name} = 1.5`\n\n')
+    if var < min_value: raise ValueError(f'The variable "{var_name}" in "{__validation_file_path}" expects a Number greater than or equal to `{min_value}`! Received `{var}` instead!\n\nSolution:\nPlease open "{__validation_file_path}" and update "{var_name}" accordingly.')
+    return True
+
 def check_boolean(var: bool, var_name: str) -> bool | ValueError:
     if var == True or var == False: return True
     raise ValueError(f'The variable "{var_name}" in "{__validation_file_path}" expects a Boolean input `True` or `False`, not "{var}" of type "{type(var)}" instead!\n\nSolution:\nPlease open "{__validation_file_path}" and update "{var_name}" to either `True` or `False` (case-sensitive, T and F must be CAPITAL/uppercase).\nExample: `{var_name} = True`\n\nNOTE: Do NOT surround Boolean values in quotes ("True")X !\n\n')
@@ -211,7 +216,7 @@ def validate_settings() -> None | ValueError | TypeError:
     check_string(failed_file_name, "failed_file_name", min_length=1)
     check_string(logs_folder_path, "logs_folder_path", min_length=1)
 
-    check_int(click_gap, "click_gap", 0)
+    check_number(click_gap, "click_gap", 0)
 
     check_boolean(run_in_background, "run_in_background")
     check_boolean(disable_extensions, "disable_extensions")
