@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -38,6 +38,7 @@ def build_manifest(record: dict) -> dict:
         },
         "note": record.get("note") or "",
         "last_error": record.get("last_error") or "",
+        "live_status": record.get("live_status", {}),
         "automation": load_automation_summary(record.get("config_path") or None),
         "paths": {
             "run_dir": record["run_dir"],

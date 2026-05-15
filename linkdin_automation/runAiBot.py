@@ -322,6 +322,79 @@ def is_logged_in_LN() -> bool:
     return True
 
 
+def check_linkedin_state(timeout: float = 60.0):
+    '''
+    Detects the current state of the LinkedIn page (login, checkpoint, search results).
+    '''
+    deadline = time.time() + timeout
+    print_lg(f"Checking LinkedIn page state... (timeout: {timeout}s)")
+    
+    last_status_log = 0
+    while time.time() < deadline:
+        current_url = driver.current_url or ""
+        page_title = driver.title or ""
+        
+        login_required = any(marker in current_url.lower() for marker in ("/login", "/uas/login"))
+        checkpoint_required = any(marker in current_url.lower() for marker in ("/checkpoint", "/challenge", "/captcha"))
+        
+        # Search results markers
+        job_cards = driver.find_elements(By.XPATH, "//li[@data-occludable-job-id]")
+        job_cards_count = len(job_cards)
+        
+        # Individual job page markers
+        job_details = driver.find_elements(By.CLASS_NAME, "jobs-details__main-content")
+        job_details_count = len(job_details)
+        
+        easy_apply_buttons = driver.find_elements(By.XPATH, "//button[contains(@aria-label, 'Easy Apply')]")
+        easy_apply_count = len(easy_apply_buttons)
+        
+        # Log status every 10 seconds or when state changes significantly
+        if time.time() - last_status_log > 10 or job_cards_count > 0 or job_details_count > 0:
+            print_lg(f"LINKEDIN_PAGE_LOADED | CURRENT_URL={current_url} | PAGE_TITLE={page_title}")
+            print_lg(f"LOGIN_REQUIRED={login_required} | CHECKPOINT_REQUIRED={checkpoint_required} | JOB_CARDS_FOUND={job_cards_count} | JOB_DETAILS_FOUND={job_details_count} | EASY_APPLY_BUTTONS_FOUND={easy_apply_count}")
+            last_status_log = time.time()
+
+        if login_required:
+            screenshot(driver, "login", "linkedin_loaded")
+            print_lg("LinkedIn session invalid or expired. Please refresh/upload LinkedIn cookies.")
+            return "login_required"
+            
+        if checkpoint_required:
+            screenshot(driver, "checkpoint", "linkedin_loaded")
+            print_lg("LinkedIn checkpoint or verification required.")
+            return "checkpoint_required"
+            
+        if job_cards_count > 0 or job_details_count > 0:
+            screenshot(driver, "jobs", "linkedin_loaded")
+            if easy_apply_count > 0:
+                return "ready"
+            return "ready_no_easy_apply"
+            
+        time.sleep(2)
+        
+    # Final check after timeout
+    screenshot(driver, "timeout", "linkedin_loaded")
+    if job_cards_count == 0 and job_details_count == 0:
+        # Log all visible buttons if no job cards found
+        buttons = driver.find_elements(By.TAG_NAME, "button")
+        button_texts = [b.text for b in buttons if b.text.strip()]
+        print_lg(f"Visible buttons: {button_texts}")
+        
+        # Save HTML snippet
+        try:
+            html_snippet = driver.page_source[:5000]
+            print_lg(f"Page HTML Snippet (truncated): {html_snippet}")
+        except Exception:
+            pass
+            
+        return "no_results"
+        
+    if easy_apply_count == 0:
+        return "ready_no_easy_apply"
+
+    return "timeout"
+
+
 def find_first_visible_login_element(selectors: list[tuple[str, str]], timeout: float = 12.0) -> WebElement:
     last_error: Exception | None = None
     deadline = time.time() + timeout
@@ -479,6 +552,16 @@ def navigate_to_target_job(job_link: str) -> None:
     if not is_valid_linkedin_job_link(job_link):
         raise ValueError(f"Invalid LinkedIn job link: {job_link}")
     driver.get(job_link)
+    state = check_linkedin_state(60.0)
+    if state == "login_required":
+        raise Exception("LinkedIn session invalid or expired. Please refresh/upload LinkedIn cookies.")
+    if state == "checkpoint_required":
+        raise Exception("LinkedIn checkpoint or verification required.")
+    if state == "no_results":
+        raise Exception("Job details not found. URL loaded but job content was not visible.")
+    if state == "timeout":
+        raise Exception("Timed out detecting LinkedIn page state.")
+        
     wait.until(lambda current_driver: "linkedin.com/jobs/view/" in (current_driver.current_url or "").lower())
     wait_for_transient_overlays_to_clear(4.0)
 
@@ -1681,6 +1764,7 @@ def screenshot(driver: WebDriver, job_id: str, failedAt: str) -> str:
     screenshot_name = build_serial_screenshot_name(screenshot_dir, job_id, failedAt)
     path = screenshot_dir / screenshot_name
     driver.save_screenshot(str(path))
+    print_lg(f"SCREENSHOT_PATH={path.absolute()}")
     return screenshot_name
 #>
 
@@ -2359,7 +2443,31 @@ def apply_to_jobs(search_terms: list[str]) -> None:
         driver.get(f"https://www.linkedin.com/jobs/search/?keywords={searchTerm}")
         print_lg("\n________________________________________________________________________________________________________________________\n")
         print_lg(f'\n>>>> Now searching for "{searchTerm}" <<<<\n\n')
+        state = check_linkedin_state(60.0)
+        if state == "login_required":
+            raise Exception("LinkedIn session invalid or expired. Please refresh/upload LinkedIn cookies.")
+        if state == "checkpoint_required":
+            raise Exception("LinkedIn checkpoint or verification required.")
+        if state == "no_results":
+            print_lg(f"No results found for {searchTerm}. Skipping to next search term.")
+            continue
+        if state == "timeout":
+             raise Exception("Timed out detecting LinkedIn page state.")
+
         apply_filters()
+        
+        # Check again after filters to ensure Easy Apply is present if requested
+        state = check_linkedin_state(20.0)
+        if state == "ready_no_easy_apply":
+             # log all visible button texts on the page
+             buttons = driver.find_elements(By.TAG_NAME, "button")
+             button_texts = [b.text for b in buttons if b.text.strip()]
+             print_lg(f"Visible buttons after filters: {button_texts}")
+             screenshot(driver, "no_easy_apply", "linkedin_loaded")
+             raise Exception("No Easy Apply jobs found for this search.")
+        if state == "no_results":
+             print_lg(f"No results found for {searchTerm} after filtering. Skipping.")
+             continue
 
         current_count = 0
         try:

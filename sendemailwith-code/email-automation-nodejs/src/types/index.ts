@@ -197,6 +197,16 @@ export interface WorkflowRunSummary {
   artifacts: PipelineArtifactSummary[];
   automation: WorkflowAutomationSummary | null;
   contacts: ContactRow[];
+  liveStatus?: {
+    currentUrl?: string;
+    pageTitle?: string;
+    loginRequired?: boolean;
+    checkpointRequired?: boolean;
+    jobCardsCount?: string | number;
+    jobDetailsCount?: string | number;
+    easyApplyCount?: string | number;
+    lastScreenshot?: string;
+  };
   preview: WorkflowPreviewData;
 }
 

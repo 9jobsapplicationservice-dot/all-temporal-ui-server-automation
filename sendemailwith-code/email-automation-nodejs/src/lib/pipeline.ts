@@ -54,6 +54,16 @@ type PipelineManifest = {
     rocketreach_stdout_log?: string;
     rocketreach_stderr_log?: string;
   };
+  live_status?: {
+    current_url?: string;
+    page_title?: string;
+    login_required?: boolean;
+    checkpoint_required?: boolean;
+    job_cards_count?: string | number;
+    job_details_count?: string | number;
+    easy_apply_count?: string | number;
+    last_screenshot?: string;
+  };
   artifacts?: {
     applied_csv_exists?: boolean;
     recruiters_csv_exists?: boolean;
@@ -126,6 +136,12 @@ function summarizeLastError(value: unknown): string {
   }
   if (lowered.includes('browser window closed') || lowered.includes('session became invalid')) {
     return 'Automation stopped because the browser was closed or the session timed out.';
+  }
+  if (lowered.includes('no easy apply jobs found for this search')) {
+    return 'No Easy Apply jobs found for the specified search terms.';
+  }
+  if (lowered.includes('no linkedin job cards found') || lowered.includes('job details not found')) {
+    return 'LinkedIn search returned no results or failed to load job listings.';
   }
   if (lowered.includes('no confirmed easy apply submissions')) {
     return 'No jobs were successfully applied to (LinkedIn Easy Apply failed or no matches found).';
@@ -629,6 +645,16 @@ async function hydrateWorkflowRun(manifest: PipelineManifest): Promise<WorkflowR
     counts,
     artifacts: buildArtifacts(manifest),
     automation: manifest.automation ?? null,
+    liveStatus: manifest.live_status ? {
+      currentUrl: manifest.live_status.current_url,
+      pageTitle: manifest.live_status.page_title,
+      loginRequired: manifest.live_status.login_required,
+      checkpointRequired: manifest.live_status.checkpoint_required,
+      jobCardsCount: manifest.live_status.job_cards_count,
+      jobDetailsCount: manifest.live_status.job_details_count,
+      easyApplyCount: manifest.live_status.easy_apply_count,
+      lastScreenshot: manifest.live_status.last_screenshot,
+    } : undefined,
     contacts,
     preview: {
       appliedJobs: mapAppliedPreview(appliedRows),

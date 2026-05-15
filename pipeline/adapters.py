@@ -18,6 +18,7 @@ from .constants import (
     ENRICHED_RECRUITER_HEADERS,
 )
 from .core.sentry_config import build_temporal_tags, capture_exception_with_context
+from .manifest import write_manifest
 from .utils import csv_has_expected_header, csv_row_count, read_last_json_object, read_log_tail, recruiter_sendable_row_count
 from .storage import PipelineStore
 from .enrichment import RetryableProviderError, enrich_contacts
@@ -339,7 +340,14 @@ def _new_process_group_kwargs() -> dict[str, object]:
     return {"start_new_session": True}
 
 
-def _run_subprocess(command: list[str], workdir: Path, stdout_log: Path, stderr_log: Path, env: dict[str, str] | None = None) -> SubprocessRunResult:
+def _run_subprocess(
+    command: list[str],
+    workdir: Path,
+    stdout_log: Path,
+    stderr_log: Path,
+    env: dict[str, str] | None = None,
+    record: dict | None = None,
+) -> SubprocessRunResult:
     stdout_log.parent.mkdir(parents=True, exist_ok=True)
     stderr_log.parent.mkdir(parents=True, exist_ok=True)
     merged_env = os.environ.copy()
@@ -361,6 +369,7 @@ def _run_subprocess(command: list[str], workdir: Path, stdout_log: Path, stderr_
         )
         started_at = time.monotonic()
         last_activity_at = started_at
+        last_manifest_update = 0
 
         while True:
             return_code = process.poll()
@@ -375,6 +384,49 @@ def _run_subprocess(command: list[str], workdir: Path, stdout_log: Path, stderr_
                     last_activity_at = time.monotonic()
                 if stderr_mtime is not None and wall_now - stderr_mtime <= 2:
                     last_activity_at = time.monotonic()
+
+            # Parse live status from logs and update manifest periodically
+            if record and stdout_log.exists() and time.monotonic() - last_manifest_update > 2:
+                tail = read_log_tail(stdout_log, limit=30)
+                live_status = record.get("live_status", {})
+                updated = False
+                for line in (tail or "").splitlines():
+                    if "LINKEDIN_PAGE_LOADED" in line:
+                        parts = line.split("|")
+                        for p in parts:
+                            if "CURRENT_URL=" in p:
+                                live_status["current_url"] = p.split("=")[1].strip()
+                                updated = True
+                            if "PAGE_TITLE=" in p:
+                                live_status["page_title"] = p.split("=")[1].strip()
+                                updated = True
+                    if "LOGIN_REQUIRED=" in line or "CHECKPOINT_REQUIRED=" in line or "JOB_CARDS_FOUND=" in line:
+                        parts = line.split("|")
+                        for p in parts:
+                            p = p.strip()
+                            if "LOGIN_REQUIRED=" in p:
+                                live_status["login_required"] = "true" in p.lower()
+                                updated = True
+                            if "CHECKPOINT_REQUIRED=" in p:
+                                live_status["checkpoint_required"] = "true" in p.lower()
+                                updated = True
+                            if "JOB_CARDS_FOUND=" in p:
+                                live_status["job_cards_count"] = p.split("=")[1].strip()
+                                updated = True
+                            if "JOB_DETAILS_FOUND=" in p:
+                                live_status["job_details_count"] = p.split("=")[1].strip()
+                                updated = True
+                            if "EASY_APPLY_BUTTONS_FOUND=" in p:
+                                live_status["easy_apply_count"] = p.split("=")[1].strip()
+                                updated = True
+                    if "SCREENSHOT_PATH=" in line:
+                        live_status["last_screenshot"] = line.split("SCREENSHOT_PATH=")[1].strip()
+                        updated = True
+                
+                if updated:
+                    record["live_status"] = live_status
+                    write_manifest(record)
+                    last_manifest_update = time.monotonic()
 
             if return_code is not None:
                 completed = SubprocessRunResult(
@@ -459,6 +511,7 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
             stdout_log=stdout_log,
             stderr_log=stderr_log,
             env=env,
+            record=record,
         )
         command_error = None
     except StageError as error:
