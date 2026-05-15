@@ -359,12 +359,14 @@ class PipelineStore:
 
     def create_run(self, run_id: str | None = None, config_path: str | None = None, *, allow_active_conflict: bool = False) -> dict:
         created_run_id = run_id or f"run-{uuid.uuid4().hex[:12]}"
-        active_run = None if allow_active_conflict else self.get_active_live_run()
-        if active_run is not None:
-            raise RuntimeError(
-                "A pipeline run is already active. "
-                f"Finish or clear run {active_run['id']} before enqueueing another run."
-            )
+        # Allow multiple active runs to support concurrent users
+        # active_run = None if allow_active_conflict else self.get_active_live_run()
+        # if active_run is not None:
+        #     raise RuntimeError(
+        #         "A pipeline run is already active. "
+        #         f"Finish or clear run {active_run['id']} before enqueueing another run."
+        #     )
+
 
         config_name = self._normalized_config_name(created_run_id, config_path)
         run_paths = self.paths.for_run(created_run_id, config_name)

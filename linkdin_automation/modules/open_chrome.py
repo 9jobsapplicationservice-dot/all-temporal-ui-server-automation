@@ -17,6 +17,8 @@ version:    26.01.20.5.08
 import os
 import re
 import subprocess
+import pathlib
+import sys
 
 from modules.helpers import get_default_temp_profile, make_directories
 from config.settings import run_in_background, stealth_mode, disable_extensions, safe_mode, file_name, failed_file_name, logs_folder_path, screenshot_folder_path, generated_resume_path
@@ -76,7 +78,6 @@ def _detect_chrome_major_version():
         return None
 
     commands_to_try = [
-
         [
             "reg",
             "query",
@@ -146,39 +147,56 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
             raise RuntimeError("undetected_chromedriver is unavailable for this Python environment.") from error
     else:
         options = Options()
+    
     if os.name == 'posix':
         # Standard paths for Chromium on Render/Linux
+        found_binary = False
         for path in ['/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome']:
             if os.path.exists(path):
                 options.binary_location = path
+                found_binary = True
                 break
+        
+        # Enhanced flags for Headless/Docker/Render
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
+        options.add_argument('--disable-software-rasterizer')
+        # Use a run-specific debugging port to allow concurrent runs
+        run_id_num = sum(ord(c) for c in os.environ.get("PIPELINE_RUN_ID", "0")) % 1000
+        debug_port = 9222 + run_id_num
+        options.add_argument(f'--remote-debugging-port={debug_port}')
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--no-first-run')
+        options.add_argument('--no-default-browser-check')
+        options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
     if run_in_background:   options.add_argument("--headless")
     if disable_extensions:  options.add_argument("--disable-extensions")
 
     print_lg("IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!")
+    
     profile_dir = find_default_profile_directory()
     if isRetry:
         print_lg("Will login with a guest profile, browsing history will not be saved in the browser!")
+        options.add_argument(f"--user-data-dir={get_default_temp_profile()}")
     elif profile_dir and not safe_mode:
         options.add_argument(f"--user-data-dir={profile_dir}")
     else:
         print_lg("Logging in with a guest profile, Web history will not be saved!")
         options.add_argument(f"--user-data-dir={get_default_temp_profile()}")
+        
     if use_stealth_mode:
         driver = _create_undetected_chrome(options)
     else:
         driver = webdriver.Chrome(options=options)
+        
     driver.maximize_window()
     wait = WebDriverWait(driver, 5)
     actions = ActionChains(driver)
     return options, driver, actions, wait
 
 options, driver, actions, wait = None, None, None, None
-
 
 def initializeChromeSession():
     global options, driver, actions, wait
@@ -228,5 +246,3 @@ def initializeChromeSession():
         critical_error_log("In Opening Chrome", last_error)
     show_alert(msg, "Error in opening chrome")
     raise RuntimeError(msg) from last_error
-
-    return options, driver, actions, wait

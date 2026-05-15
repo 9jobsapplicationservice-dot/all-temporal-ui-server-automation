@@ -1,4 +1,4 @@
-﻿'''
+'''
 Author:     Sai Vignesh Golla
 LinkedIn:   https://www.linkedin.com/in/saivigneshgolla/
 
@@ -58,13 +58,15 @@ def make_directories(paths: list[str]) -> None:
 
 
 def get_default_temp_profile() -> str:
-    # Thanks to https://github.com/vinodbavage31 for suggestion!
+    # Use PIPELINE_RUN_ID to create a unique profile for each run to support multiple users
+    run_id = os.environ.get("PIPELINE_RUN_ID", "default")
     home = pathlib.Path.home()
     if sys.platform.startswith('win'):
-        return "C:\\temp\\auto-job-apply-profile"
+        return f"C:\\temp\\auto-job-apply-profile-{run_id}"
     elif sys.platform.startswith('linux'):
-        return str(home / ".auto-job-apply-profile")
-    return str(home / "Library" / "Application Support" / "Google" / "Chrome" / "auto-job-apply-profile")
+        # On Linux/Render, use /tmp for faster access and to avoid disk quota issues
+        return f"/tmp/auto-job-apply-profile-{run_id}"
+    return str(home / "Library" / "Application Support" / "Google" / "Chrome" / f"auto-job-apply-profile-{run_id}")
 
 
 def find_default_profile_directory() -> str | None:
