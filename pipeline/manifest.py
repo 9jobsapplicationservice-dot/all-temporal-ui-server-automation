@@ -144,6 +144,9 @@ def build_manifest(record: dict) -> dict:
             "rocketreach_stderr_log": record["rocketreach_stderr_log"],
         },
         "artifacts": {
+            "applied_csv": record.get("applied_csv_path"),
+            "recruiter_csv": record.get("recruiters_csv_path"),
+            "email_log_csv": record.get("send_report_path"),
             "applied_csv_exists": Path(record.get("applied_csv_path") or ".").exists() if record.get("applied_csv_path") else False,
             "external_jobs_csv_exists": Path(record.get("external_jobs_csv_path") or ".").exists() if record.get("external_jobs_csv_path") else False,
             "recruiters_csv_exists": Path(record.get("recruiters_csv_path") or ".").exists() if record.get("recruiters_csv_path") else False,

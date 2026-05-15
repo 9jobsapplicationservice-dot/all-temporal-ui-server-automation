@@ -745,14 +745,14 @@ export async function findWorkflowDashboard(limit = 8): Promise<WorkflowDashboar
       recentRuns: hydratedRuns,
       latestFailure: latestFailure ? summarizeFailure(latestFailure) : null,
       preview: {
-        applied_csv: activeRun?.preview.appliedJobs ?? [],
-        recruiter_csv: activeRun?.preview.recruiters ?? [],
-        email_logs: activeRun?.preview.emailLogs ?? []
+        applied_csv: activeRun?.preview?.appliedJobs ?? [],
+        recruiter_csv: activeRun?.preview?.recruiters ?? [],
+        email_logs: activeRun?.preview?.emailLogs ?? []
       },
       artifacts: {
-        applied_csv: activeRun?.artifacts.find(a => a.key === 'appliedCsv') ?? null,
-        recruiter_csv: activeRun?.artifacts.find(a => a.key === 'recruitersCsv') ?? null,
-        email_log_csv: activeRun?.artifacts.find(a => a.key === 'sendReportCsv') ?? null
+        applied_csv: activeRun?.artifacts?.find(a => a.key === 'appliedCsv') ?? null,
+        recruiter_csv: activeRun?.artifacts?.find(a => a.key === 'recruitersCsv') ?? null,
+        email_log_csv: activeRun?.artifacts?.find(a => a.key === 'sendReportCsv') ?? null
       }
     };
   } catch (e) {

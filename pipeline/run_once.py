@@ -320,6 +320,12 @@ async def run_once(
             store.create_run(run_id=run_id, config_path=config_path, allow_active_conflict=True)
             print("MANIFEST_LOADED=true", flush=True)
 
+    # Render Startup Check
+    if run_id:
+        record = store.get_run(run_id)
+        applied_path = Path(record.get("applied_csv_path") or "")
+        print(f"APPLIED_CSV_EXISTS={str(applied_path.exists()).lower()}", flush=True)
+
     # DIRECT EXECUTION MODE (Bypassing Temporal)
     # The user wants direct execution for LinkedIn.
     print("Running in DIRECT EXECUTION mode (bypassing Temporal)...", flush=True)

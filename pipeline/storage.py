@@ -5,6 +5,7 @@ import sqlite3
 import uuid
 from pathlib import Path
 
+from .constants import APPLIED_JOBS_HEADERS, ENRICHED_RECRUITER_HEADERS
 from .manifest import write_manifest, safe_read_manifest, safe_write_manifest
 from .paths import PipelinePaths
 from .utils import recruiter_sendable_row_count, utc_now_iso
@@ -371,6 +372,20 @@ class PipelineStore:
         config_name = self._normalized_config_name(created_run_id, config_path)
         run_paths = self.paths.for_run(created_run_id, config_name)
         run_paths.ensure_directories()
+        
+        # Initialize empty CSV files with headers immediately
+        if not run_paths.applied_csv.exists():
+            run_paths.applied_csv.parent.mkdir(parents=True, exist_ok=True)
+            run_paths.applied_csv.write_text(",".join(APPLIED_JOBS_HEADERS) + "\n", encoding="utf-8")
+        if not run_paths.recruiters_csv.exists():
+            run_paths.recruiters_csv.parent.mkdir(parents=True, exist_ok=True)
+            run_paths.recruiters_csv.write_text(",".join(ENRICHED_RECRUITER_HEADERS) + "\n", encoding="utf-8")
+        if not run_paths.send_report_csv.exists():
+            run_paths.send_report_csv.parent.mkdir(parents=True, exist_ok=True)
+            # Default headers for send report if not in constants
+            send_report_headers = ["email", "company", "position", "status", "timestamp", "messageId"]
+            run_paths.send_report_csv.write_text(",".join(send_report_headers) + "\n", encoding="utf-8")
+
         self._reset_live_artifacts(run_paths)
 
         copied_config_path = self._copy_config(run_paths, config_path)
