@@ -234,10 +234,24 @@ export interface WorkflowRunSummary {
   preview: WorkflowPreviewData;
 }
 
+export interface DashboardArtifacts {
+  applied_csv: PipelineArtifactSummary | null;
+  recruiter_csv: PipelineArtifactSummary | null;
+  email_log_csv: PipelineArtifactSummary | null;
+}
+
+export interface DashboardPreview {
+  applied_csv: AppliedJobPreviewRow[];
+  recruiter_csv: RecruiterPreviewRow[];
+  email_logs: DeliveryLogPreviewRow[];
+}
+
 export interface WorkflowDashboardPayload {
   activeRun: WorkflowRunSummary | null;
   recentRuns: WorkflowRunSummary[];
   latestFailure: PipelineFailureSummary | null;
+  preview: DashboardPreview;
+  artifacts: DashboardArtifacts;
 }
 
 export type SendStatus = 'idle' | 'sending' | 'paused' | 'completed' | 'stopped';

@@ -744,12 +744,33 @@ export async function findWorkflowDashboard(limit = 8): Promise<WorkflowDashboar
       activeRun,
       recentRuns: hydratedRuns,
       latestFailure: latestFailure ? summarizeFailure(latestFailure) : null,
+      preview: {
+        applied_csv: activeRun?.preview.appliedJobs ?? [],
+        recruiter_csv: activeRun?.preview.recruiters ?? [],
+        email_logs: activeRun?.preview.emailLogs ?? []
+      },
+      artifacts: {
+        applied_csv: activeRun?.artifacts.find(a => a.key === 'appliedCsv') ?? null,
+        recruiter_csv: activeRun?.artifacts.find(a => a.key === 'recruitersCsv') ?? null,
+        email_log_csv: activeRun?.artifacts.find(a => a.key === 'sendReportCsv') ?? null
+      }
     };
-  } catch {
+  } catch (e) {
+    console.error('[Dashboard] Failed to load dashboard:', e);
     return {
       activeRun: null,
       recentRuns: [],
       latestFailure: null,
+      preview: {
+        applied_csv: [],
+        recruiter_csv: [],
+        email_logs: []
+      },
+      artifacts: {
+        applied_csv: null,
+        recruiter_csv: null,
+        email_log_csv: null
+      }
     };
   }
 }

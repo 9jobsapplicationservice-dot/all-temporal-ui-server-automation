@@ -5,7 +5,7 @@ import sqlite3
 import uuid
 from pathlib import Path
 
-from .manifest import write_manifest
+from .manifest import write_manifest, safe_read_manifest, safe_write_manifest
 from .paths import PipelinePaths
 from .utils import recruiter_sendable_row_count, utc_now_iso
 
@@ -437,8 +437,7 @@ class PipelineStore:
             # Check if manifest file exists as a fallback
             manifest_path = self.paths.meta_dir / f"{run_id}.json"
             if manifest_path.exists():
-                from .manifest import safe_read_manifest
-                manifest = safe_read_manifest(str(manifest_path))
+                manifest = safe_read_manifest(run_id)
                 if manifest:
                     return manifest
             raise KeyError(f"Run not found in database or meta: {run_id}")

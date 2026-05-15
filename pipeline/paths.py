@@ -74,7 +74,7 @@ class PipelinePaths:
         self.configs_dir.mkdir(parents=True, exist_ok=True)
 
     def for_run(self, run_id: str, config_name: str | None = None) -> RunPaths:
-        run_dir = self.runs_dir
+        run_dir = self.root / run_id
         csv_dir = run_dir / "csv"
         job_applied_dir = run_dir / "job_applied"
         external_dir = run_dir / "external"

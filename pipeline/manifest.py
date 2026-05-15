@@ -1,9 +1,95 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from .config import load_automation_summary
+
+
+def resolve_data_dir(data_dir: str | None = None) -> Path:
+    if data_dir:
+        return Path(data_dir).resolve()
+    
+    # Priority matches constants.py but as a standalone helper here
+    env_data = os.environ.get("PIPELINE_DATA_DIR", "").strip()
+    if env_data:
+        return Path(env_data).resolve()
+    
+    if os.path.exists("/app/data/pipeline"):
+        return Path("/app/data/pipeline")
+        
+    return Path(__file__).parent.parent.resolve()
+
+
+def safe_read_manifest(run_id: str, data_dir: str | None = None) -> dict:
+    root = resolve_data_dir(data_dir)
+    
+    # Try multiple possible locations for backward compatibility
+    candidates = [
+        root / run_id / "manifest.json",
+        root / "runs" / run_id / "manifest.json",
+        root / "meta" / f"{run_id}.json"
+    ]
+    
+    for path in candidates:
+        if path.exists():
+            try:
+                return json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+                
+    # Default safe manifest if none found
+    return {
+        "runId": run_id,
+        "run_id": run_id,
+        "status": "starting",
+        "stage": "linkedin",
+        "appliedRows": 0,
+        "recruiterRows": 0,
+        "readyToSend": 0,
+        "emailSent": 0,
+        "latestLog": "Manifest not found; default created.",
+        "error": None,
+        "artifacts": {
+            "applied_csv": None,
+            "recruiter_csv": None,
+            "email_log_csv": None,
+            "applied_csv_exists": False,
+            "external_jobs_csv_exists": False,
+            "recruiters_csv_exists": False,
+            "send_report_exists": False
+        },
+        "liveStatus": {},
+        "paths": {
+            "run_dir": str(root / run_id),
+            "manifest_json": str(root / run_id / "manifest.json"),
+            "applied_csv_path": str(root / run_id / "job_applied" / "applied_jobs.csv"),
+            "external_jobs_csv_path": str(root / run_id / "external" / "external_jobs.csv"),
+            "recruiters_csv_path": str(root / run_id / "rocket_enrich" / "recruiters_enriched.csv"),
+            "send_report_path": str(root / run_id / "reports" / f"{run_id}.csv"),
+            "log_dir": str(root / run_id / "logs"),
+            "linkedin_stdout_log": str(root / run_id / "logs" / "linkedin.stdout.log"),
+            "linkedin_stderr_log": str(root / run_id / "logs" / "linkedin.stderr.log"),
+            "rocketreach_stdout_log": str(root / run_id / "logs" / "rocketreach.stdout.log"),
+            "rocketreach_stderr_log": str(root / run_id / "logs" / "rocketreach.stderr.log"),
+        }
+    }
+
+
+def safe_write_manifest(run_id: str, manifest: dict, data_dir: str | None = None) -> None:
+    root = resolve_data_dir(data_dir)
+    manifest_path = root / run_id / "manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    temp_path = manifest_path.with_suffix(".tmp")
+    try:
+        temp_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        temp_path.replace(manifest_path)
+    except Exception as e:
+        if temp_path.exists():
+            temp_path.unlink()
+        raise e
 
 
 def build_manifest(record: dict) -> dict:
@@ -54,18 +140,15 @@ def build_manifest(record: dict) -> dict:
             "rocketreach_stderr_log": record["rocketreach_stderr_log"],
         },
         "artifacts": {
-            "applied_csv_exists": Path(record["applied_csv_path"]).exists(),
-            "external_jobs_csv_exists": Path(record["external_jobs_csv_path"]).exists(),
-            "recruiters_csv_exists": Path(record["recruiters_csv_path"]).exists(),
-            "send_report_exists": Path(record["send_report_path"]).exists(),
+            "applied_csv_exists": Path(record.get("applied_csv_path") or ".").exists() if record.get("applied_csv_path") else False,
+            "external_jobs_csv_exists": Path(record.get("external_jobs_csv_path") or ".").exists() if record.get("external_jobs_csv_path") else False,
+            "recruiters_csv_exists": Path(record.get("recruiters_csv_path") or ".").exists() if record.get("recruiters_csv_path") else False,
+            "send_report_exists": Path(record.get("send_report_path") or ".").exists() if record.get("send_report_path") else False,
         },
     }
 
 
 def write_manifest(record: dict) -> None:
-    manifest_path = Path(record["manifest_path"])
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    manifest_path.write_text(
-        json.dumps(build_manifest(record), indent=2),
-        encoding="utf-8",
-    )
+    manifest = build_manifest(record)
+    run_id = record.get("id") or manifest.get("run_id") or ""
+    safe_write_manifest(run_id, manifest)
