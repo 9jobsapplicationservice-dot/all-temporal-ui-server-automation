@@ -46,7 +46,7 @@ def _run_command_for_version(command):
             capture_output=True,
             text=True,
             check=False,
-            timeout=5,
+            timeout=2,
             shell=False,
         )
     except (OSError, subprocess.SubprocessError):
@@ -187,8 +187,10 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         options.add_argument(f"--user-data-dir={get_default_temp_profile()}")
         
     if use_stealth_mode:
+        print_lg("Creating undetected Chrome driver...")
         driver = _create_undetected_chrome(options)
     else:
+        print_lg("Creating standard Selenium Chrome driver...")
         driver = webdriver.Chrome(options=options)
         
     driver.maximize_window()
@@ -205,9 +207,10 @@ def initializeChromeSession():
         return options, driver, actions, wait
 
     prefer_stable = _should_prefer_stable_chrome()
+    is_windows_pipeline = (os.name == 'nt') and (os.environ.get("PIPELINE_MODE", "").strip().lower() in {"1", "true", "yes", "on"})
     attempt_order = (
         [(False, True), (True, True), (False, False), (True, False)]
-        if prefer_stable else
+        if (prefer_stable or is_windows_pipeline) else
         [(False, False), (True, False), (False, True), (True, True)]
     )
 
