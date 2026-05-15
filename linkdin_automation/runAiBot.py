@@ -2403,6 +2403,7 @@ def submitted_jobs(job_id: str, title: str, company: str, work_location: str, wo
             return False
         sync_recruiter_csv_after_application()
         rows_written_to_applied_csv += 1
+        print_lg(f"APPLICATION_SUBMITTED | APPLIED_COUNT={rows_written_to_applied_csv}")
         return True
     except PermissionError:
         warn_applied_csv_locked()
@@ -2834,6 +2835,7 @@ def main() -> dict[str, str | int | bool]:
         options, driver, actions, wait = initializeChromeSession()
         tabs_count = len(driver.window_handles)
         driver.get("https://www.linkedin.com/login")
+        print_lg("LinkedIn opened")
         print_lg("LinkedIn opened. Checking login session...")
         if not is_logged_in_LN():
             print_lg("LinkedIn login session missing. Attempting login...")

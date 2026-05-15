@@ -136,6 +136,7 @@ def _should_prefer_stable_chrome() -> bool:
 
 
 def createChromeSession(isRetry: bool = False, force_stable: bool = False):
+    print_lg("Browser launch started")
     make_directories([file_name,failed_file_name,screenshot_folder_path,default_resume_path,generated_resume_path+"/temp"])
     use_stealth_mode = stealth_mode and not force_stable
     # Set up WebDriver with Chrome Profile
@@ -197,6 +198,7 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
     driver.maximize_window()
     wait = WebDriverWait(driver, 5)
     actions = ActionChains(driver)
+    print_lg("Chrome is ready")
     return options, driver, actions, wait
 
 options, driver, actions, wait = None, None, None, None

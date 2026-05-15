@@ -831,7 +831,7 @@ export async function writeSendReport(runId: string, logs: EmailLog[]): Promise<
   return manifest.paths.send_report_csv;
 }
 
-export function updatePipelineRunStatus(runId: string, status: 'queued' | 'starting' | 'running' | 'waiting_review' | 'sending' | 'completed' | 'failed', note: string): void {
+export function updatePipelineRunStatus(runId: string, status: 'queued' | 'starting' | 'running' | 'browser_launched' | 'linkedin_loaded' | 'applying' | 'completed' | 'failed', note: string): void {
   const result = spawnSync(
     PYTHON_BIN,
     ['-m', 'pipeline.mark_status', '--run-id', runId, '--status', status, '--note', note],
@@ -899,103 +899,164 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
   console.log(`[Pipeline] AUTOMATION_PROCESS_SPAWNED pid=${pid}`);
 
   let started = false;
-  const startTimeout = setTimeout(() => {
-    if (!started) {
-      console.error(`[Pipeline] ERROR: Automation process started but no stdout logs were received within 15 seconds.`);
-      try {
-        updatePipelineRunStatus(runId, 'failed', 'Automation process started but no stdout logs were received.');
-      } catch (e) {
-        console.error('[Pipeline] Failed to update status to failed:', e);
-      }
-      child.kill();
+  let lastActivityAt = Date.now();
+  let currentStatus: any = 'starting';
+  let stdoutBuffer = '';
+
+  const STAGE_MATCHERS = [
+    { pattern: 'SCRIPT_STARTED: pipeline.run_once', status: 'running', note: 'Automation script confirmed running.' },
+    { pattern: 'Browser launch started', status: 'starting', note: 'Launching Chrome browser...' },
+    { pattern: 'Chrome is ready', status: 'browser_launched', note: 'Chrome browser is ready.' },
+    { pattern: 'LinkedIn opened', status: 'browser_launched', note: 'LinkedIn opened, checking session...' },
+    { pattern: 'LINKEDIN_PAGE_LOADED', status: 'linkedin_loaded', note: 'LinkedIn page loaded successfully.' },
+    { pattern: 'Now searching for', status: 'applying', note: 'Applying to jobs...' },
+    { pattern: 'Trying target job', status: 'applying', note: 'Applying to target job...' },
+    { pattern: 'APPLICATION_SUBMITTED', status: 'applying', note: 'Job application submitted successfully.' },
+    { pattern: 'LinkedIn stage summary', status: 'completed', note: 'LinkedIn automation finished.' },
+  ];
+
+  const checkTimeouts = setInterval(() => {
+    const now = Date.now();
+    const idleSeconds = (now - lastActivityAt) / 1000;
+
+    // Timeout: Stuck in starting (no logs at all)
+    if (!started && idleSeconds > 20) {
+       handleFailure('Automation failed to start within 20 seconds. Check Render logs for startup errors.');
     }
-  }, 15000);
+    // Timeout: Browser launch stuck
+    if (currentStatus === 'starting' && idleSeconds > 60) {
+       handleFailure('Browser launch timed out after 60 seconds.');
+    }
+    // Timeout: LinkedIn load stuck
+    if (currentStatus === 'browser_launched' && idleSeconds > 90) {
+       handleFailure('LinkedIn page failed to load within 90 seconds.');
+    }
+    // Global idle timeout: No progress
+    if (idleSeconds > 120) {
+       handleFailure('Automation stalled with no progress for 120 seconds.');
+    }
+  }, 5000);
+
+  function handleFailure(reason: string) {
+    clearInterval(checkTimeouts);
+    if (!child.killed) child.kill();
+    updatePipelineRunStatus(runId, 'failed', reason);
+  }
 
   child.stdout.on('data', async (data) => {
-    const output = data.toString();
-    // Pipe to console for Render logs
-    console.log('[automation stdout]', output);
-    
+    const chunk = data.toString();
+    stdoutBuffer += chunk;
+    lastActivityAt = Date.now();
+
     // Append to log file
     try {
-      await fs.appendFile(logFile, output);
-    } catch (e) {
-      console.error(`[Pipeline] Failed to write to log file: ${e}`);
-    }
+      await fs.appendFile(logFile, chunk);
+    } catch (e) { /* ignore */ }
 
-    if (output.includes('SCRIPT_STARTED: pipeline.run_once')) {
-      started = true;
-      clearTimeout(startTimeout);
-      try {
-        updatePipelineRunStatus(runId, 'running', 'Automation script confirmed running.');
-      } catch (e) {
-        console.error('[Pipeline] Failed to update status to running:', e);
-      }
-    }
+    // Process complete lines
+    const lines = stdoutBuffer.split(/\r?\n/);
+    stdoutBuffer = lines.pop() || '';
 
-    // Update manifest live_status with latest log line
-    try {
-      const manifestPath = path.join(META_ROOT, `${runId}.json`);
-      if (await fileExists(manifestPath)) {
-        const manifestStr = await fs.readFile(manifestPath, 'utf8');
-        const manifest = JSON.parse(manifestStr) as PipelineManifest;
-        const lastLine = output.trim().split('\n').pop();
-        if (lastLine) {
-          manifest.live_status = {
-            ...(manifest.live_status || {}),
-            latestLog: lastLine,
-          };
-          manifest.updated_at = new Date().toISOString();
-          await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+    for (const line of lines) {
+      console.log('[automation stdout]', line);
+
+      // Check for stage transitions
+      for (const matcher of STAGE_MATCHERS) {
+        if (line.includes(matcher.pattern)) {
+          if (matcher.status === 'running') started = true;
+          currentStatus = matcher.status;
+          try {
+            updatePipelineRunStatus(runId, matcher.status as any, matcher.note);
+          } catch (e) { /* ignore */ }
         }
       }
-    } catch (e) {
-      // Ignore update errors during high-frequency logs
+
+      // Live status updates from signals
+      const liveUpdate: any = {};
+      let hasUpdate = false;
+
+      if (line.includes('LINKEDIN_PAGE_LOADED')) {
+        const matchUrl = line.match(/CURRENT_URL=([^\s|]+)/);
+        const matchTitle = line.match(/PAGE_TITLE=([^|]+)/);
+        if (matchUrl) { liveUpdate.current_url = matchUrl[1]; hasUpdate = true; }
+        if (matchTitle) { liveUpdate.page_title = matchTitle[1].trim(); hasUpdate = true; }
+      }
+      if (line.includes('LOGIN_REQUIRED=')) {
+        liveUpdate.login_required = line.includes('LOGIN_REQUIRED=true');
+        hasUpdate = true;
+        if (liveUpdate.login_required) {
+           updatePipelineRunStatus(runId, 'failed', 'LinkedIn session invalid or expired. Please login/upload cookies.');
+        }
+      }
+      if (line.includes('CHECKPOINT_REQUIRED=')) {
+        liveUpdate.checkpoint_required = line.includes('CHECKPOINT_REQUIRED=true');
+        hasUpdate = true;
+      }
+      if (line.includes('JOB_CARDS_FOUND=')) {
+        const match = line.match(/JOB_CARDS_FOUND=(\d+)/);
+        if (match) { liveUpdate.job_cards_count = match[1]; hasUpdate = true; }
+      }
+      if (line.includes('EASY_APPLY_BUTTONS_FOUND=')) {
+        const match = line.match(/EASY_APPLY_BUTTONS_FOUND=(\d+)/);
+        if (match) { liveUpdate.easy_apply_count = match[1]; hasUpdate = true; }
+      }
+      if (line.includes('APPLIED_COUNT=')) {
+        const match = line.match(/APPLIED_COUNT=(\d+)/);
+        if (match) { liveUpdate.applied_count = match[1]; hasUpdate = true; }
+      }
+      if (line.includes('SCREENSHOT_PATH=')) {
+        const match = line.match(/SCREENSHOT_PATH=(.+)/);
+        if (match) { liveUpdate.last_screenshot = match[1].trim(); hasUpdate = true; }
+      }
+      if (line.includes('No Easy Apply jobs found')) {
+        updatePipelineRunStatus(runId, 'failed', 'No Easy Apply jobs found for this search.');
+      }
+
+      // Update Manifest with live status and latest log line
+      try {
+        const manifest = await readManifest(runId);
+        if (manifest) {
+          manifest.live_status = {
+            ...(manifest.live_status || {}),
+            ...liveUpdate,
+            latestLog: line
+          };
+          // Also sync applied count if found
+          if (liveUpdate.applied_count && manifest.automation) {
+            manifest.automation.jobs_applied = parseInt(liveUpdate.applied_count);
+          }
+          await writeManifest(runId, manifest);
+        }
+      } catch (e) { /* ignore */ }
     }
   });
 
   child.stderr.on('data', async (data) => {
-    const output = data.toString();
-    console.error('[automation stderr]', output);
-    
+    const chunk = data.toString();
+    console.error('[automation stderr]', chunk);
+    lastActivityAt = Date.now();
     try {
-      await fs.appendFile(logFile, output);
-    } catch (e) {
-      console.error(`[Pipeline] Failed to write to log file: ${e}`);
-    }
-
-    // Update manifest live_status with latest error line
-    try {
-      const manifestPath = path.join(META_ROOT, `${runId}.json`);
-      if (await fileExists(manifestPath)) {
-        const manifestStr = await fs.readFile(manifestPath, 'utf8');
-        const manifest = JSON.parse(manifestStr) as PipelineManifest;
-        const lastLine = output.trim().split('\n').pop();
-        if (lastLine) {
-          manifest.live_status = {
-            ...(manifest.live_status || {}),
-            latestError: lastLine,
-          };
-          manifest.updated_at = new Date().toISOString();
-          await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
-        }
+      await fs.appendFile(logFile, chunk);
+      const manifest = await readManifest(runId);
+      if (manifest) {
+        manifest.live_status = {
+          ...(manifest.live_status || {}),
+          latestError: chunk.trim().split('\n').pop() || ''
+        };
+        await writeManifest(runId, manifest);
       }
-    } catch (e) {
-      // Ignore
-    }
+    } catch (e) { /* ignore */ }
   });
 
   child.on('error', (err) => {
+    clearInterval(checkTimeouts);
     console.error(`[Pipeline] AUTOMATION_PROCESS_ERROR ${err.stack}`);
-    try {
-      updatePipelineRunStatus(runId, 'failed', `Automation process error: ${err.message}`);
-    } catch (e) {
-      console.error('[Pipeline] Failed to update status on process error:', e);
-    }
+    updatePipelineRunStatus(runId, 'failed', `Automation process error: ${err.message}`);
   });
 
-  child.on('exit', (code, signal) => {
-    console.log(`[Pipeline] AUTOMATION_PROCESS_EXIT code=${code} signal=${signal}`);
+  child.on('close', (code) => {
+    clearInterval(checkTimeouts);
+    console.log(`[Pipeline] AUTOMATION_PROCESS_EXIT code=${code}`);
   });
 }
 
