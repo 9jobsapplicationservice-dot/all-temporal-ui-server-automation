@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 
@@ -9,7 +9,7 @@ from .utils import utc_now_iso
 def main() -> None:
     parser = argparse.ArgumentParser(description="Update pipeline run status from external tooling.")
     parser.add_argument("--run-id", required=True, help="Pipeline run id.")
-    parser.add_argument("--status", required=True, choices=["waiting_review", "sending", "email_running", "completed", "failed"])
+    parser.add_argument("--status", required=True, choices=["queued", "running", "waiting_review", "sending", "email_running", "completed", "failed"])
     parser.add_argument("--note", default="", help="Optional status note.")
     parser.add_argument("--root", help="Optional pipeline root override.", default=None)
     parser.add_argument("--email-total", type=int, default=None)

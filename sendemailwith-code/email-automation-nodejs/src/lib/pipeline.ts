@@ -822,7 +822,7 @@ export async function writeSendReport(runId: string, logs: EmailLog[]): Promise<
   return manifest.paths.send_report_csv;
 }
 
-export function updatePipelineRunStatus(runId: string, status: 'waiting_review' | 'sending' | 'completed' | 'failed', note: string): void {
+export function updatePipelineRunStatus(runId: string, status: 'queued' | 'running' | 'waiting_review' | 'sending' | 'completed' | 'failed', note: string): void {
   const result = spawnSync(
     PYTHON_BIN,
     ['-m', 'pipeline.mark_status', '--run-id', runId, '--status', status, '--note', note],
@@ -861,17 +861,23 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
   const logFile = path.join(PIPELINE_ROOT, runId, 'automation.log');
   await fs.mkdir(path.dirname(logFile), { recursive: true });
 
-  console.log(`[Pipeline] Launching automation process for ${runId}...`);
-  console.log(`[Pipeline] Command: ${PYTHON_BIN} -u ${args.join(' ')}`);
+  console.log(`[Pipeline] Launching attached process with live stdout/stderr for ${runId}...`);
+  const bin = process.env.RENDER ? 'python3' : PYTHON_BIN;
+  const cwd = process.env.RENDER ? '/app' : WORKSPACE_ROOT;
+  console.log(`[Pipeline] Command: ${bin} -u ${args.join(' ')}`);
 
   // Force unbuffered Python output
   const child = spawn(
-    PYTHON_BIN,
+    bin,
     ['-u', ...args],
     {
-      cwd: WORKSPACE_ROOT,
+      cwd: cwd,
       detached: false,
       stdio: ['ignore', 'pipe', 'pipe'],
+      env: {
+        ...process.env,
+        PYTHONUNBUFFERED: '1',
+      },
     }
   );
 
@@ -894,7 +900,7 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
   child.stdout.on('data', async (data) => {
     const output = data.toString();
     // Pipe to console for Render logs
-    process.stdout.write(`[automation stdout] ${output}`);
+    console.log('[automation stdout]', output);
     
     // Append to log file
     try {
@@ -936,7 +942,7 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
 
   child.stderr.on('data', async (data) => {
     const output = data.toString();
-    process.stderr.write(`[automation stderr] ${output}`);
+    console.error('[automation stderr]', output);
     
     try {
       await fs.appendFile(logFile, output);
@@ -1106,9 +1112,9 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   // Pre-create the directory so mark_status doesn't fail if manifest isn't there yet
   await fs.mkdir(path.join(RUNS_ROOT, runId), { recursive: true });
   
-  // Set initial status to starting
+  // Set initial status to queued
   try {
-    updatePipelineRunStatus(runId, 'failed', 'Preparing automation environment...');
+    updatePipelineRunStatus(runId, 'queued', 'Preparing automation environment...');
     // We mark it as failed first just so it exists in DB, then run_once will fix it or we mark it running
     // Actually, mark_status probably creates it. 
     // Let's just launch it and let launchAutomationProcess handle status flow.
