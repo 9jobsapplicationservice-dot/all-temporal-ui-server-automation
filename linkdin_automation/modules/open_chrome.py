@@ -164,6 +164,7 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument('--disable-software-rasterizer')
+        options.add_argument('--disable-blink-features=AutomationControlled')
         # Use a run-specific debugging port to allow concurrent runs
         run_id_num = sum(ord(c) for c in os.environ.get("PIPELINE_RUN_ID", "0")) % 1000
         debug_port = 9222 + run_id_num
@@ -173,7 +174,12 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         options.add_argument('--no-default-browser-check')
         options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
-    if run_in_background:   options.add_argument("--headless")
+    if run_in_background or os.environ.get("RENDER"):
+        if os.name == 'posix':
+            options.add_argument("--headless=new")
+        else:
+            options.add_argument("--headless")
+    
     if disable_extensions:  options.add_argument("--disable-extensions")
 
     print_lg("IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!")

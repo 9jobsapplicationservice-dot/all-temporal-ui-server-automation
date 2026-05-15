@@ -300,108 +300,59 @@ async def run_once(
 ) -> int:
     print("SCRIPT_STARTED: pipeline.run_once", flush=True)
     print(f"RUN_ID={run_id or 'unknown'}", flush=True)
-    print(f"CONFIG_PATH={config_path or 'default'}", flush=True)
 
     # Storage Validation
     store = PipelineStore(root)
-    data_dir = store.paths.root
-    record_path = store.paths.meta_dir / f"{run_id}.json"
-    record_exists = record_path.exists()
+    data_dir = str(store.paths.root)
+    run_dir = str(store.paths.for_run(run_id or "unknown").run_dir)
     print(f"PIPELINE_DATA_DIR={data_dir}", flush=True)
-    print(f"RUN_RECORD_PATH={record_path}", flush=True)
-    print(f"RUN_RECORD_EXISTS={str(record_exists).lower()}", flush=True)
+    print(f"RUN_DIR={run_dir}", flush=True)
+    print(f"CONFIG_PATH={config_path or 'default'}", flush=True)
 
-    owned_server: subprocess.Popen[str] | None = None
-    owned_worker: subprocess.Popen[str] | None = None
-    auto_start = _resolve_auto_start(config_path)
-    effective_fresh = _resolve_effective_fresh_mode(config_path, fresh)
+    # Ensure run record exists before proceeding
+    if run_id:
+        try:
+            store.get_run(run_id)
+            print("RUN_RECORD_EXISTS=true", flush=True)
+        except KeyError:
+            print(f"RUN_RECORD_EXISTS=false. Creating run {run_id}...", flush=True)
+            store.create_run(run_id=run_id, config_path=config_path, allow_active_conflict=True)
 
+    # DIRECT EXECUTION MODE (Bypassing Temporal)
+    # The user wants direct execution for LinkedIn.
+    print("Running in DIRECT EXECUTION mode (bypassing Temporal)...", flush=True)
+    
     try:
-        if temporal_server_is_reachable():
-            print("Reusing Temporal dev server already running on localhost:7233.")
-        elif auto_start:
-            print("Starting local Temporal dev server...")
-            owned_server = _spawn_temporal_server(root)
-            _wait_for_temporal_server(owned_server)
-            print("Temporal dev server is ready.")
-        else:
-            raise RuntimeError(
-                "Temporal server is not reachable and PIPELINE_TEMPORAL_AUTO_START=false."
-            )
-        print(f"Temporal UI: {TEMPORAL_UI_URL}")
-
-        print("Starting Temporal worker...")
-        owned_worker = _spawn_worker(root)
-        _wait_for_worker_start(owned_worker)
-        print("Temporal worker is running.")
-
-        print("Starting workflow...")
-        result = await _start_or_attach_workflow(
-            store=PipelineStore(root),
-            run_id=run_id,
-            config_path=config_path,
-            root=root,
-            fresh=effective_fresh,
-        )
-        print(f"run_id={result.run_id}")
-        print(f"workflow_id={result.workflow_id}")
-        print(f"task_queue={result.task_queue}")
-        print(f"temporal_ui={TEMPORAL_UI_URL}")
-
-        store = PipelineStore(root)
-        previous_status: str | None = None
-        previous_note: str | None = None
-        start_time = time.monotonic()
-        queued_timeout = 30.0 # 30 seconds to start or we fallback/fail
+        from .stage_manager import PipelineStageManager
+        manager = PipelineStageManager(store)
         
-        while True:
-            record = store.get_run(result.run_id)
-            status = str(record.get("status") or "")
-            _print_status(record, previous_status, previous_note)
-            previous_status = status
-            previous_note = str(record.get("note") or "")
-            
-            if status in TERMINAL_STATUSES:
-                print(f"final_status={status}")
-                if record.get("last_error"):
-                    print(f"last_error={record['last_error']}")
-                for line in _final_artifact_lines(record):
-                    print(line)
-                return 0 if status in {"completed", "waiting_review"} else 1
-            
-            # Check for stuck queued state
-            if status == "queued" and (time.monotonic() - start_time) > queued_timeout:
-                print(f"Workflow stuck in queued state for >{queued_timeout}s. Falling back to direct execution...")
-                # Fallback: Run stage manager directly
-                try:
-                    from .stage_manager import PipelineStageManager
-                    manager = PipelineStageManager(store)
-                    manager.process_run(result.run_id)
-                    # Reset start time to allow the direct execution to proceed without immediately timing out again
-                    start_time = time.monotonic()
-                except Exception as e:
-                    print(f"Direct execution fallback failed: {e}")
-                    store.update_run(
-                        result.run_id,
-                        status="failed",
-                        note=f"Workflow stuck in queued state and direct fallback failed.",
-                        last_error=str(e),
-                        stage_finished_at=utc_now_iso()
-                    )
-                    return 1
+        # If fresh, reset artifacts
+        if fresh and run_id:
+            store.reset_fresh_artifacts_for_run(run_id)
 
-            if owned_worker is not None and owned_worker.poll() is not None:
-                # If the worker we started died, we should probably fallback to direct execution too
-                print("Local Temporal worker died. Attempting direct execution...")
-                try:
-                    from .stage_manager import PipelineStageManager
-                    manager = PipelineStageManager(store)
-                    manager.process_run(result.run_id)
-                except Exception as e:
-                    print(f"Direct execution fallback (after worker death) failed: {e}")
-                    return 1
-
-            await asyncio.sleep(2)
+        # Run the stage(s)
+        manager.process_run(run_id or "")
+        
+        # Final status check
+        record = store.get_run(run_id or "")
+        status = str(record.get("status") or "")
+        print(f"final_status={status}")
+        if record.get("last_error"):
+            print(f"last_error={record['last_error']}")
+        for line in _final_artifact_lines(record):
+            print(line)
+        return 0 if status in {"completed", "waiting_review"} else 1
+    except Exception as e:
+        print(f"Direct execution failed: {e}")
+        if run_id:
+            store.update_run(
+                run_id,
+                status="failed",
+                note=f"Direct execution failed.",
+                last_error=str(e),
+                stage_finished_at=utc_now_iso()
+            )
+        return 1
     finally:
         if owned_worker is not None:
             _stop_process(owned_worker)

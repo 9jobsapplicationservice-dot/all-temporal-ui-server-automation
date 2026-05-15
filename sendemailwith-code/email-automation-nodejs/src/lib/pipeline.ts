@@ -920,8 +920,8 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
     const idleSeconds = (now - lastActivityAt) / 1000;
 
     // Timeout: Stuck in starting (no logs at all)
-    if (!started && idleSeconds > 20) {
-       handleFailure('Automation failed to start within 20 seconds. Check Render logs for startup errors.');
+    if (!started && idleSeconds > 15) {
+       handleFailure('Automation failed to start within 15 seconds. Check Render logs for startup errors.');
     }
     // Timeout: Browser launch stuck
     if (currentStatus === 'starting' && idleSeconds > 60) {
@@ -1178,9 +1178,10 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   // 1. Concurrency Check: Prevent multiple overlapping runs
   try {
     const dashboard = await findWorkflowDashboard(10);
-    if (dashboard.activeRun && ['queued', 'starting', 'running', 'linkedin_running', 'rocketreach_running'].includes(dashboard.activeRun.status)) {
-       console.warn(`[Pipeline] BLOCKING START: A run is already active (${dashboard.activeRun.runId} status=${dashboard.activeRun.status})`);
-       throw new Error(`Automation is already running (ID: ${dashboard.activeRun.runId}). Please wait for it to finish or fail before starting a new one.`);
+    const active = dashboard.activeRun;
+    if (active && ['starting', 'running', 'linkedin_running', 'rocketreach_running', 'email_running', 'applying'].includes(active.status)) {
+       console.warn(`[Pipeline] BLOCKING START: A run is already active (${active.runId} status=${active.status})`);
+       throw new Error(`Automation already running (ID: ${active.runId}). Please wait for it to finish or use Reset.`);
     }
   } catch (e) {
     if (e instanceof Error && e.message.includes('already running')) throw e;
@@ -1193,43 +1194,64 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   console.log(`[Pipeline] Initializing fresh run: ${runId}`);
   const args = ['-m', 'pipeline.run_once', '--fresh', '--run-id', runId];
   if (resolvedConfigPath) {
-    console.log(`[Pipeline] Using config: ${resolvedConfigPath}`);
     args.push('--config', resolvedConfigPath);
   }
 
-  // 2. Pre-create the directory and RUN RECORD
-  await fs.mkdir(path.join(RUNS_ROOT, runId), { recursive: true });
+  // 2. Pre-create the directory and MANIFEST (Task 2)
+  const runDir = path.join(RUNS_ROOT, runId);
+  await fs.mkdir(runDir, { recursive: true });
   await fs.mkdir(META_ROOT, { recursive: true });
 
-  // Use mark_status to initialize the record - this ensures the DB has it
-  // Since we updated storage.py, this will create it if missing.
-  try {
-    updatePipelineRunStatus(runId, 'queued', 'Preparing automation environment...');
-  } catch (e) {
-    console.error('[Pipeline] Failed to initialize run record in DB:', e);
-  }
+  const manifest = {
+    runId,
+    status: 'starting',
+    stage: 'linkedin',
+    appliedRows: 0,
+    recruiterRows: 0,
+    readyToSend: 0,
+    emailSent: 0,
+    latestLog: 'Starting automation process...',
+    error: null,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  await fs.writeFile(path.join(META_ROOT, `${runId}.json`), JSON.stringify(manifest, null, 2));
 
-  // 3. Verify storage consistency
-  const recordPath = path.join(META_ROOT, `${runId}.json`);
-  const recordExists = await fileExists(recordPath);
-  console.log(`[Pipeline] RUN_RECORD_PATH=${recordPath}`);
-  console.log(`[Pipeline] RUN_RECORD_EXISTS=${recordExists}`);
-
-  if (!recordExists) {
-    console.error('[Pipeline] ERROR: Run record was not created successfully after initialization.');
-  }
-
-  // 4. Launch with 'starting' status
+  // Initialize in DB too via mark_status (Task 4)
   try {
     updatePipelineRunStatus(runId, 'starting', 'Spawning automation process...');
   } catch (e) { /* ignore */ }
 
+  // 3. Launch Process Attached (Task 5)
   launchAutomationProcess(runId, args);
   
-  console.log(`[Pipeline] Waiting for manifest visibility for ${runId}...`);
   const run = await waitForWorkflowRun(runId);
-  console.log(`[Pipeline] Run visible. Current status: ${run.status}`);
   return { runId, run };
+}
+
+export async function resetPipelineRun(): Promise<void> {
+  console.log('[Pipeline] Resetting pipeline environment...');
+  
+  // Kill active python processes
+  try {
+    if (process.platform === 'win32') {
+      spawnSync('taskkill', ['/F', '/IM', 'python.exe', '/T']);
+      spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/T']);
+    } else {
+      spawnSync('pkill', ['-f', 'pipeline.run_once']);
+      spawnSync('pkill', ['-f', 'chromium']);
+    }
+  } catch (e) {
+    console.error('[Pipeline] Error killing processes during reset:', e);
+  }
+
+  // Clear stale lock if any (e.g. mark running as failed)
+  try {
+    const dashboard = await findWorkflowDashboard(5);
+    if (dashboard.activeRun && ['starting', 'running', 'linkedin_running', 'rocketreach_running', 'email_running', 'applying'].includes(dashboard.activeRun.status)) {
+       updatePipelineRunStatus(dashboard.activeRun.runId, 'failed', 'Run cancelled via manual reset.');
+    }
+  } catch (e) { /* ignore */ }
 }
 
 export async function retryPipelineRun(runId: string): Promise<{ runId: string; run: WorkflowRunSummary }> {

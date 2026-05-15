@@ -1737,19 +1737,23 @@ def follow_company(modal: WebDriver = driver) -> None:
     
 
 
-#< Failed attempts logging
 def failed_job(job_id: str, job_link: str, resume: str, date_listed, error: str, exception: Exception, application_link: str, screenshot_name: str) -> None:
     '''
     Function to update failed jobs list in excel
     '''
     try:
+        if not screenshot_name or screenshot_name == "Not Available":
+             try:
+                 screenshot_name = screenshot(driver, job_id, "failure_state")
+             except: pass
+        
         with open(failed_file_name, 'a', newline='', encoding='utf-8') as file:
             fieldnames = ['Job ID', 'Job Link', 'Resume Tried', 'Date listed', 'Date Tried', 'Assumed Reason', 'Stack Trace', 'External Job link', 'Screenshot Name']
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             if file.tell() == 0: writer.writeheader()
             writer.writerow({'Job ID':truncate_for_csv(job_id), 'Job Link':truncate_for_csv(job_link), 'Resume Tried':truncate_for_csv(resume), 'Date listed':truncate_for_csv(date_listed), 'Date Tried':datetime.now(), 'Assumed Reason':truncate_for_csv(error), 'Stack Trace':truncate_for_csv(exception), 'External Job link':truncate_for_csv(application_link), 'Screenshot Name':truncate_for_csv(screenshot_name)})
             file.close()
-    except Exception as e:
+
         print_lg("Failed to update failed jobs list!", e)
         show_alert("Failed to update the excel of failed jobs!\nProbably because of 1 of the following reasons:\n1. The file is currently open or in use by another program\n2. Permission denied to write to the file\n3. Failed to find the file", "Failed Logging")
 
@@ -1771,11 +1775,13 @@ def screenshot(driver: WebDriver, job_id: str, failedAt: str) -> str:
 
 
 APPLIED_JOBS_FIELDNAMES = [
-    'Date',
-    'Company Name',
-    'Position',
-    'Job Link',
-    'Submitted',
+    'applied_at',
+    'company',
+    'job_title',
+    'job_url',
+    'status',
+    'reason',
+    'screenshot',
     'HR Name',
     'HR Position',
     'HR Profile Link',
@@ -1842,7 +1848,16 @@ def capture_application_screenshot(job_id: str, stage_label: str) -> str:
     Capture a non-fatal screenshot during the Easy Apply happy path.
     '''
     try:
-        return screenshot(driver, job_id, stage_label)
+        # Task 15: Map stage labels to required file names
+        name_map = {
+            "After Submitted": "05_application_submitted",
+            "Easy Apply Clicked": "04_easy_apply_clicked",
+            "LinkedIn Loaded": "02_linkedin_loaded",
+            "Job Search": "03_job_search_results",
+            "Browser Started": "01_browser_started"
+        }
+        filename = name_map.get(stage_label, stage_label)
+        return screenshot(driver, job_id, filename)
     except Exception as error:
         print_lg(f'Unable to capture "{stage_label}" screenshot for job {job_id}.', error)
         return ""
@@ -2390,11 +2405,13 @@ def submitted_jobs(job_id: str, title: str, company: str, work_location: str, wo
             rows_missing_hr_profile += 1
 
         saved = upsert_applied_job_row({
-            'Date': get_logged_at_value(date_applied),
-            'Company Name': clean_csv_text(company),
-            'Position': clean_csv_text(title),
-            'Job Link': clean_csv_text(job_link),
-            'Submitted': 'Applied',
+            'applied_at': get_logged_at_value(date_applied),
+            'company': clean_csv_text(company),
+            'job_title': clean_csv_text(title),
+            'job_url': clean_csv_text(job_link),
+            'status': 'Applied',
+            'reason': '',
+            'screenshot': clean_csv_text(screenshot_name),
             'HR Name': clean_csv_text(hr_name),
             'HR Position': clean_csv_text(hr_position),
             'HR Profile Link': clean_hr_link,
@@ -2442,13 +2459,37 @@ def apply_to_jobs(search_terms: list[str]) -> None:
     if randomize_search_order:  shuffle(search_terms)
     for searchTerm in search_terms:
         driver.get(f"https://www.linkedin.com/jobs/search/?keywords={searchTerm}")
+        print_lg(f"CURRENT_URL={driver.current_url}")
+        print_lg(f"PAGE_TITLE={driver.title}")
+        screenshot(driver, "03_job_search_results", "job_search_results")
+        
         print_lg("\n________________________________________________________________________________________________________________________\n")
         print_lg(f'\n>>>> Now searching for "{searchTerm}" <<<<\n\n')
         state = check_linkedin_state(60.0)
         if state == "login_required":
+            print_lg("LOGIN_REQUIRED=true")
             raise Exception("LinkedIn session invalid or expired. Please refresh/upload LinkedIn cookies.")
         if state == "checkpoint_required":
-            raise Exception("LinkedIn checkpoint or verification required.")
+            print_lg("CHECKPOINT_REQUIRED=true")
+            raise Exception("LinkedIn checkpoint/verification required. Please complete manual verification in Chrome.")
+        
+        # Count job cards and Easy Apply buttons visible
+        job_cards = driver.find_elements(By.CLASS_NAME, "job-card-container")
+        print_lg(f"JOB_CARDS_FOUND={len(job_cards)}")
+        
+        if len(job_cards) == 0:
+            screenshot(driver, "failure_no_jobs", "no_jobs_found")
+            print_lg("No LinkedIn job cards found.")
+            # We don't necessarily fail the whole run if one search term yields no results,
+            # but we log it clearly.
+            continue
+
+        easy_apply_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'jobs-apply-button') and contains(., 'Easy Apply')]")
+        print_lg(f"EASY_APPLY_BUTTONS_FOUND={len(easy_apply_buttons)}")
+        
+        if len(easy_apply_buttons) == 0:
+             print_lg("No Easy Apply buttons found on initial load. They might appear after clicking cards.")
+             
         if state == "no_results":
             print_lg(f"No results found for {searchTerm}. Skipping to next search term.")
             continue
@@ -2599,6 +2640,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                                 continue
                             
                             print_lg(f"Easy Apply clicked for {title}. Starting application flow...")
+                            screenshot(driver, "04_easy_apply_clicked", "easy_apply_clicked")
 
                             while True:
                                 next_counter += 1
@@ -2833,24 +2875,35 @@ def main() -> dict[str, str | int | bool]:
         
         # Login to LinkedIn
         options, driver, actions, wait = initializeChromeSession()
+        screenshot(driver, "01_browser_started", "browser_started")
         tabs_count = len(driver.window_handles)
         driver.get("https://www.linkedin.com/login")
         print_lg("LinkedIn opened")
-        print_lg("LinkedIn opened. Checking login session...")
-        if not is_logged_in_LN():
+        
+        # Validation Logs for Dashboard
+        print_lg(f"CURRENT_URL={driver.current_url}")
+        print_lg(f"PAGE_TITLE={driver.title}")
+        screenshot(driver, "02_linkedin_loaded", "linkedin_loaded")
+        
+        is_logged_in = is_logged_in_LN()
+        print_lg(f"LOGIN_REQUIRED={str(not is_logged_in).lower()}")
+        
+        if not is_logged_in:
             print_lg("LinkedIn login session missing. Attempting login...")
             if not login_LN():
                 pipeline_failed = True
-                session_end_reason = "LinkedIn login was not confirmed. Complete manual login in Chrome and keep the browser window open."
-            print_lg(session_end_reason)
-            return {
-                "exit_code": 1,
-                "session_end_reason": session_end_reason,
-                "unexpected_failure": True,
-                **build_stage_summary(total_runs),
-            }
+                session_end_reason = "LinkedIn session invalid or expired. Please login/upload cookies."
+                print_lg(session_end_reason)
+                print_lg("LOGIN_REQUIRED=true") # Explicit signal for Node.js
+                return {
+                    "exit_code": 1,
+                    "session_end_reason": session_end_reason,
+                    "unexpected_failure": True,
+                    **build_stage_summary(total_runs),
+                }
         
         print_lg("Login detected. LinkedIn session is active and confirmed.")
+        print_lg("LINKEDIN_PAGE_LOADED")
         linkedIn_tab = driver.current_window_handle
 
         # # Login to ChatGPT in a new tab for resume customization
