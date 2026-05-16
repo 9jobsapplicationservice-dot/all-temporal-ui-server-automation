@@ -2521,6 +2521,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                 # Find all job listings in current page
                 buffer(3)
                 page_job_ids = get_job_listing_ids()
+                print_lg(f"Found {len(page_job_ids)} job listings on Page {current_page}")
 
                 for listed_job_id in page_job_ids:
                     if keep_screen_awake: pyautogui.press('shiftright')
@@ -2857,6 +2858,7 @@ def main() -> dict[str, str | int | bool]:
     pipeline_failed = False
     try:
         global linkedIn_tab, tabs_count, useNewResume, aiClient, options, driver, actions, wait
+        print_lg(f"Starting LinkedIn Automation in PIPELINE_MODE={pipeline_mode}")
         alert_title = "Error Occurred. Closing Browser!"
         validate_config()
         ensure_applied_jobs_csv_schema()
