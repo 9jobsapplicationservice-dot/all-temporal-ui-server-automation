@@ -8,6 +8,7 @@ export DIRECT_EXECUTION_MODE="${DIRECT_EXECUTION_MODE:-true}"
 export PIPELINE_DATA_DIR="${PIPELINE_DATA_DIR:-/app/data/pipeline}"
 export DISPLAY="${DISPLAY:-:99}"
 export PORT="${PORT:-3000}"
+export PIPELINE_MODE=true
 
 mkdir -p "$PIPELINE_DATA_DIR" /app/data/chrome /tmp/chrome-profile
 

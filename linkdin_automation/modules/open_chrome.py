@@ -174,11 +174,15 @@ def createChromeSession(isRetry: bool = False, force_stable: bool = False):
         options.add_argument('--no-default-browser-check')
         options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
-    if run_in_background or os.environ.get("RENDER"):
+    if (run_in_background or os.environ.get("RENDER")) and not os.environ.get("DISPLAY"):
         if os.name == 'posix':
             options.add_argument("--headless=new")
         else:
             options.add_argument("--headless")
+    
+    # Force disable headless if DISPLAY is set (we want to use Xvfb)
+    if os.environ.get("DISPLAY"):
+        print_lg(f"DISPLAY={os.environ.get('DISPLAY')} detected. Running in Xvfb instead of headless mode.")
     
     if disable_extensions:  options.add_argument("--disable-extensions")
 
