@@ -921,6 +921,18 @@ class PipelineWorkerTests(unittest.TestCase):
             ['csv', 'external', 'job_applied', 'rocket_enrich'],
         )
 
+    def test_status_updates_rewrite_dashboard_manifest(self) -> None:
+        store = PipelineStore(self.root)
+        record = store.create_run(run_id='run-dashboard-sync')
+        manifest_path = Path(record['manifest_path'])
+
+        store.update_run(record['id'], status='linkedin_running', note='Running LinkedIn stage.')
+
+        manifest_text = manifest_path.read_text(encoding='utf-8')
+        self.assertIn('"status": "linkedin_running"', manifest_text)
+        self.assertIn('"note": "Running LinkedIn stage."', manifest_text)
+        self.assertFalse((self.root / record['id'] / 'manifest.json').exists())
+
     def test_create_run_reuses_single_live_folder_and_resets_artifacts(self) -> None:
         store = PipelineStore(self.root)
         first = store.create_run(run_id='run-first')

@@ -458,7 +458,7 @@ class PipelineStore:
             # Check if manifest file exists as a fallback
             manifest_path = self.paths.meta_dir / f"{run_id}.json"
             if manifest_path.exists():
-                manifest = safe_read_manifest(run_id)
+                manifest = safe_read_manifest(run_id, str(self.paths.root))
                 if manifest:
                     return manifest
             raise KeyError(f"Run not found in database or meta: {run_id}")

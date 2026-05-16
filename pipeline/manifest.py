@@ -27,9 +27,9 @@ def safe_read_manifest(run_id: str, data_dir: str | None = None) -> dict:
     
     # Try multiple possible locations for backward compatibility
     candidates = [
+        root / "meta" / f"{run_id}.json",
         root / run_id / "manifest.json",
-        root / "runs" / run_id / "manifest.json",
-        root / "meta" / f"{run_id}.json"
+        root / "runs" / run_id / "manifest.json"
     ]
     
     for path in candidates:
@@ -80,9 +80,13 @@ def safe_read_manifest(run_id: str, data_dir: str | None = None) -> dict:
 
 def safe_write_manifest(run_id: str, manifest: dict, data_dir: str | None = None) -> None:
     root = resolve_data_dir(data_dir)
-    manifest_path = root / run_id / "manifest.json"
+    manifest_path = root / "meta" / f"{run_id}.json"
+    write_manifest_file(manifest_path, manifest)
+
+
+def write_manifest_file(manifest_path: Path, manifest: dict) -> None:
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    
+
     temp_path = manifest_path.with_suffix(".tmp")
     try:
         temp_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
@@ -153,4 +157,8 @@ def build_manifest(record: dict) -> dict:
 def write_manifest(record: dict) -> None:
     manifest = build_manifest(record)
     run_id = record.get("id") or manifest.get("run_id") or ""
+    manifest_path = record.get("manifest_path")
+    if manifest_path:
+        write_manifest_file(Path(manifest_path), manifest)
+        return
     safe_write_manifest(run_id, manifest)
