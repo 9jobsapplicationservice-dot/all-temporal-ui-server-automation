@@ -32,6 +32,8 @@ function statusTone(status: WorkflowStageState['status']) {
       return 'bg-rose-100 text-rose-700';
     case 'queued':
       return 'bg-violet-100 text-violet-700';
+    case 'on_hold':
+      return 'bg-amber-100 text-amber-800';
     default:
       return 'bg-slate-100 text-slate-600';
   }

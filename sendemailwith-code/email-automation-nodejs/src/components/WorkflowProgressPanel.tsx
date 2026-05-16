@@ -14,6 +14,8 @@ function stageIcon(status: WorkflowStageState['status']) {
       return <AlertTriangle className="h-5 w-5 text-rose-600" />;
     case 'blocked':
       return <ShieldAlert className="h-5 w-5 text-rose-700" />;
+    case 'on_hold':
+      return <Clock3 className="h-5 w-5 text-amber-600" />;
     default:
       return <div className="h-3 w-3 rounded-full bg-slate-300" />;
   }

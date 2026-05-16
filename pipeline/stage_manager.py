@@ -144,6 +144,9 @@ class PipelineStageManager:
     def process_run(self, run_id: str) -> dict:
         try:
             record = self.store.get_run(run_id)
+            if record.get("status") == "linkedin_completed_rocketreach_on_hold":
+                return self.run_rocketreach(run_id)
+
             has_started_stage = bool((record.get("stage_started_at") or "").strip())
 
             if has_started_stage and csv_has_expected_header(record["recruiters_csv_path"], ENRICHED_RECRUITER_HEADERS):
@@ -229,9 +232,11 @@ class PipelineStageManager:
             return self.store.get_run(run_id)
 
         self.store.reset_live_artifacts_for_run(run_id)
+        print("LINKEDIN_STAGE_STARTED", flush=True)
         record = self.store.update_run(
             run_id,
             status="linkedin_running",
+            linkedinStatus="running",
             note="Running LinkedIn job application stage.",
             last_error="",
             stage_started_at=utc_now_iso(),
@@ -305,12 +310,18 @@ class PipelineStageManager:
         rows_written = int(linkedin_stats.get("rows_written_to_applied_csv", 0) or 0)
         jobs_applied = int(linkedin_stats.get("jobs_applied", 0) or 0)
         failed_jobs = int(linkedin_stats.get("failed_jobs", 0) or 0)
+
+        print("LINKEDIN_STAGE_COMPLETED", flush=True)
+        print(f"APPLIED_ROWS_UPDATED={rows_written}", flush=True)
+        print(f"APPLIED_CSV_READY={record['applied_csv_path']}", flush=True)
+
         if rows_written == 0:
             if jobs_applied == 0:
                 if failed_jobs > 0:
                     self.store.update_run(
                         run_id,
                         status="failed",
+                        linkedinStatus="failed",
                         note=(
                             "LinkedIn stage completed without a confirmed submission. "
                             f"Skipped {failed_jobs} failed Easy Apply attempt(s); no jobs were queued for enrichment."
@@ -333,6 +344,7 @@ class PipelineStageManager:
             record = self.store.update_run(
                 run_id,
                 status="failed",
+                linkedinStatus="failed",
                 note="LinkedIn stage submitted jobs but wrote zero rows to applied_jobs.csv.",
                 last_error="Confirmed applications were not persisted to applied_jobs.csv.",
                 retry_count=0,
@@ -356,6 +368,9 @@ class PipelineStageManager:
         return self.store.update_run(
             run_id,
             status="queued",
+            appliedRows=rows_written,
+            linkedinStatus="completed",
+            rocketReachStatus="queued",
             note=build_linkedin_note(linkedin_stats),
             last_error="",
             retry_count=0,
@@ -363,9 +378,26 @@ class PipelineStageManager:
         )
 
     def run_rocketreach(self, run_id: str) -> dict:
+        import os
+        api_key = os.getenv("ROCKETREACH_API_KEY", "").strip()
+        if not api_key:
+            print("ROCKETREACH_API_KEY_EXISTS=false", flush=True)
+            print("ROCKETREACH_STAGE_ON_HOLD", flush=True)
+            print("PIPELINE_WAITING_FOR_ROCKETREACH_KEY", flush=True)
+            return self.store.update_run(
+                run_id,
+                status="linkedin_completed_rocketreach_on_hold",
+                rocketReachStatus="on_hold",
+                rocketReachReason="ROCKETREACH_API_KEY missing. Add API key to continue enrichment.",
+                note="RocketReach on hold: API key missing.",
+                stage_finished_at=utc_now_iso(),
+            )
+
+        print("ROCKETREACH_API_KEY_EXISTS=true", flush=True)
         record = self.store.update_run(
             run_id,
             status="rocketreach_running",
+            rocketReachStatus="running",
             note="Running RocketReach enrichment stage.",
             last_error="",
             stage_started_at=utc_now_iso(),
@@ -466,6 +498,7 @@ class PipelineStageManager:
             return self.store.update_run(
                 run_id,
                 status="waiting_review" if final_status == "waiting_review" else "completed",
+                rocketReachStatus="completed",
                 note=final_note,
                 last_error="",
                 retry_count=0,
@@ -481,6 +514,7 @@ class PipelineStageManager:
         self.store.update_run(
             run_id,
             status="queued",
+            rocketReachStatus="completed",
             note=build_rocketreach_note(rocketreach_stats),
             last_error="",
             retry_count=0,

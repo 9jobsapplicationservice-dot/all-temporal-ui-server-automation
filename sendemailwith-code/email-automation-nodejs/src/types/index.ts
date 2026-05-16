@@ -16,6 +16,7 @@ export type PipelineRunStatus =
   | 'rocketreach_running'
   | 'email_running'
   | 'blocked_runtime'
+  | 'linkedin_completed_rocketreach_on_hold'
   | 'idle';
 
 export interface ContactRow {
@@ -85,6 +86,7 @@ export type WorkflowStageStatus =
   | 'waiting'
   | 'completed'
   | 'failed'
+  | 'on_hold'
   | 'blocked';
 
 export interface WorkflowStageState {

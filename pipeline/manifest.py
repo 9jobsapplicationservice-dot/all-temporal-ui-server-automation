@@ -127,6 +127,10 @@ def build_manifest(record: dict) -> dict:
         },
         "note": record.get("note") or "",
         "last_error": record.get("last_error") or "",
+        "appliedRows": record.get("appliedRows", 0),
+        "linkedinStatus": record.get("linkedinStatus") or "idle",
+        "rocketReachStatus": record.get("rocketReachStatus") or "idle",
+        "rocketReachReason": record.get("rocketReachReason") or "",
         "live_status": record.get("live_status", {}),
         "automation": load_automation_summary(record.get("config_path") or None),
         "paths": {
@@ -144,8 +148,8 @@ def build_manifest(record: dict) -> dict:
         },
         "artifacts": {
             "applied_csv": record.get("applied_csv_path"),
-            "recruiter_csv": record.get("recruiters_csv_path"),
-            "email_log_csv": record.get("send_report_path"),
+            "recruiter_csv": record.get("recruiters_csv_path") if Path(record.get("recruiters_csv_path") or ".").exists() else None,
+            "email_log_csv": record.get("send_report_path") if Path(record.get("send_report_path") or ".").exists() else None,
             "applied_csv_exists": Path(record.get("applied_csv_path") or ".").exists() if record.get("applied_csv_path") else False,
             "external_jobs_csv_exists": Path(record.get("external_jobs_csv_path") or ".").exists() if record.get("external_jobs_csv_path") else False,
             "recruiters_csv_exists": Path(record.get("recruiters_csv_path") or ".").exists() if record.get("recruiters_csv_path") else False,

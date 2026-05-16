@@ -256,7 +256,7 @@ function summarizeRun(manifest: PipelineManifest, rows: Record<string, string>[]
     sendableRows,
     dedupedRows: contacts.length,
     skippedRows,
-    readyToSend: manifest.status !== 'blocked_runtime' && contacts.length > 0,
+    readyToSend: manifest.status !== 'blocked_runtime' && manifest.status !== 'linkedin_completed_rocketreach_on_hold' && contacts.length > 0,
     setupRequired: manifest.status === 'blocked_runtime',
     blockedReason,
     noSendableReason,
@@ -399,6 +399,7 @@ function pickCurrentStage(status: string): WorkflowStageId {
     case 'linkedin_running':
       return 'linkedin';
     case 'rocketreach_running':
+    case 'linkedin_completed_rocketreach_on_hold':
       return 'rocketreach';
     case 'email_running':
     case 'waiting_review':
@@ -522,11 +523,14 @@ function buildStageStates(manifest: PipelineManifest, counts: WorkflowCounts): W
       status:
         status === 'failed' && counts.appliedRows > 0 && counts.recruiterRows === 0 ? 'failed'
           : status === 'rocketreach_running' ? 'running'
-            : counts.recruiterRows > 0 || ['email_running', 'waiting_review', 'sending', 'completed', 'manual_review'].includes(status) ? 'completed'
-              : counts.appliedRows > 0 || status === 'queued' ? 'queued'
-                : 'idle',
+            : status === 'linkedin_completed_rocketreach_on_hold' ? 'on_hold'
+              : counts.recruiterRows > 0 || ['email_running', 'waiting_review', 'sending', 'completed', 'manual_review'].includes(status) ? 'completed'
+                : counts.appliedRows > 0 || status === 'queued' ? 'queued'
+                  : 'idle',
       description: 'Fetch recruiter emails and save the enrichment output.',
-      detail: rocketreachDetail,
+      detail: status === 'linkedin_completed_rocketreach_on_hold'
+        ? (manifest.note || 'RocketReach on hold: API key missing.')
+        : rocketreachDetail,
     },
     {
       id: 'email',
@@ -536,8 +540,9 @@ function buildStageStates(manifest: PipelineManifest, counts: WorkflowCounts): W
           : ['email_running', 'sending'].includes(status) ? 'running'
             : ['waiting_review', 'manual_review'].includes(status) ? 'waiting'
               : status === 'completed' ? 'completed'
-                : counts.recruiterRows > 0 ? 'queued'
-                  : 'idle',
+                : status === 'linkedin_completed_rocketreach_on_hold' ? 'idle'
+                  : counts.recruiterRows > 0 ? 'queued'
+                    : 'idle',
       description: 'Review sendable contacts, then send and track outcomes.',
       detail: error && status === 'failed' ? error : emailDetail,
     },
@@ -593,6 +598,7 @@ function buildActiveRunPriority(status: string): number {
     case 'manual_review':
       return 6;
     case 'rocketreach_running':
+    case 'linkedin_completed_rocketreach_on_hold':
       return 5;
     case 'linkedin_running':
       return 4;

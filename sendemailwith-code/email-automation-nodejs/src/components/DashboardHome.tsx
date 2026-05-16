@@ -580,6 +580,33 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
     }
   };
 
+  const handleContinueRocketReach = async () => {
+    if (!activeRun?.runId) {
+      return;
+    }
+    setIsStartingRun(true);
+    setPageError(null);
+    setPageMessage(null);
+    try {
+      const baseUrl = normalizeBridgeUrl(localBridgeUrlRef.current);
+      const url = baseUrl ? `${baseUrl}/api/pipeline/continue` : '/api/pipeline/continue';
+      const headers = buildBridgeHeaders(baseUrl, { 'Content-Type': 'application/json' });
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ runId: activeRun.runId }),
+      });
+      await readApiJson<{ run: WorkflowRunSummary }>(response, 'Failed to resume RocketReach enrichment.');
+      setPageMessage(`Resuming enrichment for ${activeRun.runId}. The pipeline will check for the ROCKETREACH_API_KEY and continue if found.`);
+      await loadDashboard({ quiet: true });
+    } catch (error: unknown) {
+      setPageError(error instanceof Error ? error.message : 'Failed to resume RocketReach enrichment.');
+    } finally {
+      setIsStartingRun(false);
+    }
+  };
+
   const handleRecruiterEnriched = async (payload: ManualRecruiterEnrichmentResponse) => {
     setPageMessage(`Manual RocketReach enrichment completed. Sendable contacts: ${payload.stats.sendable_rows}/${payload.stats.total}.`);
     await loadDashboard({ quiet: true });
@@ -845,8 +872,9 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
                 stage={stageCards[1]}
                 accentClass="accent-sky"
                 icon={<Users className="h-5 w-5" />}
-                primaryLabel="Open Upload"
-                onPrimary={() => scrollToRef(enrichmentRef)}
+                primaryLabel={activeRun?.status === 'linkedin_completed_rocketreach_on_hold' ? (isStartingRun ? 'Resuming...' : 'Continue RocketReach') : 'Open Upload'}
+                onPrimary={activeRun?.status === 'linkedin_completed_rocketreach_on_hold' ? handleContinueRocketReach : () => scrollToRef(enrichmentRef)}
+                disabledPrimary={!activeRun || isStartingRun || ['rocketreach_running', 'email_running', 'waiting_review', 'sending', 'completed', 'manual_review'].includes(activeRun.status)}
                 secondaryLabel="Download CSV"
                 onSecondary={activeRun ? () => handleArtifactDownload(activeRun.runId, 'recruitersCsv') : undefined}
                 disabledSecondary={!activeRun?.artifacts.find((artifact) => artifact.key === 'recruitersCsv' && artifact.available)}
