@@ -1,9 +1,11 @@
 {
+  "id": "run-ui-a64f2ef8b5e2",
+  "runId": "run-ui-a64f2ef8b5e2",
   "run_id": "run-ui-a64f2ef8b5e2",
-  "status": "waiting_login",
+  "status": "failed",
   "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-a64f2ef8b5e2-automation.env",
   "created_at": "2026-05-14T07:11:41+00:00",
-  "updated_at": "2026-05-14T09:04:09+00:00",
+  "updated_at": "2026-05-16T06:54:13+00:00",
   "stage_started_at": "2026-05-14T09:03:33+00:00",
   "stage_finished_at": "2026-05-14T09:04:09+00:00",
   "retry_count": 0,
@@ -22,13 +24,9 @@
     "last_workflow_rerun_reason": "",
     "last_failed_stage": ""
   },
-  "temporal": {
-    "workflow_id": "pipeline-run-ui-a64f2ef8b5e2",
-    "task_queue": "automation-pipeline",
-    "backend": "temporal"
-  },
-  "note": "Chrome opened with your default profile. Log into LinkedIn there and keep the browser window open.",
+  "note": "Killed by user for fresh start",
   "last_error": "Browser window closed or session became invalid.",
+  "live_status": {},
   "automation": {
     "auto_send": false,
     "max_easy_apply": 50,
@@ -43,7 +41,7 @@
     "sender_name": "Your Name",
     "email_subject": "Quick note re: {{position}} at {{company}}",
     "auto_send_reason": "Automatic sending is disabled because SMTP credentials still use placeholder values. Update SMTP_USER / SMTP_PASS / SMTP_FROM to enable sending.",
-    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-a64f2ef8b5e2-automation.env",
+    "source": "config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\automation.env, config file D:\\tempoer-automation-project\\Automation- Project 1\\sendemailwith-code\\email-automation-nodejs\\.env.local, config file D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\run-ui-a64f2ef8b5e2-automation.env, environment variables",
     "smtp": {
       "host": "smtp.gmail.com",
       "port": 587,
@@ -52,19 +50,19 @@
       "from": "your-email@gmail.com"
     },
     "linkedin": {
-      "mode": "saved_session",
-      "auto_login": false,
-      "safe_mode": false,
+      "mode": "auto_login",
+      "auto_login": true,
+      "safe_mode": true,
       "username_configured": true,
       "manual_login_timeout_seconds": 180
     },
     "config_preview": {}
   },
   "paths": {
-    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs",
-    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\job_applied\\applied_jobs.csv",
-    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\external\\external_jobs.csv",
-    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\runs\\rocket_enrich\\recruiters_enriched.csv",
+    "run_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2",
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2\\job_applied\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2\\external\\external_jobs.csv",
+    "recruiters_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2\\rocket_enrich\\recruiters_enriched.csv",
     "send_report_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-ui-a64f2ef8b5e2.csv",
     "manifest_json": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\meta\\run-ui-a64f2ef8b5e2.json",
     "logs_dir": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2",
@@ -74,6 +72,9 @@
     "rocketreach_stderr_log": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\logs\\run-ui-a64f2ef8b5e2\\rocketreach.stderr.log"
   },
   "artifacts": {
+    "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2\\job_applied\\applied_jobs.csv",
+    "recruiter_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\run-ui-a64f2ef8b5e2\\rocket_enrich\\recruiters_enriched.csv",
+    "email_log_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\run-ui-a64f2ef8b5e2.csv",
     "applied_csv_exists": false,
     "external_jobs_csv_exists": false,
     "recruiters_csv_exists": false,
