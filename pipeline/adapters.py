@@ -17,7 +17,7 @@ from .constants import (
     DEFAULT_LINKEDIN_STAGE_TIMEOUT_SECONDS,
     ENRICHED_RECRUITER_HEADERS,
 )
-from .core.sentry_config import capture_exception_with_context
+from .core.sentry_config import build_pipeline_tags, capture_exception_with_context
 from .manifest import write_manifest
 from .utils import csv_has_expected_header, csv_row_count, read_last_json_object, read_log_tail, recruiter_sendable_row_count
 from .storage import PipelineStore
@@ -647,7 +647,7 @@ def run_rocketreach_stage(record: dict, *, finalize_retryable_failures: bool = F
         capture_exception_with_context(
             error,
             message="rocketreach stage unexpected failure",
-            tags=build_temporal_tags(run_id=str(record.get("id", "")), stage="rocketreach"),
+            tags=build_pipeline_tags(run_id=str(record.get("id", "")), stage="rocketreach"),
             extras={"finalize_retryable_failures": finalize_retryable_failures},
         )
         stderr_log.parent.mkdir(parents=True, exist_ok=True)

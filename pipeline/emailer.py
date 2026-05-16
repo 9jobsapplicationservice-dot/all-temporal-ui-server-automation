@@ -10,7 +10,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 from .config import AutomationConfig
-from .core.sentry_config import build_temporal_tags, capture_exception_with_context
+from .core.sentry_config import build_pipeline_tags, capture_exception_with_context
 
 
 TRANSIENT_SMTP_MARKERS = (
@@ -161,7 +161,7 @@ def _send_single_email(config: AutomationConfig, contact: EmailContact) -> str:
             capture_exception_with_context(
                 error,
                 message="smtp send attempt failed",
-                tags=build_temporal_tags(stage="email"),
+                tags=build_pipeline_tags(stage="email"),
                 extras={
                     "email": contact.email,
                     "company": contact.company,
@@ -267,7 +267,7 @@ def send_run_emails(record: dict, config: AutomationConfig) -> dict[str, object]
             capture_exception_with_context(
                 error,
                 message="email send failed for contact",
-                tags=build_temporal_tags(stage="email"),
+                tags=build_pipeline_tags(stage="email"),
                 extras={
                     "email": contact.email,
                     "company": contact.company,

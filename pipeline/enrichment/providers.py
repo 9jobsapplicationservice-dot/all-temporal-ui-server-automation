@@ -19,7 +19,7 @@ from .errors import (
 )
 from .models import EnrichmentContact, ProviderLookupResult
 from .rate_limit import ProviderRateLimiter
-from ..core.sentry_config import build_temporal_tags, capture_exception_with_context
+from ..core.sentry_config import build_pipeline_tags, capture_exception_with_context
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +129,7 @@ def _capture_provider_exception(
     capture_exception_with_context(
         error,
         message="provider request failed",
-        tags=build_temporal_tags(provider=provider, stage="rocketreach"),
+        tags=build_pipeline_tags(provider=provider, stage="rocketreach"),
         extras=payload,
     )
 

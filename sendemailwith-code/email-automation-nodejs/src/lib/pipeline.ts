@@ -1085,6 +1085,9 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
   child.on('close', (code) => {
     clearInterval(checkTimeouts);
     console.log(`[Pipeline] AUTOMATION_PROCESS_EXIT code=${code}`);
+    if (code !== 0 && code !== null) {
+      updatePipelineRunStatus(runId, 'failed', `Automation process exited with code ${code}.`);
+    }
   });
 }
 
@@ -1208,8 +1211,18 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
     const dashboard = await findWorkflowDashboard(10);
     const active = dashboard.activeRun;
     if (active && ['starting', 'running', 'linkedin_running', 'rocketreach_running', 'email_running', 'applying'].includes(active.status)) {
-       console.warn(`[Pipeline] BLOCKING START: A run is already active (${active.runId} status=${active.status})`);
-       throw new Error(`Automation already running (ID: ${active.runId}). Please wait for it to finish or use Reset.`);
+       // Check if the run is stale (no update for > 5 minutes)
+       const lastUpdate = new Date(active.updatedAt).getTime();
+       const now = Date.now();
+       const staleThreshold = 5 * 60 * 1000; // 5 minutes
+       
+       if (now - lastUpdate > staleThreshold) {
+         console.warn(`[Pipeline] STALE RUN DETECTED: Run ${active.runId} has not updated for ${Math.round((now - lastUpdate) / 1000)}s. Force-failing it.`);
+         updatePipelineRunStatus(active.runId, 'failed', 'Run aborted because it became stale (no activity for 5+ minutes).');
+       } else {
+         console.warn(`[Pipeline] BLOCKING START: A run is already active (${active.runId} status=${active.status})`);
+         throw new Error(`Automation already running (ID: ${active.runId}). Please wait for it to finish or use Reset.`);
+       }
     }
   } catch (e) {
     if (e instanceof Error && e.message.includes('already running')) throw e;
@@ -1265,8 +1278,10 @@ export async function resetPipelineRun(): Promise<void> {
       spawnSync('taskkill', ['/F', '/IM', 'python.exe', '/T']);
       spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/T']);
     } else {
-      spawnSync('pkill', ['-f', 'pipeline.run_once']);
-      spawnSync('pkill', ['-f', 'chromium']);
+      spawnSync('pkill', ['-9', '-f', 'pipeline.run_once']);
+      spawnSync('pkill', ['-9', '-f', 'python3']);
+      spawnSync('pkill', ['-9', '-f', 'chromium']);
+      spawnSync('pkill', ['-9', '-f', 'chrome']);
     }
   } catch (e) {
     console.error('[Pipeline] Error killing processes during reset:', e);

@@ -511,6 +511,8 @@ class PipelineStore:
         record["id"] = run_id
         record["runId"] = run_id
         record["run_id"] = run_id
+        if "run_dir" not in record:
+            record["run_dir"] = str(self.paths.for_run(run_id).run_dir)
         
         try:
             write_manifest(record)

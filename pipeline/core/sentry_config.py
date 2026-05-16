@@ -183,3 +183,8 @@ def build_pipeline_tags(
         if text:
             tags[key] = text
     return tags
+
+
+def build_temporal_tags(*args: Any, **kwargs: Any) -> dict[str, str]:
+    """Stub for backward compatibility with Direct Execution mode."""
+    return {}
