@@ -2,7 +2,7 @@
   "id": "test-run-3",
   "runId": "test-run-3",
   "run_id": "test-run-3",
-  "status": "failed",
+  "status": "waiting_login",
   "config_path": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\configs\\test-run-3-config.py",
   "created_at": "2026-05-15T10:58:23+00:00",
   "updated_at": "2026-05-16T06:54:13+00:00",
@@ -24,8 +24,12 @@
     "last_workflow_rerun_reason": "",
     "last_failed_stage": ""
   },
-  "note": "Killed by user for fresh start",
+  "note": "LinkedIn needs manual confirmation in Chrome. Complete login there and keep the browser window open.",
   "last_error": "Browser window closed or session became invalid.",
+  "appliedRows": 0,
+  "linkedinStatus": "idle",
+  "rocketReachStatus": "idle",
+  "rocketReachReason": "",
   "live_status": {},
   "automation": {
     "auto_send": false,
@@ -113,8 +117,8 @@
   },
   "artifacts": {
     "applied_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\test-run-3\\job_applied\\applied_jobs.csv",
-    "recruiter_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\test-run-3\\rocket_enrich\\recruiters_enriched.csv",
-    "email_log_csv": "D:\\tempoer-automation-project\\Automation- Project 1\\pipeline\\reports\\test-run-3.csv",
+    "recruiter_csv": null,
+    "email_log_csv": null,
     "applied_csv_exists": true,
     "external_jobs_csv_exists": true,
     "recruiters_csv_exists": false,

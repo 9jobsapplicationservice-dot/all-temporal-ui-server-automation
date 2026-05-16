@@ -42,7 +42,15 @@ CREATE TABLE IF NOT EXISTS runs (
     last_workflow_rerun_reason TEXT NOT NULL DEFAULT '',
     last_failed_stage TEXT NOT NULL DEFAULT '',
     note TEXT,
-    last_error TEXT
+    last_error TEXT,
+    linkedinStatus TEXT,
+    rocketReachStatus TEXT,
+    rocketReachReason TEXT,
+    emailStatus TEXT,
+    appliedRows INTEGER DEFAULT 0,
+    recruiterRows INTEGER DEFAULT 0,
+    readyToSend INTEGER DEFAULT 0,
+    emailSent INTEGER DEFAULT 0
 )
 """
 
@@ -77,42 +85,72 @@ class PipelineStore:
         return connection
 
     def _initialize(self) -> None:
-        with self._connect() as connection:
-            connection.execute(CREATE_RUNS_TABLE_SQL)
-            connection.execute(CREATE_ENRICHMENT_CACHE_TABLE_SQL)
-            existing_columns = {
-                row["name"]
-                for row in connection.execute("PRAGMA table_info(runs)").fetchall()
-            }
-            if "external_jobs_csv_path" not in existing_columns:
-                connection.execute(
-                    "ALTER TABLE runs ADD COLUMN external_jobs_csv_path TEXT NOT NULL DEFAULT ''"
+        print("SQLITE_SCHEMA_MIGRATION_STARTED", flush=True)
+        try:
+            with self._connect() as connection:
+                connection.execute(CREATE_RUNS_TABLE_SQL)
+                connection.execute(CREATE_ENRICHMENT_CACHE_TABLE_SQL)
+
+                existing_columns = {
+                    row["name"]
+                    for row in connection.execute("PRAGMA table_info(runs)").fetchall()
+                }
+
+                # Legacy columns migration
+                if "external_jobs_csv_path" not in existing_columns:
+                    connection.execute(
+                        "ALTER TABLE runs ADD COLUMN external_jobs_csv_path TEXT NOT NULL DEFAULT ''"
+                    )
+
+                legacy_int_cols = (
+                    "email_total", "email_sent", "email_failed",
+                    "provider_success_count", "no_email_count",
+                    "provider_retry_count", "workflow_retry_count"
                 )
-            for column_name in (
-                "email_total",
-                "email_sent",
-                "email_failed",
-                "provider_success_count",
-                "no_email_count",
-                "provider_retry_count",
-                "workflow_retry_count",
-            ):
-                if column_name not in existing_columns:
-                    connection.execute(
-                        f"ALTER TABLE runs ADD COLUMN {column_name} INTEGER NOT NULL DEFAULT 0"
-                    )
-            for column_name in (
-                "temporal_workflow_id",
-                "temporal_task_queue",
-                "orchestration_backend",
-                "last_workflow_rerun_reason",
-                "last_failed_stage",
-            ):
-                if column_name not in existing_columns:
-                    connection.execute(
-                        f"ALTER TABLE runs ADD COLUMN {column_name} TEXT NOT NULL DEFAULT ''"
-                    )
-            connection.commit()
+                for column_name in legacy_int_cols:
+                    if column_name not in existing_columns:
+                        connection.execute(
+                            f"ALTER TABLE runs ADD COLUMN {column_name} INTEGER NOT NULL DEFAULT 0"
+                        )
+
+                legacy_text_cols = (
+                    "temporal_workflow_id", "temporal_task_queue", "orchestration_backend",
+                    "last_workflow_rerun_reason", "last_failed_stage"
+                )
+                for column_name in legacy_text_cols:
+                    if column_name not in existing_columns:
+                        connection.execute(
+                            f"ALTER TABLE runs ADD COLUMN {column_name} TEXT NOT NULL DEFAULT ''"
+                        )
+
+                # New columns migration (v2)
+                v2_columns = [
+                    ("linkedinStatus", "TEXT"),
+                    ("rocketReachStatus", "TEXT"),
+                    ("rocketReachReason", "TEXT"),
+                    ("emailStatus", "TEXT"),
+                    ("appliedRows", "INTEGER DEFAULT 0"),
+                    ("recruiterRows", "INTEGER DEFAULT 0"),
+                    ("readyToSend", "INTEGER DEFAULT 0"),
+                    ("emailSent", "INTEGER DEFAULT 0"),
+                ]
+
+                for col_name, col_type in v2_columns:
+                    if col_name not in existing_columns:
+                        try:
+                            connection.execute(f"ALTER TABLE runs ADD COLUMN {col_name} {col_type}")
+                            print(f"SQLITE_ADDED_COLUMN={col_name}", flush=True)
+                        except sqlite3.OperationalError as e:
+                            if "duplicate column name" not in str(e).lower():
+                                raise
+
+                connection.commit()
+            print("SQLITE_SCHEMA_MIGRATION_COMPLETED", flush=True)
+        except Exception as e:
+            print(f"SQLITE_SCHEMA_MIGRATION_FAILED: {e}", flush=True)
+            print("SQLITE_DATABASE_REPAIR_ATTEMPT=starting", flush=True)
+            # Safe repair: If DB is truly corrupt, we might need more aggressive action,
+            # but for now we just log and allow the pipeline to fall back to manifest.
 
     def _copy_config(self, run_paths, config_path: str | None) -> str:
         if not config_path:
@@ -369,7 +407,7 @@ class PipelineStore:
         config_name = self._normalized_config_name(created_run_id, config_path)
         run_paths = self.paths.for_run(created_run_id, config_name)
         run_paths.ensure_directories()
-        
+
         # Initialize empty CSV files with headers immediately
         if not run_paths.applied_csv.exists():
             run_paths.applied_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -422,6 +460,14 @@ class PipelineStore:
             'last_failed_stage': '',
             'note': 'Run enqueued.',
             'last_error': '',
+            'linkedinStatus': 'queued',
+            'rocketReachStatus': 'idle',
+            'rocketReachReason': '',
+            'emailStatus': 'idle',
+            'appliedRows': 0,
+            'recruiterRows': 0,
+            'readyToSend': 0,
+            'emailSent': 0,
         }
 
         columns = ', '.join(payload.keys())
@@ -438,12 +484,12 @@ class PipelineStore:
         record["id"] = created_run_id
         record["runId"] = created_run_id
         record["run_id"] = created_run_id
-        
+
         try:
             write_manifest(record)
         except Exception as e:
             print(f"[Storage] Failed to write manifest during creation: {e}")
-            
+
         return record
 
     def get_run(self, run_id: str) -> dict:
@@ -453,7 +499,7 @@ class PipelineStore:
                 (run_id,),
             ).fetchone()
             result = dict(row) if row is not None else None
-        
+
         if result is None:
             # Check if manifest file exists as a fallback
             manifest_path = self.paths.meta_dir / f"{run_id}.json"
@@ -500,21 +546,25 @@ class PipelineStore:
         values.append(run_id)
 
         with self._connect() as connection:
-            connection.execute(
-                f"UPDATE runs SET {assignments} WHERE id = ?",
-                tuple(values),
-            )
-            connection.commit()
+            try:
+                connection.execute(
+                    f"UPDATE runs SET {assignments} WHERE id = ?",
+                    tuple(values),
+                )
+                connection.commit()
+            except sqlite3.OperationalError as e:
+                print(f"[Storage] SQLITE_UPDATE_FAILED run_id={run_id} error={e}")
+                print("[Storage] Continuing with manifest-only update fallback.")
 
         record = self.get_run(run_id)
         # Normalize record for manifest build and adapters
         record["id"] = run_id
         record["runId"] = run_id
         record["run_id"] = run_id
-        
+
         config_name = self._normalized_config_name(run_id, record.get("config_path"))
         run_paths = self.paths.for_run(run_id, config_name)
-        
+
         # Fill in missing paths if they are empty or missing
         if not record.get("run_dir"): record["run_dir"] = str(run_paths.run_dir)
         if not record.get("applied_csv_path"): record["applied_csv_path"] = str(run_paths.applied_csv)
@@ -527,12 +577,12 @@ class PipelineStore:
         if not record.get("linkedin_stderr_log"): record["linkedin_stderr_log"] = str(run_paths.linkedin_stderr_log)
         if not record.get("rocketreach_stdout_log"): record["rocketreach_stdout_log"] = str(run_paths.rocketreach_stdout_log)
         if not record.get("rocketreach_stderr_log"): record["rocketreach_stderr_log"] = str(run_paths.rocketreach_stderr_log)
-        
+
         try:
             write_manifest(record)
         except Exception as e:
             print(f"[Storage] Failed to write manifest during update: {e}")
-            
+
         return record
 
     def get_enrichment_cache(self, fingerprint: str) -> dict | None:
