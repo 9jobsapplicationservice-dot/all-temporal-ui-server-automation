@@ -626,9 +626,10 @@ async function waitForWorkflowRun(runId: string, timeoutMs = 60000): Promise<Wor
 }
 
 async function hydrateWorkflowRun(manifest: PipelineManifest): Promise<WorkflowRunSummary> {
-  const appliedRows = await readCsvIfExists(manifest.paths.applied_csv);
-  const recruiterRows = await readCsvIfExists(manifest.paths.recruiters_csv);
-  const sendReportRows = await readCsvIfExists(manifest.paths.send_report_csv);
+  const paths = manifest.paths || {};
+  const appliedRows = await readCsvIfExists(paths.applied_csv);
+  const recruiterRows = await readCsvIfExists(paths.recruiters_csv);
+  const sendReportRows = await readCsvIfExists(paths.send_report_csv);
   const contacts = mapContacts(manifest.run_id, recruiterRows);
   const counts = buildCounts(manifest, appliedRows, recruiterRows, contacts);
   const blockedReason = manifest.status === 'blocked_runtime'
@@ -651,8 +652,8 @@ async function hydrateWorkflowRun(manifest: PipelineManifest): Promise<WorkflowR
     setupRequired: manifest.status === 'blocked_runtime',
     blockedReason,
     noSendableReason,
-    runDir: manifest.paths.run_dir,
-    recruitersCsvPath: manifest.paths.recruiters_csv,
+    runDir: paths.run_dir || '',
+    recruitersCsvPath: paths.recruiters_csv || '',
     stageStates: buildStageStates(manifest, counts),
     counts,
     artifacts: buildArtifacts(manifest),
@@ -1230,17 +1231,16 @@ export async function startPipelineRun(configPath?: string): Promise<{ runId: st
   await fs.mkdir(META_ROOT, { recursive: true });
 
   const manifest = {
-    runId,
+    run_id: runId,
     status: 'starting',
-    stage: 'linkedin',
-    appliedRows: 0,
-    recruiterRows: 0,
-    readyToSend: 0,
-    emailSent: 0,
-    latestLog: 'Starting automation process...',
-    error: null,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+    note: 'Starting automation process...',
+    paths: {
+      run_dir: runDir,
+      recruiters_csv: path.join(runDir, 'recruiters.csv'),
+      send_report_csv: path.join(REPORTS_ROOT, `${runId}.csv`),
+    }
   };
   await fs.writeFile(path.join(META_ROOT, `${runId}.json`), JSON.stringify(manifest, null, 2));
 
