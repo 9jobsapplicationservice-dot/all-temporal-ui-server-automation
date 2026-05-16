@@ -507,12 +507,26 @@ class PipelineStore:
             connection.commit()
 
         record = self.get_run(run_id)
-        # Normalize record for manifest build
+        # Normalize record for manifest build and adapters
         record["id"] = run_id
         record["runId"] = run_id
         record["run_id"] = run_id
-        if "run_dir" not in record:
-            record["run_dir"] = str(self.paths.for_run(run_id).run_dir)
+        
+        config_name = self._normalized_config_name(run_id, record.get("config_path"))
+        run_paths = self.paths.for_run(run_id, config_name)
+        
+        # Fill in missing paths if they are empty or missing
+        if not record.get("run_dir"): record["run_dir"] = str(run_paths.run_dir)
+        if not record.get("applied_csv_path"): record["applied_csv_path"] = str(run_paths.applied_csv)
+        if not record.get("external_jobs_csv_path"): record["external_jobs_csv_path"] = str(run_paths.external_jobs_csv)
+        if not record.get("recruiters_csv_path"): record["recruiters_csv_path"] = str(run_paths.recruiters_csv)
+        if not record.get("send_report_path"): record["send_report_path"] = str(run_paths.send_report_csv)
+        if not record.get("manifest_path"): record["manifest_path"] = str(run_paths.manifest_json)
+        if not record.get("log_dir"): record["log_dir"] = str(run_paths.logs_dir)
+        if not record.get("linkedin_stdout_log"): record["linkedin_stdout_log"] = str(run_paths.linkedin_stdout_log)
+        if not record.get("linkedin_stderr_log"): record["linkedin_stderr_log"] = str(run_paths.linkedin_stderr_log)
+        if not record.get("rocketreach_stdout_log"): record["rocketreach_stdout_log"] = str(run_paths.rocketreach_stdout_log)
+        if not record.get("rocketreach_stderr_log"): record["rocketreach_stderr_log"] = str(run_paths.rocketreach_stderr_log)
         
         try:
             write_manifest(record)
