@@ -82,6 +82,10 @@ const WORKSPACE_ROOT = process.env.PIPELINE_WORKSPACE_ROOT?.trim()
   ? path.resolve(process.env.PIPELINE_WORKSPACE_ROOT)
   : DEFAULT_WORKSPACE_ROOT;
 
+export function getPipelineRoot(): string {
+  return PIPELINE_ROOT;
+}
+
 // Prioritize shared data dir for Render/Production
 const PIPELINE_ROOT = process.env.PIPELINE_DATA_DIR?.trim()
   ? path.resolve(process.env.PIPELINE_DATA_DIR)
@@ -421,7 +425,7 @@ function buildCounts(
 ): WorkflowCounts {
   const sendableRows = recruiterRows.filter((row) => Boolean(firstUsableEmail(row['HR Email'], row['HR Secondary Email']))).length;
   return {
-    appliedRows: appliedRows.length,
+    appliedRows: appliedRows.length || manifest.automation?.jobs_applied || 0,
     recruiterRows: recruiterRows.length,
     sendableRows,
     dedupedSendableRows: contacts.length,
@@ -940,42 +944,56 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
 
   const STAGE_MATCHERS = [
     { pattern: 'SCRIPT_STARTED: pipeline.run_once', status: 'running', note: 'Automation script confirmed running.' },
+    { pattern: 'LINKEDIN_STAGE_STARTED', status: 'starting', note: 'Preparing LinkedIn automation...' },
+    { pattern: 'LINKEDIN_COMMAND_STARTED', status: 'starting', note: 'LinkedIn automation command started.' },
     { pattern: 'Browser launch started', status: 'starting', note: 'Launching Chrome browser...' },
     { pattern: 'Chrome is ready', status: 'browser_launched', note: 'Chrome browser is ready.' },
     { pattern: 'LinkedIn opened', status: 'browser_launched', note: 'LinkedIn opened, checking session...' },
     { pattern: 'LINKEDIN_PAGE_LOADED', status: 'linkedin_loaded', note: 'LinkedIn page loaded successfully.' },
-    { pattern: 'Now searching for', status: 'applying', note: 'Applying to jobs...' },
+    { pattern: 'Now searching for', status: 'applying', note: 'Searching for jobs...' },
     { pattern: 'Trying target job', status: 'applying', note: 'Applying to target job...' },
+    { pattern: 'APPLY_ATTEMPT_STARTED', status: 'applying', note: 'Filling application form...' },
     { pattern: 'APPLICATION_SUBMITTED', status: 'applying', note: 'Job application submitted successfully.' },
     { pattern: 'LinkedIn stage summary', status: 'completed', note: 'LinkedIn automation finished.' },
   ];
 
+  let commandStarted = false;
+  let browserStarted = false;
+  let linkedinLoaded = false;
+
   const checkTimeouts = setInterval(() => {
     const now = Date.now();
     const idleSeconds = (now - lastActivityAt) / 1000;
+    const runtimeSeconds = (now - (child as any).startTime || now) / 1000;
 
-    // Timeout: Stuck in starting (no logs at all)
-    if (!started && idleSeconds > 15) {
-       handleFailure('Automation failed to start within 15 seconds. Check Render logs for startup errors.');
+    // Timeout: Command failed to start at all
+    if (!commandStarted && runtimeSeconds > 30) {
+       handleFailure('LinkedIn automation command did not start within 30 seconds.');
     }
     // Timeout: Browser launch stuck
-    if (currentStatus === 'starting' && idleSeconds > 60) {
-       handleFailure('Browser launch timed out after 60 seconds.');
+    if (commandStarted && !browserStarted && runtimeSeconds > 60) {
+       handleFailure('Chrome failed to launch within 60 seconds.');
     }
     // Timeout: LinkedIn load stuck
-    if (currentStatus === 'browser_launched' && idleSeconds > 90) {
-       handleFailure('LinkedIn page failed to load within 90 seconds.');
+    if (browserStarted && !linkedinLoaded && runtimeSeconds > 90) {
+       handleFailure('LinkedIn did not load within 90 seconds.');
     }
-    // Global idle timeout: No progress
-    if (idleSeconds > 120) {
-       handleFailure('Automation stalled with no progress for 120 seconds.');
+    // Timeout: Stuck in starting state with no progress
+    if (!started && idleSeconds > 20) {
+       handleFailure('Automation failed to progress past "starting" within 20 seconds.');
+    }
+    // Global idle timeout: No progress during application
+    if (idleSeconds > 180) {
+       handleFailure('Automation stalled with no progress for 180 seconds.');
     }
   }, 5000);
+  (child as any).startTime = Date.now();
 
   function handleFailure(reason: string) {
     clearInterval(checkTimeouts);
     if (!child.killed) child.kill();
     updatePipelineRunStatus(runId, 'failed', reason);
+    console.error(`[Pipeline] RUN_FAILED runId=${runId} reason=${reason}`);
   }
 
   child.stdout.on('data', async (data) => {
@@ -994,6 +1012,11 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
 
     for (const line of lines) {
       console.log('[automation stdout]', line);
+
+      // Status markers
+      if (line.includes('LINKEDIN_COMMAND_STARTED')) commandStarted = true;
+      if (line.includes('Browser launch started')) browserStarted = true;
+      if (line.includes('LINKEDIN_PAGE_LOADED')) linkedinLoaded = true;
 
       // Check for stage transitions
       for (const matcher of STAGE_MATCHERS) {
@@ -1017,34 +1040,50 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
         if (matchTitle) { liveUpdate.page_title = matchTitle[1].trim(); hasUpdate = true; }
       }
       if (line.includes('LOGIN_REQUIRED=')) {
-        liveUpdate.login_required = line.includes('LOGIN_REQUIRED=true');
-        hasUpdate = true;
-        if (liveUpdate.login_required) {
-           updatePipelineRunStatus(runId, 'failed', 'LinkedIn session invalid or expired. Please login/upload cookies.');
+        const required = line.includes('LOGIN_REQUIRED=true');
+        if (required) {
+           handleFailure('LinkedIn session invalid or verification required.');
         }
       }
-      if (line.includes('CHECKPOINT_REQUIRED=')) {
-        liveUpdate.checkpoint_required = line.includes('CHECKPOINT_REQUIRED=true');
-        hasUpdate = true;
+      if (line.includes('CHECKPOINT_REQUIRED=true')) {
+        handleFailure('LinkedIn session invalid or verification required (Checkpoint/Captcha).');
       }
       if (line.includes('JOB_CARDS_FOUND=')) {
         const match = line.match(/JOB_CARDS_FOUND=(\d+)/);
-        if (match) { liveUpdate.job_cards_count = match[1]; hasUpdate = true; }
+        if (match) { 
+          const count = parseInt(match[1]);
+          liveUpdate.job_cards_count = count; 
+          hasUpdate = true; 
+          if (count === 0 && linkedinLoaded) {
+             handleFailure('No LinkedIn job cards found.');
+          }
+        }
       }
       if (line.includes('EASY_APPLY_BUTTONS_FOUND=')) {
         const match = line.match(/EASY_APPLY_BUTTONS_FOUND=(\d+)/);
-        if (match) { liveUpdate.easy_apply_count = match[1]; hasUpdate = true; }
+        if (match) { 
+          const count = parseInt(match[1]);
+          liveUpdate.easy_apply_count = count; 
+          hasUpdate = true; 
+          if (count === 0 && linkedinLoaded && line.includes('JOB_CARDS_FOUND=')) {
+             // Only fail if we actually looked at cards and found 0 easy apply
+             // (Some pages might load cards but buttons come later, so this is sensitive)
+          }
+        }
       }
-      if (line.includes('APPLIED_COUNT=')) {
-        const match = line.match(/APPLIED_COUNT=(\d+)/);
-        if (match) { liveUpdate.applied_count = match[1]; hasUpdate = true; }
+      if (line.includes('APPLIED_ROWS_UPDATED=')) {
+        const match = line.match(/APPLIED_ROWS_UPDATED=(\d+)/);
+        if (match) { 
+          liveUpdate.applied_count = match[1]; 
+          hasUpdate = true; 
+        }
       }
       if (line.includes('SCREENSHOT_PATH=')) {
         const match = line.match(/SCREENSHOT_PATH=(.+)/);
         if (match) { liveUpdate.last_screenshot = match[1].trim(); hasUpdate = true; }
       }
       if (line.includes('No Easy Apply jobs found')) {
-        updatePipelineRunStatus(runId, 'failed', 'No Easy Apply jobs found for this search.');
+        handleFailure('No Easy Apply jobs found.');
       }
 
       // Update Manifest with live status and latest log line

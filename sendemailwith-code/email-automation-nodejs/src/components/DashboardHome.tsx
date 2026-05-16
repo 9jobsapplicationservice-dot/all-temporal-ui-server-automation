@@ -24,6 +24,7 @@ import WorkflowPreviewPanel from '@/components/WorkflowPreviewPanel';
 import WorkflowProgressPanel from '@/components/WorkflowProgressPanel';
 import WorkflowRunsTable from '@/components/WorkflowRunsTable';
 import WorkflowStageCard from '@/components/WorkflowStageCard';
+import LiveLogs from '@/components/LiveLogs';
 import { readApiJson } from '@/lib/api-client';
 import type {
   EditableConfigField,
@@ -963,6 +964,10 @@ export default function DashboardHome({ initialDashboard }: DashboardHomeProps) 
               <WorkflowPreviewPanel run={activeRun} selectedTab={selectedTab} onTabChange={setSelectedTab} />
               <SMTPSettings />
             </div>
+          </section>
+
+          <section className="mt-8">
+            <LiveLogs runId={activeRun?.runId ?? null} bridgeUrl={localBridgeUrl} />
           </section>
 
           <section className="mt-8">

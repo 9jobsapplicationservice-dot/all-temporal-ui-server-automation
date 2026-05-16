@@ -500,6 +500,7 @@ def run_linkedin_stage(record: dict, python_executable: str | None = None) -> di
     print(env_log_msg)
     
     command = [python_executable or resolve_linkedin_python_executable(), "pipeline_entry.py"]
+    print("LINKEDIN_COMMAND_STARTED", flush=True)
     print(f"[Pipeline] Command: {' '.join(command)}")
     
     stdout_log = Path(record["linkedin_stdout_log"])

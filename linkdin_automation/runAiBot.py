@@ -660,6 +660,7 @@ def apply_to_target_job(job_link: str) -> None:
             skip_count += 1
             return
         
+        print_lg("APPLY_ATTEMPT_STARTED")
         print_lg(f"Easy Apply clicked for {title}. Starting application flow...")
 
         while True:
@@ -2419,7 +2420,7 @@ def submitted_jobs(job_id: str, title: str, company: str, work_location: str, wo
             return False
         sync_recruiter_csv_after_application()
         rows_written_to_applied_csv += 1
-        print_lg(f"APPLICATION_SUBMITTED | APPLIED_COUNT={rows_written_to_applied_csv}")
+        print_lg(f"APPLICATION_SUBMITTED | APPLIED_ROWS_UPDATED={rows_written_to_applied_csv}")
         return True
     except PermissionError:
         warn_applied_csv_locked()
@@ -2639,6 +2640,7 @@ def apply_to_jobs(search_terms: list[str]) -> None:
                                 skip_count += 1
                                 continue
                             
+                            print_lg("APPLY_ATTEMPT_STARTED")
                             print_lg(f"Easy Apply clicked for {title}. Starting application flow...")
                             screenshot(driver, "04_easy_apply_clicked", "easy_apply_clicked")
 
