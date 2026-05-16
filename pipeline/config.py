@@ -548,19 +548,22 @@ def _load_file_values(config_path: Path) -> tuple[dict[str, str], str]:
 
 def _collect_values(config_path: str | Path | None = None) -> tuple[dict[str, str], str]:
     bootstrap_runtime_environment(config_path)
-    if config_path:
-        resolved = Path(config_path).expanduser().resolve()
-        if not resolved.exists():
-            raise AutomationConfigError(f"Automation config file not found: {resolved}")
-        return _load_file_values(resolved)
-
     values: dict[str, str] = {}
     sources: list[str] = []
+
     for path in (PIPELINE_ENV_PATH, EMAIL_APP_ENV_PATH):
         if path.exists():
             file_values, source = _load_file_values(path)
             values.update(file_values)
             sources.append(source)
+
+    if config_path:
+        resolved = Path(config_path).expanduser().resolve()
+        if not resolved.exists():
+            raise AutomationConfigError(f"Automation config file not found: {resolved}")
+        file_values, source = _load_file_values(resolved)
+        values.update(file_values)
+        sources.append(source)
 
     values.update({
         key: value

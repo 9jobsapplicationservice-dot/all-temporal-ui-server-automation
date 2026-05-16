@@ -848,6 +848,35 @@ class AutomationSummaryTests(unittest.TestCase):
         self.assertEqual(summary['config_preview']['target_job_link'], 'https://www.linkedin.com/jobs/view/123')
         self.assertNotIn('bad_value', summary['config_preview'])
 
+    def test_load_automation_summary_lets_environment_override_config_file(self) -> None:
+        config_path = TMP_ROOT / f'automation-config-{uuid.uuid4().hex}.py'
+        try:
+            config_path.write_text(
+                '\n'.join([
+                    'switch_number = 30',
+                    'linkedin_auto_login = False',
+                    'safe_mode = False',
+                    'username = "file@example.com"',
+                ]),
+                encoding='utf-8',
+            )
+            env = {
+                'PIPELINE_MAX_EASY_APPLY': '1',
+                'PIPELINE_LINKEDIN_AUTO_LOGIN': 'true',
+                'PIPELINE_LINKEDIN_SAFE_MODE': 'true',
+                'PIPELINE_LINKEDIN_USERNAME': 'env@example.com',
+            }
+
+            with patch.dict(os.environ, env, clear=False):
+                summary = load_automation_summary(config_path)
+        finally:
+            config_path.unlink(missing_ok=True)
+
+        self.assertEqual(summary['max_easy_apply'], 1)
+        self.assertEqual(summary['linkedin']['mode'], 'auto_login')
+        self.assertTrue(summary['linkedin']['safe_mode'])
+        self.assertTrue(summary['linkedin']['username_configured'])
+
     def test_load_and_update_editable_linkedin_config_files(self) -> None:
         from pipeline.config import load_editable_linkedin_config, update_editable_linkedin_config
 
@@ -1628,7 +1657,7 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertEqual(updated_record['status'], 'queued')
         self.assertEqual(updated_record['retry_count'], 1)
 
-    def test_worker_marks_linkedin_run_completed_when_no_jobs_applied_but_easy_apply_failed(self) -> None:
+    def test_worker_marks_linkedin_run_failed_when_no_jobs_applied_but_easy_apply_failed(self) -> None:
         worker = PipelineWorker(root=self.root)
         record = worker.store.create_run(run_id='run-linkedin-zero-applies')
 
@@ -1643,9 +1672,21 @@ class PipelineWorkerTests(unittest.TestCase):
             }):
             updated_record = worker.process_run(record['id'])
 
-        self.assertEqual(updated_record['status'], 'completed')
+        self.assertEqual(updated_record['status'], 'failed')
         self.assertIn('Skipped 2 failed Easy Apply attempt', updated_record['note'])
         self.assertIn('2 failed Easy Apply attempt', updated_record['last_error'])
+
+    def test_worker_records_linkedin_stage_error_without_crashing_run_once(self) -> None:
+        worker = PipelineWorker(root=self.root)
+        record = worker.store.create_run(run_id='run-linkedin-stage-error')
+
+        with patch('pipeline.worker.preflight_linkedin_runtime', return_value=adapters.LinkedInRuntimePreflight(executable='C:\\Python311\\python.exe', source='test', blocked_reason=None)), \
+             patch('pipeline.worker.run_linkedin_stage', side_effect=StageError('LinkedIn browser failed to start')):
+            updated_record = worker.process_run(record['id'])
+
+        self.assertEqual(updated_record['status'], 'failed')
+        self.assertEqual(updated_record['note'], 'LinkedIn stage failed.')
+        self.assertIn('LinkedIn browser failed to start', updated_record['last_error'])
 
     def test_run_rocketreach_stage_raises_transient_stage_error_for_retryable_provider_failures(self) -> None:
         record = PipelineStore(self.root).create_run(run_id='run-retryable-enrichment')

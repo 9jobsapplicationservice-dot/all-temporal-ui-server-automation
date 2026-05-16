@@ -3,10 +3,15 @@ from __future__ import annotations
 from .adapters import LinkedInRuntimeUnavailableError, StageError, TransientStageError, preflight_linkedin_runtime, run_linkedin_stage, run_rocketreach_stage
 from .config import AutomationConfig, AutomationConfigError, load_automation_config, load_automation_summary
 from .constants import APPLIED_JOBS_HEADERS, ENRICHED_RECRUITER_HEADERS, MAX_ROCKETREACH_RETRIES
-from .core.sentry_config import log_and_capture_error
+from .core.sentry_config import capture_exception_with_context
 from .emailer import send_run_emails
 from .storage import PipelineStore
 from .utils import csv_has_expected_header, csv_row_count, ensure_placeholder_recruiter_csv, recruiter_csv_is_placeholder, recruiter_sendable_row_count, utc_now_iso
+
+
+def record_stage_error(error: BaseException, *, message: str, tags: dict[str, object], extras: dict[str, object] | None = None) -> None:
+    print(f"{message}: {error}", flush=True)
+    capture_exception_with_context(error, message=message, tags=tags, extras=extras)
 
 
 def build_linkedin_note(summary: dict) -> str:
@@ -155,11 +160,12 @@ class PipelineStageManager:
                         last_error="No applied jobs were written to applied_jobs.csv.",
                         stage_finished_at=utc_now_iso(),
                     )
-                    log_and_capture_error(
+                    record_stage_error(
                         StageError("No applied jobs were written to applied_jobs.csv."),
                         message="LinkedIn output exists but contains zero saved applied rows.",
                         tags={"run_id": run_id, "stage": "linkedin"},
                     )
+                    return self.store.get_run(run_id)
                 return self.run_rocketreach(run_id)
 
             linkedin_result = self.run_linkedin(run_id)
@@ -175,12 +181,13 @@ class PipelineStageManager:
                 last_error=f"Close Excel or any other app using '{locked_path}' and retry the run.",
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="Pipeline file is locked.",
                 tags={"run_id": run_id, "stage": "pipeline"},
                 extras={"locked_path": locked_path},
             )
+            return self.store.get_run(run_id)
 
     def resume_blocked_runtime_runs(self) -> list[dict]:
         preflight = preflight_linkedin_runtime()
@@ -214,11 +221,12 @@ class PipelineStageManager:
                 last_error=blocked_reason,
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 LinkedInRuntimeUnavailableError(blocked_reason),
                 message="LinkedIn runtime setup required.",
                 tags={"run_id": run_id, "stage": "linkedin"},
             )
+            return self.store.get_run(run_id)
 
         self.store.reset_live_artifacts_for_run(run_id)
         record = self.store.update_run(
@@ -258,14 +266,15 @@ class PipelineStageManager:
                         retry_count=0,
                         stage_finished_at=utc_now_iso(),
                     )
-                    log_and_capture_error(
+                    record_stage_error(
                         error,
                         message="LinkedIn stage failed after saving applied jobs.",
                         tags={"run_id": run_id, "stage": "linkedin"},
                         extras={"recovered_rows": recovered_rows},
                     )
+                    return self.store.get_run(run_id)
             if is_waiting_login_error(str(error)):
-                self.store.update_run(
+                record = self.store.update_run(
                     run_id,
                     status="waiting_login",
                     note=build_waiting_login_note(automation_summary, str(error)),
@@ -273,23 +282,25 @@ class PipelineStageManager:
                     retry_count=0,
                     stage_finished_at=utc_now_iso(),
                 )
-                log_and_capture_error(
+                record_stage_error(
                     error,
                     message="LinkedIn stage is waiting for login/manual verification.",
                     tags={"run_id": run_id, "stage": "linkedin"},
                 )
-            self.store.update_run(
+                return record
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="LinkedIn stage failed.",
                 last_error=str(error),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="LinkedIn stage failed.",
                 tags={"run_id": run_id, "stage": "linkedin"},
             )
+            return record
 
         rows_written = int(linkedin_stats.get("rows_written_to_applied_csv", 0) or 0)
         jobs_applied = int(linkedin_stats.get("jobs_applied", 0) or 0)
@@ -311,22 +322,15 @@ class PipelineStageManager:
                         retry_count=0,
                         stage_finished_at=utc_now_iso(),
                     )
-                    log_and_capture_error(
+                    record_stage_error(
                         StageError(f"LinkedIn automation finished with 0 submitted jobs and {failed_jobs} failed Easy Apply attempt(s)."),
                         message="LinkedIn Easy Apply attempts failed without confirmed submissions.",
                         tags={"run_id": run_id, "stage": "linkedin"},
                         extras={"failed_jobs": failed_jobs},
                     )
-                return self.store.update_run(
-                    run_id,
-                    status="completed",
-                    note="LinkedIn stage completed with no confirmed Easy Apply submissions. Nothing was queued for enrichment.",
-                    last_error="",
-                    retry_count=0,
-                    stage_finished_at=utc_now_iso(),
-                )
+                    return self.store.get_run(run_id)
 
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="LinkedIn stage submitted jobs but wrote zero rows to applied_jobs.csv.",
@@ -334,12 +338,13 @@ class PipelineStageManager:
                 retry_count=0,
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 StageError("Confirmed applications were not persisted to applied_jobs.csv."),
                 message="LinkedIn stage submitted jobs but wrote zero rows to applied_jobs.csv.",
                 tags={"run_id": run_id, "stage": "linkedin"},
                 extras={"jobs_applied": jobs_applied},
             )
+            return record
 
         ensure_placeholder_recruiter_csv(
             record["applied_csv_path"],
@@ -371,7 +376,7 @@ class PipelineStageManager:
         except TransientStageError as error:
             updated_retry_count = record["retry_count"] + 1
             if updated_retry_count <= MAX_ROCKETREACH_RETRIES:
-                self.store.update_run(
+                record = self.store.update_run(
                     run_id,
                     status="queued",
                     retry_count=updated_retry_count,
@@ -379,19 +384,20 @@ class PipelineStageManager:
                     last_error=str(error),
                     stage_finished_at=utc_now_iso(),
                 )
-                log_and_capture_error(
+                record_stage_error(
                     error,
                     message="RocketReach transient failure.",
                     tags={"run_id": run_id, "stage": "rocketreach"},
                     extras={"retry_count": updated_retry_count},
                 )
+                return record
             try:
                 rocketreach_stats = run_rocketreach_stage(
                     self.store.get_run(run_id),
                     finalize_retryable_failures=True,
                 )
             except StageError as final_error:
-                self.store.update_run(
+                record = self.store.update_run(
                     run_id,
                     status="failed",
                     retry_count=updated_retry_count,
@@ -399,12 +405,13 @@ class PipelineStageManager:
                     last_error=str(final_error),
                     stage_finished_at=utc_now_iso(),
                 )
-                log_and_capture_error(
+                record_stage_error(
                     final_error,
                     message="RocketReach retries exhausted.",
                     tags={"run_id": run_id, "stage": "rocketreach"},
                     extras={"retry_count": updated_retry_count},
                 )
+                return record
             finalized_record = self.store.update_run(
                 run_id,
                 retry_count=updated_retry_count,
@@ -412,18 +419,19 @@ class PipelineStageManager:
             )
             return self._finalize_rocketreach_success(run_id, finalized_record, rocketreach_stats)
         except StageError as error:
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="RocketReach stage failed.",
                 last_error=str(error),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="RocketReach stage failed.",
                 tags={"run_id": run_id, "stage": "rocketreach"},
             )
+            return record
 
         return self._finalize_rocketreach_success(run_id, record, rocketreach_stats)
 
@@ -514,18 +522,19 @@ class PipelineStageManager:
         try:
             config = load_automation_config(record.get("config_path") or None)
         except AutomationConfigError as error:
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="Automation config is invalid.",
                 last_error=str(error),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="Automation config is invalid.",
                 tags={"run_id": run_id, "stage": "email"},
             )
+            return record
 
         if not config.auto_send:
             return self.store.update_run(
@@ -542,18 +551,19 @@ class PipelineStageManager:
         try:
             resolved_config = config or load_automation_config(record.get("config_path") or None)
         except AutomationConfigError as error:
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="Automation config is invalid.",
                 last_error=str(error),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="Automation config is invalid.",
                 tags={"run_id": run_id, "stage": "email"},
             )
+            return record
 
         if not resolved_config.auto_send:
             return self.store.update_run(
@@ -575,21 +585,22 @@ class PipelineStageManager:
         try:
             result = send_run_emails(record, resolved_config)
         except Exception as error:
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="failed",
                 note="Email stage failed.",
                 last_error=str(error),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 error,
                 message="Email stage failed.",
                 tags={"run_id": run_id, "stage": "email"},
             )
+            return record
         auth_failures = int(result.get("auth_failure_count", 0) or 0)
         if auth_failures > 0:
-            self.store.update_run(
+            record = self.store.update_run(
                 run_id,
                 status="waiting_review",
                 note=build_email_waiting_review_note(
@@ -602,12 +613,13 @@ class PipelineStageManager:
                 email_failed=int(result["email_failed"]),
                 stage_finished_at=utc_now_iso(),
             )
-            log_and_capture_error(
+            record_stage_error(
                 StageError("SMTP authentication failed."),
                 message="SMTP authentication failed.",
                 tags={"run_id": run_id, "stage": "email"},
                 extras={"auth_failure_count": auth_failures},
             )
+            return record
         next_status = "failed" if int(result["email_failed"]) > 0 else "completed"
         final = self.store.update_run(
             run_id,
@@ -620,7 +632,7 @@ class PipelineStageManager:
             stage_finished_at=utc_now_iso(),
         )
         if next_status == "failed":
-            log_and_capture_error(
+            record_stage_error(
                 StageError("One or more automated emails failed."),
                 message="Email stage finished with failures.",
                 tags={"run_id": run_id, "stage": "email"},
