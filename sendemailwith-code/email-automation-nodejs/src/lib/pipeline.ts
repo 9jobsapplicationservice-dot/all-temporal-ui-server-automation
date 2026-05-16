@@ -917,6 +917,7 @@ async function launchAutomationProcess(runId: string, args: string[]): Promise<v
       env: {
         ...process.env,
         PYTHONUNBUFFERED: '1',
+        PYTHONPATH: process.env.RENDER ? '/app' : process.cwd(),
         PIPELINE_DATA_DIR: dataDir,
         PIPELINE_ROOT: dataDir,
       },
